@@ -8,11 +8,11 @@ This is documentation for the [Redis service for Pivotal Cloud Foundry](https://
 
 <dl>
 <dt>Current Redis for PCF Details</dt>
-<dd><strong>Version</strong>: 1.4.9 </dd>
-<dd><strong>Release Date</strong>: 7th October 2015</dd>
-<dd><strong>Software component version</strong>: Redis OSS 2.8.21</dd>
-<dd><strong>Compatible Ops Manager Version(s)</strong>: 1.5.x, 1.4.x</dd>
-<dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.5.x, 1.4.x</dd>
+<dd><strong>Version</strong>: 1.4.10 </dd>
+<dd><strong>Release Date</strong>: 16th October 2015</dd>
+<dd><strong>Software component version</strong>: Redis OSS 3.0.4</dd>
+<dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x, 1.5.x</dd>
+<dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.6.x, 1.5.x</dd>
 <dd><strong>vSphere support?</strong> Yes</dd>
 <dd><strong>AWS support?</strong> Yes</dd>
 <dd><strong>OpenStack support?</strong> Yes</dd>
@@ -41,17 +41,18 @@ For more information, refer to the full [Product Version Matrix](../compatibilit
   </td>
 </tr>
 <tr>
-  <th>1.5.x and 1.4.x</th>
+  <th>1.6.x, 1.5.x and 1.4.x</th>
   <td><ul>
-      <li>From 1.4.0 to 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9</li>
-      <li>From 1.4.1 to 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9</li>
-      <li>From 1.4.2 to 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9</li>
-      <li>From 1.4.3 to 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9</li>
-      <li>From 1.4.4 to 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9</li>
-      <li>From 1.4.5 to 1.4.6, 1.4.7, 1.4.8, 1.4.9</li>
-      <li>From 1.4.6 to 1.4.7, 1.4.8, 1.4.9</li>
-      <li>From 1.4.7 to 1.4.8, 1.4.9</li>
-      <li>From 1.4.8 to 1.4.9</li>
+      <li>From 1.4.0 to 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9, 1.4.10</li>
+      <li>From 1.4.1 to 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9, 1.4.10</li>
+      <li>From 1.4.2 to 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9, 1.4.10</li>
+      <li>From 1.4.3 to 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9, 1.4.10</li>
+      <li>From 1.4.4 to 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9, 1.4.10</li>
+      <li>From 1.4.5 to 1.4.6, 1.4.7, 1.4.8, 1.4.9, 1.4.10</li>
+      <li>From 1.4.6 to 1.4.7, 1.4.8, 1.4.9, 1.4.10</li>
+      <li>From 1.4.7 to 1.4.8, 1.4.9, 1.4.10</li>
+      <li>From 1.4.8 to 1.4.9, 1.4.10</li>
+      <li>From 1.4.9 to 1.4.10</li>
     </ul>
   </td>
 </tr>
