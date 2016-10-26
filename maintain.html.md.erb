@@ -173,7 +173,6 @@ space for the temporary files used during the restore process
 
 ### Dedicated-VM Plan
 
-1. Make sure you have a service provisioned that you can restore to. The instance ID will be required in future steps. You can retrieve this by running `cf service {instance name} --guid`
 1. You will need to have access to the service instance password. This can be retrieved using the following command:
   -  Password: `grep requirepass /var/vcap/store/redis/redis.conf`
 1. Switch to root user `sudo su`
