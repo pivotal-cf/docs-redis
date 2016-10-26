@@ -173,36 +173,57 @@ space for the temporary files used during the restore process
 
 ### Dedicated-VM Plan
 
+1. Make sure you have a service provisioned that you can restore to. The instance ID will be required in future steps. You can retrieve this by running `cf service {instance name} --guid`
+1. You will need to have access to the service instance password. This can be retrieved using the following command:
+  -  Password: `grep requirepass /var/vcap/store/redis/redis.conf`
+1. Switch to root user `sudo su`
 1. Run `monit stop all`
 1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
+1. Clean up existing Redis data files:
+  - `rm -f /var/vcap/store/redis/appendonly.aof`
+  - `rm -f /var/vcap/store/redis/dump.rdb`
 1. Restore your Redis backup file to `/var/vcap/store/redis/dump.rdb` and correct the owner and permissions with `chown vcap:vcap /var/vcap/store/redis/dump.rdb && chmod 660 /var/vcap/store/redis/dump.rdb`
-1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and change `appendonly` to `no`
-1. run `rm -f /var/vcap/store/redis/appendonly.aof`
+1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and make the following line changes:
+  -  `appendonly yes` -> `appendonly no`
 1. Run `monit start all`
 1. Wait for monit services to enter the `running` state, you can watch this with `watch monit summary`
 1. Run `/var/vcap/packages/redis/bin/redis-cli -a {instance_password} BGREWRITEAOF`
 1. Run `watch "/var/vcap/packages/redis/bin/redis-cli -a {instance_password} INFO | grep aof_rewrite_in_progress"` until `aof_rewrite_in_progress` is `0`
 1. Run `monit stop all`
 1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
-1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and change `appendonly` to `yes`
+1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and make the following line changes:
+  -  `appendonly no` -> `appendonly yes`
 1. Run `monit start all`
 
 ### Shared-VM Plan
 
-1. Run `monit stop all && pkill redis-server`
+1. Make sure you have a service provisioned that you can restore to. The instance ID will be required in future steps. You can retrieve this by running `cf service {instance name} --guid`
+1. You will need to have access to the service instance password and port. This can be retrieved using the following commands:
+  -  Password: `grep requirepass /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/redis.conf`
+  -  Port: `grep port /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/redis.conf`
+1. Switch to root user `sudo su`
+1. Run `monit stop all`
 1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
+1. Run `pkill redis-server`
+1. Clean up existing Redis data files:
+  - `rm -f /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/appendonly.aof`
+  - `rm -f /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/dump.rdb`
 1. Confirm no running instances of `redis-server` with `ps aux | grep redis-server`
-1. Restore your Redis backup file to `/var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/dump.rdb` and correct the owner and permissions with `chown vcap:vcap /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/dump.rdb && chmod 660 /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/dump.rdb` (your instance id can be found using the CF API - `cf service {instance name} --guid`)
-1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and change `appendonly` to `no` and `BGREWRITEAOF` alias to `BGREWRITEAOFTEMP`
-1. Run rm -f `/var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/appendonly.aof`
+1. Restore your Redis backup file to `/var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/dump.rdb` and correct the owner and permissions with `chown vcap:vcap /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/dump.rdb && chmod 660 /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/dump.rdb`
+1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and make the following line changes:
+  -  `appendonly yes` -> `appendonly no`
+  - `rename-command BGREWRITEAOF ""` -> `rename-command BGREWRITEAOF "BGREWRITEAOFTEMP"`
 1. Run `monit start all`
 1. Wait for monit services to enter the `running` state, you can watch this with `watch monit summary`
-1. Run `/var/vcap/packages/redis/bin/redis-cli -a {instance_password} BGREWRITEAOFTEMP`
+1. Run `/var/vcap/packages/redis/bin/redis-cli -a {instance_password} -p {redis_port} BGREWRITEAOFTEMP`
 1. Run `watch "/var/vcap/packages/redis/bin/redis-cli -a {instance_password} -p {instance_port} INFO | grep aof_rewrite_in_progress"` until `aof_rewrite_in_progress` is `0`
-1. Run `monit stop all && pkill redis-server`
+1. Run `monit stop all`
 1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
+1. Run `pkill redis-server`
 1. Confirm no running instances of `redis-server` with `ps aux | grep redis-server`
-1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and change `appendonly` to `yes` and `BGREWRITEAOF` alias to `""`
+1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and make the following line changes:
+  - `appendonly no` -> `appendonly yes`
+  - `rename-command BGREWRITEAOF "BGREWRITEAOFTEMP"` -> `rename-command BGREWRITEAOF ""`
 1. Run `monit start all`
 
 <a id="recovery"></a>
