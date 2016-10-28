@@ -170,12 +170,13 @@ space for the temporary files used during the restore process
 1. Create a new instance of the plan that you wish to restore to.
 1. Identify the VM which the instance of your plan is located on by following the steps from the `Manual Backups` section above.
 1. `bosh ssh` into the identified VM.
+1. Switch to root user `sudo su`
+1. Follow the steps for Dedicated-VM Plan or Shared-VM Plan below.
 
 ### Dedicated-VM Plan
 
 1. You will need to have access to the service instance password. This can be retrieved using the following command:
   -  Password: `grep requirepass /var/vcap/store/redis/redis.conf`
-1. Switch to root user `sudo su`
 1. Run `monit stop all`
 1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
 1. Clean up existing Redis data files:
@@ -200,9 +201,8 @@ space for the temporary files used during the restore process
 1. You will need to have access to the service instance password and port. This can be retrieved using the following commands:
   -  Password: `grep requirepass /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/redis.conf`
   -  Port: `grep port /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/redis.conf`
-1. Switch to root user `sudo su`
 1. Run `monit stop all`
-1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
+1. Run `watch monit summary` to wait for monit services to enter the `not monitored` state.
 1. Run `pkill redis-server`
 1. Clean up existing Redis data files:
   - `rm -f /var/vcap/store/cf-redis-broker/redis-data/{instance_id}/db/appendonly.aof`
@@ -213,11 +213,11 @@ space for the temporary files used during the restore process
   -  `appendonly yes` -> `appendonly no`
   - `rename-command BGREWRITEAOF ""` -> `rename-command BGREWRITEAOF "BGREWRITEAOFTEMP"`
 1. Run `monit start all`
-1. Wait for monit services to enter the `running` state, you can watch this with `watch monit summary`
+1. Run `watch monit summary` to wait for monit services to enter the `running` state.
 1. Run `/var/vcap/packages/redis/bin/redis-cli -a {instance_password} -p {redis_port} BGREWRITEAOFTEMP`
 1. Run `watch "/var/vcap/packages/redis/bin/redis-cli -a {instance_password} -p {instance_port} INFO | grep aof_rewrite_in_progress"` until `aof_rewrite_in_progress` is `0`
 1. Run `monit stop all`
-1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
+1. Run `watch monit summary` to wait for monit services to enter the `not monitored` state.
 1. Run `pkill redis-server`
 1. Confirm no running instances of `redis-server` with `ps aux | grep redis-server`
 1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and make the following line changes:
