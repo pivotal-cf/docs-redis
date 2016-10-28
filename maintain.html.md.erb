@@ -87,7 +87,8 @@ It is possible to create a backup of an instance manually by following these ste
 * Identify the VM which holds your instance by running `bosh vms`.
   * For the `shared-vm` plan this will be the job name containing `cf-redis-broker`.
   * For the `dedicated-vm` plan this will be the job name containing `dedicated-node`.
-  * You can identify the exact node for your `dedicated-vm` service instance by comparing the IP Address from your application bindings.
+  * You can identify the exact node for your `dedicated-vm` service instance by comparing the IP Address from your application bindings. Run `cf env <your-app-name>` to view your application bindings. The `host` field under `credentials` will contain the IP address of the dedicated VM instance. Use `bosh vms` to identify the VM with that IP address. In the `bosh ssh` step select the VM with that name. 
+                    
 
 An example output from `bosh vms`:
 
@@ -116,7 +117,7 @@ On this plan, the `BGSAVE` command is aliased to a random string. This can be ob
 * `bosh ssh` into your desired node. See the above section to identify the correct VM.
 * Change to Root using `sudo -i`.
 * Copy the contents of the `/var/vcap/store/cf-redis-broker` directory to a zip or tar file.
-* Backup the folder / compressed file to your chosen location.
+* Backup the file to your chosen location. You can use `bosh scp {job-name/index} --download /var/vcap/store/cf-redis-broker/redis-data/{instance id}/db/dump.rdb {location}` to copy the file from the service broker VM to another location. For example, `bosh scp cf-redis-broker/0 --download /var/vcap/store/cf-redis-broker/redis-data/{instance id}/db/dump.rdb /tmp` will copy the dump.rdb file to the `/tmp` directory on the local machine.
 
 The `/var/vcap/store/cf-redis-broker` has sub-directories for each instance created of this plan. The backup file for each instance is called `dump.rdb`.
 
@@ -141,10 +142,8 @@ The `redis-cli` can be found in `/var/vcap/packages/redis/bin/redis-cli`.
 
 * `bosh ssh` into your desired node. See the above section to identify the correct VM.
 * Change to Root using `sudo -i`.
-* Copy the contents of the `/var/vcap/store/redis` directory to a zip or tar file.
-* Backup the folder / compressed file to your chosen location.
-
-The backup file will be named `dump.rdb`.
+* Copy `/var/vcap/store/redis/dump.rdb` directory to a zip or tar file.
+* Backup the file to your chosen location. You can use `bosh scp {job-name/index} --download /var/vcap/store/redis/dump.rdb {location}` to copy the file from the dedicated VM instance to another location. For example, `bosh scp dedicated-node/0 --download /var/vcap/store/redis/dump.rdb /tmp` will copy the dump.rdb file to the `/tmp` directory on the local machine.
 
 <a id="restore"></a>
 ## Restore Redis Instance from a Backup
@@ -178,7 +177,7 @@ space for the temporary files used during the restore process
 1. You will need to have access to the service instance password. This can be retrieved using the following command:
   -  Password: `grep requirepass /var/vcap/store/redis/redis.conf`
 1. Run `monit stop all`
-1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
+1. Run `watch monit summary` to wait for monit services to enter the `not monitored` state.
 1. Clean up existing Redis data files:
   - `rm -f /var/vcap/store/redis/appendonly.aof`
   - `rm -f /var/vcap/store/redis/dump.rdb`
@@ -186,11 +185,11 @@ space for the temporary files used during the restore process
 1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and make the following line changes:
   -  `appendonly yes` -> `appendonly no`
 1. Run `monit start all`
-1. Wait for monit services to enter the `running` state, you can watch this with `watch monit summary`
+1. Run `watch monit summary` to wait for monit services to enter the `running` state.
 1. Run `/var/vcap/packages/redis/bin/redis-cli -a {instance_password} BGREWRITEAOF`
 1. Run `watch "/var/vcap/packages/redis/bin/redis-cli -a {instance_password} INFO | grep aof_rewrite_in_progress"` until `aof_rewrite_in_progress` is `0`
 1. Run `monit stop all`
-1. Wait for monit services to enter the `not monitored` state, you can watch this with `watch monit summary`
+1. Run `watch monit summary` to wait for monit services to enter the `not monitored` state.
 1. Edit the template Redis config file with `vim $(find /var/vcap/data/jobs/ -name redis.conf)` and make the following line changes:
   -  `appendonly no` -> `appendonly yes`
 1. Run `monit start all`
