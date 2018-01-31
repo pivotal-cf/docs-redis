@@ -26,14 +26,10 @@ Redis can be used in many different ways, including:
   using `ZRANGE`, `ZADD`, `ZREVRANGE`, `ZRANK`, `INCRBY`, and `GETSET`
 * Pub/Sub: Built in publish and subscribe operations: `PUBLISH`, `SUBSCRIBE`, and `UNSUBSCRIBE`
 
-Successful use cases handle the downtime that occurs with the Redis for PCF service.
-This happens in two ways:
+The Redis for PCF team operates our product on Pivotal Web Services. Comic Relief runs production workloads on this services.
+For this offering, we maintain a monthly SLO of 99.95% uptime.
 
-* For use cases with lower availability requirements, write simple failover logic that enables the app to work while
-Redis for PCF is down.
-
-* For use cases with higher availability requirements, write more complex failover logic that enables the app to
-failover to another singleton Redis for PCF instance.
+Successful use cases of Redis for PCF handle the downtime that can occur.
 
 ## <a id="offerings"></a> Service Offerings
 
@@ -55,13 +51,13 @@ Review the following table to determine if Redis for PCF has the features needed
   <tr>
     <td>Availability</td>
     <td>All Redis for PCF services are single nodes without clustering capabilities.
-        This means that planned downtime, for example, upgrades, can result in 2–10 minutes of downtime,
+        This means that planned downtime (e.g., upgrades) can result in 2–10 minutes of downtime,
         depending on the nature of the upgrade.
-        Unplanned downtime, for example, VM failure, also affects the Redis service.<br>
+        Unplanned downtime (e.g., VM failure) also affects the Redis service.<br>
         Redis for PCF has been used successfully in enterprise-ready apps that can tolerate downtime.
         Pre-existing data is not lost during downtime with the default persistence configuration.
         Successful apps include those where the downtime is passively handled or
-        the app handles failover logic.
+        where the app handles failover logic.
     </td>
     <td><a href="#usecases">Recommended Use Cases</a><br><br>
     <a href="#other-notes">Support for Multiple AZs</a></td>
