@@ -127,7 +127,6 @@ maximum number of Redis service instances that can be upgraded at the same time.
   </p>
 
 1. (Optional) To secure your on-demand service instance credentials in runtime [CredHub](https://docs.pivotal.io/pivotalcf/credhub/) instead of the Cloud Controller Database (CCDB), perform the following steps:
-  1. Ensure that you have configured the Pivotal Application Service (PAS) tile to support securing service instance credentials in runtime CredHub. See [Step 1: Configure the PAS Tile](https://docs.pivotal.io/pivotalcf/opsguide/secure-si-creds.html#pas-config).
   1. Select the checkbox to enable **Secure Service Instance Credentials with Runtime CredHub**.
   1. Click **Save**.
   1. After deploying the tile, notify developers that they must unbind and rebind existing service instances to secure their credentials with CredHub.
