@@ -26,8 +26,10 @@ To view the release notes for another product version, select the version from t
 
 * This release updates the packaged golang to v1.10.3.
 
+### Fixes
+
 * The default persistance for on-demand instances is now partial persitance
-(using RDB files) this is also a fix for the previous issue around disk usage
+(using RDB files) this fixes the previous issue around disk usage
 inflation from frequent instance restarts.
 
 * Fixes an intermittent issue that can cause executing a restore to fail.
