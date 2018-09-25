@@ -305,6 +305,41 @@ Ensure that the Redis server being backed up is running.
 To do this, run <code>bosh restart</code> against the affected service instance VM.
 
 
+<a id=""></a><h3>Disabled Service Access to Dedicated VM Service Plans</h3><br>
+
+<strong>Symptom</strong><br><br>
+
+You try to create a service instance with the dedicated-vm service plan in Redis for PCF v1.14.
+<br><br>
+<pre class="terminal">
+$ cf create-service p-redis dedicated-vm my-dedicated-redis
+Creating service instance my-dedicated-redis2 in org system / space pivotal-services as admin...
+FAILED
+Server error, status code: 403, error code: 60010, message: A service instance for the selected plan cannot be created in this organization. The plan is visible because another organization you belong to has access to it.
+</pre>
+<br><br>
+
+<strong>Explanation</strong><br><br>
+
+As of PCF for Redis v1.14, the dedicated-vm service plan has been disabled.
+Only CF CLI admin users are able to view the dedicated-vm service plan on the CF marketplace.
+<br><br>
+<strong>Note:</strong> The reason service access was restricted is due to the deprecation of the dedicated-vm service plan which will be removed in v1.15.
+<br><br>
+
+<strong>Solution</strong><br><br>
+
+<ul>
+  <li>
+    <strong>Recommended:</strong> Create a service instance using a On-Demand service plan.
+  </li>
+  <li>
+  <strong>Not recommended:</strong> Ensure dedicated VMs are provisioned in the resource config tab of the Redis for PCF tile in OpsManager.
+  As a CF CLI admin user, run <code>cf enable-service-access p-redis -p dedicated-vm</code>.
+  </li>
+</ul>
+
+
 <a id="orphaned-instances"></a><h3>Orphaned Instances</h3><br>
 
 <strong>Symptom</strong><br><br>
