@@ -14,6 +14,13 @@ Redis for PCF v2.0 and later offers On-Demand and Shared-VM services.
   of instances and memory size.
   App developers can then use one of these pre-provisioned instances.
 
-* **(Deprecated) Dedicated-VM Service**---Provides a dedicated VM running a Redis instance.
-  The dedicated-VM service is pre-provisioned by the operator with a fixed number
-  of VMs and memory size. App developers can then use one of those pre-provisioned VMs.
+* **(Deprecated) Dedicated-VM Service**---Historically used to provide a dedicated VM running a Redis instance.
+  The Dedicated-VM Service was pre-provisioned by the operator with a fixed number
+  of VMs and memory size. App developers could then use one of those pre-provisioned VMs.
+  <p class="note"><strong>Note</strong>: Dedicated-VMs have been completely removed in v2.0.
+      As of v1.11, the on-demand service is at feature parity with the Dedicated-VM service.
+      As of v1.14, the on-demand service is marked as deprecated and migration to on-demand is heavily encouraged.
+      Pivotal heavily recommends that you migrate to the on-demand service plan to prevent data loss.
+      For more information on the migration steps please look at following 
+      [KB](https://pvtl.force.com/s/article/Migrating-from-dedicated-vm-service-plans-to-on-demand-service-plans)
+      on how to migrate</p>
