@@ -11,9 +11,9 @@ owner: London Services
 
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
-## <a id="2-4-0"></a> v2.4.0
+## <a id="2-4-1"></a> v2.4.1
 
-**Release Date: 06 27, 2020**
+**Release Date: 07 20, 2020**
 
 ### Features
 
@@ -24,6 +24,10 @@ New features and changes in this release:
  with the new service key. Before doing this, ensure that you have followed the steps in Preparing for TLS and Network
  configuration.
 2) Operators can install only Healthwatch 1.8 and above to be used with the redis tile.
+3) Enable telemetry to collect product usage. The telemetry program enables VMware to collect data from
+customer installations to improve your enterprise experience. Collecting data at scale enables VMware
+to identify patterns and alert you to warning signals in your installation.
+For more info: https://tanzu.vmware.com/legal/telemetry
 
 ### Compatibility
 
@@ -36,7 +40,7 @@ The following components are compatible with this release:
 </tr>
 <tr>
     <td>Stemcell</td>
-    <td>621.74</td>
+    <td>621.76</td>
 </tr>
 <tr>
     <td><%= vars.platform_name %></td>
@@ -44,7 +48,7 @@ The following components are compatible with this release:
 </tr>
 <tr>
     <td>shared-redis-release</td>
-    <td>437.0.14</td>
+    <td>437.0.15</td>
 </tr>
 <tr>
     <td>on-demand-service-broker</td>
@@ -64,7 +68,7 @@ The following components are compatible with this release:
 </tr>
 <tr>
     <td>loggregator-agent</td>
-    <td>6.0.1</td>
+    <td>6.0.2</td>
 </tr>
 <tr>
     <td>bpm</td>
