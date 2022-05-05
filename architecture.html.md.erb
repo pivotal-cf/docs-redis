@@ -20,7 +20,7 @@ and how the user's app binds to a Redis instance.
 
 ![The service broker is shown with three cache plan instances.
 Three user apps are shown, each pointing to a cache plan instance with an arrow labeled 'binding'.
-See below for a detailed image description.](on-demand-arch.png)
+See below for a detailed image description.](images/on-demand-arch.png)
 
 Operators configure plans in <%= vars.ops_manager %>, and they can set global and per-plan quotas
 for the maximum number of instances.
@@ -66,7 +66,7 @@ The diagram below shows how apps communicate with on-demand Redis instances when
 ![From an app that is bound to a Redis instance, a green arrow labeled 'Secure traffic (TLS)'
 points to the TLS Proxy within the On-Demand Redis Service Instance.
 Inside the service instance, a red arrow labeled 'Unsecured traffic' points from TLS Proxy to Redis.
-A second red arrow labeled 'Unsecured traffic' points from the app directly to Redis.](tls_optional.png)
+A second red arrow labeled 'Unsecured traffic' points from the app directly to Redis.](images/tls_optional.png)
 
 The bound app can connect to the Redis service on the on-demand Redis service
 instance VM through a TLS proxy or connect directly.
@@ -82,7 +82,7 @@ the communication with service instances remains unchanged from <%= vars.product
 The diagram below shows how apps communicate with on-demand Redis instances when you set TLS to **Not Configured**.
 
 ![From an app that is bound to a Redis instance, a red arrow labeled 'Unsecured traffic'
-points from the app directly to Redis.](tls_disabled.png)
+points from the app directly to Redis.](images/tls_disabled.png)
 
 The bound app connects directly to the Redis service on the on-demand Redis service instance VM.
 The traffic on this connection is unsecured.
@@ -171,7 +171,7 @@ Here is the lifecycle of <%= vars.product_short %>, from an operator installing
 the tile through an app developer using the service then an operator deleting the tile.
 
 ![Three columns are shown, labeled 'Operator', 'Redis', and 'App Developer'.
-The workflows in this image are described in detail below.](Redis_timeline_demand.png)
+The workflows in this image are described in detail below.](images/Redis_timeline_demand.png)
 
 ### <a id ="install"></a> Installation
 
