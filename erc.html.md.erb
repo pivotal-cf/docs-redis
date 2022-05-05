@@ -77,7 +77,7 @@ Review the following table to determine if <%= vars.product_short %> has the fea
       </ul>
     </td>
     <td>
-      <%-#<a> href="https://bosh.io/docs/resurrector.html" BOSH Resurrection </a> Is this the right doc here? Do we have docs for process-%>
+      <%# <a> href="https://bosh.io/docs/resurrector.html" BOSH Resurrection </a> Is this the right doc here? Do we have docs for process %>
       <a href="./auto-backup.html">Configuring Automated Service Backups</a><br><br>
       <a href="./bbr-backup.html">BOSH Backup and Restore (BBR) for On-Demand <%= vars.product_full %></a><br><br>
       <a href="https://community.pivotal.io/s/article/Manually-Backing-Up-and-Restoring-Redis-for-Pivotal-Cloud-Foundry">Manually Backing Up and Restoring <%= vars.product_old %></a>
@@ -86,7 +86,7 @@ Review the following table to determine if <%= vars.product_short %> has the fea
   <tr>
     <td>Isolation</td>
     <td>
-      <%-#Do we need to cover network isolation?-%>
+      <% #Do we need to cover network isolation? %>
       Isolation is provided when using the on-demand service.
       Individual apps and workflows should have their own <%= vars.product_short %> instance to maximize isolation.
     </td>
@@ -159,7 +159,7 @@ Review the following table to determine if <%= vars.product_short %> has the fea
   <tr>
     <td>Upgrades</td>
     <td>
-      <%-#More docs need to be written on what is minimum errand set you can run-%>
+      <%# More docs need to be written on what is minimum errand set you can run %>
       For information about preparing an upgrade and about understanding the effects on your <%= vars.product_short %>
       and other services, see <a href="./upgrade.html">Upgrading <%= vars.product_short %></a>.
       <%= vars.product_short %> upgrades run a post deployment BOSH errand called smoke tests to validate the success of the
