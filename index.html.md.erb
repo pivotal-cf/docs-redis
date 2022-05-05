@@ -81,6 +81,7 @@ The following table lists where you can find topics related to the information a
 
 ##<a id="other-services"></a> <%= vars.product_short %> and Other Services
 
+<%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 <%= partial vars.path_to_partials + '/services/on-demand-service-table', :locals => {:service_name => vars.product_short, :rabbit => "VMware Tanzu RabbitMQ for VMs", :redis => vars.product_short, :mysql => "VMware Tanzu SQL with MySQL for VMs", :cloud_cache => "VMware Tanzu GemFire for VMs", :gemfire => "VMware GemFire" } %>
 
 ##<a id="feedback"></a> Feedback
