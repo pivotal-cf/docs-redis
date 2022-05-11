@@ -96,55 +96,158 @@ The following errors are specific to <%= vars.product_short %>:
   errors as simple strings beginning with a <code>-</code> character.
 </p>
 
-<%= partial vars.path_to_partials + '/troubleshoot-template', locals: {
-    id: 'max-clients',
-    description: 'Maximum Number of Clients Reached',
-    symptom: '<p>You receive the following error:</p>
-<pre class="terminal">-ERR max number of clients reached</pre>',
-    cause: 'This is usually caused by apps opening multiple client connections to Redis.',
-    solution: 'Share or pool Redis connections within an app. ' + vars.product_short + ' configures
-    Redis to accept 10000 client connections.
-    This can be confirmed by running the `INFO` command using the Redis CLI.'
-} %>
+<a name="max-clients"></a>
+<table class="nice">
+  <style>
+    main table {
+      table-layout: fixed;
+    }
+  </style>
+  <col width="20%">
+  <col width="80%">
+  <tr>
+  <th colspan="2" style="text-align: left;">
+    <br>
+    Maximum Number of Clients Reached
+    <br><br>
+  </th>
+  </tr>
+  <tr>
+    <th>Symptom</th>
+    <td>
+      <p>You receive the following error:</p>
+      <pre class="terminal">-ERR max number of clients reached</pre>
+    </td>
+  </tr>
+  <tr>
+    <th>Cause</th>
+    <td>This is usually caused by apps opening multiple client connections to Redis.</td>
+  </tr>
+  <tr>
+    <th style="vertical-align: top; padding-top: 1em;">Solution</th>
+    <td>
+      Share or pool Redis connections within an app. <%= vars.product_short %> configures
+      Redis to accept 10000 client connections.
+      This can be confirmed by running the <code>INFO</code> command using the Redis CLI.
+    </td>
+  </tr>
+</table>
+<a name="maxmemory"></a>
+<table class="nice">
+  <style>
+    main table {
+      table-layout: fixed;
+    }
+  </style>
+  <col width="20%">
+  <col width="80%">
+  <tr>
+  <th colspan="2" style="text-align: left;">
+    <br>
+    Maxmemory Limit Reached
+    <br><br>
+  </th>
+  </tr>
+  <tr>
+    <th>Symptom</th>
+    <td>
+      <p>You receive the following error:</p>
+      <pre class="terminal">-OOM command not allowed when used memory > 'maxmemory'.</pre>
+    </td>
+  </tr>
+  <tr>
+    <th>Cause</th>
+    <td>This occurs when the Redis server has reached its <code>maxmemory</code> limit.</td>
+  </tr>
+  <tr>
+    <th style="vertical-align: top; padding-top: 1em;">Solution</th>
+    <td>
+      <p>
+        Consider changing your maxmemory-policy.
+        You can update this using the <code>cf update-service</code> parameters.
+        For how to do this, see <a href="using.html#custom">Customize an On-Demand Service Instance</a>.
+      </p>
+    </td>
+  </tr>
+</table>
 
-<%= partial vars.path_to_partials + '/troubleshoot-template', locals: {
-    id: 'maxmemory',
-    description: 'Maxmemory Limit Reached',
-    symptom: "<p>You receive the following error:</p>
-<pre class='terminal'>-OOM command not allowed when used memory > 'maxmemory'.</pre>",
-    cause: 'This occurs when the Redis server has reached its <code>maxmemory</code> limit.',
-    solution: '<p>Consider changing your maxmemory-policy.
-You can update this using the <code>cf update-service</code> parameters.
-For how to do this, see <a href="using.html#custom">Customize an On-Demand
-Service Instance</a>.</p>'
-} %>
+<a name="err-save-command"></a>
+<table class="nice">
+  <style>
+    main table {
+      table-layout: fixed;
+    }
+  </style>
+  <col width="20%">
+  <col width="80%">
+  <tr>
+  <th colspan="2" style="text-align: left;">
+    <br>
+    Error When Running the Save Command
+    <br><br>
+  </th>
+  </tr>
+  <tr>
+    <th>Symptom</th>
+    <td>
+      <p>
+        You receive the following error message when running <code>redis-cli SAVE</code>
+        or issuing the save command using another Redis client:
+      </p>
+      <pre class="terminal">-ERR</pre>
+    </td>
+  </tr>
+  <tr>
+    <th>Cause</th>
+    <td>This might occur when the Redis server's disk is full.</td>
+  </tr>
+  <tr>
+    <th style="vertical-align: top; padding-top: 1em;">Solution</th>
+    <td>
+      A more informative message might be logged in the syslog.
+      For more information, see <a href="./troubleshooting.html#syslog-errors">Syslog Errors</a>.
+    </td>
+  </tr>
+</table>
 
-
-<%= partial vars.path_to_partials + '/troubleshoot-template', locals: {
-    id: 'err-save-command',
-    description: 'Error When Running the Save Command',
-    symptom: '<p>You receive the following error message when running
-    <code>redis-cli SAVE</code> or issuing
-the save command using another Redis client:</p>
-<pre class="terminal">-ERR</pre>',
-    cause: "This might occur when the Redis server's disk is full.",
-    solution: 'A more informative message might be logged in the syslog.
-For more information, see <a href="./troubleshooting.html#syslog-errors">Syslog Errors</a>.'
-} %>
-
-<%= partial vars.path_to_partials + '/troubleshoot-template', locals: {
-    id: 'err-unknown-command',
-    description: 'Unknown Command Error',
-    symptom: '<p>You receive the following error message when running `redis-cli COMMAND` or issuing
-a command using another Redis client:</p>
-<pre class="terminal">-ERR unknown command</pre>',
-    cause: 'For security reasons, certain commands such as <code>CONFIG</code>,
-<code>SAVE</code>, and <code>BGSAVE</code>
-are not available by default.',
-    solution: 'Talk to your operator about the availability of the command.'
-} %>
-
-
+<a name="err-unknown-command"></a>
+<table class="nice">
+  <style>
+    main table {
+      table-layout: fixed;
+    }
+  </style>
+  <col width="20%">
+  <col width="80%">
+  <tr>
+  <th colspan="2" style="text-align: left;">
+    <br>
+    Unknown Command Error
+    <br><br>
+  </th>
+  </tr>
+  <tr>
+    <th>Symptom</th>
+    <td>
+      <p>
+        You receive the following error message when running <code>redis-cli COMMAND</code> or issuing
+        a command using another Redis client:
+      </p>
+      <pre class="terminal">-ERR unknown command</pre>
+    </td>
+  </tr>
+  <tr>
+    <th>Cause</th>
+    <td>
+      For security reasons, certain commands such as <code>CONFIG</code>,
+      <code>SAVE</code>, <code>BGSAVE</code> are not available by default.
+    </td>
+  </tr>
+  <tr>
+    <th style="vertical-align: top; padding-top: 1em;">Solution</th>
+    <td>Talk to your operator about the availability of the command.</td>
+  </tr>
+</table>
 
 ## <a id="techniques"></a> Techniques for Troubleshooting
 
