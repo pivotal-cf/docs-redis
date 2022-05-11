@@ -77,9 +77,41 @@ The following errors occur in multiple services:
   </tr>
 </table>
 
-<%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
-
-<%= partial vars.path_to_partials + '/services-tshoot/tshoot-no-metrics' %>
+<a name="no-metrics"></a>
+<table class="nice">
+  <style>
+    main table {
+      table-layout: fixed;
+    }
+  </style>
+  <col width="20%">
+  <col width="80%">
+  <tr>
+  <th colspan="2" style="text-align: left;">
+    <br>
+    No Metrics from Log Cache
+    <br><br>
+  </th>
+  </tr>
+  <tr>
+    <th>Symptom</th>
+    <td>You receive no metrics when running the <code>cf tail</code> command.</td>
+  </tr>
+  <tr>
+    <th>Cause</th>
+    <td>This might be because the Firehose is disabled in the <%= vars.app_runtime_abbr %> tile.</td>
+  </tr>
+  <tr>
+    <th style="vertical-align: top; padding-top: 1em;">Solution</th>
+    <td>
+      Ask your operator to ensure that the <strong>V2 Firehose</strong> checkbox is enabled,
+      and the <strong>Enable Log Cache syslog ingestion</strong> checkbox is disabled in the
+      <%= vars.app_runtime_abbr %> tile.
+      For more information about configuring these checkboxes, see
+      <a href="https://docs.pivotal.io/application-service/operating/logging-config-opsman.html#syslog-forward">Enable Syslog Forwarding</a>.
+    </td>
+  </tr>
+</table>
 
 ### <a id="specific-errors"></a> <%= vars.product_short %> Specific Errors
 
