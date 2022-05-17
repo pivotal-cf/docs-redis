@@ -39,7 +39,7 @@ For guidance on ports and ranges used in the Redis service, see [Select Networks
 
 To assign AZs and networks, click the **Assign AZs and Networks** settings tab.
 
-![AZ Assignment Diagram](AZ-assignment.png)
+![AZ Assignment Diagram](images/AZ-assignment.png)
 
 ### <a id="az-config"></a>Assign AZs
 
@@ -225,7 +225,7 @@ To configure settings that apply across the whole on-demand service offering:
 
 1. In the <%= vars.product_short %> tile, select **On-Demand Service Settings**.
 ![Screenshot of the On-Demand Service Settings pane. The UI elements in the pane are described
-in the steps below](redis-odservice-settings.png)
+in the steps below](images/redis-odservice-settings.png)
 [Click here to view a larger version of this image.](./images/redis-odservice-settings.png)
 
 1. Enter the **Maximum service instances across all on-demand plans**.
@@ -263,7 +263,7 @@ The upgrade fails if any canaries fail to upgrade. <br><br>
 You can limit canaries by number and by org and space.
 To use all service instances in an org and space as canaries,
 set the number of canaries to zero. This upgrades all service instances in the selected org and space first.<br><br>
-  ![canary-options](canary-options.png)
+  ![canary-options](images/canary-options.png)
   <p class="note"><strong>Note:</strong>
     If you specify that canaries should be limited to an org and space that has
     no service instances, the upgrade fails.
@@ -306,11 +306,11 @@ The configuration of resources varies depending on your IaaS.
 To add and configure each on-demand service plan:
 
 1. In the <%= vars.product_short %> tile, select **On-Demand Plans**.
-  ![on demand config](on-demand-config.png) <a id="ondemandconfig"></a>
+  ![on demand config](images/on-demand-config.png) <a id="ondemandconfig"></a>
 
 1. Click **Add** to add an on-demand plan.
-  ![on demand plan config](on-demand-plan-config.png) <a id="ondemandplanconfig"></a>
-  [Click here to view a larger version of this image.](./images/on-demand-plan-config.png)
+  ![on demand plan config](images/on-demand-plan-config.png) <a id="ondemandplanconfig"></a>
+  [Click here to view a larger version of this image.](images/on-demand-plan-config.png)
 1. Configure the settings in the table below for your on-demand plans and then click **Save**.
 <%# Should you not reduce the the VMs or disk after you have saved settings or while you are configuring for the first time? %>
   <p class="warning note"><strong>Warning:</strong> Do not downsize the VMs
@@ -503,7 +503,7 @@ and delete each plan by clicking the trash can icon next to the plan name.
 To configure shared-VM service plans:
 
 1.  In the <%= vars.product_short %> tile, select **Shared-VM Plan**.
-![shared vm config](shared-vm-config.png)
+![shared vm config](images/shared-vm-config.png)
 
 1.  Configure these fields:
       * **Redis Instance Memory Limit**---Maximum memory used by a shared-VM instance.
