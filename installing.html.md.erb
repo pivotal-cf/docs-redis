@@ -40,7 +40,7 @@ For guidance on ports and ranges used in the Redis service, see [Select Networks
 To assign AZs and networks, click the **Assign AZs and Networks** settings tab.
 
 ![The Redis tile in Ops Manager. The 'Assign AZs and Networks' pane is active.
-See the next section for information about configuring this pane.](AZ-assignment.png)
+See the next section for information about configuring this pane.](images/AZ-assignment.png)
 
 ### <a id="az-config"></a>Assign AZs
 
@@ -219,7 +219,7 @@ To configure settings that apply across the whole on-demand service offering:
 
 1. In the <%= vars.product_short %> tile, select **On-Demand Service Settings**.
 ![The Redis tile in Ops Manager. The 'On-Demand Service Settings' pane is active.
-See the next steps for information about configuring this pane.](redis-odservice-settings.png)
+See the next steps for information about configuring this pane.](images/redis-odservice-settings.png)
 <a href="./images/redis-odservice-settings.png" target="_blank" aria-hidden="true">
   Click here to view a larger version of this image</a>
 
@@ -258,7 +258,7 @@ The upgrade fails if any canaries fail to upgrade. <br><br>
 You can limit canaries by number and by org and space.
 To use all service instances in an org and space as canaries,
 set the number of canaries to zero. This upgrades all service instances in the selected org and space first.<br><br>
-  ![A flowchart that describes canary options. See below for a detailed description.](canary-options.png)
+  ![A flowchart that describes canary options. See below for a detailed description.](images/canary-options.png)
   The flowchart above has the following information:
     - Is the org and space specified?
         - **Yes**: Is the number of canaries specified?
@@ -326,11 +326,11 @@ The configuration of resources varies depending on your IaaS.
 To add and configure each on-demand service plan:
 
 1. In the <%= vars.product_short %> tile, select **On-Demand Plans**.
-  ![The Redis tile in Ops Manager. The 'On-Demand Plans' pane is active.](on-demand-config.png) <a id="ondemandconfig"></a>
+  ![The Redis tile in Ops Manager. The 'On-Demand Plans' pane is active.](images/on-demand-config.png) <a id="ondemandconfig"></a>
   <a href="./images/on-demand-config.png" target="_blank" aria-hidden="true">
     Click here to view a larger version of this image</a>
 1. Click **Add** to add an on-demand plan.
-  ![The Redis tile in Ops Manager. The 'On-Demand Plans' pane is active. See the next step for information about configuring this pane.](on-demand-plan-config.png) <a id="ondemandplanconfig"></a>
+  ![The Redis tile in Ops Manager. The 'On-Demand Plans' pane is active. See the next step for information about configuring this pane.](images/on-demand-plan-config.png) <a id="ondemandplanconfig"></a>
   <a href="./images/on-demand-plan-config.png" target="_blank" aria-hidden="true">
     Click here to view a larger version of this image</a>
 1. Configure the settings in the table below for your on-demand plans and then click **Save**.
@@ -524,7 +524,7 @@ and delete each plan by clicking the trash can icon next to the plan name.
 To configure shared-VM service plans:
 
 1.  In the <%= vars.product_short %> tile, select **Shared-VM Plan**.
-![The Redis tile in Ops Manager. The 'Shared-VM Plan' pane is active. See the next step for information about configuring this pane.](shared-vm-config.png)
+![The Redis tile in Ops Manager. The 'Shared-VM Plan' pane is active. See the next step for information about configuring this pane.](images/shared-vm-config.png)
 
 1.  Configure these fields:
       * **Redis Instance Memory Limit**---Enter the maximum memory used by a shared-VM instance, for example 512&nbsp;MB.
