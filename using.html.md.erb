@@ -161,13 +161,13 @@ You can use Apps Manager to create service instances of available on-demand or s
 To create a service instance of the <%= vars.product_short %>  on-demand plan using Apps Manager:
 
 1. From within Pivotal Apps Manager, select **Marketplace** from the left navigation menu under Spaces.
-![marketplace](appsman_marketplace.png)
+![marketplace](images/appsman_marketplace.png)
 
 1. Select **Redis On-Demand** from the displayed tiles in the Marketplace.
-  ![marketplace_predis](predis_marketplace.png)
+  ![marketplace_predis](images/predis_marketplace.png)
 
 1. Click on the appropriate **Select this plan** button to select the required **Redis Service Plan**.
-  ![info_predis](predis_info.png)
+  ![info_predis](images/predis_info.png)
 
 1. In the **Instance Name** field, enter a name that will identify this specific Redis service instance.
 1. From the **Add to Space** dropdown, select the space where you or other users will deploy the apps that will bind to the service.
@@ -178,13 +178,13 @@ To create a service instance of the <%= vars.product_short %>  on-demand plan us
 To create a service instance of the <%= vars.product_short %> shared-VM plan using Apps Manager:
 
 1. From within Pivotal Apps Manager, select **Marketplace** from the left navigation menu under Spaces.
-![marketplace](appsman_marketplace.png)
+![marketplace](images/appsman_marketplace.png)
 
 1. Select **Redis** from the displayed tiles in the Marketplace.
-![marketplace_p-redis](p-redis_marketplace.png)
+![marketplace_p-redis](images/p-redis_marketplace.png)
 
 1. Click on the appropriate **Select this plan** button to select the required **Redis Service Plan**.
-![info_p-redis](p-redis-info.png)
+![info_p-redis](images/p-redis-info.png)
 
 1. In the **Instance Name** field, enter a name that will identify this specific Redis service instance.
 1. From the **Add to Space** dropdown, select the space where you or other users will deploy the apps that will bind to the service.
@@ -334,9 +334,9 @@ Server error, status code: 502, error code: 10001, message: Service broker error
 You can customize an instance in two ways:
 
 * While creating the instance, after you select the plan, click **advanced settings**.<br><br>
-  ![am-create](am-create.png)
+  ![am-create](images/am-create.png)
 * After creating the instance, navigate to the instance Settings page.<br><br>
-  ![am_arbitrary_params](am_arbitrary_params.png)
+  ![am_arbitrary_params](images/am_arbitrary_params.png)
 
 In either of the above cases, do the following:
 
@@ -346,7 +346,7 @@ In either of the above cases, do the following:
 If the update is unsuccessful, Apps Manager displays an error with a description of what went wrong.
 The following screenshot is an example of an error caused by a missing hyphen in the `volatile-lru` setting.
 
-![am-error](am-error.png)
+![am-error](images/am-error.png)
 
 ## <a id="call"></a>Retrieve the Password for a Redis Service Instance
 
@@ -527,7 +527,7 @@ re-push your app for the app changes to take effect. For example:
 To delete a service instance:
 
 1. In the service instance Settings page, click **Delete Service Instance**.
-    <br><br>![am_settings](am_settings.png)
+    <br><br>![am_settings](images/am_settings.png)
 
 1. If you had apps that were bound to this service, you might need to restage or re-push your app for the app changes to take effect. For example:
 
