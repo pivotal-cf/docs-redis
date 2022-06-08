@@ -7,6 +7,72 @@ owner: London Services
 
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
+## <a id="3-0-3"></a> v3.0.3
+
+**Release Date: June 09, 2022**
+
+### Resolved Issues
+
+This release has the following fix:
+
+* **This version is now compatible with TAS 2.13:**
+  Achieved by fixing some issues with the loggregator-agent new version, which wasn't compatible with TAS 2.13 in our implementation.
+
+### Known Issues
+
+There are no known issues for this release.
+
+### Compatibility
+The following components are compatible with this release:
+
+<table border="1" class="nice">
+<tr>
+    <th>Component</th>
+    <th>Version</th>
+</tr>
+<tr>
+    <td>Stemcell</td>
+    <td>621.241</td>
+</tr>
+<tr>
+    <td><%= vars.app_runtime_full %></td>
+    <td>2.11 and 2.12</td>
+</tr>
+<tr>
+    <td>shared-redis-release</td>
+    <td>437.0.29</td>
+</tr>
+<tr>
+    <td>on-demand-service-broker</td>
+    <td>0.42.4</td>
+</tr>
+<tr>
+    <td>routing</td>
+    <td>0.232.0</td>
+</tr>
+<tr>
+    <td>service-metrics</td>
+    <td>2.0.16</td>
+</tr>
+<tr>
+    <td>service-backup</td>
+    <td>18.4.0</td>
+</tr>
+<tr>
+    <td>loggregator-agent</td>
+    <td>6.4.1</td>
+</tr>
+<tr>
+    <td>bpm</td>
+    <td>1.1.18</td>
+</tr>
+<tr>
+    <td>Redis OSS</td>
+    <td>6.2.6</td>
+</tr>
+
+</table>
+
 ## <a id="3-0-2"></a> v3.0.2
 
 **Release Date: April 25, 2022**
