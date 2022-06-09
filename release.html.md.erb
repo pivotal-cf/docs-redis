@@ -9,14 +9,15 @@ owner: London Services
 
 ## <a id="3-1-2"></a> v3.1.2
 
-**Release Date: June 09, 2022**
+**Release Date: June 9, 2022**
 
 ### Resolved Issues
 
 This release has the following fix:
 
-* **This version is now compatible with TAS 2.13:**
-  Achieved by fixing some issues with the loggregator-agent new version, which wasn't compatible with TAS 2.13 in our implementation.
+* **This version is now compatible with <%= vars.app_runtime_full %> v2.13:**
+This version fixes some issues with the loggregator-agent, which was not compatible
+with <%= vars.app_runtime_abbr %> v2.13.
 
 ### Known Issues
 
@@ -92,7 +93,10 @@ This release has the following fix:
 
 ### Known Issues
 
-There are no known issues for this release.
+This release has the following issue:
+
+* This version is not compatible with <%= vars.app_runtime_full %> v2.13 if you
+have enabled Log Cache.
 
 ### Compatibility
 The following components are compatible with this release:
@@ -174,10 +178,12 @@ New features and changes in this release:
 
 ### Known Issues
 
-This release has the following issue:
+This release has the following issues:
 
 * **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
 The user receives a general error.
+* This version is not compatible with <%= vars.app_runtime_full %> v2.13 if you
+have enabled Log Cache.
 
 
 ### Compatibility
