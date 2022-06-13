@@ -71,8 +71,8 @@ template_variables:
   ops_manager_full: Pivotal Operations Manager
 
   # Other variables
-  show_content: false
-
+  hide_content: true
+    
   service_name: Redis for VMware Tanzu Application Service
   service_name_article: Redis for Tanzu Application Service
   service_name_article_full: the Redis for VMware Tanzu Application Service service
