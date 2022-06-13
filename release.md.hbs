@@ -3,8 +3,242 @@ title: Redis for VMware Tanzu Application Service Release Notes
 owner: London Services
 ---
 
+<strong><%= modified_date %></strong>
+
+<%= partial vars.path_to_partials + '/upgrade-planner' %>
+
 {{#unless vars.hide_content}}
-text
+## <a id="3-1-2"></a> v3.1.2
+
+**Release Date: June 9, 2022**
+
+### Resolved Issues
+
+This release has the following fix:
+
+* **This version is now compatible with <%= vars.app_runtime_full %> v2.13:**
+This version fixes some issues with the loggregator-agent, which was not compatible
+with <%= vars.app_runtime_abbr %> v2.13.
+
+### Known Issues
+
+There are no known issues for this release.
+
+### Compatibility
+The following components are compatible with this release:
+
+<table border="1" class="nice">
+<tr>
+    <th>Component</th>
+    <th>Version</th>
+</tr>
+<tr>
+    <td>Stemcell</td>
+    <td>621.241</td>
+</tr>
+<tr>
+    <td><%= vars.app_runtime_full %></td>
+    <td>2.11, 2.12, 2.13</td>
+</tr>
+<tr>
+    <td>shared-redis-release</td>
+    <td>437.0.29</td>
+</tr>
+<tr>
+    <td>on-demand-service-broker</td>
+    <td>0.42.4</td>
+</tr>
+<tr>
+    <td>routing</td>
+    <td>0.232.0</td>
+</tr>
+<tr>
+    <td>service-metrics</td>
+    <td>2.0.16</td>
+</tr>
+<tr>
+    <td>service-backup</td>
+    <td>18.4.0</td>
+</tr>
+<tr>
+    <td>loggregator-agent</td>
+    <td>6.4.1</td>
+</tr>
+<tr>
+    <td>bpm</td>
+    <td>1.1.18</td>
+</tr>
+<tr>
+    <td>Redis OSS</td>
+    <td>6.2.6</td>
+</tr>
+
+</table>
 {{/unless}}
 
-more text
+## <a id="3-1-1"></a> v3.1.1
+
+**Release Date: April 25, 2022**
+
+### Security Fixes
+
+This release includes the following security fix:
+
+* **runc:** Updated nginx from v1.16.x to v1.21.x to address [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).
+
+### Resolved Issues
+
+This release has the following fix:
+
+* **The test app no longer fails to start:** The timeout for smoke tests has been increased so that the test app can start without an error.
+
+### Known Issues
+
+This release has the following issue:
+
+* This version is not compatible with <%= vars.app_runtime_full %> v2.13 if you
+have enabled Log Cache syslog ingestion.
+
+### Compatibility
+The following components are compatible with this release:
+
+<table border="1" class="nice">
+<tr>
+    <th>Component</th>
+    <th>Version</th>
+</tr>
+<tr>
+    <td>Stemcell</td>
+    <td>621.224</td>
+</tr>
+<tr>
+    <td><%= vars.app_runtime_full %></td>
+    <td>2.11 and 2.12</td>
+</tr>
+<tr>
+    <td>shared-redis-release</td>
+    <td>437.0.29</td>
+</tr>
+<tr>
+    <td>on-demand-service-broker</td>
+    <td>0.42.4</td>
+</tr>
+<tr>
+    <td>routing</td>
+    <td>0.231.0</td>
+</tr>
+<tr>
+    <td>service-metrics</td>
+    <td>2.0.15</td>
+</tr>
+<tr>
+    <td>service-backup</td>
+    <td>18.4.0</td>
+</tr>
+<tr>
+    <td>loggregator-agent</td>
+    <td>6.3.11</td>
+</tr>
+<tr>
+    <td>bpm</td>
+    <td>1.1.16</td>
+</tr>
+<tr>
+    <td>Redis OSS</td>
+    <td>6.2.6</td>
+</tr>
+
+</table>
+
+
+## <a id="3-1-0"></a> v3.1.0
+
+**Release Date: March 1, 2022**
+
+### Features
+
+New features and changes in this release:
+
+- **Option to enforce TLS:**
+  Operators can now choose to enforce TLS for client connections for all service instances.
+  When this option is selected, connections without TLS are rejected.
+  For more information, see [On-Demand Service Settings](installing.html#on-demand-config).
+
+- **Custom tags:**
+  There is a new field in the tile **On-Demand Service Settings** page for tags that apply to the
+  cloud provider. The accepted format depends on the underlying Cloud Provider.
+  For example, Google Cloud Platform (GCP) does not allow uppercase characters.
+  For more information, see [On-Demand Service Settings](installing.html#on-demand-config).
+
+- **Paid plan:**
+  Operators can now indicate if a service plan is free or paid.
+  The plan is marked with an asterisk in the `cf marketplace` list and labeled "paid" in the
+  "free or paid" column when individual plans are listed. This feature is "free" by default.
+  For more information, see [On-Demand Plan Settings](installing.html#on-demand-plan-config).
+
+
+### Known Issues
+
+This release has the following issues:
+
+* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
+The user receives a general error.
+* This version is not compatible with <%= vars.app_runtime_full %> v2.13 if you
+have enabled Log Cache syslog ingestion.
+
+
+### Compatibility
+The following components are compatible with this release:
+
+<table border="1" class="nice">
+<tr>
+    <th>Component</th>
+    <th>Version</th>
+</tr>
+<tr>
+    <td>Stemcell</td>
+    <td>621.208</td>
+</tr>
+<tr>
+    <td><%= vars.app_runtime_full %></td>
+    <td>2.11 and 2.12</td>
+</tr>
+<tr>
+    <td>shared-redis-release</td>
+    <td>437.0.27</td>
+</tr>
+<tr>
+    <td>on-demand-service-broker</td>
+    <td>0.42.4</td>
+</tr>
+<tr>
+    <td>routing</td>
+    <td>0.229.0</td>
+</tr>
+<tr>
+    <td>service-metrics</td>
+    <td>2.0.15</td>
+</tr>
+<tr>
+    <td>service-backup</td>
+    <td>18.4.0</td>
+</tr>
+<tr>
+    <td>loggregator-agent</td>
+    <td>6.3.8</td>
+</tr>
+<tr>
+    <td>bpm</td>
+    <td>1.1.16</td>
+</tr>
+<tr>
+    <td>Redis OSS</td>
+    <td>6.2.6</td>
+</tr>
+
+</table>
+
+## <a id="view"></a> View Release Notes for Another Version
+
+To view the release notes for another product version, select the version from
+the dropdown at the top of this page.
