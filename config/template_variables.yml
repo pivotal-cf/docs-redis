@@ -1,5 +1,7 @@
 ---
 template_variables:
+  hide_content: true
+
   book_title: VMware Tanzu Documentation
   book_title_short: VMware Tanzu Docs
   title: <span class="title-deemph">VMware Tanzu</span> Documentation
@@ -71,8 +73,6 @@ template_variables:
   ops_manager_full: Pivotal Operations Manager
 
   # Other variables
-  hide_content: true
-    
   service_name: Redis for VMware Tanzu Application Service
   service_name_article: Redis for Tanzu Application Service
   service_name_article_full: the Redis for VMware Tanzu Application Service service
