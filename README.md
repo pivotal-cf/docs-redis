@@ -24,14 +24,18 @@ Always make changes you want carried forward in the master branch. This includes
 * Doc bug fixes
 * Doc reorganization or enhancement
 
+Staging link: https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html
+
 ### Live Branches In Production (Public)
 
-* **2.4**: Live docs at staging (https://docs-pcf-staging.cfapps.io/redis/2-4/) and production (https://docs.pivotal.io/redis/2-4/)
-* **2.3**: Live docs at staging (https://docs-pcf-staging.cfapps.io/redis/2-3/) and production (https://docs.pivotal.io/redis/2-3/)
-* **2.2**: Live docs at staging (https://docs-pcf-staging.cfapps.io/redis/2-2/) and production (https://docs.pivotal.io/redis/2-2/)
-* **2.1**: This branch is no longer in use because this version is deprecated. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/2-1/) and production (https://docs.pivotal.io/redis-eogs/2-1/)
-* **2.0**: This branch is no longer in use because this version is deprecated. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/2-0/) and production (https://docs.pivotal.io/redis-eogs/2-0/)
-* **1.14**: This branch is no longer in use because this version is deprecated. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/1-14/) and production (https://docs.pivotal.io/redis-eogs/1-14/)
+* **3.1**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html)
+* **3.0**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html)
+* **2.4**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html)and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html)
+* **2.3**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html)
+* **2.2**: This branch is no longer in use because this version is EOGS. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis/2-2/) and production (https://docs.pivotal.io/redis/2-2/)
+* **2.1**: This branch is no longer in use because this version is EOGS. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/2-1/) and production (https://docs.pivotal.io/redis-eogs/2-1/)
+* **2.0**: This branch is no longer in use because this version is EOGS. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/2-0/) and production (https://docs.pivotal.io/redis-eogs/2-0/)
+* **1.14**: This branch is no longer in use because this version is EOGS. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/1-14/) and production (https://docs.pivotal.io/redis-eogs/1-14/)
 * **1.13**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.13.pdf.
 * **1.12**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.12.pdf.
 * **1.11**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.11.pdf.
