@@ -23,6 +23,7 @@
     *   [Introduction for App Developers](/docs-redis/appdevs.html)
     *   [Quickstart Guide for App Developers](/docs-redis/quickstart.html)
     *   [Using Redis for VMware Tanzu Application Service](/docs-redis/using.html)
+    *   [Using the Config API](/docs-redis/using-api.html)
     *   [Upgrading an Individual Redis Service Instance](/docs-redis/dev-upgrade.html)
     *   [Troubleshooting Instances](/docs-redis/troubleshoot-instances.html)
     *   [Sample Redis Configuration](/docs-redis/redisconf.html)
