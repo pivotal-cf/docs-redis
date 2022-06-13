@@ -7,11 +7,12 @@ owner: London Services
 
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
-{{#unless vars.hide_content}}
+<%# hide content until release day %>
+<% if vars.hide_content == false %>
 
 ## <a id="3-0-3"></a> v3.0.3
 
-**Release Date: June 9, 2022**
+**Release Date: MMM DD, 2022**
 
 ### Resolved Issues
 
@@ -77,7 +78,7 @@ The following components are compatible with this release:
 
 </table>
 
-{{/unless}}
+<% end %>
 
 ## <a id="3-0-2"></a> v3.0.2
 
