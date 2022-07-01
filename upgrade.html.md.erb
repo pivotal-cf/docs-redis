@@ -136,13 +136,12 @@ of the <%= vars.product_short %> tile.
 #### <a id="pas"></a> Changes in <%= vars.app_runtime_full %>
 
 In the <%= vars.app_runtime_full %> tile, changes to any of the following properties can trigger downtime:
-<ul>
-  <li><code>$runtime.system\_domain</code>---Runtime System Domain</li>
-  <li><code>..cf.ha\_proxy.skip\_cert\_verify.value</code>---Disable SSL certificate verification for this environment in <%= vars.app_runtime_abbr %></li>
-  <li><code>$runtime.apps\_domain</code>---Runtime Apps Domain </li>
-  <li><code>..cf.nats.ips</code>---NATS Resource Config</li>
-  <li><code>$self.service\_network</code>---Service Networks in <%= vars.ops_manager %></li>
-</ul>
+
+* `$runtime.system_domain`---Runtime System Domain
+* `..cf.ha_proxy.skip_cert_verify.value`---Disable SSL certificate verification for this environment in <%= vars.app_runtime_abbr %>
+* `$runtime.apps_domain`---Runtime Apps Domain
+* `..cf.nats.ips`---NATS Resource Config
+* `$self.service_network`---Service Networks in <%= vars.ops_manager %>
 
 When the operator applies any of the above changes to <%= vars.app_runtime_abbr %>, downtime is triggered for:
 
