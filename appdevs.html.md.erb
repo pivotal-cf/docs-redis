@@ -72,19 +72,30 @@ Spring and Steeltoe apps use TLS by default when available.
 
 You can check if TLS has been enabled on the on-demand Redis service by inspecting the service key.
 To do so:
-<ol>
-    <li>Create a service key by running the following command: <pre>cf create-service-key MY-INSTANCE MY-KEY</pre></li>
-    <li>Display the service key by running the following command: <pre>cf service-key MY-INSTANCE MY-KEY</pre><br>
-        This returns a JSON response in this format:<br>
-    <pre>{
-            "host": "q-s0.redis-instance.ENVIRONMENT-NAME-services-subnet.service-instance-GUID.bosh",
-            "password": YOUR-PASSWORD,
-            "port": INSECURE-PORT-NUMBER,
-            "tls\_port": SECURE-PORT-NUMBER
-        }
-        </pre>
-    </li>
-</ol>
+
+1.  Create a service key by running the following command:
+
+    ```
+    cf create-service-key MY-INSTANCE MY-KEY
+    ```
+
+2.  Display the service key by running the following command:
+
+    ```
+    cf service-key MY-INSTANCE MY-KEY
+    ```
+
+    This returns a JSON response in this format:
+
+    ```
+    {
+      "host": "q-s0.redis-instance.ENVIRONMENT-NAME-services-subnet.service-instance-GUID.bosh",
+      "password": YOUR-PASSWORD,
+      "port": INSECURE-PORT-NUMBER,
+      "tls_port": SECURE-PORT-NUMBER
+    }
+    ```
+
 If you do not see the `tls_port` field, TLS has not been enabled on your Redis service.
 
 ### <a id="new-apps"></a>Bind New Apps with TLS
@@ -95,7 +106,7 @@ For new apps, `cf bind-service` exposes both TLS ports and non-secure ports. Cus
 
 Below is an example of manually selecting the TLS port for a `redis_client` in Ruby:
 
-<pre>
+```
 require 'redis'
 require 'cf-app-utils'
 
@@ -120,7 +131,7 @@ def redis_client
      ssl: true,
      timeout: 30
 end
-</pre>
+```
 
 For Spring apps, use Java CFEnv v1.1.0 or later. See [Redis Spring Boot Reference Architecture](https://github.com/pivotal-cf/redis-reference-architecture) in GitHub.
 
@@ -131,10 +142,20 @@ For Steeltoe apps, use Steeltoe v2.3.0 or later. See [Redis Steeltoe Reference A
 For each app using the Redis service with a non-TLS binding:
 
 1. Remove the current binding by running the following command:
-<pre>cf unbind-service APP-NAME SERVICE-INSTANCE</pre>
+
+    ```
+    cf unbind-service APP-NAME SERVICE-INSTANCE
+    ```
 2. Re-bind to the Redis instance by running the following command:
-<pre>cf bind-service APP-NAME SERVICE-INSTANCE</pre>
+
+    ```
+    cf bind-service APP-NAME SERVICE-INSTANCE
+    ```
+
 3. Restage the app by running the following command:
-<pre>cf restage-app APP-NAME</pre>
+
+    ```
+    cf restage-app APP-NAME
+    ```
 
 Your app now communicates securely with the Redis on-demand service instance.

@@ -38,31 +38,35 @@ To obtain the instance deployment names:
 
 1. Run the following from your jumpbox, and record the resulting names.
 
-	```
-	$ BOSH_CLIENT=REDIS-BOSH-CLIENT \
-	BOSH_CLIENT_SECRET=REDIS-BOSH-PASSWORD \
-	bosh -e BOSH-DIRECTOR-IP \
-	--ca-cert PATH-TO-BOSH-SERVER-CERTIFICATE \
-	--column name \
-	deployments
-	```
-	Where:
-	* `REDIS-BOSH-CLIENT`, `REDIS-BOSH-PASSWORD`: To find these in the <%= vars.ops_manager %> Installation Dashboard, click the <%= vars.product_short %> tile, navigate to the
-	**Credentials** tab, and click **UAA Client Credentials**. Note the `Redis BOSH UAA` credentials.
-	* `BOSH-DIRECTOR-IP`: You retrieved this value in [Step 1–6: Prepare to Create Your Backup](https://docs.pivotal.io/platform/customizing/backup-restore/backup-pcf-bbr.html#prepare).
-	* `PATH-TO-BOSH-SERVER-CERTIFICATE`: This is the path to the Certificate Authority (CA) certificate for the BOSH Director.
-	For more information, see [Ensure BOSH Director Certificate Availability](https://docs.pivotal.io/platform/customizing/backup-restore/system-setup-bbr.html#root-ca-cert).
-	<p class="note"><strong>Note</strong>: In the command above, <code>BOSH_CLIENT</code> is not a variable.</p>
+    ```
+    $ BOSH_CLIENT=REDIS-BOSH-CLIENT \
+    BOSH_CLIENT_SECRET=REDIS-BOSH-PASSWORD \
+    bosh -e BOSH-DIRECTOR-IP \
+    --ca-cert PATH-TO-BOSH-SERVER-CERTIFICATE \
+    --column name \
+    deployments
+    ```
+
+    Where:
+
+    * `REDIS-BOSH-CLIENT`, `REDIS-BOSH-PASSWORD`: To find these in the <%= vars.ops_manager %> Installation Dashboard, click the <%= vars.product_short %> tile, navigate to the
+    **Credentials** tab, and click **UAA Client Credentials**. Note the `Redis BOSH UAA` credentials.
+    * `BOSH-DIRECTOR-IP`: You retrieved this value in [Step 1–6: Prepare to Create Your Backup](https://docs.pivotal.io/platform/customizing/backup-restore/backup-pcf-bbr.html#prepare).
+    * `PATH-TO-BOSH-SERVER-CERTIFICATE`: This is the path to the Certificate Authority (CA) certificate for the BOSH Director.
+    For more information, see [Ensure BOSH Director Certificate Availability](https://docs.pivotal.io/platform/customizing/backup-restore/system-setup-bbr.html#root-ca-cert).
+
+    <p class="note"><strong>Note</strong>: In the command above, <code>BOSH_CLIENT</code> is not a variable.</p>
 
     For example:
 
     <pre class="terminal">
-$ BOSH_CLIENT=p-redis-eb12345cb7a123450f08 \
-BOSH_CLIENT_SECRET=338b012345d987bb24b5f \
-bosh -e 10.0.0.5 \
---ca-cert /var/example/workspaces/default/root_ca_certificate \
---column name \
-deployments </pre>
+    $ BOSH_CLIENT=p-redis-eb12345cb7a123450f08 \
+    BOSH_CLIENT_SECRET=338b012345d987bb24b5f \
+    bosh -e 10.0.0.5 \
+    --ca-cert /var/example/workspaces/default/root_ca_certificate \
+    --column name \
+    deployments
+    </pre>
 
 ## <a id="backup"></a>Back Up Using BBR
 
@@ -70,41 +74,40 @@ To back up using BBR:
 
 1. Back up your BOSH deployments.
 
-	This includes backing up your <%= vars.ops_manager %> installation settings,
-	BOSH Director and <%= vars.app_runtime_abbr %>, as detailed in [Backing Up Deployments with BBR](https://docs.pivotal.io/platform/customizing/backup-restore/backup-pcf-bbr.html#procedure).
+    This includes backing up your <%= vars.ops_manager %> installation settings,
+    BOSH Director and <%= vars.app_runtime_abbr %>, as detailed in [Backing Up Deployments with BBR](https://docs.pivotal.io/platform/customizing/backup-restore/backup-pcf-bbr.html#procedure).
 
-	<p class="note"><strong>Note</strong>: For a full restore of Redis service
-	instances to be valid, you must have a backup of the BOSH Director and <%= vars.app_runtime_abbr %>.</p>
+    <p class="note"><strong>Note</strong>: For a full restore of Redis service
+    instances to be valid, you must have a backup of the BOSH Director and <%= vars.app_runtime_abbr %>.</p>
 
-1. Backup each Redis service instance:
+1. Backup each Redis service instance. From your jumpbox run the following:
 
-	From your jumpbox run the following.
+    ```
+    $ BOSH_CLIENT_SECRET=BOSH-CLIENT-PASSWORD \
+    bbr deployment \
+    --target BOSH-DIRECTOR-IP \
+    --username BOSH-CLIENT \
+    --ca-cert PATH-TO-BOSH-SERVER-CERTIFICATE \
+    --deployment REDIS-SERVICE-INSTANCE-DEPLOYMENT-NAME \
+    backup
+    ```
 
-	```
-	$ BOSH_CLIENT_SECRET=BOSH-CLIENT-PASSWORD \
-	bbr deployment \
-	--target BOSH-DIRECTOR-IP \
-	--username BOSH-CLIENT \
-	--ca-cert PATH-TO-BOSH-SERVER-CERTIFICATE \
-	--deployment REDIS-SERVICE-INSTANCE-DEPLOYMENT-NAME \
-	backup
-	```
-	Where:
-	* `BOSH-CLIENT`, `BOSH-CLIENT-PASSWORD`: These are the client credentials you retrieved in [Preparing to Use BBR](#prepare).
-	* `REDIS-SERVICE-INSTANCE-DEPLOYMENT-NAME`: This is the deployment name for the on-demand Redis service instance you are backing up.
-	<p class="note"><strong>Note</strong>: In the above command, <code>BOSH\_CLIENT\_SECRET</code> is not a variable.</p>
+    Where:
+
+    * `BOSH-CLIENT`, `BOSH-CLIENT-PASSWORD`: These are the client credentials you retrieved in [Preparing to Use BBR](#prepare).
+    * `REDIS-SERVICE-INSTANCE-DEPLOYMENT-NAME`: This is the deployment name for the on-demand Redis service instance you are backing up.
+    <p class="note"><strong>Note</strong>: In the above command, <code>BOSH\_CLIENT\_SECRET</code> is not a variable.</p>
 
     For example:
 
     <pre class="terminal">
-	$ BOSH_CLIENT_SECRET=KJsdgKJj12345ljk83Hufy12345b6-34n4 \
-	bbr deployment \
-	--target 10.0.0.5 \
-	--username ops_manager \
-	--ca-cert /var/example/workspaces/default/root_ca_certificate \
-	--deployment service-instance_40b123e4a-be1c-1232-ad31-123e01b7d169 \
-	backup
-
+    $ BOSH_CLIENT_SECRET=KJsdgKJj12345ljk83Hufy12345b6-34n4 \
+    bbr deployment \
+    --target 10.0.0.5 \
+    --username ops_manager \
+    --ca-cert /var/example/workspaces/default/root_ca_certificate \
+    --deployment service-instance_40b123e4a-be1c-1232-ad31-123e01b7d169 \
+    backup
     </pre>
 
 1. Follow the steps given in the [After Taking the Backups](https://docs.pivotal.io/platform/customizing/backup-restore/backup-pcf-bbr.html#after)
@@ -124,30 +127,29 @@ for [Restoring Deployments from Backup with BBR](https://docs.pivotal.io/platfor
 
 1. For each Redis service instance artifact run the below command from your jumpbox:
 
-	```
-	$ BOSH_CLIENT_SECRET=BOSH-CLIENT-PASSWORD \
-		bbr deployment \
-	--target BOSH-DIRECTOR-IP \
-	--username BOSH-CLIENT \
-	--ca-cert PATH-TO-BOSH-SERVER-CERTIFICATE \
-	--deployment REDIS-SERVICE-INSTANCE-DEPLOYMENT-NAME \
-	restore --artifact-path PATH-TO-SERVICE-INSTANCE-ARTIFACT
-	```
-	Where:<br>
-	`PATH-TO-SERVICE-INSTANCE-ARTIFACT` is the path to the artifact for the instance that you are currently restoring.
-	By default the artifact directory includes the deployment name and timestamp.
-	<p class="note"><strong>Note:</strong> In the above command, <code>BOSH_CLIENT_SECRET</code> is not a variable.</p>
+    ```
+    $ BOSH_CLIENT_SECRET=BOSH-CLIENT-PASSWORD \
+    	bbr deployment \
+    --target BOSH-DIRECTOR-IP \
+    --username BOSH-CLIENT \
+    --ca-cert PATH-TO-BOSH-SERVER-CERTIFICATE \
+    --deployment REDIS-SERVICE-INSTANCE-DEPLOYMENT-NAME \
+    restore --artifact-path PATH-TO-SERVICE-INSTANCE-ARTIFACT
+    ```
+    Where `PATH-TO-SERVICE-INSTANCE-ARTIFACT` is the path to the artifact for the instance that you are currently restoring.
+    By default the artifact directory includes the deployment name and timestamp.
+    <p class="note"><strong>Note:</strong> In the above command, <code>BOSH_CLIENT_SECRET</code> is not a variable.</p>
 
-    For example:
+      For example:
 
     <pre class="terminal">
-	$ BOSH_CLIENT_SECRET=KJsdgKJj12345jk83Hufy12345b6-34n4 \
-    bbr deployment \
-	--target 10.0.0.5 \
-	--username ops_manager \
-	--ca-cert /var/example/workspaces/default/root_ca_certificate \
-	--deployment service-instance_40b12e4a-be1c-1232-ad31-12345e01b7d123 \
-	restore --artifact-path /tmp/service-instance_40b12e4a-be1c-1232-ad31-12345e01b7d169_1234503T141538Z
+    $ BOSH_CLIENT_SECRET=KJsdgKJj12345jk83Hufy12345b6-34n4 \
+      bbr deployment \
+    --target 10.0.0.5 \
+    --username ops_manager \
+    --ca-cert /var/example/workspaces/default/root_ca_certificate \
+    --deployment service-instance_40b12e4a-be1c-1232-ad31-12345e01b7d123 \
+    restore --artifact-path /tmp/service-instance_40b12e4a-be1c-1232-ad31-12345e01b7d169_1234503T141538Z
     </pre>
 
 If a restore fails because there is no deployment of the name specified, then
