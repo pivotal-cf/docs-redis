@@ -50,19 +50,21 @@ You can confirm both of these using the cf CLI as follows:
         ```
         cf marketplace
         ```
+
     1. If the output lists `p.redis` in the `service` column, on-demand <%= vars.product_short %> is available.
     If the output lists `p-redis` in the `service` column, shared-VM <%= vars.product_short %> is available.
     If it is not available, ask your operator to install it.<br><br>
     For example:
-    <pre class="terminal">
-    $ cf marketplace
-    Getting services from marketplace in org my-org / space my-space as user<span>@</span>example.com...
-    OK
-    service             plans                     description
-    p-redis             shared-vm                 Redis service to provide pre-provisioned instances configured as a datastore, running on a shared VM.
-    p.redis             on-demand-cache           Redis service to provide on-demand dedicated instances configured as a cache.
-    [...]
-    </pre>
+
+        <pre class="terminal">
+        $ cf marketplace
+        Getting services from marketplace in org my-org / space my-space as user<span>@</span>example.com...
+        OK
+        service             plans                     description
+        p-redis             shared-vm                 Redis service to provide pre-provisioned instances configured as a datastore, running on a shared VM.
+        p.redis             on-demand-cache           Redis service to provide on-demand dedicated instances configured as a cache.
+        [...]
+        </pre>
 
 1. To confirm that a <%= vars.product_short %> instance is running in the space:
     1. Run:
@@ -73,13 +75,14 @@ You can confirm both of these using the cf CLI as follows:
     1. Any `p.redis` listings in the `service` column are service instances of on-demand <%= vars.product_short %> in the space.
     Any `p-redis` in the `service` column are service instances of shared-VM <%= vars.product_short %>.<br><br>
     For example:
-    <pre class="terminal">
-    $ cf services
-    Getting services in org my-org / space my-space as user<span>@</span>example.com...
-    OK
-    name          service     plan              bound apps    last operation
-    my-instance   p.redis     on-demand-cache                 create succeeded
-    </pre>
+
+        <pre class="terminal">
+        $ cf services
+        Getting services in org my-org / space my-space as user<span>@</span>example.com...
+        OK
+        name          service     plan              bound apps    last operation
+        my-instance   p.redis     on-demand-cache                 create succeeded
+        </pre>
 
 You can [bind](#bind) your app to an existing instance or [create](#create) a new instance to bind to your app.
 
@@ -104,10 +107,12 @@ To create a service instance of the <%= vars.product_short %> on-demand plan, ru
 cf create-service p.redis CACHE_PLAN SERVICE_NAME
 ```
 
-where:
+Where:
 
 * `CACHE_PLAN` is one of the plans configured by the operator.
 * `SERVICE_NAME` is a name for your service.
+
+For example:
 
 <pre class="terminal">
 $ cf create-service p.redis on-demand-cache od-instance<br>
@@ -140,10 +145,12 @@ To create a service instance of the <%= vars.product_short %> shared-VM plan, ru
 cf create-service p-redis SERVICE_TYPE SERVICE_NAME
 ```
 
-where:
+Where:
 
 * `SERVICE_TYPE` is `shared-vm`.<br>
 * `SERVICE_NAME` is a name for your service instance.
+
+For example:
 
 <pre class="terminal">
 $ cf create-service p-redis shared-vm my-instance<br>
@@ -209,7 +216,7 @@ To bind an app to a <%= vars.product_short %> service instance:
 
     For example:
 
-    <pre class=terminal>
+    <pre class="terminal">
     $ cf services
 
     Getting services in org system / space apps-manager as admin...
@@ -226,17 +233,18 @@ To bind an app to a <%= vars.product_short %> service instance:
     ```
 
     Where:
+
     * `APP` is the app you want to use the Redis service instance.<br>
     * `SERVICE_INSTANCE` is the name you supplied when you ran `cf create-service`.
 
     For example:
 
     <pre class="terminal">
-   $ cf bind-service my-app my-instance<br>
+    $ cf bind-service my-app my-instance<br>
     Binding service my-instance to my-app in org my-org / space test as user<span>@</span>example.com...
     OK
     TIP: Use 'cf push' to ensure your env variable changes take effect
-</pre>
+    </pre>
 
 ### <a id="bind-appsman"></a> Bind a Service Instance with Apps Manager
 
@@ -247,7 +255,7 @@ To bind an app to a <%= vars.product_short %> service instance:
 1. Click the **Bind** button for the Redis service you want to bind to this app.
 1. Start or restage your app from the command line, for example:
 
-    <pre class=terminal>
+    <pre class="terminal">
     $ cf restage my-app
     </pre>
 
@@ -311,18 +319,18 @@ You can customize an instance in two ways:
 
 For both scenarios, the `-c` flag requires a valid JSON object containing service-specific configuration parameters, provided either in-line or in a file.
 
-<pre class=terminal>
+<pre class="terminal">
 $ cf update-service my-instance -c '{"maxmemory-policy":"noeviction"}'
 </pre>
 
 You can pass through mutliple arbitrary parameters:
 
-<pre class=terminal>
+<pre class="terminal">
 $ cf update-service my-instance -c '{"maxmemory-policy":"noeviction", "notify-keyspace-events":"El"}'
 </pre>
 
 If the update is not successful, an error is displayed with a description of what went wrong. Here is an example where a hyphen is added to the `noeviction` setting.
-<pre class=terminal>
+<pre class="terminal">
 $ cf update-service my-instance -c '{"maxmemory-policy":"no-eviction", "notify-keyspace-events":"El"}'
 Updating service instance my-instance as admin...
 FAILED
@@ -363,7 +371,7 @@ To retrieve the password, do the following:
 
     For example:
 
-    <pre class=terminal>
+    <pre class="terminal">
     $ cf create-service-key my-instance my-key
     Creating service key my-key for service instance my-instance as admin...
     OK
@@ -377,7 +385,7 @@ To retrieve the password, do the following:
 
     For example of this procedure, where the user is `admin`:
 
-    <pre class=terminal>
+    <pre class="terminal">
     $ cf service-key my-instance my-key
     Getting key my-key for service instance my-instance as admin...
     {
@@ -507,7 +515,7 @@ To delete a service instance:
 
     For example:
 
-    <pre class=terminal>
+    <pre class="terminal">
     $ cf delete-service my-redis-instance
 
     Really delete the service my-redis-instance?> y
@@ -518,7 +526,7 @@ To delete a service instance:
 1. If you had apps that were bound to this service, you might need to restage or
 re-push your app for the app changes to take effect. For example:
 
-    <pre class=terminal>
+    <pre class="terminal">
     $ cf restage my-app
     </pre>
 
@@ -531,6 +539,6 @@ To delete a service instance:
 
 1. If you had apps that were bound to this service, you might need to restage or re-push your app for the app changes to take effect. For example:
 
-    <pre class=terminal>
+    <pre class="terminal">
     $ cf restage my-app
     </pre>

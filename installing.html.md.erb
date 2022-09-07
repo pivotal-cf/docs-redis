@@ -285,18 +285,19 @@ For how this feature works, see
 8. (Optional) Select **Yes** to enable **On Demand - Secure Service Instance Credentials with Runtime CredHub**.
 
      <p class="note">
-   <strong>Note:</strong> If you select **Yes**, you must also follow the steps in
+   <strong>Note:</strong> If you select <strong>Yes</strong>, you must also follow the steps in
            <a href="#secure-credentials">Enable Secure Service Instance Credentials
            for On-Demand Redis</a> below.
     </p>
 
 1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
-<p class="note">
-  <strong>Note:</strong>
-  Selecting <strong>TLS optional</strong> does not enforce the use of TLS. After deploying the tile, notify developers that they must unbind, bind, and restage existing service instances to ensure Spring and Steeltoe apps use TLS.
-  Further configuration might be needed for other frameworks and languages to ensure use of the TLS port.
-</p>
-<%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
+
+    <p class="note">
+      <strong>Note:</strong>
+      Selecting <strong>TLS optional</strong> does not enforce the use of TLS. After deploying the tile, notify developers that they must unbind, bind, and restage existing service instances to ensure Spring and Steeltoe apps use TLS.
+      Further configuration might be needed for other frameworks and languages to ensure use of the TLS port.
+    </p>
+    <%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
 
 ## <a id="on-demand-plan-config"></a>Configure On-Demand Plan Settings
 
@@ -684,7 +685,7 @@ All logs follow RFC5424 format.
 To configure syslog forwarding:
 
 
-<%= partial(vars.path_to_partials + '/ops-manager/syslog_bosh', :locals => { :syslog_context => vars.product_short }) %>
+<%= partial vars.path_to_partials + '/ops-manager/syslog_bosh', :locals => {:syslog_context => vars.product_short } %>
 
 ## <a id="stemcell"></a> Verify the Stemcell
 
