@@ -45,12 +45,12 @@ $ cf restage redis_example_app
 
 You can then visit the app in your browser window. The app has three entry points:
 
-*  "/" --- Gets info about a bound Redis instance
-* "/set" --- Sets a given key to a given value. E.g., {APP_URL}/set?kn=somekeyname&kv=valuetoset
-* "/get" --- Gets the value stored at a given key. E.g., {APP_URL}/get?kn=somekeyname
+* `"/"` --- Gets info about a bound Redis instance
+* `"/set"` --- Sets a given key to a given value. For example, `{APP_URL}/set?kn=somekeyname&kv=valuetoset`
+* `"/get"` --- Gets the value stored at a given key. For example, `{APP_URL}/get?kn=somekeyname`
 
 In the [application code](https://github.com/colrich/RedisForPCF-Java-Example/blob/master/src/main/java/io/pivotal/examples/RedisExample/RedisInfoController.java),
-the snippet where VCAP_SERVICES is read and parsed is here:
+the snippet where `VCAP_SERVICES` is read and parsed is here:
 
 <pre class="terminal">
 @RequestMapping("/")
@@ -111,14 +111,13 @@ $ cf bind-service redis_example_app redis_instance
 $ cf restage redis_example_app
 </pre>
 
-You can then visit the app in your browser window. The app has three entry
-points:
+You can then visit the app in your browser window. The app has three entry points:
 
-*  "/" --- Gets info about bound redis instance
-* "/set" --- Sets a given key to a given value. E.g., {APP_URL}/set?kn=somekeyname&kv=valuetoset
-* "/get" --- Gets the value stored at a given key. E.g., {APP_URL}/get?kn=somekeyname
+* `"/"` --- Gets info about bound redis instance
+* `"/set"` --- Sets a given key to a given value. For example, `{APP_URL}/set?kn=somekeyname&kv=valuetoset`
+* `"/get"` --- Gets the value stored at a given key. For example, `{APP_URL}/get?kn=somekeyname`
 
-In the [application code](https://github.com/colrich/RedisForPCF-Node-Example/blob/master/index.js), the snippet where VCAP_SERVICES is read and parsed is here:
+In the [application code](https://github.com/colrich/RedisForPCF-Node-Example/blob/master/index.js), the snippet where `VCAP_SERVICES` is read and parsed is here:
 
 <pre class="terminal">
 // parses the VCAP_SERVICES env var and looks for redis service instances
@@ -209,7 +208,7 @@ $ curl -X DELETE $APP/foo
 success
 </pre>
 
-In the [application code](https://github.com/pivotal-cf/cf-redis-example-app/blob/master/lib/app.rb), the method where VCAP_SERVICES is read is here:
+In the [application code](https://github.com/pivotal-cf/cf-redis-example-app/blob/master/lib/app.rb), the method where `VCAP_SERVICES` is read is here:
 
 <pre class="terminal">
 def redis_credentials
@@ -227,7 +226,7 @@ def redis_credentials
 end
 </pre>
 
-The method where VCAP_SERVICES is parsed is here:
+The method where `VCAP_SERVICES` is parsed is here:
 
 <pre class="terminal">
 def redis_client

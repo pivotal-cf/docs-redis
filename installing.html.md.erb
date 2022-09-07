@@ -262,20 +262,24 @@ Canaries are service instances that are upgraded first.
 The upgrade fails if any canaries fail to upgrade. <br><br>
 You can limit canaries by number and by org and space.
 To use all service instances in an org and space as canaries,
-set the number of canaries to zero. This upgrades all service instances in the selected org and space first.<br><br>
-  ![canary-options](images/canary-options.png)
-  <p class="note"><strong>Note:</strong>
-    If you specify that canaries should be limited to an org and space that has
-    no service instances, the upgrade fails.
-  </p>
-  <p class="note"><strong>Note:</strong>
-    Canary upgrades comply with the Maximum Parallel Upgrades settings.
-    If you specify three canaries and a Maximum Parallel Upgrades of two,
-    then two canaries upgrade, followed by the third.
-  </p>
-For information about this feature, see `canaries` in
-[Upgrade All Service Instances](https://docs.pivotal.io/svc-sdk/odb/operating.html#upgrade-all-instances)
-in the On-Demand Services SDK documentation.
+set the number of canaries to zero. This upgrades all service instances in the selected org and space first.
+
+    ![canary-options](images/canary-options.png)
+
+    <p class="note"><strong>Note:</strong>
+      If you specify that canaries should be limited to an org and space that has
+      no service instances, the upgrade fails.
+    </p>
+
+    <p class="note"><strong>Note:</strong>
+      Canary upgrades comply with the Maximum Parallel Upgrades settings.
+      If you specify three canaries and a Maximum Parallel Upgrades of two,
+      then two canaries upgrade, followed by the third.
+    </p>
+    
+    For information about this feature, see `canaries` in
+    [Upgrade All Service Instances](https://docs.pivotal.io/svc-sdk/odb/operating.html#upgrade-all-instances)
+    in the On-Demand Services SDK documentation.
 
 1. (Optional) Select the checkbox to enable **BOSH HotSwaps**.
 This reduces downtime during upgrades.
