@@ -272,7 +272,7 @@ set the number of canaries to zero. This upgrades all service instances in the s
       If you specify that canaries should be limited to an org and space that has
       no service instances, the upgrade fails.
     </p>
-    
+
     <p class="note"><strong>Note:</strong>
       Canary upgrades comply with the Maximum Parallel Upgrades settings.
       If you specify three canaries and a Maximum Parallel Upgrades of two,
@@ -297,6 +297,7 @@ For how this feature works, see
     </p>
 
 1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
+
     <%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
 
 1. (Optional) If you selected the **Optional** option under **Enable TLS**, select the check box next
