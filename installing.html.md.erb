@@ -257,16 +257,18 @@ Canaries are service instances that are upgraded first.
 The upgrade fails if any canaries fail to upgrade. <br><br>
 You can limit canaries by number and by org and space.
 To use all service instances in an org and space as canaries,
-set the number of canaries to zero. This upgrades all service instances in the selected org and space first.<br><br>
-  ![A flowchart that describes canary options. See below for a detailed description.](images/canary-options.png)
-  The flowchart above has the following information:
-    - Is the org and space specified?
-        - **Yes**: Is the number of canaries specified?
-          - **Yes**: The number of canaries is limited by org and space.
-          - **No**: All canaries from the org and space.
-        - **No**: Is the number of canaries specified?
-          - **Yes**: The number of canaries is chosen non-deterministically.
-          - **No**: No canaries.
+set the number of canaries to zero. This upgrades all service instances in the selected org and space first.
+
+    ![A flowchart that describes canary options. See below for a detailed description.](images/canary-options.png)
+
+    The flowchart above has the following information:
+      - Is the org and space specified?
+          - **Yes**: Is the number of canaries specified?
+            - **Yes**: The number of canaries is limited by org and space.
+            - **No**: All canaries from the org and space.
+          - **No**: Is the number of canaries specified?
+            - **Yes**: The number of canaries is chosen non-deterministically.
+            - **No**: No canaries.
 
     <p class="note"><strong>Note:</strong>
       If you specify that canaries should be limited to an org and space that has
@@ -290,15 +292,13 @@ For how this feature works, see
 
 8. (Optional) Select **Yes** to enable **On Demand - Secure Service Instance Credentials with Runtime CredHub**.
 
-     <p class="note">
-   <strong>Note:</strong> If you select <strong>Yes</strong>, you must also follow the steps in
-           <a href="#secure-credentials">Enable Secure Service Instance Credentials
-           for On-Demand Redis</a> below.
+    <p class="note">
+      <strong>Note:</strong> If you select <strong>Yes</strong>, you must also follow the steps in
+      <a href="#secure-credentials">Enable Secure Service Instance Credentials
+      for On-Demand Redis</a> below.
     </p>
 
-1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
-
-    <%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
+1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS. <%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
 
 1. (Optional) If you selected the **Optional** option under **Enable TLS**, select the check box next
 to each TLS version you want to support.
