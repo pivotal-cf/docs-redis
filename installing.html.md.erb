@@ -289,32 +289,33 @@ For how this feature works, see
 8. (Optional) Select **Yes** to enable **On Demand - Secure Service Instance Credentials with Runtime CredHub**.
 
      <p class="note">
-   <strong>Note:</strong> If you select **Yes**, you must also follow the steps in
+   <strong>Note:</strong> If you select <strong>Yes</strong>, you must also follow the steps in
            <a href="#secure-credentials">Enable Secure Service Instance Credentials
            for On-Demand Redis</a> below.
     </p>
 
 1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
-<p class="note">
-  <strong>Note:</strong>
-  Selecting <strong>TLS optional</strong> does not enforce the use of TLS. After deploying the tile, notify developers that they must unbind, bind, and restage existing service instances to ensure Spring and Steeltoe apps use TLS.
-  Further configuration might be needed for other frameworks and languages to ensure use of the TLS port.
-</p>
-<%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
+
+    <p class="note">
+      <strong>Note:</strong>
+      Selecting <strong>TLS optional</strong> does not enforce the use of TLS. After deploying the tile, notify developers that they must unbind, bind, and restage existing service instances to ensure Spring and Steeltoe apps use TLS.
+      Further configuration might be needed for other frameworks and languages to ensure use of the TLS port.
+    </p>
+    <%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
 
 1. (Optional) If you selected the **Optional** option under **Enable TLS**, enable the checkbox next
 to each TLS version you want to support.
 VMware recommends supporting TLS v1.1 and later. VMware does not recommend supporting TLS v1.0
 because it is less secure than later versions, but it is an option for apps that only support this
 protocol.
-<p class="note">
-  <strong>Note:</strong> After selecting a TLS version, VMware recommends generating a new service
-  key and then rebinding the service instance with the new service key.
-  This makes the service key's <code>tls_versions</code> field reflect the new TLS version, which can
-  help developers who use the service key to see the supported TLS version.
-  To create a new service key, follow the steps in <a href="./appdevs.html#check-availability-tls">Check Availability</a>.
-  To rebind the instance, follow the steps in <a href="./appdevs.html#existing-apps">Bind Existing Apps with TLS</a>.
-</p>
+    <p class="note">
+      <strong>Note:</strong> After selecting a TLS version, VMware recommends generating a new service
+      key and then rebinding the service instance with the new service key.
+      This makes the service key's <code>tls_versions</code> field reflect the new TLS version, which can
+      help developers who use the service key to see the supported TLS version.
+      To create a new service key, follow the steps in <a href="./appdevs.html#check-availability-tls">Check Availability</a>.
+      To rebind the instance, follow the steps in <a href="./appdevs.html#existing-apps">Bind Existing Apps with TLS</a>.
+    </p>
 
 1. (Optional) To add an endpoint to service instances for developers to query Redis
 configuration parameters, select the **Enable Config API** checkbox.
@@ -708,7 +709,7 @@ All logs follow RFC5424 format.
 To configure syslog forwarding:
 
 
-<%= partial(vars.path_to_partials + '/ops-manager/syslog_bosh', :locals => { :syslog_context => vars.product_short }) %>
+<%= partial vars.path_to_partials + '/ops-manager/syslog_bosh', :locals => {:syslog_context => vars.product_short } %>
 
 ## <a id="stemcell"></a> Verify the Stemcell
 
