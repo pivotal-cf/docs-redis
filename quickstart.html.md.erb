@@ -23,7 +23,7 @@ The credentials are available to the app once a <%= vars.product_short %> instan
 Prerequisites for these examples include access to a Marketplace with `p-redis` or `p.redis`.
 For reference, `p.redis` refers to the Redis service that provides on-demand
 instances and `p-redis` refers to the Redis service that provides shared-VM instances.
-Any service offering and plan work with the following examples. 
+Any service offering and plan work with the following examples.
 You can view available plans and instance types in the Marketplace.
 
 ### <a id="java-quickstart"></a> Quickstart Java App
@@ -33,7 +33,7 @@ Prerequisites include [Maven](https://maven.apache.org/install.html).
 
 Here we use an on-demand-cache plan of the `p.redis` service, but a `p-redis` instance also works.
 
-<pre class=terminal>
+<pre class="terminal">
 $ git clone git@github.com:colrich/RedisForPCF-Java-Example.git java_redis_app
 $ cd java_redis_app
 $ mvn package
@@ -52,7 +52,7 @@ You can then visit the app in your browser window. The app has three entry point
 In the [application code](https://github.com/colrich/RedisForPCF-Java-Example/blob/master/src/main/java/io/pivotal/examples/RedisExample/RedisInfoController.java),
 the snippet where VCAP_SERVICES is read and parsed is here:
 
-<pre class=terminal>
+<pre class="terminal">
 @RequestMapping("/")
 public RedisInstanceInfo getInfo() {
     LOG.log(Level.WARNING, "Getting Redis Instance Info in Spring controller...");
@@ -102,7 +102,7 @@ Prerequisites are the `cf cli` and access to a Marketplace with p-redis or p.red
 
 Here we use an on-demand-cache plan for the `p.redis` service, but a `p-redis` instance also works.
 
-<pre class=terminal>
+<pre class="terminal">
 $ git clone git@github.com:colrich/RedisForPCF-Node-Example.git node_redis_app
 $ cd node_redis_app
 $ cf create-service p.redis on-demand-cache redis_instance
@@ -120,7 +120,7 @@ points:
 
 In the [application code](https://github.com/colrich/RedisForPCF-Node-Example/blob/master/index.js), the snippet where VCAP_SERVICES is read and parsed is here:
 
-<pre class=terminal>
+<pre class="terminal">
 // parses the VCAP_SERVICES env var and looks for redis service instances
 function getVcapServices() {
   var vcstr = process.env.VCAP_SERVICES;
@@ -188,7 +188,7 @@ app.get('/', function(request, response) {
 This is a basic ruby app with the capability to get and set keys in Redis and view configuration information.
 Here we use an instance of the shared-VM service, but any `p-redis` or `p.redis` instance works.
 
-<pre class=terminal>
+<pre class="terminal">
 $ git clone git@github.com:pivotal-cf/cf-redis-example-app.git ruby_redis_app
 $ cd ruby_redis_app
 $ cf create-service p-redis shared-vm redis_instance
@@ -199,7 +199,7 @@ $ cf start redis_example_app"
 
 You can then get, set, and delete keys:
 
-<pre class=terminal>
+<pre class="terminal">
 $ export APP=redis-example-app.my-cloud-foundry.com
 $ curl -X PUT $APP/foo -d 'data=bar'
 success
@@ -211,7 +211,7 @@ success
 
 In the [application code](https://github.com/pivotal-cf/cf-redis-example-app/blob/master/lib/app.rb), the method where VCAP_SERVICES is read is here:
 
-<pre class=terminal>
+<pre class="terminal">
 def redis_credentials
   service_name = ENV['service_name'] || "redis"
 
@@ -229,7 +229,7 @@ end
 
 The method where VCAP_SERVICES is parsed is here:
 
-<pre class=terminal>
+<pre class="terminal">
 def redis_client
   @client ||= Redis.new(
     host: redis_credentials.fetch('host'),
@@ -349,7 +349,7 @@ The name of our class (Initializer) does not matter. What is important is that w
 At this stage, Spring Session is now configured to use a Redis instance.
 To use a <%= vars.product_short %> instance, create a `session-replication` tag for it.
 
-<pre class=terminal>$ cf update-service INSTANCE_NAME -t session-replication</pre>
+<pre class="terminal">$ cf update-service INSTANCE_NAME -t session-replication</pre>
 
 ### <a id ="spring_redis_considerations"></a>Other Considerations
 

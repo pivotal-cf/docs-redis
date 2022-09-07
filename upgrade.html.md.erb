@@ -35,23 +35,23 @@ To upgrade to the latest version of <%= vars.product_short %>:
 
 1. (Optional) To enable TLS:
   1.  Follow the procedures in [Preparing for TLS](./preparing-tls.html).
-    <p class="note"> <strong>Note:</strong>
-      In most cases, enabling TLS does not noticeably reduce performance. Performance impact depends on the health of resources, such as network infrastructure and application architecture.
-    </p>
+      <p class="note"> <strong>Note:</strong>
+        In most cases, enabling TLS does not noticeably reduce performance. Performance impact depends on the health of resources, such as network infrastructure and application architecture.
+      </p>
   1. In the <%= vars.product_short %> tile, select **On-Demand Service Settings**.
   1. Under **Enable TLS**, select **Optional**.
   1. Enable the checkbox next to each TLS version you want to support.
   VMware recommends supporting TLS v1.1 and later. VMware does not recommend supporting TLS v1.0
   because it is less secure than later versions, but it is an option for apps that only support this
   protocol.
-    <p class="note">
-      <strong>Note:</strong> After selecting a TLS version, VMware recommends generating a new service
-      key and then rebinding the service instance with the new service key.
-      This makes the service key's <code>tls_versions</code> field reflect the new TLS version, which
-      can help developers who use the service key to see the supported TLS version.
-      To create a new service key, follow the steps in <a href="./appdevs.html#check-availability-tls">Check Availability</a>.
-      To rebind the instance, follow the steps in <a href="./appdevs.html#existing-apps">Bind Existing Apps with TLS</a>.
-    </p>
+      <p class="note">
+        <strong>Note:</strong> After selecting a TLS version, VMware recommends generating a new service
+        key and then rebinding the service instance with the new service key.
+        This makes the service key's <code>tls_versions</code> field reflect the new TLS version, which
+        can help developers who use the service key to see the supported TLS version.
+        To create a new service key, follow the steps in <a href="./appdevs.html#check-availability-tls">Check Availability</a>.
+        To rebind the instance, follow the steps in <a href="./appdevs.html#existing-apps">Bind Existing Apps with TLS</a>.
+      </p>
 
   1. Click **Save**.
 
