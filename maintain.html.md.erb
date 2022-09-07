@@ -214,8 +214,11 @@ To run the smoke tests errand manually:
   1. From the <%= vars.ops_manager %> UI, click the <%= vars.product_short %> tile.
   1. Copy the part of the URL that starts with "p-redis-".
 
-1. Run the smoke tests errand: <br>
-`bosh -d REDIS-DEPLOYMENT-NAME run-errand smoke-tests`
+1. Run the smoke tests errand:
+
+    ```
+    bosh -d REDIS-DEPLOYMENT-NAME run-errand smoke-tests
+    ```
 
 For more information, see [<%= vars.product_short %> Smoke Tests](./smoke-tests.html).
 
