@@ -26,7 +26,7 @@ template_variables:
   global_header_product_link_text: Downloads
 
   # VMware Tanzu Variables
-
+  company_name: VMware
   product_full: Redis for VMware Tanzu Application Service
   product_short: Redis for Tanzu Application Service
   product_abbr: Redis for VMware Tanzu Application Service
