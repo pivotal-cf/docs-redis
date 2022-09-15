@@ -309,7 +309,7 @@ to each TLS version you want to support.
       <strong>Note:</strong>
       Selecting <strong>TLS optional</strong> does not enforce the use of TLS. After deploying the tile, notify developers that they must unbind, bind, and restage existing service instances to ensure Spring and Steeltoe apps use TLS.
       Further configuration might be needed for other frameworks and languages to ensure use of the TLS port.
-    </p>
+    </p><%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
 
 1. (Optional) If you selected the **Enforced** option under **Enable TLS**, enable the checkbox next
 to each TLS version you want to support. The **Enforced** option requires TLS to be enabled.
