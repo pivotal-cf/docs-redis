@@ -55,8 +55,8 @@ subsequent retries are at 0.2s, 0.6s, 1.2s and so on until either the command su
 
 The linear back-off was selected as a good middle ground between:
 
-- Situations where the system is generally unstable-such as load-balancing issues-where max number of retries are preferred, and
-- Situations where the system is experiencing a failure that lasts a few seconds-such as restart of a Cloud Foundry VM
+- Situations where the system is generally unstable, such as load-balancing issues, where max number of retries are preferred.
+- Situations where the system is experiencing a failure that lasts a few seconds, such as restart of a Cloud Foundry VM,
   where it is preferable to wait before reattempting the command.
 
 ### Considerations
