@@ -63,8 +63,8 @@ The linear back-off was selected as a good middle ground between:
 
 The above retry policy does not guard against a more permanent Cloud Foundry downtime or network connectivity issues.
 In this case, commands fail after the maximum number of attempts and might leave claimed instances behind.
-Pivotal recommends disabling automatic smoke test runs and manually releasing any claimed instances
-in case of upgrades or scheduled downtimes.
+Pivotal recommends deactivating automatic smoke tests, and manually releasing any claimed instances
+in case of upgrades or scheduled downtime.
 
 ## <a id="troubleshooting"></a> Troubleshooting
 

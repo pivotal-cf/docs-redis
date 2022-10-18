@@ -84,15 +84,15 @@ For more information, see [Configure Shared-VM Plan Settings](./installing.html#
 
 ## <a id="lua-scripting"></a> Lua Scripting
 
-You can enable or disable Lua scripting. Changes to this configuration apply to all existing shared-VM
+You can activate or deactivate Lua scripting. Changes to this configuration apply to all existing shared-VM
 instances. Lua scripting can adversely affect the performance of other service instances on the VM, so
-Pivotal recommends disabling Lua scripting unless developers need it enabled.
+Pivotal recommends deactivating Lua scripting unless developers need it enabled.
 For more information, see [Configure Shared-VM Plan Settings](./installing.html#shared-vm-config).
 
 <p class="note warning"><strong>Warning:</strong>
   The Steeltoe connector for Redis requires <%= vars.product_short %> to support Lua scripting.
   Check if any of your apps require Lua scripting.
-  By default, Lua scripting is disabled for <%= vars.product_short %>, but a <%= vars.platform_name %> operator can
+  By default, Lua scripting is deactivated for <%= vars.product_short %>, but a <%= vars.platform_name %> operator can
   change the setting to enable it by selecting the <strong>Lua Scripting</strong> checkbox in the
   Shared-VM Plan configuration pane.
 </p>

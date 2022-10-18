@@ -310,7 +310,7 @@ For how this feature works, see
       <strong>Note:</strong>
       Selecting <strong>TLS optional</strong> does not enforce the use of TLS. After deploying the tile, notify developers that they must unbind, bind, and restage existing service instances to ensure Spring and Steeltoe apps use TLS.
       Further configuration might be needed for other frameworks and languages to ensure use of the TLS port.
-    </p><%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
+    </p><%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
 
 ## <a id="on-demand-plan-config"></a>Configure On-Demand Plan Settings
 
@@ -411,7 +411,7 @@ To add and configure each on-demand service plan:
     <tr>
       <td><strong>Lua Scripting</strong></td>
       <td>Disabled</td>
-      <td>Pivotal recommends keeping Lua scripting disabled unless developers are running apps that require Lua scripting, such as .Net Steeltoe apps.<br>
+      <td>Pivotal recommends keeping Lua scripting deactivated unless developers are running apps that require Lua scripting, such as .Net Steeltoe apps.<br>
       Verify that your apps are using a language that does not require Lua scripting.</td>
     </tr>
     </table>
@@ -522,8 +522,8 @@ To configure shared-VM service plans:
 1.  Configure these fields:
       * **Redis Instance Memory Limit**---Maximum memory used by a shared-VM instance.
       * **Redis Service Instance Limit**---Maximum number of shared-VM instances.
-      * **Lua Scripting**---Enable or disable Lua Scripting as needed.
-      Pivotal recommends that Lua Scripting is disabled unless developers need it to be enabled.
+      * **Lua Scripting**---Activate or deactivate Lua Scripting as needed.
+      Pivotal recommends that Lua Scripting is deactivated unless developers need it to be enabled.
 
  	Memory and instance limits depend on the total system memory of your Redis broker VM and require some
  	additional calculation. For more information, see [Memory Limits for Shared-VM Plans](#shared-vm-memory-limits) below.
@@ -656,9 +656,9 @@ The following are the default resource and IP requirements for <%= vars.product_
 
 Pivotal recommends that the persistent disk is at least 3.5x the VM memory for the shared-VM.
 
-### <a id="disable-shared"></a>Disable Shared VM Plans
+### <a id="deactivate-shared"></a>Deactivate Shared VM Plans
 
-You can disable shared-VM plans by doing the following while configuring the Redis tile:
+You can deactivate shared-VM plans by doing the following while configuring the Redis tile:
 
 1. Ensure at least one on-demand plan is active.
 
