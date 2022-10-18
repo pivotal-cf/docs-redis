@@ -163,7 +163,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 - [Orphaned Instances: BOSH Director Cannot See Your Instances](#orphaned-bosh)
 - [Orphaned Instances: Pivotal Platform Cannot See Your Instances](#orphaned-pcf)
 - [Failed to Set Credentials in Runtime CredHub](#credhub-error)
-- [Service Outage after Disabling TLS](#disabling-tls)
+- [Service Outage after Deactivating TLS](#deactivating-tls)
 
 <a name="corrupt-aof"></a>
 <table class="nice">
@@ -569,7 +569,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   </tr>
 </table>
 
-<a name="disabling-tls"></a>
+<a name="deactivating-tls"></a>
 <table class="nice">
   <style>
     main table {
@@ -581,23 +581,23 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   <tr>
   <th colspan="2" style="text-align: left;">
     <br>
-    Service Outage after Disabling TLS
+    Service Outage after Deactivating TLS
     <br><br>
   </th>
   </tr>
   <tr>
     <th>Symptom</th>
-    <td>After disabling TLS, apps that require on-demand Redis service instances become unresponsive.</td>
+    <td>After deactivating TLS, apps that require on-demand Redis service instances become unresponsive.</td>
   </tr>
   <tr>
     <th>Cause</th>
     <td>
-      When TLS is first enabled, all on-demand service instances are re-created with two ports.
+      When TLS is first activated, all on-demand service instances are re-created with two ports.
       Every new or re-created app receives the new credentials.
-      Spring and Steeltoe apps are configured for enabled TLS by default, but other
+      Spring and Steeltoe apps are configured for activated TLS by default, but other
       languages and frameworks require further configuration.
       <br><br>
-      When TLS is disabled, the TLS port is removed from all on-demand instances.
+      When TLS is deactivated, the TLS port is removed from all on-demand instances.
       This prevents the apps from connecting to the instance.
     </td>
   </tr>
@@ -605,11 +605,11 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
     <th style="vertical-align: top; padding-top: 1em;">Solution</th>
     <td>
       <p>
-        First, consider enabling TLS.
-        The compliance body that oversees your apps might require TLS to be enabled.
-        Also, switching between enabled and disabled TLS incurs downtime.
+        First, consider activating TLS.
+        The compliance body that oversees your apps might require TLS to be activated.
+        Also, switching between activated and deactivated TLS incurs downtime.
       </p>
-      <p>To enable TLS, follow these steps:</p>
+      <p>To activate TLS, follow these steps:</p>
       <ol>
         <li>In your <%= vars.ops_manager %> home page, select the <strong>Redis</strong> tile.</li>
         <li>Navigate to <strong>On-Demand Service Settings.</strong></li>
@@ -624,14 +624,14 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
           Redis section and then click <strong>Apply Changes</strong>.
         </li>
       </ol>
-      <p>To continue with TLS disabled, follow these steps:</p>
+      <p>To continue with TLS deactivated, follow these steps:</p>
       <ol>
         <li>
-          Unbind, bind, and re-stage every app that was affected by disabling TLS.
+          Unbind, bind, and re-stage every app that was affected by deactivating TLS.
           For more information, see <a href="./appdevs.html">Introduction for App Developers</a>.
           This makes Spring and Steeltoe apps default to non-TLS configuration.
         </li>
-        <li>Manually configure any other relevant languages and frameworks to work with TLS disabled.</li>
+        <li>Manually configure any other relevant languages and frameworks to work with TLS deactivated.</li>
       </ol>
     </td>
   </tr>

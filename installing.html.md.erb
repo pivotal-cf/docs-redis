@@ -299,7 +299,7 @@ For how this feature works, see
       for On-Demand Redis</a> below.
     </p>
 
-1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.<%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
+1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.<%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
 
 1. (Optional) If you selected the **Optional** option under **Enable TLS**, select the check box next
 to each TLS version you want to support.
@@ -442,13 +442,13 @@ To add and configure each on-demand service plan:
     </tr>
     <tr>
       <td><strong>Lua Scripting</strong></td>
-      <td>Disabled</td>
-      <td>VMware recommends keeping Lua scripting disabled unless developers are running apps that require Lua scripting, such as .Net Steeltoe apps.<br>
+      <td>Deactivated</td>
+      <td>VMware recommends keeping Lua scripting deactivated unless developers are running apps that require Lua scripting, such as .Net Steeltoe apps.<br>
       Verify that your apps are using a language that does not require Lua scripting.</td>
     </tr>
     <tr>
       <td><strong>Paid Plan</strong></td>
-      <td>Disabled</td>
+      <td>Deactivated</td>
       <td>Select this check box to indicate that this service plan is paid.
         The plan is marked with an asterisk in the <code>cf marketplace</code> list and labeled
         "paid" in the "free or paid" column when individual plans are listed.</td>
@@ -560,8 +560,8 @@ To configure shared-VM service plans:
 1.  Configure these fields:
       * **Redis Instance Memory Limit**---Enter the maximum memory used by a shared-VM instance, for example 512&nbsp;MB.
       * **Redis Service Instance Limit**---Enter the maximum number of shared-VM instances.
-      * **Lua Scripting**---Enable or disable Lua Scripting as needed using this checkbox.
-      VMware recommends that Lua Scripting is disabled unless developers need it to be enabled.
+      * **Lua Scripting**---Activate or deactivate Lua Scripting as needed using this checkbox.
+      VMware recommends that Lua Scripting is deactivated unless developers need it to be enabled.
 
  	Memory and instance limits depend on the total system memory of your Redis broker VM and require some
  	additional calculation. For more information, see [Memory Limits for Shared-VM Plans](#shared-vm-memory-limits) below.
@@ -695,9 +695,9 @@ The following are the default resource and IP requirements for <%= vars.product_
 
 VMware recommends that the persistent disk is at least 3.5x the VM memory for the shared-VM.
 
-### <a id="disable-shared"></a>Disable Shared VM Plans
+### <a id="deactivate-shared"></a>Deactivate Shared VM Plans
 
-You can disable shared-VM plans by doing the following while configuring the Redis tile:
+You can deactivate shared-VM plans by doing the following while configuring the Redis tile:
 
 1. Ensure at least one on-demand plan is active.
 
