@@ -13,7 +13,7 @@ This section contains the upgrade procedure and upgrade paths for <%= vars.produ
 
 ## <a id="upgrades"></a> Upgrade <%= vars.product_short %>
 
-<%= partial vars.path_to_partials + '/redis/warning-disabling-tls' %>
+<%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
 
 This product enables a reliable upgrade experience between versions of the product
 deployed through <%= vars.ops_manager %>.
@@ -89,9 +89,9 @@ If not, click **Apply changes** to run the `upgrade-all-service instances` erran
 
 1. Select **Off** for the **Upgrade All On-Demand Service Instances** errand:
 
-    <img src="./images/upgrade-all-disabled.png" alt="The 'Errands' pane in Ops Manager.
+    <img src="./images/upgrade-all-deactivated.png" alt="The 'Errands' pane in Ops Manager.
     The 'Upgrade All On-Demand Service Instances' section is shown, and 'Off' is selected.">
-    <a href="./images/upgrade-all-disabled.png" target="_blank" aria-hidden="true">
+    <a href="./images/upgrade-all-deactivated.png" target="_blank" aria-hidden="true">
       Click here to view a larger version of this image</a>
 
 1. Click **Save**.
@@ -138,7 +138,7 @@ of the <%= vars.product_short %> tile.
 In the <%= vars.app_runtime_full %> tile, changes to any of the following properties can trigger downtime:
 
 * `$runtime.system_domain`---Runtime System Domain
-* `..cf.ha_proxy.skip_cert_verify.value`---Disable SSL certificate verification for this environment in <%= vars.app_runtime_abbr %>
+* `..cf.ha_proxy.skip_cert_verify.value`---Deactivate SSL certificate verification for this environment in <%= vars.app_runtime_abbr %>
 * `$runtime.apps_domain`---Runtime Apps Domain
 * `..cf.nats.ips`---NATS Resource Config
 * `$self.service_network`---Service Networks in <%= vars.ops_manager %>
