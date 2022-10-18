@@ -83,7 +83,7 @@ the communication with service instances remains unchanged from <%= vars.product
 The diagram below shows how apps communicate with on-demand Redis instances when you set TLS to **Not Configured**.
 
 ![From an app that is bound to a Redis instance, a red arrow labeled 'Unsecured traffic'
-points from the app directly to Redis.](images/tls_disabled.png)
+points from the app directly to Redis.](images/tls_deactivated.png)
 
 The bound app connects directly to the Redis service on the on-demand Redis service instance VM.
 The traffic on this connection is unsecured.
@@ -151,7 +151,7 @@ For information about setting quotas, see [Setting Limits for On-Demand Service 
 * Instances are provisioned based on the [On-Demand Services SDK](http://docs.pivotal.io/on-demand-service-broker/)
 and service broker adapter associated with this plan.
 * `maxmemory` in `redis.conf` is set to 45% of the system memory.
-* Any on-demand plan can be disabled from the plan page in <%= vars.ops_manager %>.
+* Any on-demand plan can be deactivated from the plan page in <%= vars.ops_manager %>.
 
 ### <a id="limitations"></a> Known Limitations for On-Demand Service Plans
 

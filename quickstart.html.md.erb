@@ -355,7 +355,7 @@ To use a <%= vars.product_short %> instance, create a `session-replication` tag 
 The `RedisHttpSessionConfiguration` tries to use the Redis CONFIG command.
 The CONFIG command is not available due to security recommendations.
 
-This feature can be disabled by exposing `ConfigureRedisAction.NO_OP` as a bean:
+This feature can be deactivated by exposing `ConfigureRedisAction.NO_OP` as a bean:
 
 <pre><code>
 @Bean
@@ -364,6 +364,6 @@ public static ConfigureRedisAction configureRedisAction() {
 }
 </code></pre>
 
-However, disabling the configuration means that Redis cannot send namespace notifications.
+However, deactivating the configuration means that Redis cannot send namespace notifications.
 This functionality is critical for apps that require `SessionDestroyedEvent` to be fired to clean up resources,
 such as for WebSocket apps to ensure open WebSockets are closed when the `HttpSession` expires.
