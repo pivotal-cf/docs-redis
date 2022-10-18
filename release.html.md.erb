@@ -1,36 +1,29 @@
 ---
-title: Redis for Pivotal Platform Release Notes
+title: Redis for VMware Tanzu Application Service Release Notes
 owner: London Services
 ---
 
 <strong><%= modified_date %></strong>
 
-<%= partial vars.path_to_partials + '/branding-change' %>
-
-<%= partial vars.path_to_partials + '/pcf-name-change' %>
-
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
-## <a id="lts"></a> Long-Term Support for <%= vars.product_full %> v2.3
+## <a id="3-2-0"></a> v3.2.0
 
-<%= partial vars.path_to_partials + '/services/services-lts-notice', :locals => {
-  :eogs_date => "April 2024", :product_version => "2.3"} %>
+**Release Date: MMM DD, YYYY**
 
-## <a id="2-3-8"></a>v2.3.8
+### Features
 
-**Release Date: April 25, 2022**
+New features and changes in this release:
 
-### Security Fixes
-
-This release includes the following security fix:
-
-* **runc:** Updated nginx from v1.16.x to v1.21.x to address [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).
+* **Run-in header:** Description
+* **Run-in header:** Description
 
 ### Resolved Issues
 
-This release has the following fix:
+This release has the following fixes:
 
-* **The test app no longer fails to start:** The timeout for smoke tests has been increased so that the test app can now start without an error.
+* **Run-in header:** Description
+* **Run-in header:** Description
 
 ### Known Issues
 
@@ -41,710 +34,50 @@ There are no known issues for this release.
 The following components are compatible with this release:
 
 <table border="1" class="nice">
-  <tr>
+<tr>
     <th>Component</th>
     <th>Version</th>
-  </tr>
-  <tr>
+</tr>
+<tr>
     <td>Stemcell</td>
-    <td>621.x</td>
-  </tr>
-  <tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, 2.9.x, 2.10.x, and 2.11.x</td>
-  </tr>
-  <tr>
+    <td>621.245</td>
+</tr>
+<tr>
+    <td><%= vars.app_runtime_full %></td>
+    <td>2.11, 2.12, 2.13</td>
+</tr>
+<tr>
     <td>shared-redis-release</td>
     <td>437.0.29</td>
-  </tr>
-  <tr>
+</tr>
+<tr>
     <td>on-demand-service-broker</td>
     <td>0.42.4</td>
-  </tr>
-  <tr>
-    <td>routing</td>
-    <td>0.231.0</td>
-  </tr>
-  <tr>
-    <td>service-metrics</td>
-    <td>2.0.15</td>
-  </tr>
-  <tr>
-    <td>service-backup</td>
-    <td>18.4.0</td>
-  </tr>
-  <tr>
-    <td>loggregator-agent</td>
-    <td>6.3.11</td>
-  </tr>
-  <tr>
-    <td>bpm</td>
-    <td>1.1.16</td>
-  </tr>
-  <tr>
-    <td>Redis OSS</td>
-    <td>5.0.14</td>
-  </tr>
-</table>
-
-## <a id="2-3-7"></a>v2.3.7
-
-**Release Date: March 7, 2022**
-
-### Resolved Issues
-
-This release has the following fix:
-
-* **The Shared-VM Broker Registrar errand no longer fails with Ruby Buildpack v1.8.50:**
-The errand now succeeds when pushing the test app with Ruby Buildpack v1.8.50.
-This was resolved by deleting the `.bundle` directory and the `BUNDLED_WITH` version
-specification from the `Gemfile.lock` file on the test app.
-
-### Known Issues
-
-This release has the following issue:
-
-* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
-The user receives a general error.
-
-### Compatibility
-
-The following components are compatible with this release:
-
-<table border="1" class="nice">
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  <tr>
-    <td>Stemcell</td>
-    <td>621.x</td>
-  </tr>
-  <tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, 2.9.x, 2.10.x, and 2.11.x</td>
-  </tr>
-  <tr>
-    <td>shared-redis-release</td>
-    <td>437.0.27</td>
-  </tr>
-  <tr>
-    <td>on-demand-service-broker</td>
-    <td>0.42.4</td>
-  </tr>
-  <tr>
-    <td>routing</td>
-    <td>0.229.0</td>
-  </tr>
-  <tr>
-    <td>service-metrics</td>
-    <td>2.0.15</td>
-  </tr>
-  <tr>
-    <td>service-backup</td>
-    <td>18.4.0</td>
-  </tr>
-  <tr>
-    <td>loggregator-agent</td>
-    <td>6.3.8</td>
-  </tr>
-  <tr>
-    <td>bpm</td>
-    <td>1.1.16</td>
-  </tr>
-  <tr>
-    <td>Redis OSS</td>
-    <td>5.0.13</td>
-  </tr>
-</table>
-
-## <a id="2-3-6"></a>v2.3.6
-
-**Release Date: August 17, 2021**
-
-### Security Fixes
-
-This release includes the following security fix:
-
-* **runc:** Updated to v1.10-rc95 to address [CVE-2021-30465](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-30465).
-
-### Resolved Issues
-
-This release has the following fixes:
-
-* **A log error related to an unused component no longer appears:**<br>
-This error sometimes appeared in logs as: `{"error":"Get /v2/info: unsupported protocol scheme "\""}}`.
-
-* **Backups of shared-redis plans are working as intended:**
-This issue did not affect on-demand plans. It only affected backups of shared-redis plans on newer
-deployments of the <%= vars.product_short %> tile.<br><br>
-In the following <%= vars.product_short %> versions, backups were configured through a persistent `statefile.json` created by the <%= vars.product_short %> tile:
-
-    * v2.2.2
-    * v2.2.1
-    * v2.2.0
-    * v2.1.4
-    * v2.0.6
-
-    This is not true for later <%= vars.product_short %> versions. However, backups of shared-redis
-plans for these later versions still depended on the existence of that `statefile.json` file.<br>
-This meant installations of <%= vars.product_short %> that had created this file, and later been upgraded, persisted the file and worked as expected. Meanwhile, newer installations of
-<%= vars.product_short %> failed to backup shared-redis instances.<br><br>
-This error sometimes appeared in logs as:
-`{"message": "ServiceBackup.WithIdentifier.Perform backup completed with error", "error": "exit Status 3"}`
-
-### Known Issues
-
-This release has the following issue:
-
-* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
-The user receives a general error.
-
-### Compatibility
-
-The following components are compatible with this release:
-
-<table border="1" class="nice">
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  <tr>
-    <td>Stemcell</td>
-    <td>621.x</td>
-  </tr>
-  <tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, 2.9.x, 2.10.x, and 2.11.x</td>
-  </tr>
-  <tr>
-    <td>shared-redis-release</td>
-    <td>437.0.19</td>
-  </tr>
-  <tr>
-    <td>on-demand-service-broker</td>
-    <td>0.42.1</td>
-  </tr>
-  <tr>
-    <td>routing</td>
-    <td>0.217.0</td>
-  </tr>
-  <tr>
-    <td>service-metrics</td>
-    <td>2.0.13</td>
-  </tr>
-  <tr>
-    <td>service-backup</td>
-    <td>18.4.0</td>
-  </tr>
-  <tr>
-    <td>loggregator-agent</td>
-    <td>6.3.3</td>
-  </tr>
-  <tr>
-    <td>bpm</td>
-    <td>1.1.12</td>
-  </tr>
-  <tr>
-    <td>Redis OSS</td>
-    <td>5.0.13</td>
-  </tr>
-
-</table>
-
-## <a id="2-3-5"></a>v2.3.5
-
-**Release Date: May 10, 2021**
-
-### Features
-
-New features and changes in this release:
-
-- **Secure service bindings are configured from the UI:**
-  In earlier releases, secure service bindings for Redis were always stored in CredHub if
-  secure instance credentials were enabled in <%= vars.app_runtime_full %>.
-  Now, <%= vars.product_short %> operators can deactivate this functionality for Redis service instances.<br>
-  For information, see step 8 of [Configure On-Demand Service Settings](installing.html#on-demand-config)
-  of _Installing Redis for VMware Tanzu Application Service_.
-
-- **Redis OSS:** Updated to v5.0.10
-
-### Resolved Issues
-
-This release has the following fix:
-
-* **The upgrade-all-service-instances errand no longer fails when TLS is enforced:**
-  This issue was fixed by updating the on-demand-service-broker component to v0.41.1.
-
-
-### Known Issues
-
-This release has the following issue:
-
-* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
-The user receives a general error.
-
-
-### Compatibility
-
-The following components are compatible with this release:
-
-<table border="1" class="nice">
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  <tr>
-    <td>Stemcell</td>
-    <td>621.x</td>
-  </tr>
-  <tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, 2.9.x, 2.10.x, and 2.11.x</td>
-  </tr>
-  <tr>
-    <td>shared-redis-release</td>
-    <td>437.0.18</td>
-  </tr>
-  <tr>
-    <td>on-demand-service-broker</td>
-    <td>0.41.1</td>
-  </tr>
-  <tr>
-    <td>routing</td>
-    <td>0.213.0</td>
-  </tr>
-  <tr>
-    <td>service-metrics</td>
-    <td>2.0.13</td>
-  </tr>
-  <tr>
-    <td>service-backup</td>
-    <td>18.3.5</td>
-  </tr>
-  <tr>
-    <td>loggregator-agent</td>
-    <td>6.2.0</td>
-  </tr>
-  <tr>
-    <td>bpm</td>
-    <td>1.1.9</td>
-  </tr>
-  <tr>
-    <td>Redis OSS</td>
-    <td>5.0.10</td>
-  </tr>
-
-</table>
-
-## <a id="2-3-4"></a>v2.3.4
-
-**Release Date: August 31, 2020**
-
-### Resolved Issues
-
-This release has the following fix:
-
-* **Rotating the Services TLS CA certificate no longer causes app downtime:**
-  In Redis for PCF v2.2.11 and earlier and Redis for Pivotal Platform v2.3.3 and earlier, following the
-  [Rotating the Services TLS CA and Its Leaf Certificates](https://docs.pivotal.io/platform/2-10/security/pcf-infrastructure/services_tls_ca_rotate.html)
-  procedure can cause downtime for apps bound to the Redis service.
-  This issue no longer occurs.
-
-### Known Issues
-
-This release has the following issue:
-
-* **Service creation can fail when using an external UAA:**
-  An issue with the Redis on-demand service broker and TLS verification
-  means that service creation might fail on the TLS handshake.
-  This has been observed as the `upgrade-all-service-instances` errand failing,
-  particularly when a separate internal load balancer is present.
-
-* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
-The user receives a general error.
-
-### Compatibility
-
-The following components are compatible with this release:
-
-<table border="1" class="nice">
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  <tr>
-    <td>Stemcell</td>
-    <td>621.x</td>
-  </tr>
-  <tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, 2.9.x, 2.10.x, and 2.11.x</td>
-  </tr>
-  <tr>
-    <td>shared-redis-release</td>
-    <td>437.0.15</td>
-  </tr>
-  <tr>
-    <td>on-demand-service-broker</td>
-    <td>0.40.0</td>
-  </tr>
-  <tr>
-    <td>routing</td>
-    <td>0.206.0</td>
-  </tr>
-  <tr>
-    <td>service-metrics</td>
-    <td>2.0.13</td>
-  </tr>
-  <tr>
-    <td>service-backup</td>
-    <td>18.3.5</td>
-  </tr>
-  <tr>
-    <td>loggregator-agent</td>
-    <td>6.1.1</td>
-  </tr>
-  <tr>
-    <td>bpm</td>
-    <td>1.1.8</td>
-  </tr>
-  <tr>
-    <td>Redis OSS</td>
-    <td>5.0.7</td>
-  </tr>
-
-</table>
-
-## <a id="2-3-3"></a>v2.3.3
-
-**Release Date: April 23, 2020**
-
-### Resolved Issues
-
-This release has the following fix:
-
-* Static passwords are supported again.
-
-### Known Issues
-
-This release has the following known issues:
-
-<%= partial vars.path_to_partials + '/redis/ki-rotating-certs' %>
-
-* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
-The user receives a general error.
-
-
-### Compatibility
-
-The following components are compatible with this release:
-
-<table border="1" class="nice">
-<tr>
-    <th>Component</th>
-    <th>Version</th>
-</tr>
-<tr>
-    <td>Stemcell</td>
-    <td>621.x</td>
-</tr>
-<tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, 2.9.x, 2.10.x, and 2.11.x</td>
-</tr>
-<tr>
-    <td>shared-redis-release</td>
-    <td>437.0.12</td>
-</tr>
-<tr>
-    <td>on-demand-service-broker</td>
-    <td>0.39.0</td>
 </tr>
 <tr>
     <td>routing</td>
-    <td>0.199.0</td>
+    <td>0.235.0</td>
 </tr>
 <tr>
     <td>service-metrics</td>
-    <td>2.0.13</td>
+    <td>2.0.16</td>
 </tr>
 <tr>
     <td>service-backup</td>
-    <td>18.3.5</td>
+    <td>18.4.0</td>
 </tr>
 <tr>
     <td>loggregator-agent</td>
-    <td>5.3.8</td>
+    <td>6.4.1</td>
 </tr>
 <tr>
     <td>bpm</td>
-    <td>1.1.8</td>
+    <td>1.1.18</td>
 </tr>
 <tr>
     <td>Redis OSS</td>
-    <td>5.0.7</td>
+    <td>6.2.7</td>
 </tr>
-
-</table>
-
-## <a id="2-3-2"></a>v2.3.2
-
-**Release Date: April 17, 2020**
-
-### Security Fixes
-
-This release includes the following security fix:
-
-* High [CVE-2020-9283](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9283).
-
-### Resolved Issues
-
-This release has the following fixes:
-
-* Smoke tests no longer fail with Ruby buildpack v1.8.11 or later.
-* Lua scripting settings are now migrated correctly when upgrading from <%= vars.product_old %> v2.2.
-* The **CF Service Access** settings in the **On-Demand Plans** pane are now migrated
-correctly when upgrading from <%= vars.product_old %> v2.2.
-
-### Known Issues
-
-This release has the following known issues:
-
-* Configuring Redis services to use a static password results in the error `secrets map doesn't consist of
-expected key`. This is because of an issue with the handling of static passwords in the `requirepass` property.
-
-<%= partial vars.path_to_partials + '/redis/ki-rotating-certs' %>
-
-* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
-The user receives a general error.
-
-
-### Compatibility
-
-The following components are compatible with this release:
-
-<table border="1" class="nice">
-<tr>
-    <th>Component</th>
-    <th>Version</th>
-</tr>
-<tr>
-    <td>Stemcell</td>
-    <td>621.x</td>
-</tr>
-<tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, and 2.9.x</td>
-</tr>
-<tr>
-    <td>shared-redis-release</td>
-    <td>437.0.12</td>
-</tr>
-<tr>
-    <td>on-demand-service-broker</td>
-    <td>0.39.0</td>
-</tr>
-<tr>
-    <td>routing</td>
-    <td>0.199.0</td>
-</tr>
-<tr>
-    <td>service-metrics</td>
-    <td>2.0.13</td>
-</tr>
-<tr>
-    <td>service-backup</td>
-    <td>18.3.5</td>
-</tr>
-<tr>
-    <td>loggregator-agent</td>
-    <td>5.3.8</td>
-</tr>
-<tr>
-    <td>bpm</td>
-    <td>1.1.8</td>
-</tr>
-<tr>
-    <td>Redis OSS</td>
-    <td>5.0.7</td>
-</tr>
-
-</table>
-
-## <a id="2-3-1"></a> v2.3.1
-
-**Release Date: February 25, 2020**
-
-### Security Fixes
-
-* Fixes a security vulnerability in the CF Routing release.
-
-### Known Issues
-
-This release has the following issues:
-
-* Smoke tests fail when run in environments with Ruby buildpack v1.8.11 or later.
-* Lua scripting settings do not migrate when upgrading from <%= vars.product_old %> v2.2.
-* The **CF Service Access** settings in the **On-Demand Plans** pane do not migrate when upgrading from <%= vars.product_old %> v2.2.
-* Configuring Redis services to use a static password results in the error `secrets map doesn't consist of
-expected key`. This is because of an issue with the handling of static passwords in the `requirepass` property.
-
-<%= partial vars.path_to_partials + '/redis/ki-rotating-certs' %>
-
-* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
-The user receives a general error.
-
-### Compatibility
-
-The following components are compatible with this release:
-
-<table border="1" class="nice">
-<tr>
-    <th>Component</th>
-    <th>Version</th>
-</tr>
-<tr>
-    <td>Stemcell</td>
-    <td>621.x</td>
-</tr>
-<tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, and 2.9.x</td>
-</tr>
-<tr>
-    <td>shared-redis-release</td>
-    <td>437.0.7</td>
-</tr>
-<tr>
-    <td>on-demand-service-broker</td>
-    <td>0.38.0</td>
-</tr>
-<tr>
-    <td>routing</td>
-    <td>0.198.0</td>
-</tr>
-<tr>
-    <td>service-metrics</td>
-    <td>2.0.13</td>
-</tr>
-<tr>
-    <td>service-backup</td>
-    <td>18.3.5</td>
-</tr>
-<tr>
-    <td>loggregator-agent</td>
-    <td>5.3.6</td>
-</tr>
-<tr>
-    <td>bpm</td>
-    <td>1.1.6</td>
-</tr>
-<tr>
-    <td>Redis OSS</td>
-    <td>5.0.7</td>
-</tr>
-
-</table>
-
-## <a id="2-3-0"></a> v2.3.0
-
-**Release Date: December 10, 2019**
-
-### Features
-
-New features and changes in this release:
-
-* You can configure on-demand plans dynamically.
-For more information, see [Configure On-Demand Plan Settings](./installing.html#on-demand-plan-config).
-
-* You can upgrade individual on-demand service instances using the cf CLI.
-To enable this feature, see [Enable Individual Service Instance Upgrades](./upgrade.html#individual-upgrades).
-For how to upgrade an individual service instance, see [Upgrading an Individual Redis Service Instance](./dev-upgrade.html).
-
-* Service instance and broker metrics are emitted in Prometheus format.
-For general information about metrics, see [Monitoring <%= vars.product_full %>](./monitoring.html).
-
-* Errands have impact warnings when service instance downtime is expected.
-
-<%= partial vars.path_to_partials + '/services/feature-ops-manager-syslog' %>
-
-
-### Resolved Issues
-
-This release has the following fixes:
-
-* Removes redundant, unused test code contained in `redis-test-release`.
-
-
-### Known Issues
-
-This release has the following issues:
-
-* Smoke tests fail when run in environments with Ruby buildpack v1.8.11 or later.
-* Lua scripting settings do not migrate when upgrading from <%= vars.product_old %> v2.2.
-* The **CF Service Access** settings in the **On-Demand Plans** pane do not migrate when upgrading from <%= vars.product_old %> v2.2.
-* Configuring Redis services to use a static password results in the error `secrets map doesn't consist of
-expected key`. This is because of an issue with the handling of static passwords in the `requirepass` property.
-* Configuring Redis services to use a static password results in the error `secrets map doesn't consist of
-expected key`. This is because of an issue with the handling of static passwords in the `requirepass` property.
-
-<%= partial vars.path_to_partials + '/redis/ki-rotating-certs' %>
-
-
-* **The test app fails to start:** The timeout for smoke tests can cause the test app to fail to start.
-The user receives a general error.
-
-### Compatibility
-
-The following components are compatible with this release:
-
-<table border="1" class="nice">
-<tr>
-    <th>Component</th>
-    <th>Version</th>
-</tr>
-<tr>
-    <td>Stemcell</td>
-    <td>456</td>
-</tr>
-<tr>
-    <td>VMware Tanzu Application Service for VMs</td>
-    <td>2.7.x, 2.8.x, and 2.9.x</td>
-</tr>
-<tr>
-    <td>shared-redis-release</td>
-    <td>437.0.4</td>
-</tr>
-<tr>
-    <td>on-demand-service-broker</td>
-    <td>0.35.0</td>
-</tr>
-<tr>
-    <td>routing</td>
-    <td>0.195.0</td>
-</tr>
-<tr>
-    <td>service-metrics</td>
-    <td>2.0.3</td>
-</tr>
-<tr>
-    <td>service-backup</td>
-    <td>18.3.4</td>
-</tr>
-<tr>
-    <td>loggregator-agent</td>
-    <td>5.2.2</td>
-</tr>
-<tr>
-    <td>bpm</td>
-    <td>1.1.5</td>
-</tr>
-<tr>
-    <td>Redis OSS</td>
-    <td>5.0.7</td>
-</tr>
-
 </table>
 
 ## <a id="view"></a> View Release Notes for Another Version
