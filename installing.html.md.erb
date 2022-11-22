@@ -39,7 +39,8 @@ For guidance on ports and ranges used in the Redis service, see [Select Networks
 
 To assign AZs and networks, click the **Assign AZs and Networks** settings tab.
 
-![AZ Assignment Diagram](images/AZ-assignment.png)
+![The Redis tile in Ops Manager. The 'Assign AZs and Networks' pane is active.
+See the next section for information about configuring this pane.](images/AZ-assignment.png)
 
 ### <a id="az-config"></a>Assign AZs
 
@@ -225,7 +226,7 @@ To configure settings that apply across the whole on-demand service offering:
 
 1. In the <%= vars.product_short %> tile, select **On-Demand Service Settings**.
 ![Screenshot of the On-Demand Service Settings pane. The UI elements in the pane are described
-in the steps below](images/redis-odservice-settings.png)
+in the steps below.](images/redis-odservice-settings.png)
 [Click here to view a larger version of this image.](./images/redis-odservice-settings.png)
 
 1. Enter the **Maximum service instances across all on-demand plans**.
@@ -320,10 +321,10 @@ The configuration of resources varies depending on your IaaS.
 To add and configure each on-demand service plan:
 
 1. In the <%= vars.product_short %> tile, select **On-Demand Plans**.
-  ![on demand config](images/on-demand-config.png) <a id="ondemandconfig"></a>
+  ![The Redis tile in Ops Manager. The 'On-Demand Plans' pane is active.](images/on-demand-config.png) <a id="ondemandconfig"></a>
 
 1. Click **Add** to add an on-demand plan.
-  ![on demand plan config](images/on-demand-plan-config.png) <a id="ondemandplanconfig"></a>
+  ![The Redis tile in Ops Manager. The 'On-Demand Plans' pane is active. See the next step for information about configuring this pane.](images/on-demand-plan-config.png) <a id="ondemandplanconfig"></a>
   [Click here to view a larger version of this image.](images/on-demand-plan-config.png)
 1. Configure the settings in the table below for your on-demand plans and then click **Save**.
 <%# Should you not reduce the the VMs or disk after you have saved settings or while you are configuring for the first time? %>
@@ -517,7 +518,7 @@ and delete each plan by clicking the trash can icon next to the plan name.
 To configure shared-VM service plans:
 
 1.  In the <%= vars.product_short %> tile, select **Shared-VM Plan**.
-![shared vm config](images/shared-vm-config.png)
+![The Redis tile in Ops Manager. The 'Shared-VM Plan' pane is active. See the next step for information about configuring this pane.](images/shared-vm-config.png)
 
 1.  Configure these fields:
       * **Redis Instance Memory Limit**---Maximum memory used by a shared-VM instance.
@@ -554,7 +555,8 @@ To configure the limits in these fields:
   + Decrease the number of instances in **Redis Service Instance Limit** in the **Shared-VM Plan** tab.
   + Increase the RAM for the Redis Broker in the **Resource Config** tab as shown below.
 
-    <img src="./images/redis-broker-resource.png"><%# Images require alt text. %>
+    <img src="./images/redis-broker-resource.png" alt="The Redis tile in Ops Manager.
+    The 'Resource Config' pane is active. See below for information about configuring this pane.">
 
   Here are some examples for setting these limits:
 
