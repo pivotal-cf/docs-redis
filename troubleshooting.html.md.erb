@@ -91,7 +91,7 @@ to retrieve the password and port number for the service instance.
 1. Connect to the Redis server and enter the redis-cli interactive mode by running:
 
     ```
-    /var/vcap/packages/redis/bin/redis-cli -p PORT -a PASSWORD
+    LD_LIBRARY_PATH=/var/vcap/packages/openssl/lib/ /var/vcap/packages/redis/bin/redis-cli -p PORT -a PASSWORD
     ```
     Where:
     <ul>
