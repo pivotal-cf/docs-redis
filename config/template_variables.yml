@@ -33,9 +33,9 @@ template_variables:
   tile_name: Redis
   service_name_article: Redis for Pivotal Platform
   service_name_article_full: the Redis for Pivotal Platform service
-  support_link: <a href="http://support.pivotal.io" target="_blank">Support</a>
-  support_call_to_action: <a href="http://support.pivotal.io" target="_blank">Need Support?</a>
-  support_url: http://support.pivotal.io
+  support_link: <a href="tanzu.vmware.com/support" target="_blank">Support</a>
+  support_call_to_action: <a href="tanzu.vmware.com/support" target="_blank">Need Support?</a>
+  support_url: tanzu.vmware.com/support
 
   api_version: 235
   gtm_account_id: GTM-MM86KCJ
