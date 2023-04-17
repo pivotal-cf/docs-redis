@@ -1,0 +1,31 @@
+---
+title: Service-Gateway Access
+owner: London Services
+---
+
+Service-gateway access enables a VMware Redis for Tanzu Application Service on-demand service instance to connect to external components that are not on the same foundation as the service instance. These components could be on another foundation or hosted outside of the foundation.
+
+For related procedures, see:
+
+* [Enabling Service-Gateway Access](./enable-service-gateway.html)
+* [Create a Service Instance with Service-Gateway Access](./create-service-gateway-instance.html)
+
+<p class="note">
+  <strong>Note:</strong> Service-gateway access is no longer in the beta stage. It works with
+  Advanced Message Queuing Protocol (AMQP), MQ Telemetry Transport (MQTT), Simple (or Streaming) Text
+  Orientated Messaging Protocol (STOMP), STOMP over a WebSocket connection (Web STOMP), and AMQP 1.0.
+</p>
+
+
+## <a id='overview'></a> Overview
+
+There are multiple use cases for service-gateway access. For example:
+
+- Accessing Redis from apps deployed to VMware Tanzu Application Service for VMs (TAS for VMs) in a different foundation.
+- Using Redis as a service for apps that are not deployed to TAS for VMs.
+
+
+## <a id='architecture'></a> Architecture
+
+Service Gateway access to Redis for Tanzu Application Service instances leverages the TCP Router in TAS for VMs.
+Any Redis requests that an app makes are forwarded through DNS to a load balancer that can route traffic from outside to inside the foundation. This load balancer (the TCP Router) opens a range of ports that are reserved for any TAS application traffic. When an app developer creates a service instance on a plan with service-gateway access enabled, a port from such a range is provisioned for that service instance. The load balancer then forwards the requests for this Redis for Tanzu Application Service service instance to the TCP router.
