@@ -28,6 +28,7 @@ Staging link: https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Ap
 
 ### Live Branches In Production (Public)
 
+* **3.2**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html)
 * **3.1**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html)
 * **3.0**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html)
 * **2.4**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html)and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html)
@@ -109,14 +110,14 @@ replacing the publication with the same version.
 
 **Prerequisite** Needs additional privileges - reach out to a manager on the docs team [#tanzu-docs](https://vmware.slack.com/archives/C055V2M0H) or ask a writer to do this step for you.
 
-1. Go to Staging publications in docsdash  
+1. Go to Staging publications in docsdash
   https://docsdash.vmware.com/deployment-stage
 
 2. Select a publication (make sure it's the latest version)
 
 3. Click "Deploy selected to Pre-Prod" and wait for the pop to turn green (refresh if necessary after about 10s)
 
-4. Go to Pre-Prod list  
+4. Go to Pre-Prod list
   https://docsdash.vmware.com/deployment-pre-prod
 
 5. Select a publication
