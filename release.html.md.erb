@@ -9,27 +9,21 @@ owner: London Services
 
 ## <a id="3-2-0"></a> v3.2.0
 
-**Release Date: April 19, 2023**
+**Release Date: MMM DDD YYYY**
 
 ### Features
 
 New features and changes in this release:
 
-* **Service-gateway access** Service-gateway access enables a <%= vars.product_short %> on-demand service instance to connect to external components that are not on the same foundation as the service instance. These components might be on another foundation or hosted outside of the foundation. For more information, see [Service-Gateway Access](service-gateway-access.html).
-
-* **Backups for AWS S3 with CA Certificate** When selecting AWS S3 option for backups, now the connection can be verified with a CA Certificate that you enter.
+* **Run-in header:** Description
+* **Run-in header:** Description
 
 ### Resolved Issues
 
 This release has the following fixes:
 
-* **Single AZ only:** Made the necessary adjustments to the `cf-redis-broker` configuration to ensure that it runs as a singleton job.
-
-   This fix might cause the Availability Zones (AZs) for the VM to be changed. This only affects the Shared-VM. As a result, an orphaned disk might occur. For instructions on how to reattach the disk, see the [BOSH documentation](https://bosh.io/docs/persistent-disks/#orphaned-disks).
-
-* **loggr-syslog-agent drain certificate:** Added `drain_ca.crt` to the broker so that `loggr-syslog-agent` can pull the certificate for trust purposes.
-
-* **Ruby Buildpack in smoke test errand:** The smoke tests errand no longer fails with Ruby Buildpack v1.9.x and v1.10.x.
+* **Run-in header:** Description
+* **Run-in header:** Description
 
 ### Known Issues
 
