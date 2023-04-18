@@ -27,6 +27,7 @@ TCP routing is deactivated by default. To enable TCP routing:
 1. Go to the Networking tab on the sidebar of the <%= vars.app_runtime_abbr %> tile.
 2. Under **TCP routing**, select **Enable**.
 3. For TCP routing ports, enter one or more ports to which the load balancer forwards requests. For example, `1024` for a single port or `1024–1123` for a range of ports.
+![tcp-ports](images/tcp-ports.png)
 4. The ports the operator assigns must not overlap with any other application or tile.
 5. Apply changes in <%= vars.ops_manager %> for the <%= vars.app_runtime_abbr %> tile to create the TCP router.
 
@@ -74,9 +75,11 @@ To configure a service-gateway-enabled plan:
 
 1. Go to the **On-Demand Service Settings** tab in the Redis tile sidebar.
 2. Scroll down to the **Redis Service Gateway Ports Range** section and enter the port range you want. This range must not overlap with TCP Router ports range or the ports for any other tile.
+![redis-ports](images/redis-ports.png)
 3. Save your changes.
 4. Create a new plan for the Redis tile in the **On-Demand Plans** tab.
 5. In the new plan, select the **Service Gateway** check box.
+![enable-sg](images/enable-sg.png)
 6. Save your changes.
 7. Go back to **<%= vars.ops_manager %> Installation Dashboard &gt; Review Pending Changes**.
 8. Click **Apply Changes** to apply the changes to the <%= vars.product_short %> tile.
