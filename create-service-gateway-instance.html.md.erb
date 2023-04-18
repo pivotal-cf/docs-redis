@@ -5,37 +5,51 @@ owner: London Services
 
 This topic explains how to create a service instance with service-gateway access.
 
-Service-gateway access enables a VMware Redis for Tanzu Application Service on-demand service instance to connect to external components that are not on the same foundation as the service instance.
+Service-gateway access enables a <%= vars.product_full %>  on-demand service instance to
+connect to external components that are not on the same foundation as the service instance.
 
 ## <a id='service-gateway'></a> Create a Service Instance with Service-Gateway Access
 
-This section assumes that you meet the prerequisites for using on-demand VMware Redis for Tanzu Application Service.
-If operators have enabled a service-gateway plan, you can create a service instance that can connect to components outside the your foundation. Contact your operator if you are unsure which plans have been enabled for service-gateway access. For information about the architecture and use cases, see Service-Gateway Access.
+This section assumes that you meet the prerequisites for using on-demand <%= vars.product_full %>.
+For more information, see [Prerequisites](using.html#prereq).
+
+If operators have enabled a service-gateway plan, you can create a service instance that can connect to components outside the your foundation.
+Contact your operator if you are unsure which plans are enabled for service-gateway access.
+For information about the architecture and use cases, see [Service-Gateway Access](service-gateway-access.html).
+
 To create a service instance that enables service-gateway access:
-Create a service instance with the service-gateway plan by running:
-cf create-service p.redis SERVICE-GATEWAY-PLAN SERVICE-INSTANCE-NAME
 
+1. Create a service instance with the service-gateway plan by running:
 
-Obtain credentials by creating a service key:
-cf create-service-key SERVICE-INSTANCE-NAME SERVICE-KEY-NAME
-Your key will look like this:
+   ```console
+   cf create-service p.redis SERVICE-GATEWAY-PLAN SERVICE-INSTANCE-NAME
+   ```
 
-{
-  "credentials": {
-    "host": "q-s0.redis-instance.mediumcandyapplered-services-subnet.service-instance-0133e917-5cbf-432d-bab3-f4db5c603539.bosh",
-    "password": "apassword",
-    "port": 6379,
-    "service_gateway_access_port": 1100,
-    "service_gateway_enabled": true,
-    "tls_port": 16379,
-    "tls_versions": [
-      "tlsv1.2",
-      "tlsv1.3"
-    ]
-  }
-}
+2. Obtain credentials by creating a service key:
 
+   ```console
+   cf create-service-key SERVICE-INSTANCE-NAME SERVICE-KEY-NAME
+   ```
 
-The `service_gateway_access_port` field will inform which port was reserved for the created service instance. You can use this port to connect to Redis from outside your foundation.
+   The service key looks as follows:
 
-Note: If the operator deactivates and then re-activates service-gateway access on a plan, you must create new service keys to obtain a new set of credentials for service-gateway access.
+   {
+     "credentials": {
+       "host": "q-s0.redis-instance.mediumcandyapplered-services-subnet.service-instance-0133e917-5cbf-432d-bab3-f4db5c603539.bosh",
+       "password": "apassword",
+       "port": 6379,
+       "service_gateway_access_port": 1100,
+       "service_gateway_enabled": true,
+       "tls_port": 16379,
+       "tls_versions": [
+         "tlsv1.2",
+         "tlsv1.3"
+       ]
+     }
+   }
+
+   The `service_gateway_access_port` field informs which port was reserved for the created service instance. You can use this port to connect to Redis from outside your foundation.
+
+<p class="note">
+  <strong>Note:</strong> If the operator deactivates and then re-activates service-gateway access on a plan, you must create new service keys to obtain a new set of credentials for service-gateway access.
+</p>

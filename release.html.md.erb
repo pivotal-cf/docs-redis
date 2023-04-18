@@ -9,25 +9,27 @@ owner: London Services
 
 ## <a id="3-2-0"></a> v3.2.0
 
-**Release Date: April 19th, 2023**
+**Release Date: April 19, 2023**
 
 ### Features
 
 New features and changes in this release:
 
-* **Service Gateway Access** Service-gateway access enables a VMware Redis for Tanzu Application Service on-demand service instance to connect to external components that are not on the same foundation as the service instance. These components could be on another foundation or hosted outside of the foundation.
+* **Service-gateway access** Service-gateway access enables a <%= vars.product_short %> on-demand service instance to connect to external components that are not on the same foundation as the service instance. These components might be on another foundation or hosted outside of the foundation. For more information, see [Service-Gateway Access](service-gateway-access.html).
 
-* **Backups for AWS S3 with CA Certificate** When selecting AWS S3 as the desired option for backups, the connection can be now verified with a CA Certificate entered by the user.
+* **Backups for AWS S3 with CA Certificate** When selecting AWS S3 option for backups, now the connection can be verified with a CA Certificate that you enter.
 
 ### Resolved Issues
 
 This release has the following fixes:
 
-* **Single AZ only:** Made the necessary adjustments to the cf-redis-broker configuration to ensure it runs as a singleton job. Please note that this fix may result in the VMs Availability Zones (AZs) being changed. This only affects the Shared-VM. As a result, there is a possibility of an orphaned disk occurring. If this happens, please refer to https://bosh.io/docs/persistent-disks/#orphaned-disks for instructions on how to reattach the disk.
+* **Single AZ only:** Made the necessary adjustments to the `cf-redis-broker` configuration to ensure that it runs as a singleton job.
 
-* **loggr-syslog-agent Drain Certificate:** Added `drain_ca.crt` to broker so `loggr-syslog-agent` can pull the certificate for trust.
+   This fix might cause the Availability Zones (AZs) for the VM to be changed. This only affects the Shared-VM. As a result, an orphaned disk might occur. For instructions on how to reattach the disk, see the [BOSH documentation](https://bosh.io/docs/persistent-disks/#orphaned-disks).
 
-* **Ruby Buildpack in Smoke Test Errand:** Smoke Tests Errand no longer fails with Ruby Buildpack 1.9.x and 1.10.x.
+* **loggr-syslog-agent drain certificate:** Added `drain_ca.crt` to the broker so that `loggr-syslog-agent` can pull the certificate for trust purposes.
+
+* **Ruby Buildpack in smoke test errand:** The smoke tests errand no longer fails with Ruby Buildpack v1.9.x and v1.10.x.
 
 ### Known Issues
 
@@ -87,4 +89,4 @@ The following components are compatible with this release:
 ## <a id="view"></a> View Release Notes for Another Version
 
 To view the release notes for another product version, select the version from
-the dropdown at the top of this page.
+the drop-down menu at the top of this page.

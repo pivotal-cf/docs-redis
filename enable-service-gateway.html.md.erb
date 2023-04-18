@@ -7,27 +7,28 @@ This topic explains how to enable service-gateway access.
 
 ## <a id='overview'></a> Overview
 
-Service-gateway access enables a VMware Redis for Tanzu Application Service on-demand service instance to connect to external components that are not on the same foundation as the service instance.
-For a more detailed overview, see Service-Gateway Access.
+Service-gateway access enables a <%= vars.product_full %> on-demand service instance to
+connect to external components that are not on the same foundation as the service instance.
+
+For a more detailed overview, see [Service-Gateway Access](./service-gateway-access.html).
+
 To enable service-gateway access for an on-demand offering:
 
-1. Enable TCP routing using the TAS for VMs tile
-2. Configure the firewall to allow incoming traffic to the TCP router
-3. Configure the load balancer in the IaaS to redirect traffic to the TCP router
-4. Create a DNS record that maps to the load balancer
-5. Configure a service-gateway-enabled plan
-
+1. [Enable TCP routing using the <%= vars.app_runtime_abbr %> tile](#tcp-routing)
+1. [Configure the firewall to allow incoming traffic to the TCP router](#configure-firewall)
+1. [Configure the load balancer in the IaaS to redirect traffic to the TCP router](#configure-lb)
+1. [Create a DNS record that maps to the load balancer](#create-dns-record)
+1. [Configure a service-gateway-enabled plan](#configure-service-gateway-plan)
 
 ## <a id='tcp-routing'></a> Enable TCP Routing Using the <%= vars.app_runtime_abbr %> Tile
 
 TCP routing is deactivated by default. To enable TCP routing:
 
-1. Go to the Networking tab on the sidebar of the TAS for VMs tile.
-2. Under TCP routing, select Enable.
-3. For TCP routing ports, enter one or more ports to which the load balancer forwards requests. For example, 1024 for a single port or 1024–1123 for a range of ports.
-4. The ports the operator assigns must not overlap with any other application or tile.
-5. Apply changes in Ops Manager for the TAS for VMs tile to create the TCP router.
-
+1. Go to the Networking tab on the sidebar of the <%= vars.app_runtime_abbr %> tile.
+1. Under **TCP routing**, select **Enable**.
+1. For TCP routing ports, enter one or more ports to which the load balancer forwards requests. For example, `1024` for a single port or `1024–1123` for a range of ports.
+1. The ports the operator assigns must not overlap with any other application or tile.
+1. Apply changes in <%= vars.ops_manager %> for the <%= vars.app_runtime_abbr %> tile to create the TCP router.
 
 ## <a id='configure-firewall'></a> Configure the Firewall to Allow Incoming Traffic to the TCP Router
 
@@ -57,7 +58,6 @@ To configure the load balancer:
     </p>
 1. Record this port range.
 
-
 ## <a id='create-dns-record'></a> Create a DNS Record That Maps to the Load Balancer
 
 To create a DNS record and prepare to map it:
@@ -66,20 +66,29 @@ To create a DNS record and prepare to map it:
 external IP address of the load balancer created in [Configure the Load Balancer in the IaaS to Redirect Traffic to the TCP Router](#configure-lb) above.
 1. Record the domain used for this DNS record.
 
-
 ## <a id='configure-service-gateway-plan'></a> Configure a Service-Gateway-Enabled Plan
 
 To configure a service-gateway-enabled plan:
 
-1. Go to the On-Demand Service Settings tab in the Redis tile sidebar.
-2. Scroll down to the section Redis Service Gateway Ports Range and input the desired port range. This range must not overlap with TCP Router ports range or any other tile's.
+1. Go to the **On-Demand Service Settings** tab in the Redis tile sidebar.
+2. Scroll down to the **Redis Service Gateway Ports Range** section and input the port range you want. This range must not overlap with TCP Router ports range or the ports for any other tile.
 3. Save your changes.
-4. Create a new plan for Redis tile in the On-Demand Plans tab.
-5. Check the box Service Gateway.
-6. Save your changes and apply changes in Ops Manager Installation Dashboard.
+4. Create a new plan for the Redis tile in the **On-Demand Plans** tab.
+5. In the new plan, select the **Service Gateway** check box.
+6. Save your changes.
+7. Go back to **<%= vars.ops_manager %> Installation Dashboard &gt; Review Pending Changes**.
+8. Click **Apply Changes** to apply the changes to the <%= vars.product_short %> tile.
 
-Warning: If you already have service instances using service-gateway, any modifications to this range must include ports that are already assigned to these service instances. If the port range does not contain the ports already assigned to service instances, the upgrades for the service instances fail. For example, if service-gateway access has the port range 1000-1005, and there are service instances that correspond to ports 1000, 1001, and 1002, then the new port range must have ports 1000, 1001, and 1002.
+<p class="note warning">
+  <strong>Warning:</strong> If you already have service instances using service-gateway,
+  any changes to this range must include ports that are already assigned to these service instances.
+  If the port range does not contain the ports already assigned to service instances,
+  upgrading these service instances fails.
 
+  For example, if service-gateway access has the port range <code>1000-1005</code>, and there are service
+  instances that correspond to ports <code>1000</code>, <code>1001</code>, and <code>1002</code>, then the new port range must have
+  ports <code>1000</code>, <code>1001</code>, and <code>1002</code>.
+</p>
 
 ## <a id='deactivate-service-gateway-access'></a> Deactivate Service-Gateway Access
 
@@ -91,7 +100,7 @@ Warning: If you already have service instances using service-gateway, any modifi
 To deactivate service-gateway access:
 
 1. Navigate to the service plan that you want to deactivate service-gateway access for
-and clear the **Service-Gateway Access** checkbox.
+and clear the **Service-Gateway** checkbox.
     <p class="note">
       <strong>Note:</strong> VMware recommends that you change the name or the
       description of the plan to indicate that service-gateway access is deactivated for that plan.
@@ -100,7 +109,6 @@ and clear the **Service-Gateway Access** checkbox.
 1. Go back to **<%= vars.ops_manager %> Installation Dashboard &gt; Review Pending Changes**.
 
 1. Click **Apply Changes** to apply the changes to the <%= vars.product_short %> tile.
-
 
 ## <a id='workflow'></a> Developer Workflow
 
