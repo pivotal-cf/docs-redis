@@ -7,6 +7,70 @@ owner: London Services
 
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
+## <a id="2-4-8"></a> v2.4.8
+
+**Release Date: May 26, 2023**
+
+### Resolved Issues
+
+*Ruby Buildpack in Smoke Tests errand*: The smoke tests errand no longer fails with Ruby Buildpack v1.9.x and v1.10.x.
+
+
+### Known Issues
+
+There are no known issues for this release.
+
+### Compatibility
+
+The following components are compatible with this release:
+
+<table border="1" class="nice">
+<tr>
+    <th>Component</th>
+    <th>Version</th>
+</tr>
+<tr>
+    <td>Stemcell</td>
+    <td>621.x</td>
+</tr>
+<tr>
+    <td><%= vars.app_runtime_full %></td>
+    <td>2.10, 2.11, 2.12, 2.13 and 3.0</td>
+</tr>
+<tr>
+    <td>shared-redis-release</td>
+    <td>437.0.35</td>
+</tr>
+<tr>
+    <td>on-demand-service-broker</td>
+    <td>0.42.7</td>
+</tr>
+<tr>
+    <td>routing</td>
+    <td>0.265.0</td>
+</tr>
+<tr>
+    <td>service-metrics</td>
+    <td>2.0.28</td>
+</tr>
+<tr>
+    <td>service-backup</td>
+    <td>18.4.0</td>
+</tr>
+<tr>
+    <td>loggregator-agent</td>
+    <td>7.2.1</td>
+</tr>
+<tr>
+    <td>bpm</td>
+    <td>1.2.1</td>
+</tr>
+<tr>
+    <td>Redis OSS</td>
+    <td>5.0.14</td>
+</tr>
+</table>
+
 ## <a id="2-4-7"></a> v2.4.7
 
 **Release Date: December 15, 2022**
