@@ -14,11 +14,11 @@ In this README:
 
 ## Branches in this Content Repo
 
-### Master - Use for next unreleased version
+### main - Use for next unreleased version
 
-All documentation for the next unreleased version of Redis is in `master`.
+All documentation for the next unreleased version of Redis is in `main`.
 
-Always make changes you want carried forward in the master branch. This includes:
+Always make changes you want carried forward in the main branch. This includes:
 
 * Unreleased features
 * Doc bug fixes
@@ -49,18 +49,18 @@ Staging link: https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Ap
 * **1.5**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.5.pdf.
 * **1.4**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.4.pdf.
 
-### Cherry picking to and from MASTER
+### Cherry picking to and from main
 
-1. Always cherry-pick any changes to live branches into **master** if you want those changes carried forward.
+1. Always cherry-pick any changes to live branches into **main** if you want those changes carried forward.
 
-2. If necessary, immediately cherry-pick/copy changes from **master** that you want to push immediately to production into the appropriate live branch above.
+2. If necessary, immediately cherry-pick/copy changes from **main** that you want to push immediately to production into the appropriate live branch above.
 
 ## Releasing a New Minor Version
 
-Because **master** is the latest and greatest documentation, the process would be to cut a **x.x** branch
-for the version that **master** was targeting during that time.
+Because **main** is the latest and greatest documentation, the process would be to cut a **x.x** branch
+for the version that **main** was targeting during that time.
 
-After this point, **master** will then be the target for the next version of this product.
+After this point, **main** will then be the target for the next version of this product.
 
 ## Partials
 
