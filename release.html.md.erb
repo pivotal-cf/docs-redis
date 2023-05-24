@@ -21,7 +21,7 @@ This release has the following fixes:
 
 ### Known Issues
 
-There are no known issues for this release.
+When running the Shared-VM Smoke Tests errand, the service access to the shared Redis plan will appear as limited in the command `cf service-access`. It is recommended either not running this errand unless it's necessary, or executing the command `cf enable-service-access -p <service-plan>` after the errand is done.
 
 ### Compatibility
 
