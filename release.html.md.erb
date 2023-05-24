@@ -11,17 +11,27 @@ owner: London Services
 
 ## <a id="2-4-8"></a> v2.4.8
 
-**Release Date: May 23, 2023**
+**Release Date: May 24, 2023**
 
-### Resolved Issues
+### Resolved Issue
 
-This release has the following fixes:
+This release has the following fix:
 
-* **Ruby Buildpack in smoke tests errand**: The smoke tests errand no longer fails with Ruby Buildpack v1.9.x and v1.10.x.
+* **Ruby Buildpack in smoke tests errand:** The smoke tests errand no longer fails with Ruby
+  Buildpack v1.9.x and v1.10.x.
 
-### Known Issues
+### Known Issue
 
-When running the Shared-VM Smoke Tests errand, the service access to the shared Redis plan will appear as limited in the command `cf service-access`. It is recommended either not running this errand unless it's necessary, or executing the command `cf enable-service-access -p <service-plan>` after the errand is done.
+This release has the following known issue:
+
+* **Shared-VM smoke tests errand error:**
+  When running the Shared-VM smoke tests errand, the service access to the shared Redis plan
+  appears as limited in the command `cf service-access`. Do not run this errand unless it's necessary,
+  or wait until the errand is finished and then run:
+
+  ```console
+  cf enable-service-access -p SERVICE-PLAN
+  ```
 
 ### Compatibility
 
