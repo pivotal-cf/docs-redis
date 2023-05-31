@@ -150,15 +150,56 @@ Do the following to connect Redis for PCF to your S3 account:
     ![OpsManager Backups S3 view](s3backupoptions.png)
 1. Fill in the fields as follows:
 
-    | Field             | Description                                                                                                                                                                                                                                                                                                                                                                                            | Mandatory/Optional                                               |
-    |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
-    | Access Key ID     | The access key for your S3 account                                                                                                                                                                                                                                                                                                                                                                     | Mandatory                                                        |
-    | Secret Access Key | The Secret Key associated with your Access Key                                                                                                                                                                                                                                                                                                                                                         | Mandatory                                                        |
-    | Endpoint URL      | The endpoint of your S3 account, such as `http://s3.amazonaws.com`                                                                                                                                                                                                                                                                                                                                        | Optional, defaults to `http://s3.amazonaws.com` if not specified |
-    | Bucket Name       | Name of the bucket where to store the backup                                                                                                                                                                                                                                                                                                                                                 | Mandatory                                                        |
-    | Bucket Path              | Path inside the bucket to save backups to                                                                                                                                                                                                                                                                                                                                                             | Mandatory                                                        |
-    | Cron Schedule     | Backups schedule in crontab format. For example, once daily at 2am is `* 2 * * *`. This field also accepts a pre-defined schedule, such as `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or `@every TIME`, where `TIME` is any supported time string, such as `1h30m`. For more information, see the cron package [documentation](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules). | Mandatory                                                        |
-    | Backup timeout    | The amount of time, in seconds, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                                                                                                                                 | Mandatory                                                        |
+    <table class="nice">
+    <col width="20%">
+    <col width="60%">
+    <col width="20%">
+    <thead>
+    <tr>
+    <th>Field</th>
+    <th>Description</th>
+    <th>Mandatory/Optional</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Access Key ID</td>
+    <td>The access key for your S3 account</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Secret Access Key</td>
+    <td>The Secret Key associated with your Access Key</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Endpoint URL</td>
+    <td>The endpoint of your S3 account, such as <code>http://s3.amazonaws.com</code></td>
+    <td>Optional, defaults to <code>http://s3.amazonaws.com</code> if not specified</td>
+    </tr>
+    <tr>
+    <td>Bucket Name</td>
+    <td>Name of the bucket where to store the backup</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Bucket Path</td>
+    <td>Path inside the bucket to save backups to</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Cron Schedule</td>
+    <td>Backups schedule in crontab format. For example, once daily at 2am is <code>* 2 * * *</code>. This field also accepts a pre-defined schedule, such as <code>@yearly</code>, <code>@monthly</code>, <code>@weekly</code>, <code>@daily</code>, <code>@hourly</code>, or <code>@every TIME</code>, where <code>TIME</code> is any supported time string, such as <code>1h30m</code>. For more information, see the cron package <a href="https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules">documentation</a>.</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Backup timeout</td>
+    <td>The amount of time, in seconds, that the backup process waits for the <code>BGSAVE</code> command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, <code>BGSAVE</code> continues but backups fail and are not uploaded.</td>
+    <td>Mandatory</td>
+    </tr>
+    </tbody>
+    </table>
+
 1. Click **Save**.
 
 ## <a id="scp"></a>Option 2: Back Up with SCP
@@ -192,16 +233,60 @@ Do the following to connect Redis for PCF to your destination VM:
     ![OpsManager Backups SCP view](scpbackupoptions.png)
 1. Fill in the fields as follows:
 
-    | Field                 | Description                                                                                                                                                               | Mandatory/Optional |
-    |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-    | Username              | The username to use for transferring backups to the SCP server                                                                                                            | Mandatory          |
-    | Private Key           | The private SSH key of the user configured in `Username`                                                                                                                  | Mandatory          |
-    | Hostname              | The hostname or IP address of the SCP server                                                                                                                              | Mandatory          |
-    | Destination Directory | The path in the SCP server, where the backups will be transferred                                                                                                         | Mandatory          |
-    | SCP Port              | The SCP port of the SCP server                                                                                                                                            | Mandatory          |
-    | Cron Schedule         | Backups schedule in crontab format. For example, once daily at 2am is `* 2 * * *`. This field also accepts a pre-defined schedule, such as `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or `@every TIME`, where `TIME` is any supported time string, such as `1h30m`. For more information, see the cron package [documentation](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules).                                                                                             | Mandatory          |
-    | Backup timeout        | The amount of time, in seconds, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to the SCP server. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded. | Mandatory          |
-    | Fingerprint    | The fingerprint of the public key of the SCP server. To retrieve the server's fingerprint, run `ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub`.                                                                                             | Optional          |
+    <table class="nice">
+    <col width="20%">
+    <col width="60%">
+    <col width="20%">
+    <thead>
+    <tr>
+    <th>Field</th>
+    <th>Description</th>
+    <th>Mandatory/Optional</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Username</td>
+    <td>The username to use for transferring backups to the SCP server</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Private Key</td>
+    <td>The private SSH key of the user configured in <code>Username</code></td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Hostname</td>
+    <td>The hostname or IP address of the SCP server</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Destination Directory</td>
+    <td>The path in the SCP server, where the backups will be transferred</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>SCP Port</td>
+    <td>The SCP port of the SCP server</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Cron Schedule</td>
+    <td>Backups schedule in crontab format. For example, once daily at 2am is <code>* 2 * * *</code>. This field also accepts a pre-defined schedule, such as <code>@yearly</code>, <code>@monthly</code>, <code>@weekly</code>, <code>@daily</code>, <code>@hourly</code>, or <code>@every TIME</code>, where <code>TIME</code> is any supported time string, such as <code>1h30m</code>. For more information, see the cron package <a href="https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules">documentation</a>.</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Backup timeout</td>
+    <td>The amount of time, in seconds, that the backup process waits for the <code>BGSAVE</code> command to complete on your instance before transferring the RDB file to the SCP server. If the timeout is reached, <code>BGSAVE</code> continues but backups fail and are not uploaded.</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Fingerprint</td>
+    <td>The fingerprint of the public key of the SCP server. To retrieve the server's fingerprint, run <code>ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub</code>.</td>
+    <td>Optional</td>
+    </tr>
+    </tbody>
+    </table>
 
 1. Click **Save**.
 
@@ -236,13 +321,46 @@ Do the following to connect Redis for PCF to GCS:
     ![OpsManager Backups GCS view](gcsbackupoptions.png)
 1. Fill in the fields as follows:
 
-    | Field                       | Description                                                                                                                                                                                                                                                                                      | Mandatory/Optional |
-    |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-    | Project ID                  | Google Cloud Platform (GCP) Project ID                                                                                                                                                                                                                                                                                   | Mandatory          |
-    | Bucket name                 | Name of the bucket where to store the backup                                                                                                                                                                                                                                           | Mandatory          |
-    | Service account private key | The JSON secret key associated with your service account                                                                                  | Mandatory          |
-    | Cron Schedule               | Backups schedule in crontab format. For example, once daily at 2am is `* 2 * * *`. This field also accepts a pre-defined schedule, such as `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or `@every TIME`, where `TIME` is any supported time string, such as `1h30m`. For more information, see the cron package [documentation](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules). | Mandatory          |
-    | Backup timeout              | The amount of time, in seconds, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                           | Mandatory          |
+    <table class="nice">
+    <col width="20%">
+    <col width="60%">
+    <col width="20%">
+    <thead>
+    <tr>
+    <th>Field</th>
+    <th>Description</th>
+    <th>Mandatory/Optional</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Project ID</td>
+    <td>Google Cloud Platform (GCP) Project ID</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Bucket name</td>
+    <td>Name of the bucket where to store the backup</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Service account private key</td>
+    <td>The JSON secret key associated with your service account</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Cron Schedule</td>
+    <td>Backups schedule in crontab format. For example, once daily at 2am is <code>* 2 * * *</code>. This field also accepts a pre-defined schedule, such as <code>@yearly</code>, <code>@monthly</code>, <code>@weekly</code>, <code>@daily</code>, <code>@hourly</code>, or <code>@every TIME</code>, where <code>TIME</code> is any supported time string, such as <code>1h30m</code>. For more information, see the cron package <a href="https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules">documentation</a>.</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Backup timeout</td>
+    <td>The amount of time, in seconds, that the backup process waits for the <code>BGSAVE</code> command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, <code>BGSAVE</code> continues but backups fail and are not uploaded.</td>
+    <td>Mandatory</td>
+    </tr>
+    </tbody>
+    </table>
+
 1. Click **Save**.
 
 ## <a id ="azure"></a>Back Up to Azure
@@ -255,15 +373,55 @@ Do the following to back up your database to an Azure storage account:
     ![OpsManager Backups Azure view](azurebackupoptions.png)
 1. Fill in the fields as follows:
 
-    | Field                    | Description                                                                                                                                                                                                                                                                                      | Mandatory/Optional |
-    |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-    | Account                  | Account name                                                                                                                                                                                                                                                                                     | Mandatory          |
-    | Azure Storage Access Key | Azure specific credentials required to write to the Azure container                                                                                                                                                                                                                              | Mandatory          |
-    | Container Name           | Name of the Azure container where to store the backup                                                                                                                                                                                                                                       | Mandatory          |
-    | Destination Directory    | Directory within the Azure container to store the backup files to                                                                                                                                  | Mandatory          |
-    | Blob Store Base URL      | URL pointing to Azure resource                                                                                                                                                                                                                                                                   | Optional           |
-    | Cron Schedule            | Backups schedule in crontab format. For example, once daily at 2am is `* 2 * * *`. This field also accepts a pre-defined schedule, such as `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or `@every TIME`, where `TIME` is any supported time string, such as `1h30m`. For more information, see the cron package [documentation](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules). | Mandatory          |
-    | Backup timeout           | The amount of time, in seconds, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                           | Mandatory          |
+    <table class="nice">
+    <col width="20%">
+    <col width="60%">
+    <col width="20%">
+    <thead>
+    <tr>
+    <th>Field</th>
+    <th>Description</th>
+    <th>Mandatory/Optional</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Account</td>
+    <td>Account name</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Azure Storage Access Key</td>
+    <td>Azure specific credentials required to write to the Azure container</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Container Name</td>
+    <td>Name of the Azure container where to store the backup</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Destination Directory</td>
+    <td>Directory within the Azure container to store the backup files to</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Blob Store Base URL</td>
+    <td>URL pointing to Azure resource</td>
+    <td>Optional</td>
+    </tr>
+    <tr>
+    <td>Cron Schedule</td>
+    <td>Backups schedule in crontab format. For example, once daily at 2am is <code>* 2 * * *</code>. This field also accepts a pre-defined schedule, such as <code>@yearly</code>, <code>@monthly</code>, <code>@weekly</code>, <code>@daily</code>, <code>@hourly</code>, or <code>@every TIME</code>, where <code>TIME</code> is any supported time string, such as <code>1h30m</code>. For more information, see the cron package <a href="https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules">documentation</a>.</td>
+    <td>Mandatory</td>
+    </tr>
+    <tr>
+    <td>Backup timeout</td>
+    <td>The amount of time, in seconds, that the backup process waits for the <code>BGSAVE</code> command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, <code>BGSAVE</code> continues but backups fail and are not uploaded.</td>
+    <td>Mandatory</td>
+    </tr>
+    </tbody>
+    </table>
 
 1. Click **Save**.
 

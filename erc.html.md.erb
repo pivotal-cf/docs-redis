@@ -58,8 +58,10 @@ For descriptions of the three Redis for PCF service offerings, see:
 Review the following table to determine if Redis for PCF has the features needed to support your enterprise.
 
 <table border="1" class="nice">
-
-  <tr><th colspan=2>Resilience</th><th>More Information</th></tr>
+  <col width="20%">
+  <col width="60%">
+  <col width="20%">
+  <tr><th colspan=3>Resilience</th></tr>
   <tr>
     <td>Availability</td>
     <td>All Redis for PCF services are single nodes without clustering capabilities.
@@ -71,8 +73,8 @@ Review the following table to determine if Redis for PCF has the features needed
         Successful apps include those where the downtime is passively handled or
         where the app handles failover logic.
     </td>
-    <td><a href="#usecases">Recommended Use Cases</a><br><br>
-    <a href="#other-notes">Support for Multiple AZs</a></td>
+    <td>See <a href="#usecases">Recommended Use Cases</a><br><br>
+    and <a href="#other-notes">Support for Multiple AZs</a></td>
   </tr>
   <tr>
     <td>Failure Recovery</td>
@@ -83,8 +85,8 @@ Review the following table to determine if Redis for PCF has the features needed
     </td>
     <td>
       <%-#<a> href="https://bosh.io/docs/resurrector.html" BOSH Resurrection </a> Is this the right doc here? Do we have docs for process-%>
-      <a href="https://community.pivotal.io/s/article/Manually-Backing-Up-and-Restoring-Redis-for-Pivotal-Cloud-Foundry">Manually Backing Up and Restoring Redis for Pivotal Cloud Foundry</a><br/>
-      <a href="./auto-backup.html">Automatic Backups for Dedicated-VM Service </a><br/>
+      See <a href="https://community.pivotal.io/s/article/Manually-Backing-Up-and-Restoring-Redis-for-Pivotal-Cloud-Foundry">Manually Backing Up and Restoring Redis for Pivotal Cloud Foundry</a><br/>
+      and <a href="./auto-backup.html">Automatic Backups for Dedicated-VM Service </a><br/>
     </td>
   </tr>
   <tr>
@@ -97,7 +99,7 @@ Review the following table to determine if Redis for PCF has the features needed
     <td>
     </td>
   </tr>
-  <tr><th colspan=2>Day 2 Operations</th><th>More Information</th></tr>
+  <tr><th colspan=3>Day 2 Operations</th></tr>
   <tr>
     <td>Resource Planning</td>
     <td>
@@ -108,7 +110,7 @@ Review the following table to determine if Redis for PCF has the features needed
     turned on or off.
     </td>
     <td>
-      <a href="./installing.html#dedicated-vm-config"> Pre-provisioning Dedicated-VM and Shared-VM Instances</a>
+      See <a href="./installing.html#dedicated-vm-config"> Pre-provisioning Dedicated-VM and Shared-VM Instances</a>
     </td>
   </tr>
   <tr>
@@ -119,7 +121,7 @@ Review the following table to determine if Redis for PCF has the features needed
     Guidance on critical metrics and alerting levels is captured with the Redis for PCF Key Performance Indicators (KPIs).
     </td>
     <td>
-      <a href="./monitoring.html#kpi"> Key Performance Indicators </a><br/>
+      See <a href="./monitoring.html#kpi"> Key Performance Indicators </a><br/>
     </td>
   </tr>
   <tr>
@@ -135,8 +137,8 @@ Review the following table to determine if Redis for PCF has the features needed
     To prevent data loss, only scaling up is supported.
     </td>
     <td>
-      <a href="./installing.html#updating-on-demand-service-plans"> Scaling the On-Demand Service </a><br/>
-      <a href="./installing.html#dedicated-vm-config"> Scaling the Dedicated-VM Service </a>
+      See <a href="./installing.html#updating-on-demand-service-plans"> Scaling the On-Demand Service </a><br/>
+      and <a href="./installing.html#dedicated-vm-config"> Scaling the Dedicated-VM Service </a>
     </td>
   </tr>
   <tr>
@@ -149,7 +151,7 @@ Review the following table to determine if Redis for PCF has the features needed
     and setting up alerts for important error logs to monitor the deployment.
     </td>
     <td>
-      <a href="./installing.html#configure-syslog-forwarding"> Configuring syslog forwarding </a>
+      See <a href="./installing.html#configure-syslog-forwarding"> Configuring syslog forwarding </a>
     </td>
   </tr>
   <tr>
@@ -159,7 +161,7 @@ Review the following table to determine if Redis for PCF has the features needed
     The Dedicated-VM and Shared-VM service cannot be customized.
     </td>
     <td>
-      <a href="./installing.html#on-demand-config"> Configuring the On-Demand service </a>
+      See <a href="./installing.html#on-demand-config"> Configuring the On-Demand service </a>
     </td>
   </tr>
   <tr>
@@ -172,16 +174,16 @@ Review the following table to determine if Redis for PCF has the features needed
       upgrade.
     </td>
     <td>
-      <a href="./upgrade.html"> Upgrades </a><br/>
-      <a href="./smoke-tests.html"> Smoke Tests </a>
+      See <a href="./upgrade.html"> Upgrades </a><br/>
+      and <a href="./smoke-tests.html"> Smoke Tests </a>
     </td>
   </tr>
-  <tr><th colspan=2>Encryption</th><th>More Information</th></tr>
+  <tr><th colspan=3>Encryption</th></tr>
   <tr><td>Encrypted Communication in Transit</td><td>Redis for PCF has been tested with the IPsec Add-on for PCF.
           Beyond that Redis for PCF does not provide additional encryption on top of Redis.</td>
       <td>
-        <a href="https://docs.pivotal.io/addon-ipsec/index.html">Securing Data in Transit with the IPsec add-on</a>
-        <a href="https://redis.io/topics/security">OS Redis Security</a>
+        See <a href="https://docs.pivotal.io/addon-ipsec/index.html">Securing Data in Transit with the IPsec add-on</a>
+        and <a href="https://redis.io/topics/security">OS Redis Security</a>
       </td></tr>
 
 </table>
