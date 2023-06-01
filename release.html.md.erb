@@ -5,7 +5,24 @@ owner: London Services
 
 <strong><%= modified_date %></strong>
 
+<<<<<<< HEAD
 <%= partial vars.path_to_partials + '/branding-change' %>
+=======
+These are the changes in this version of <%= vars.product_full %>.
+
+<%= partial vars.path_to_partials + '/upgrade-planner' %>
+
+## <a id="2-4-8"></a> v2.4.8
+
+**Release Date: May 24, 2023**
+
+### Resolved Issue
+
+This release has the following fix:
+
+* **Ruby Buildpack in smoke tests errand:** The smoke tests errand no longer fails with Ruby
+  Buildpack v1.9.x and v1.10.x.
+>>>>>>> 303d289 ([#185187098] SEO for Redis)
 
 <%= partial vars.path_to_partials + '/pcf-name-change' %>
 
