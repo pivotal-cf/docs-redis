@@ -24,7 +24,8 @@ template_variables:
   windows_runtime_full: Pivotal Application Service for Windows
   windows_runtime_abbr: PASW
   company_name: Pivotal
-
+  product_network: VMware Tanzu Network
+  
   path_to_partials: /redis/partials
   product_url: https://network.pivotal.io/products/pivotal-cf
   product_link: <div class="header-item"><a href="https://network.pivotal.io/products/pivotal-cf">Back to Product Page</a></div>
