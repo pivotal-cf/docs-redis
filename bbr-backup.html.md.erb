@@ -1,12 +1,13 @@
 ---
-title: Using BOSH Backup and Restore
+title: Using BOSH Backup and Restore with Redis for Tanzu Application Service
 owner: London Services
 ---
 
 <strong><%= modified_date %></strong>
 
 
-This topic describes how to use the BOSH Backup and Restore (BBR) command-line tool for backing up and restoring BOSH deployments.
+This topic tells you how to use the BOSH Backup and Restore (BBR) command-line tool for backing up and
+restoring BOSH deployments and on-demand <%= vars.product_full %>.
 
 BBR offers a standardized way to backup and restore the BOSH Director and BOSH Deployments that support it.
 If you have already set up BBR for your <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) deployment, you might find it easier to use
@@ -16,12 +17,12 @@ For more information, see [Configuring Automated Service Backups](./auto-backup.
 [Comparison of the Available Backup Methods](./auto-backup.html#comparison).
 
 <p class="note"><strong>Note:</strong> Only on-demand Redis service instances have support for BBR,
-  for backup and restore of shared instances see <a href="./auto-backup.html">Configuring Automated Backups for <%= vars.product_full %></a>.</p>
+  for backup and restore of shared instances see <a href="./auto-backup.html">Configuring Automated Backups for <%= vars.product_short %></a>.</p>
 
 
 ## <a id="prepare"></a>Prepare to Use BBR
 
-To take a backup of BOSH deployments and On-Demand <%= vars.product_short %>, BBR must be installed. If you do not already have it installed,
+To take a backup of BOSH deployments and on-demand <%= vars.product_short %>, BBR must be installed. If you do not already have it installed,
 follow the instructions in
 <a href="https://docs.pivotal.io/platform/customizing/backup-restore/backup-pcf-bbr.html#prepare">Prepare to Create Your Backup</a> in the BBR documentation.
 
