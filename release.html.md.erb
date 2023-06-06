@@ -9,15 +9,19 @@ This topic describes the changes in this minor release of <%= vars.product_full 
 
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
+<% if vars.hide_content == false %>
+
 ## <a id="2-4-9"></a> v2.4.9
 
 **Release Date: June 13, 2023**
 
 ### Resolved Issues
 
+This release has the following fixes:
+
 * This release is compatible with Tanzu Application Service for VMs v4.0.
 
-* Shared-VM smoke tests errand error: When running the Shared-VM smoke tests errand, the service access to the shared Redis plan no longer appears as limited when running the command `cf service-access`.
+* **Shared-VM smoke tests errand error:** When running the Shared-VM smoke tests errand, the service access to the shared Redis plan no longer appears as limited when running the command `cf service-access`.
 
 ### Known Issues
 
@@ -38,7 +42,7 @@ The following components are compatible with this release:
 </tr>
 <tr>
     <td><%= vars.app_runtime_full %></td>
-    <td>2.10, 2.11, 2.12, 2.13, 3.0 and 4.0</td>
+    <td>2.10, 2.11, 2.12, 2.13, 3.0, and 4.0</td>
 </tr>
 <tr>
     <td>shared-redis-release</td>
@@ -73,6 +77,8 @@ The following components are compatible with this release:
     <td>5.0.14</td>
 </tr>
 </table>
+
+<% end %>
 
 ## <a id="2-4-8"></a> v2.4.8
 
