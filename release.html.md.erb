@@ -9,7 +9,7 @@ This topic describes the changes in this minor release of <%= vars.product_full 
 
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
-{{#unless vars.hide_content}}
+<% if vars.hide_content == true %>
 
 ## <a id="3-1-5"></a> v3.1.5
 
@@ -74,7 +74,7 @@ The following components are compatible with this release:
 </tr>
 </table>
 
-{{/unless}}
+<% end %>
 
 ## <a id="3-1-4"></a> v3.1.4
 
