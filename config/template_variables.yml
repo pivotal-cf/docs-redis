@@ -25,10 +25,10 @@ template_variables:
   windows_runtime_abbr: PASW
   company_name: Pivotal
   product_network: VMware Tanzu Network
-  
+
   path_to_partials: /redis/partials
-  product_url: https://network.pivotal.io/products/pivotal-cf
-  product_link: <div class="header-item"><a href="https://network.pivotal.io/products/pivotal-cf">Back to Product Page</a></div>
+  product_url: https://network.tanzu.vmware.com/products/pivotal-cf
+  product_link: <div class="header-item"><a href="https://network.tanzu.vmware.com/products/pivotal-cf">Back to Product Page</a></div>
   service_name: Redis for Pivotal Platform
   os_name: Redis
   tile_name: Redis
