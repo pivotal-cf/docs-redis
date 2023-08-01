@@ -38,5 +38,10 @@ template_variables:
   support_call_to_action: <a href="tanzu.vmware.com/support" target="_blank">Need Support?</a>
   support_url: tanzu.vmware.com/support
 
+  # TAS version
+  current_major_version: "4.0"
+  v_major_version: "v4.0"
+  dot_major_version: "4.0"
+
   api_version: 235
   gtm_account_id: GTM-MM86KCJ
