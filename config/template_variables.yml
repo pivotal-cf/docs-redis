@@ -71,6 +71,11 @@ template_variables:
 
   ops_manager_full: Pivotal Operations Manager
 
+  # TAS version
+  current_major_version: "4.0"
+  v_major_version: "v4.0"
+  dot_major_version: "4.0"
+
   # Other variables
 
   service_name: Redis for VMware Tanzu Application Service
