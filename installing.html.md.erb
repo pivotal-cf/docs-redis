@@ -340,7 +340,7 @@ To add and configure each on-demand service plan:
     Click here to view a larger version of this image</a>
 1. Configure the settings in the table below for your on-demand plans and then click **Save**.
 <%# Should you not reduce the the VMs or disk after you have saved settings or while you are configuring for the first time? %>
-  <p class="warning note"><strong>Warning:</strong> Do not downsize the VMs
+  <p class="note caution"><span class="note__title">Caution</span> Do not downsize the VMs
    or disk size. Doing so can cause data loss in pre-existing instances.
   </p>
 
@@ -460,7 +460,7 @@ Additionally, operators cannot make a plan that was previously active, inactive,
 
 ### <a id="remove-on-demand-plan"></a>Remove an On-Demand Service Plan
 
-<p class="warning note"><strong>Warning:</strong>
+<p class="note caution"><span class="note__title">Caution</span>
   Do not remove an on-demand service plan with service instances deployed.
   Doing so causes <strong>Apply Changes</strong> to fail.
   For how to recover a deleted plan, see
@@ -485,19 +485,19 @@ To remove an on-demand service plan from your tile:
     my-instance   p.redis     on-demand-cache                 create succeeded
     </pre>
 
-1. In the <%= vars.product_short %> tile, select **On-Demand Plan Settings**.
+2. In the <%= vars.product_short %> tile, select **On-Demand Plan Settings**.
 
-1. Delete the plan by clicking the trash can icon next to the plan name.
+3. Delete the plan by clicking the trash can icon next to the plan name.
 
-1. Click **Save**.
+4. Click **Save**.
 
-1. Navigate to the **Errands** page on the <%= vars.product_short %> tile, and set
+5. Navigate to the **Errands** page on the <%= vars.product_short %> tile, and set
 the **Register On-Demand Broker** errand to **on**.
 This updates the plans available in the Marketplace.
 
 ### <a id="remove-on-demand"></a>Remove All On-Demand Service Plans
 
-<p class="warning note"><strong>Warning:</strong>
+<p class="note caution"><strong>Caution</strong>
   Do not remove an on-demand service plan with service instances deployed.
   Doing so causes <strong>Apply Changes</strong> to fail.
   For how to recover a deleted plan, see
@@ -509,15 +509,15 @@ To remove the on-demand service from your tile:
 
 1. In the <%= vars.product_short %> tile, select **Resource Config**
 
-1. Set the **Redis On-Demand Broker** job instances to 0.
+2. Set the **Redis On-Demand Broker** job instances to 0.
 
-1. Navigate to the **Errands** page on the <%= vars.product_short %> tile, and set the following errands to **off**:
+3. Navigate to the **Errands** page on the <%= vars.product_short %> tile, and set the following errands to **off**:
     * Register On-Demand Broker
     * On-Demand Broker Smoke Tests
     * Upgrade All On-Demand Service Instances
     * Delete All Service Instances and Deregister On-Demand Broker
 
-1. Create an empty service network. For instructions, see
+4. Create an empty service network. For instructions, see
 [Creating an Empty Services Network when using on-demand Service Tiles for Non-On-Demand Usage Only](https://community.pivotal.io/s/article/Creating-an-Empty-Services-Network-when-using-on-demand-Service-Tiles-for-Non-On-Demand-Usage-Only) in the VMware Tanzu Support knowledge base.
 
 1. Go to each **On-Demand Plans** page on the <%= vars.product_short %> tile,
