@@ -11,9 +11,9 @@ This topic describes the changes in this minor release of <%= vars.product_full 
 
 ## <a id="3-2-2"></a> v3.2.2
 
-**Release Date: August 10, 2023**
+**Release date: August 10, 2023**
 
-### Security Fixes
+### Security fixes
 
 This release includes the following security fixes:
 
@@ -120,13 +120,13 @@ This release includes the following security fixes:
 * [CVE-2023-32643](https://nvd.nist.gov/vuln/detail/CVE-2023-32643)
 
 
-### Resolved Issues
+### Resolved issues
 
 This release has the following fixes:
 
-* **Smoke tests errand error:** When running the Shared-VM and On-Demand smoke tests errand, tests will no longer enable public access to Redis private plans when running the command `cf service-access`.
+* **Smoke tests errand error:** When running the Shared-VM and On-Demand smoke tests errand, tests no longer enable public access to Redis private plans when running the command `cf service-access`.
 
-### Known Issues
+### Known issues
 
 There are no known issues for this release.
 
@@ -183,9 +183,9 @@ The following components are compatible with this release:
 
 ## <a id="3-2-1"></a> v3.2.1
 
-**Release Date: June 8, 2023**
+**Release date: June 8, 2023**
 
-### Resolved Issues
+### Resolved issues
 
 This release has the following fixes:
 
@@ -193,11 +193,11 @@ This release has the following fixes:
 
 * **Smoke tests errand error:** When running the Shared-VM and On-Demand smoke tests errand, the service access to the Redis plans no longer appears as limited when running the command `cf service-access`.
 
-### Known Issues
+### Known issues
 
 This release has the following known issues:
 
-* **Smoke tests errand error:** When running the Shared-VM and On-Demand smoke tests errand, private Redis plans will change to public Redis plans.
+* **Smoke tests errand error:** When running the Shared-VM and On-Demand smoke tests errand, private Redis plans change to public Redis plans.
 
 
 ### Compatibility
@@ -253,7 +253,7 @@ The following components are compatible with this release:
 
 ## <a id="3-2-0"></a> v3.2.0
 
-**Release Date: 19 April 2023**
+**Release date: 19 April 2023**
 
 ### Features
 
@@ -279,7 +279,7 @@ This release has the following fixes:
 
 This release has the following known issues:
 
-* **Smoke tests errand error:** When running the Shared-VM and On-Demand smoke tests errand, Redis plans will change to `limited` access.
+* **Smoke tests errand error:** When running the Shared-VM and On-Demand smoke tests errand, Redis plans change to `limited` access.
 
 * The fix **Single AZ only** might cause the Availability Zones (AZs) for the VM to be changed. This only affects the Shared-VM. As a result, an orphaned disk might occur. For instructions on how to reattach the disk, see the [BOSH documentation](https://bosh.io/docs/persistent-disks/#orphaned-disks).
 
