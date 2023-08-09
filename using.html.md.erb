@@ -401,7 +401,7 @@ Where:
 
 ### Unshare a Redis Service Instance
 
-<p class="note warning"><strong>WARNING</strong>: Redis only has one password and password rotation does not occur on unshare.
+<p class="note caution"><span class="note__title">Caution</span> Redis only has one password and password rotation does not occur on unshare.
 After unsharing a service, any bound apps continue to have access to the Redis instance until the apps are restaged.</p>
 
 To unshare an instance, run the following command:

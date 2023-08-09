@@ -89,7 +89,7 @@ instances. Lua scripting can adversely affect the performance of other service i
 Pivotal recommends disabling Lua scripting unless developers need it enabled.
 For more information, see [Shared-VM Plan Settings](./installing.html#shared-vm-config).
 
-<p class="note warning"><strong>Warning:</strong>
+<p class="note caution"><span class="note__title">Caution</span>
   The Steeltoe connector for Redis requires Redis for PCF to support Lua scripting.
   Check if any of your apps require Lua scripting.
   By default, Lua scripting is disabled for Redis for PCF, but a PCF operator can
