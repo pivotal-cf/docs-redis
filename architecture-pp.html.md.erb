@@ -108,7 +108,7 @@ instances. Lua scripting can adversely affect the performance of other service i
 Pivotal recommends deactivating Lua scripting unless developers need it enabled.
 For more information, see [Configure Shared-VM Plan Settings](./installing.html#shared-vm-config).
 
-<p class="note warning"><strong>Warning:</strong>
+<p class="note caution"><span class="note__title">Caution</span>
   The Steeltoe connector for Redis requires <%= vars.product_short %> to support Lua scripting.
   Check if any of your apps require Lua scripting.
   By default, Lua scripting is deactivated for <%= vars.product_short %>, but a <%= vars.platform_name %> operator can
