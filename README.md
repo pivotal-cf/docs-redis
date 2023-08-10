@@ -24,10 +24,11 @@ Always make changes you want carried forward in the main branch. This includes:
 * Doc bug fixes
 * Doc reorganization or enhancement
 
-Staging link: https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html
+Staging link: https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html
 
 ### Live Branches In Production (Public)
 
+* **3.3**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html)
 * **3.2**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html)
 * **3.1**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html)
 * **3.0**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html)
