@@ -80,3 +80,4 @@ template_variables:
   service_name: Redis for VMware Tanzu Application Service
   service_name_article: Redis for Tanzu Application Service
   service_name_article_full: the Redis for VMware Tanzu Application Service service
+  tls_prepare_overview: When you use TLS, a new port is co-located with <%= product_short %> service instances.  Apps and clients can use this secure port to establish encrypted connections with the service.
