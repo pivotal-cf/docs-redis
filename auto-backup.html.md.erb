@@ -42,7 +42,7 @@ The table below summarizes the differences between the two methods:
     </tr>
 </table>
 
-<p class="note"><strong>Note:</strong> Neither backup method backs up other manual changes made to service instances,
+<p class="note"><<span class="note__title">Note</span> Neither backup method backs up other manual changes made to service instances,
 either using SSH or with the Redis client <code>config</code> command.</p>
 
 For more information, see [BOSH Backup and Restore (BBR) for On-Demand <%= vars.product_full %>](./bbr-backup.html).
@@ -180,10 +180,10 @@ Do the following to create a new public and private keypair for authenticating:
 
 1. Determine the remote host to use to store backups for <%= vars.product_short %>.
    Ensure that the Redis service instances can access the remote host.
-    <p class="note"><strong>Note</strong>: VMware recommends using a VM outside the deployment for the destination of SCP backups.
-    As a result you might need to enable public IPs for the Redis VMs.</p>
-1. Create a new user for <%= vars.product_short %> on the destination VM.
-1. Create a new public and private keypair for authenticating as the above user on the destination VM.
+   VMware recommends using a VM outside the deployment for the destination of SCP backups.
+    As a result, you might need to enable public IPs for the Redis VMs.
+2. Create a new user for <%= vars.product_short %> on the destination VM.
+3. Create a new public and private keypair for authenticating as the above user on the destination VM.
 
 ### <a id="scp-config-om"></a>Configure Backups in <%= vars.ops_manager %>
 
