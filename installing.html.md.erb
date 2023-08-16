@@ -236,25 +236,23 @@ in the steps below.](images/redis-odservice-settings.png)
 1. Select the **Allow outbound internet access from service instances** checkbox.
    You must select this checkbox to allow external log forwarding, send backup artifacts to external destinations,
    and communicate with an external BOSH blobstore.
-  <p class="note"><strong>Note</strong>: Outbound network traffic rules also depend on your IaaS settings.
-      Consult your network or IaaS admin to ensure that your IaaS allows outbound traffic to the external networks you need.</p>
+   Outbound network traffic rules also depend on your IaaS settings.
+   Consult your network or IaaS admin to ensure that your IaaS allows outbound traffic to the external networks you need.
 
-1. (Optional) Select the checkbox to enable **Service Instance Sharing**.
+2. (Optional) Select the checkbox to enable **Service Instance Sharing**.
    Turning on sharing enables this feature for all on-demand instances.
-    <p class="note"><strong>Note</strong>: To enable this feature a user with admin privileges
-  must run <code>cf enable-feature-flag service\_instance\_sharing</code>.
- For information about this feature, see <a href="./using.html#sharing">Sharing a Redis Instance with Another Space</a>.
-  </p>
+   To enable this feature a user with admin privileges
+   must run `cf enable-feature-flag service_instance_sharing`.
+   For information about this feature, see [Sharing a Redis Instance with Another Space](using.html.md.erb#sharing).
 
-1. (Optional) Use the **Maximum Parallel Upgrades** field to configure the
+
+3. (Optional) Use the **Maximum Parallel Upgrades** field to configure the
 maximum number of Redis service instances that can be upgraded at the same time.
 <br><br>
   When you click **Apply Changes**, the on-demand broker upgrades all service instances.
   By default, each instance is upgraded serially.
   Allowing parallel upgrades reduces the time taken to apply changes.
-  <p class="note"><strong>Note</strong>:
-    Multiple Redis service instances are concurrently unavailable during the upgrade.
-  </p>
+  Multiple Redis service instances are unavailable during the upgrade.
 
 1. (Optional) Use the **Number of Canaries to run before proceeding with upgrade** field
 and the **Specify Org and Space that Canaries will be selected from?** options to specify
@@ -277,13 +275,10 @@ set the number of canaries to zero. This upgrades all service instances in the s
             - **Yes**: The number of canaries is chosen non-deterministically.
             - **No**: No canaries.
 
-    <p class="note"><strong>Note:</strong>
+    <p class="note"><span class="note__title">Note</span>
       If you specify that canaries should be limited to an org and space that has
       no service instances, the upgrade fails.
-    </p>
-
-    <p class="note"><strong>Note:</strong>
-      Canary upgrades comply with the Maximum Parallel Upgrades settings.
+      Also, Canary upgrades comply with the Maximum Parallel Upgrades settings.
       If you specify three canaries and a Maximum Parallel Upgrades of two,
       then two canaries upgrade, followed by the third.
     </p>
@@ -297,18 +292,17 @@ This reduces downtime during upgrades.
 For how this feature works, see
 <a href="https://bosh.io/docs/changing-deployment-vm-strategy/">Changing VM Update Strategy</a> in the BOSH documentation.
 
-1. (Optional) Select **Yes** to enable **On Demand - Secure Service Instance Credentials with Runtime CredHub**.
+1. (Optional) Select **Yes** to enable **On Demand - Secure Service Instance
+   Credentials with Runtime CredHub**. If you do select **Yes**, you
+   must also follow the steps in [Enable Secure Service Instance Credentials for
+   On-Demand Redis](#secure-credentials) later on this page.
 
-    <p class="note">
-      <strong>Note:</strong> If you select <strong>Yes</strong>, you must also follow the steps in
-      <a href="#secure-credentials">Enable Secure Service Instance Credentials
-      for On-Demand Redis</a> below.
-    </p>
+2. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.<%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
 
 1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
 
     <p class="note">
-      <strong>Note:</strong>
+      <span class="note__title">Note</span>
       Selecting <strong>TLS optional</strong> does not enforce the use of TLS. After deploying the tile, notify developers that they must unbind, bind, and restage existing service instances to ensure Spring and Steeltoe apps use TLS.
       Further configuration might be needed for other frameworks and languages to ensure use of the TLS port.
     </p><%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
@@ -583,14 +577,14 @@ To configure the limits in these fields:
       </tr>
   </table>
 
-  <p class="note"><strong>Note:</strong> You can configure a larger
-    <strong>Redis Service Instance Limit</strong>, if you are confident that the
-    majority of the deployed instances do not use a large amount of their allocated memory,
-    for example in development or test environments.<br><br>
-    However, this practice is not supported and can cause your server to run out of memory,
-    preventing users from writing any more data to any Redis shared-VM instance.
-    Do not use shared-VM instances in production environments.
-  </p>
+    <p class="note"><span class="note__title">Note</span> You can configure a larger
+      <strong>Redis Service Instance Limit</strong> if you are confident that the
+      majority of the deployed instances do not use a large amount of their allocated memory,
+      for example, in development or test environments.<br><br>
+      However, this practice is not supported and can cause your server to run out of memory,
+      preventing users from writing any more data to any Redis shared-VM instance.
+      Do not use shared-VM instances in production environments.
+    </p>
 
 
 ### <a id="resources"></a>Configure Resources for Shared-VM Plans
@@ -728,7 +722,7 @@ you must create [App Security Groups (ASGs)](https://docs.pivotal.io/application
 Ensure your security group allows access to the Redis Service Broker VM configured in your deployment.
 You can obtain the IP addresses for these VMs in <%= vars.ops_manager %> under the <strong>Resource Config</strong> section for the <%= vars.product_short %> tile.</p>
 
-<p class="note"><strong>Note:</strong> Without ASGs, this service is unusable.</p>
+<p class="note"><span class="note__title">Note</span>Without ASGs, this service is unusable.</p>
 
 ### App Container Network Connections
 
