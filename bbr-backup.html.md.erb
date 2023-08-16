@@ -24,7 +24,7 @@ For more information, see [Configuring Automated Service Backups](./auto-backup.
 
 To take a backup of <%= vars.platform_name %> and on-demand <%= vars.product_short %>, BBR must be installed. If you do not already have it installed,
 follow the instructions in
-<a href="https://docs.pivotal.io/pivotalcf/customizing/backup-restore/backup-pcf-bbr.html#prepare">Prepare to Create Your Backup</a> in the BBR docs.
+<a href="https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-backup-pcf-bbr.html#setup-jumpbox">Preparing to create your backup</a> in the BBR documentation.
 
 When deciding on the disk size for the jumpbox, remember
 that the Redis backup artifact is roughly 1/10 of the RAM usage of the Redis instance.
@@ -52,9 +52,9 @@ To obtain the instance deployment names, do the following:
 
     * `REDIS-BOSH-CLIENT`, `REDIS-BOSH-PASSWORD`: To find these in the <%= vars.ops_manager %> Installation Dashboard, click the <%= vars.product_short %> tile, navigate to the
     **Credentials** tab, and click **UAA Client Credentials**. Note the `Redis BOSH UAA` credentials.
-    * `BOSH-DIRECTOR-IP`: You retrieved this value in [Step 1-6: Prepare to Create Your Backup](https://docs.pivotal.io/pivotalcf/customizing/backup-restore/backup-pcf-bbr.html#prepare).
+    * `BOSH-DIRECTOR-IP`: You retrieved this value in [Step 1–6: Preparing to create your backup](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-backup-pcf-bbr.html#setup-jumpbox).
     * `PATH-TO-BOSH-SERVER-CERTIFICATE`: This is the path to the Certificate Authority (CA) certificate for the BOSH Director.
-    For more information, see [Ensure BOSH Director Certificate Availability](https://docs.pivotal.io/pivotalcf/customizing/backup-restore/system-setup-bbr.html#root-ca-cert).
+    For more information, see [Set up your jumpbox](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-backup-pcf-bbr.html#step-1-set-up-your-jumpbox-10).
 
     In the preceding command, <code>BOSH_CLIENT</code> is not a variable.
 
@@ -122,10 +122,10 @@ step of the BBR documentation.
 Follow these steps:
 
 1. To restore on-demand Redis service instance data, follow the procedure
-for [Restoring <%= vars.platform_name %> from Backup with BBR](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-restore-pcf-bbr.html) in full.
+for [Restoring Ops Manager deployments from backup with BBR](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-restore-pcf-bbr.html) in full.
 
     Ensure that as part of
-		<a href="https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-restore-pcf-bbr.html#step-6-transfer-artifacts-to-jumpbox-8">Step 6: Transfer Artifacts to Jumpbox</a> you transfer your Redis service instance artifacts.
+		<a href="https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-restore-pcf-bbr.html#step-6-transfer-artifacts-to-jumpbox-8">Step 6: Transfer artifacts to jumpbox</a> you transfer your Redis service instance artifacts.
 
 1. For each Redis service instance artifact, run the below command from your jumpbox:
 
