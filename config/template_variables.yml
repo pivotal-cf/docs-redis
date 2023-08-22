@@ -29,6 +29,7 @@ template_variables:
 
   # VMware Tanzu Variables
   company_name: VMware
+  product_full_tm: Redis for VMware Tanzu&reg; Application Service&trade;
   product_full: Redis for VMware Tanzu Application Service
   product_short: Redis for Tanzu Application Service
   product_abbr: Redis for VMware Tanzu Application Service
