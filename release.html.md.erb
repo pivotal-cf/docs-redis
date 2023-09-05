@@ -21,7 +21,8 @@ There are no new features for this release.
 
 This release has the following fix:
 
-* **Failed backups:** Resolves an issue where backups greater than 5&nbsp;GB were not uploaded to AWS S3 buckets.
+* **Resolved large backups fail to upload:** Backups greater than 5&nbsp;GB now
+successfully upload to AWS S3 buckets.
 
 ### Known issues
 
@@ -98,7 +99,7 @@ New features and changes in this release:
 
 This release has the following known issues:
 
-* **Failed backups:** Backups fail to upload to AWS S3 buckets if their size is greater than 5&nbsp;GB.
+* **Large backups fail to upload:** Backups fail to upload to AWS S3 buckets if their size is greater than 5&nbsp;GB.
 
 ### Compatibility
 
