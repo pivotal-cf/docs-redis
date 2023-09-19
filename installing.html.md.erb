@@ -229,24 +229,24 @@ To configure settings that apply across the whole on-demand service offering:
 in the steps below.](images/redis-odservice-settings.png)
 [Click here to view a larger version of this image.](./images/redis-odservice-settings.png)
 
-1. Enter the **Maximum service instances across all on-demand plans**.
+2. Enter the **Maximum service instances across all on-demand plans**.
    The maximum number of instances you set for all your on-demand plans combined cannot exceed this number.<br />
    For more information, see [Setting Limits for On-Demand Service Instances](./set-quotas.html).
 
-1. Select the **Allow outbound internet access from service instances** checkbox.
+3. Select the **Allow outbound internet access from service instances** checkbox.
    You must select this checkbox to allow external log forwarding, send backup artifacts to external destinations,
    and communicate with an external BOSH blobstore.
    Outbound network traffic rules also depend on your IaaS settings.
    Consult your network or IaaS admin to ensure that your IaaS allows outbound traffic to the external networks you need.
 
-2. (Optional) Select the checkbox to enable **Service Instance Sharing**.
+4. (Optional) Select the checkbox to enable **Service Instance Sharing**.
    Turning on sharing enables this feature for all on-demand instances.
    To enable this feature a user with admin privileges
    must run `cf enable-feature-flag service_instance_sharing`.
    For information about this feature, see [Sharing a Redis Instance with Another Space](using.html.md.erb#sharing).
 
 
-3. (Optional) Use the **Maximum Parallel Upgrades** field to configure the
+5. (Optional) Use the **Maximum Parallel Upgrades** field to configure the
 maximum number of Redis service instances that can be upgraded at the same time.
 <br><br>
   When you click **Apply Changes**, the on-demand broker upgrades all service instances.
@@ -254,7 +254,7 @@ maximum number of Redis service instances that can be upgraded at the same time.
   Allowing parallel upgrades reduces the time taken to apply changes.
   Multiple Redis service instances are unavailable during the upgrade.
 
-1. (Optional) Use the **Number of Canaries to run before proceeding with upgrade** field
+6. (Optional) Use the **Number of Canaries to run before proceeding with upgrade** field
 and the **Specify Org and Space that Canaries will be selected from?** options to specify
 settings for upgrade canaries.
 Canaries are service instances that are upgraded first.
@@ -287,25 +287,27 @@ set the number of canaries to zero. This upgrades all service instances in the s
     [Upgrade All Service Instances](https://docs.pivotal.io/svc-sdk/odb/operating.html#upgrade-all-instances)
     in the On-Demand Services SDK documentation.
 
-1. (Optional) Select the checkbox to enable **BOSH HotSwaps**.
+7. (Optional) Select the checkbox to enable **BOSH HotSwaps**.
 This reduces downtime during upgrades.
 For how this feature works, see
 <a href="https://bosh.io/docs/changing-deployment-vm-strategy/">Changing VM Update Strategy</a> in the BOSH documentation.
 
-1. (Optional) Select **Yes** to enable **On Demand - Secure Service Instance
+8. (Optional) Select **Yes** to enable **On Demand - Secure Service Instance
    Credentials with Runtime CredHub**. If you do select **Yes**, you
    must also follow the steps in [Enable Secure Service Instance Credentials for
    On-Demand Redis](#secure-credentials) later on this page.
 
-2. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.<%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
+9. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
+    <%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
 
-1. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
+10. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
 
     <p class="note">
       <span class="note__title">Note</span>
       Selecting <strong>TLS optional</strong> does not enforce the use of TLS. After deploying the tile, notify developers that they must unbind, bind, and restage existing service instances to ensure Spring and Steeltoe apps use TLS.
       Further configuration might be needed for other frameworks and languages to ensure use of the TLS port.
-    </p><%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
+    </p><br>
+    <%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
 
 ## <a id="on-demand-plan-config"></a>Configure On-Demand Plan Settings
 
