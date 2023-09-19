@@ -138,7 +138,7 @@ If you get an error, see [Troubleshooting Instances](./troubleshoot-instances.ht
 Shared-VM service instances have been pre-provisioned by the operator. This means, if an instance is available, the app developer can provision it immediately.
 These plans are both listed under the `p-redis` service in the Marketplace.
 
-<p class="note"><strong>Note</strong>: Shared-VM services are designed for testing and development purposes. Shared-VMs should not be used in production environments</p>
+<p class="note"><span class="note__title">Note</span> Shared-VM services are designed for testing and development purposes. Shared-VMs should not be used in production environments</p>
 
 To create a service instance of the <%= vars.product_short %> shared-VM plan, run:
 
@@ -349,7 +349,7 @@ App developers can customize the following parameters. See the <a href="https://
 
 ### <a id="customize-cli"></a> Customize an On-Demand Instance with the cf CLI
 
-<p class="note"><strong>Note</strong>: Arbitrary parameters are only supported for on-demand service instances. Shared-VM plans do not support the use of CLI commands with arbitrary parameters to configure service instances.</p>
+<p class="note"><span class="note__title">Note</span> Arbitrary parameters are only supported for on-demand service instances. Shared-VM plans do not support the use of CLI commands with arbitrary parameters to configure service instances.</p>
 
 You can customize an instance in two ways:
 
@@ -516,9 +516,9 @@ Example `VCAP_SERVICES`:
       }
     </pre>
 
-    <p class="note"><strong>Note</strong>: You can also search for your service
-      by its <code>name</code>, given when creating the service instance, or
-      dynamically via the <code>tags</code> or <code>label</code> properties.</p>
+    You can also search for your service
+      by its `name`, given when creating the service instance, or
+      dynamically via the `tags` or `label` properties.
 
 3. In your app code, call the Redis service using the connection strings.
 
