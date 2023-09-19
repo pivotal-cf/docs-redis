@@ -299,7 +299,11 @@ For how this feature works, see
 
 9. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS.
   
-    <%= partial vars.path_to_partials + '/redis/warning-deactivating-tls' %>
+      <p class="note caution">
+      <span class="note__title">Caution</span>
+        After TLS is activated for the on-demand Redis service, deactivating TLS causes downtime and service outage for all apps that connect to Redis through TLS.
+        If you deactivate TLS, you must unbind all apps bound to on-demand instances from the TLS port, rebind to the non-TLS port, and then restage to resume service access.
+      </p>
 
 10. (Optional) Select the **Not Configured** option under **Enable TLS** if you do not want to allow TLS connections to on-demand service instances. TLS support is optional in new installations by default. If TLS is configured in <%= vars.product_short %> v2.2, follow the procedures in <a href="./preparing-tls.html">Preparing for TLS</a> before enabling TLS. Consider the preceding caution notice about deactivating TLS after it is activated for the the on-demand Redis service.
 
