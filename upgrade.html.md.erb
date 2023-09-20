@@ -35,7 +35,7 @@ To upgrade to the latest version of <%= vars.product_short %>:
 
 1. (Optional) To enable TLS:
   1.  Follow the procedures in [Preparing for TLS](./preparing-tls.html).
-    <p class="note"> <strong>Note:</strong>
+    <p class="note"> <span class="note__title">Note</span>
       In most cases, enabling TLS does not noticeably reduce performance. Performance impact depends on the health of resources, such as network infrastructure and application architecture.
     </p>
   1. In the Redis for Pivotal Platform tile, select **On-Demand Service Settings**.
@@ -62,7 +62,7 @@ To expedite upgrades, in <%= vars.product_short %> v2.3 and later you can enable
 instances to be upgraded individually.
 This allows developers to upgrade their own service instances after you have upgraded the tile.
 
-<p class="note"><strong>Note:</strong>
+<p class="note"><span class="note__title">Note</span>
   This feature is only available for upgrades from <%= vars.product_short %> v2.3.0 to later versions.
   You cannot upgrade individual service instances from v2.2 to v2.3.
 </p>
@@ -159,7 +159,7 @@ To enable BOSH HotSwaps:
 To do so, tell developers to unbind, bind, and restage any apps created while
 Redis for PCF v1.14 or earlier was installed.
 For instructions, see the solution in [Apps Fail to Connect to the Service Instance](./troubleshoot-instances.html#connect-fails).
-  <p class="note"><strong>Note:</strong>
+  <p class="note"><span class="note__title">Note</span>
     You must do this before enabling BOSH HotSwaps.
     Any apps with service bindings that do not use BOSH DNS fail to connect
     to the Redis service instance.</p>
