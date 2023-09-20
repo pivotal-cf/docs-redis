@@ -123,7 +123,7 @@ The following errors are specific to <%= vars.product_short %>:
 - [Error When Running the Save Command](#err-save-command)
 - [Unknown Command Error](#err-unknown-command)
 
-<p class="note"><strong>Note:</strong>
+<p class="note"><span class="note__title">Note</span>
   Certain errors are returned to the Redis
   client instead of being recorded in the logs. The Redis protocol represents
   errors as simple strings beginning with a <code>-</code> character.
@@ -360,7 +360,7 @@ of all service instances in the space by running:
 If you want to access the Redis server for troubleshooting,
 you can find a Redis service instance password by creating a new service key.
 
-<p class="note"><strong>Note:</strong>
+<p class="note"><span class="note__title">Note</span>
   VMware recommends that you use this key for troubleshooting only, and that you
   delete the key after troubleshooting by running the command <code>cf delete-service-key SERVICE-INSTANCE KEY-NAME</code>.
 </p>
