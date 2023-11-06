@@ -164,6 +164,8 @@ Do the following to connect <%= vars.product_short %> to your S3 account:
     | Backup timeout    | The amount of time, in minutes, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                                                                                                                                 | Mandatory                                                        |
 1. Click **Save**.
 
+> **_NOTE:_** Currently, Amazon S3 supports both virtual-hosted–style and path-style URL access in all AWS Regions. However, Automated backup service with AWS uses virtual-hosted-style addressing. There are S3 compatible object storage services which provides s3 compatible apis. If you plan to use those for backups, make sure they support virtual-hosted style URL access for backup service to run properly.
+
 ## <a id="scp"></a>Option 2: Back Up with SCP
 
 To back up your database using SCP:
