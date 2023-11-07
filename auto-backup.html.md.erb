@@ -164,6 +164,9 @@ Do the following to connect <%= vars.product_short %> to your S3 account:
     | Backup timeout    | The amount of time, in minutes, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                                                                                                                                 | Mandatory                                                        |
 1. Click **Save**.
 
+> **_NOTE:_** The backup service uses Amazon S3 with only support of virtual-hosted-style addressing and does not use path-style-addressing.
+> If you plan to use Amazon S3's API compatible services for backup (e.g. [minio](https://min.io)), please make sure that it is configured to use virtual-hosted-addressing.
+
 ## <a id="scp"></a>Option 2: Back Up with SCP
 
 To back up your database using SCP:
