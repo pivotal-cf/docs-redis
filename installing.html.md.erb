@@ -5,19 +5,19 @@ owner: London Services
 
 <strong><%= modified_date %></strong>
 
-This topic for operators gives you instructions about how to install <%= vars.product_full %>.
+This topic for operators provides instructions about how to install <%= vars.product_full %>.
 It covers tasks from downloading the file from <%= vars.product_network %>
 through verifying the installation after configuration.
 
-## <a id="rbac"></a>Role-Based Access in <%= vars.ops_manager %>
+## <a id="rbac"></a>Role-Based access in <%= vars.ops_manager %>
 
 <%= vars.ops_manager %> admins can use Role-Based Access Control (RBAC) to manage which
 operators can make deployment changes, view credentials, and manage user roles in <%= vars.ops_manager %>.
 Therefore, your role permissions might not allow you to follow every procedure in this operator guide.
 
-For more information about roles in <%= vars.ops_manager %>, see [Understand Roles in <%= vars.ops_manager %>](https://docs.pivotal.io/platform/opsguide/config-rbac.html#about).
+For more information about roles in <%= vars.ops_manager %>, see [Understand roles in <%= vars.ops_manager %>](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-config-rbac.html).
 
-## <a id="install"></a>Download and Install the Tile
+## <a id="install"></a>Download and install the Tile
 
 To add <%= vars.product_short %> to <%= vars.ops_manager %>, follow the procedure for adding <%= vars.ops_manager %> tiles:
 
@@ -30,21 +30,21 @@ Select the latest release from the **Releases** dropdown.
 
     1. If you are using <%= vars.ops_manager %> v2.3 or later, click **Review Pending Changes**.
     For more information about this <%= vars.ops_manager %> page, see
-    [Reviewing Pending Product Changes](https://docs.pivotal.io/platform/customizing/review-pending-changes.html).<br><br>
+    [Reviewing pending product changes](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-review-pending-changes.html).<br><br>
     1. Click **Apply Changes**.
 
-For guidance on ports and ranges used in the Redis service, see [Select Networks](#network-configuration) below.
+For guidance on ports and ranges used in the Redis service, see [Select networks](#network-configuration) below.
 
 ## <a id="azs"></a>Assign AZs and Networks
 
 To assign AZs and networks, click the **Assign AZs and Networks** settings tab.
 
-![The Redis tile in Ops Manager. The 'Assign AZs and Networks' pane is active.
+![The Redis tile in Tanzu Operations Manager. The 'Assign AZs and Networks' pane is active.
 See the next section for information about configuring this pane.](images/AZ-assignment.png)
 
 ### <a id="az-config"></a>Assign AZs
 
-You can assign multiple availability zones (AZs) to Redis jobs, however this does not ensure high availability.
+You can assign multiple availability zones (AZs) to Redis jobs, however, this does not ensure high availability.
 You must select AZs that are in the service network you configured in your BOSH Director.
 For more information, see [Availability Zones](erc.html#other-notes).
 
@@ -58,7 +58,7 @@ To assign AZs:
 
 1. Click **Save**.
 
-### <a id="network-configuration"></a>Select Networks
+### <a id="network-configuration"></a>Select networks
 
 You can use <%= vars.product_short %> with or without using the on-demand service.
 To use the <%= vars.product_short %> on-demand service, you must select a network in which
@@ -73,12 +73,13 @@ To select networks:
 
 1. If using the on-demand service, select a **Service Network**.
 Otherwise, select an empty service network.
-For more information, see [Creating an Empty Services Network when using on-demand Service Tiles for Non-On-Demand Usage Only](https://community.pivotal.io/s/article/Creating-an-Empty-Services-Network-when-using-on-demand-Service-Tiles-for-Non-On-Demand-Usage-Only) in the VMware Tanzu Support knowledge base.
+For more information, see [Creating an empty Services Network when using on-demand Service Tiles for Non-On-Demand usage only](https://community.pivotal.io/s/article/Creating-an-Empty-Services-Network-when-using-on-demand-Service-Tiles-for-Non-On-Demand-Usage-Only) in the VMware Tanzu Support knowledge base.
 
 
 The following ports and ranges are used in <%= vars.product_short %>:
 
-<table class="nice">
+<table class=“table”>
+<thead>
   <tr><th>Port</th>
     <th>Protocol</th>
     <th>Direction and Network</th>
@@ -98,6 +99,7 @@ The following ports and ranges are used in <%= vars.product_short %>:
       Allows Redis <code>metron_agent</code> to forward metrics to the Cloud Foundry Loggregator
     </td>
   </tr>
+  </thead>
   <tr>
     <td>
       12350
@@ -278,10 +280,9 @@ set the number of canaries to zero. This upgrades all service instances in the s
     </p>
 
     For information about this feature, see `canaries` in
-    [Upgrade All Service Instances](https://docs.pivotal.io/svc-sdk/odb/operating.html#upgrade-all-instances)
-    in the On-Demand Services SDK documentation.
+    [Upgrade all Service Instances](https://docs.vmware.com/en/On-Demand-Services-SDK-for-VMware-Tanzu/0.43/on-demand-services-sdk/GUID-upgrades.html).
 
-1. (Optional) Select the checkbox to enable **BOSH HotSwaps**.
+1. (Optional) Select the check box to enable **BOSH HotSwaps**.
 This reduces downtime during upgrades.
 For how this feature works, see
 <a href="https://bosh.io/docs/changing-deployment-vm-strategy/">Changing VM Update Strategy</a> in the BOSH documentation.
@@ -333,7 +334,7 @@ service-instance VMs. Ensure the list is in a style that the underlying cloud pr
 For example, Google Cloud Platform (GCP) does not permit uppercase characters.
 
 
-## <a id="on-demand-plan-config"></a>Configure On-Demand Plan Settings
+## <a id="on-demand-plan-config"></a>Configure On-Demand plan settings
 
 You can configure multiple on-demand plans with memory and disk sizes suited to different use cases.
 The configuration of resources varies depending on your IaaS.
@@ -348,13 +349,14 @@ To add and configure each on-demand service plan:
   ![The Redis tile in Ops Manager. The 'On-Demand Plans' pane is active. See the next step for information about configuring this pane.](images/on-demand-plan-config.png) <a id="ondemandplanconfig"></a>
   <a href="./images/on-demand-plan-config.png" target="_blank" aria-hidden="true">
     Click here to view a larger version of this image</a>
-1. Configure the settings in the table below for your on-demand plans and then click **Save**.
+1. Configure the settings in the following table for your on-demand plans and then click **Save**.
 <%# Should you not reduce the the VMs or disk after you have saved settings or while you are configuring for the first time? %>
   <p class="note caution"><span class="note__title">Caution</span> Do not downsize the VMs
    or disk size. Doing so can cause data loss in pre-existing instances.
   </p>
 
-    <table class="nice">
+    <table class=“table”>
+    <thead>
     <th>Field</th>
     <th>Default</th>
     <th>Description</th>
@@ -366,6 +368,7 @@ To add and configure each on-demand service plan:
         VMware recommends that you give your plans descriptive names based on their configuration.
       </td>
     </tr>
+    </thead>
     <tr>
       <td><strong>Plan Description</strong></td>
       <td>This plan provides an on-demand Redis instance, tailored for caching use cases with persistence to disk enabled.</td>
@@ -447,19 +450,19 @@ To add and configure each on-demand service plan:
     </table>
 
 
-### <a id="secure-credentials"></a> Enable Secure Service Instance Credentials for On-Demand Redis
+### <a id="secure-credentials"></a> Enable secure Service Instance credentials for On-Demand Redis
 
 If you enabled **On Demand - Secure Service Instance Credentials with Runtime CredHub**
 in step 8 of [Configure On-Demand Service Settings](#on-demand-config) above,
 you must follow this procedure.
 
-To secure your on-demand binding credentials in runtime [CredHub](https://docs.pivotal.io/platform/credhub/)
+To secure your on-demand binding credentials in runtime [CredHub](https://docs.vmware.com/en/Tile-Developer-Guide/3.0/tile-dev-guide/ssi-creds-tiledev.html)
 instead of the Cloud Controller database (CCDB):
 
 1. On the **CredHub** pane of <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>)
    select **Secure service instance credentials**.
 
-    For instructions, see [Configure CredHub](https://docs.pivotal.io/application-service/2-11/operating/configure-pas.html#credhub)
+    For instructions, see [Configure CredHub](https://docs.vmware.com/en/CredHub-Service-Broker/services/credhub/GUID-installing.html)
 in _Configuring TAS for VMs_.
 
 1. After deploying the tile, notify developers that they must unbind and rebind
@@ -475,7 +478,7 @@ these settings are implemented in all instances that are already created.
 Operators should not downsize the VMs or disk size because this can cause data loss in pre-existing instances.
 Additionally, operators cannot make a plan that was previously active, inactive, until all instances of that plan have been deleted.
 
-### <a id="remove-on-demand-plan"></a>Remove an On-Demand Service Plan
+### <a id="remove-on-demand-plan"></a>Remove an On-Demand Service plan
 
 <p class="note caution"><span class="note__title">Caution</span>
   Do not remove an on-demand service plan with service instances deployed.
@@ -508,7 +511,7 @@ To remove an on-demand service plan from your tile:
 
 4. Click **Save**.
 
-5. Navigate to the **Errands** page on the <%= vars.product_short %> tile, and set
+5. Go to the **Errands** page on the <%= vars.product_short %> tile, and set
 the **Register On-Demand Broker** errand to **on**.
 This updates the plans available in the Marketplace.
 
@@ -528,7 +531,7 @@ To remove the on-demand service from your tile:
 
 2. Set the **Redis On-Demand Broker** job instances to 0.
 
-3. Navigate to the **Errands** page on the <%= vars.product_short %> tile, and set the following errands to **off**:
+3. Go to the **Errands** page on the <%= vars.product_short %> tile, and set the following errands to **off**:
     * Register On-Demand Broker
     * On-Demand Broker Smoke Tests
     * Upgrade All On-Demand Service Instances
@@ -541,7 +544,7 @@ To remove the on-demand service from your tile:
 and delete each plan by clicking the trash can icon next to the plan name.
 <%# Maybe a new image here %>
 
-##  <a id="shared-vm-config"></a>Configure Shared-VM Plan Settings
+##  <a id="shared-vm-config"></a>Configure shared-VM Plan settings
 
 To configure shared-VM service plans:
 
@@ -567,7 +570,7 @@ See the example in Step 4 of [Remove On-Demand Service Plans](#remove-on-demand)
     <br><br>The Redis broker server runs all of the Redis instances for your shared-VM plan.
     From the **Resource Config** page, you can change the CPU, RAM, Ephemeral Disk, and Persistent Disk made available, as needed.
 
-### <a id="shared-vm-memory-limits"></a>Configure Memory Limits for Shared-VM Plans
+### <a id="shared-vm-memory-limits"></a>Configure Memory Limits for Shared-VM plans
 
 Additional calculation is required to configure memory limits for shared-VM plans.
 With these plans, several service instances share the VM, and the Redis broker also runs on this same VM.
@@ -588,12 +591,14 @@ To configure the limits in these fields:
 
     Here are some examples for setting these limits:
 
-    <table border="1" class="nice">
+    <table class=“table”>
+    <thead>
         <tr>
           <th>Redis Broker VM Total Memory</th>
           <th>Redis Instance Memory Limit</th>
           <th>Redis Service Instance Limit</th>
         </tr>
+        </thead>
         <tr>
           <td>16&nbsp;GB</td>
           <td>512&nbsp;MB</td>
@@ -686,7 +691,7 @@ The following are the default resource and IP requirements for <%= vars.product_
 
 VMware recommends that the persistent disk is at least 3.5x the VM memory for the shared-VM.
 
-### <a id="deactivate-shared"></a>Deactivate Shared VM Plans
+### <a id="deactivate-shared"></a>Deactivate Shared VM plans
 
 You can deactivate shared-VM plans by doing the following while configuring the Redis tile:
 
@@ -713,7 +718,7 @@ You can deactivate shared-VM plans by doing the following while configuring the 
 
 1. Click **Save** if you changed the sizes.
 
-## <a id="syslog"></a>Configure Syslog Forwarding
+## <a id="syslog"></a>Configure Syslog forwarding
 
 VMware recommends that operators configure syslog forwarding to a remote destination.
 Forwarding your system logs to a remote destination lets you:
@@ -732,7 +737,7 @@ To configure syslog forwarding:
 ## <a id="stemcell"></a> Verify the Stemcell
 
 To verify that you have the correct stemcell, follow the procedure in
-[Importing and Managing Stemcells](https://docs.pivotal.io/ops-manager/opsguide/managing-stemcells.html).
+[Importing and managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html).
 
 ## <a id="apply"></a> Apply Changes from Your Configuration
 
@@ -744,20 +749,20 @@ To apply your configuration changes:
 
     1. If you are using <%= vars.ops_manager %> v2.3 or later, click **Review Pending Changes**.
     For more information about this <%= vars.ops_manager %> page, see
-    [Reviewing Pending Product Changes](https://docs.pivotal.io/platform/customizing/review-pending-changes.html).<br><br>
+    [Reviewing pending product changes](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-review-pending-changes.html).<br><br>
     1. Click **Apply Changes**.
 
 
 ##  <a id="asg"></a> Create App Security Groups
 
 To allow this service to have network access,
-you must create [App Security Groups (ASGs)](https://docs.pivotal.io/application-service/concepts/asg.html).
+you must create [App Security Groups (ASGs)](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/asg.html).
 Ensure your security group allows access to the Redis Service Broker VM configured in your deployment.
 You can obtain the IP addresses for these VMs in <%= vars.ops_manager %> under the <strong>Resource Config</strong> section for the <%= vars.product_short %> tile.</p>
 
 <p class="note"><span class="note__title">Note</span>Without ASGs, this service is unusable.</p>
 
-### App Container Network Connections
+### App Container network connections
 
 App containers that use instances of <%= vars.product_short %> require the following outbound network connections:
 
@@ -817,5 +822,5 @@ To uninstall <%= vars.product_short %>:
 1. Confirm the product was deleted.
 1. If you are using <%= vars.ops_manager %> v2.3 or later, click **Review Pending Changes**.
 For more information about this <%= vars.ops_manager %> page, see
-[Reviewing Pending Product Changes](https://docs.pivotal.io/platform/customizing/review-pending-changes.html).<br><br>
+[Reviewing pending product changes](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-review-pending-changes.html).<br><br>
 1. Click **Apply Changes**.

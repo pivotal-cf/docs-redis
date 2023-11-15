@@ -1,16 +1,14 @@
 ---
-title: Enabling Service-Gateway Access for Redis
+title: Enabling Service-Gateway access for Redis
 owner: London Services
 ---
 
 This topic tells you how to enable service-gateway access for <%= vars.product_full %>.
 
-## <a id='overview'></a> Overview
-
 Service-gateway access enables a <%= vars.product_full %> on-demand service instance to
 connect to external components that are not on the same foundation as the service instance.
 
-For a more detailed overview, see [Service-Gateway Access](./service-gateway-access.html).
+For a more detailed overview, see [Service-Gateway access](./service-gateway-access.html).
 
 To enable service-gateway access for an on-demand offering:
 
@@ -20,11 +18,13 @@ To enable service-gateway access for an on-demand offering:
 4. [Create a DNS record that maps to the load balancer](#create-dns-record)
 5. [Configure a service-gateway-enabled plan](#configure-service-gateway-plan)
 
-## <a id='tcp-routing'></a> Enable TCP Routing Using the <%= vars.app_runtime_abbr %> Tile
+## <a id='tcp-routing'></a> Enable TCP Routing using the <%= vars.app_runtime_abbr %> Tile
 
-TCP routing is deactivated by default. To enable TCP routing:
+TCP routing is deactivated by default.
 
-1. Go to the Networking tab on the sidebar of the <%= vars.app_runtime_abbr %> tile.
+To enable TCP routing:
+
+1. Go to the **Networking** tab on the sidebar of the <%= vars.app_runtime_abbr %> tile.
 
 1. Under **TCP routing**, select **Enable**.
 
@@ -33,19 +33,19 @@ TCP routing is deactivated by default. To enable TCP routing:
 
    ![tcp-ports](images/tcp-ports.png)
 
-1. The ports the operator assigns must not overlap with any other application or tile.
+1. The ports you assign must not overlap with any other application or tile.
 
-1. Apply changes in <%= vars.ops_manager %> for the <%= vars.app_runtime_abbr %> tile to create the TCP router.
+1. Apply your changes in <%= vars.ops_manager %> for the <%= vars.app_runtime_abbr %> tile to create the TCP router.
 
-## <a id='configure-firewall'></a> Configure the Firewall to Allow Incoming Traffic to the TCP Router
+## <a id='configure-firewall'></a> Configure the firewall to allow incoming traffic to the TCP Router
 
 To configure the firewall:
 
 1. Allow incoming traffic to the TCP router VM created in
-[Enable TCP Routing Using the <%= vars.app_runtime_abbr %> Tile](#tcp-routing) earlier.
+[Enable TCP Routing using the <%= vars.app_runtime_abbr %> Tile](#tcp-routing) earlier.
 For information about how to do so, see the documentation for your IaaS.
 
-## <a id='configure-lb'></a> Configure the Load Balancer in the IaaS to Redirect Traffic to the TCP Router
+## <a id='configure-lb'></a> Configure the Load Balancer in the IaaS to redirect traffic to the TCP Router
 
 To configure the load balancer:
 
@@ -55,7 +55,7 @@ To configure the load balancer:
     - The port range configured for service-gateway access for other service tiles, such as VMware
     Tanzu SQL with MySQL for VMs.
     - The TCP networking port or port range that you configured in
-    [Enable TCP Routing Using the <%= vars.app_runtime_abbr %> Tile](#tcp-routing) earlier.
+    [Enable TCP Routing using the <%= vars.app_runtime_abbr %> Tile](#tcp-routing) earlier.
 
     For example, if your TCP routing port range is `1024-1123`,
     then your load balancer port range for service gateway must not overlap `1024-1123`.
@@ -66,7 +66,7 @@ To configure the load balancer:
     port and the end port are both inclusive.
 2. Record this port range.
 
-## <a id='create-dns-record'></a> Create a DNS Record That Maps to the Load Balancer
+## <a id='create-dns-record'></a> Create a DNS Record that maps to the Load Balancer
 
 To create a DNS record and prepare to map it:
 
@@ -74,7 +74,7 @@ To create a DNS record and prepare to map it:
 external IP address of the load balancer created in [Configure the Load Balancer in the IaaS to Redirect Traffic to the TCP Router](#configure-lb) earlier.
 1. Record the domain used for this DNS record.
 
-## <a id='configure-service-gateway-plan'></a> Configure a Service-Gateway-Enabled Plan
+## <a id='configure-service-gateway-plan'></a> Configure a Service-Gateway enabled plan
 
 To configure a service-gateway-enabled plan:
 
@@ -110,7 +110,7 @@ To configure a service-gateway-enabled plan:
   ports <code>1000</code>, <code>1001</code>, and <code>1002</code>.
 </p>
 
-## <a id='deactivate-service-gateway-access'></a> Deactivate Service-Gateway Access
+## <a id='deactivate-service-gateway-access'></a> Deactivate Service-Gateway access
 
 <p class="note important">
 <span class="note__title">Important</span> If service-gateway access is deactivated and then re-enabled, app developers must
@@ -119,7 +119,7 @@ To configure a service-gateway-enabled plan:
 
 To deactivate service-gateway access:
 
-1. Navigate to the service plan that you want to deactivate service-gateway
+1. Go to the service plan that you want to deactivate service-gateway
 access for and clear the **Service-Gateway** check box. VMware recommends that
 you change the name or the description of the plan to indicate that
 service-gateway access is deactivated for that plan.
@@ -128,7 +128,7 @@ service-gateway access is deactivated for that plan.
 
 2. Click **Apply Changes** to apply the changes to the <%= vars.product_short %> tile.
 
-## <a id='workflow'></a> Developer Workflow
+## <a id='workflow'></a> Developer workflow
 
 For instructions for app developers, see
-[Create a Service Instance with Service-Gateway Access](./create-service-gateway-instance.html).
+[Create a Service Instance with Service-Gateway access](./create-service-gateway-instance.html).
