@@ -8,7 +8,7 @@ owner: London Services
 This topic gives you recommended use cases for <%= vars.product_full %>
 and information for determining the product's fit for your enterprise's use case.
 
-## <a id="usecases"></a> Recommended Use Cases
+## <a id="usecases"></a> Recommended use cases
 
 On-demand plans are configured by default for cache use cases but can also be used
 as a datastore.
@@ -30,14 +30,14 @@ Redis can be used in many different ways, including:
   using `ZRANGE`, `ZADD`, `ZREVRANGE`, `ZRANK`, `INCRBY`, and `GETSET`
 * Pub/Sub: Built in publish and subscribe operations: `PUBLISH`, `SUBSCRIBE`, and `UNSUBSCRIBE`
 
-## <a id="offerings"></a> Service Offerings
+## <a id="offerings"></a> Service offerings
 
 For descriptions of the <%= vars.product_short %> service offerings, see:
 
-* [On-Demand Service Offering](./architecture.html)
-* [Shared-VM Service Offering](./architecture-pp.html)
+* [On-Demand Service offering](./architecture.html)
+* [Shared-VM Service offering](./architecture-pp.html)
 
-##<a id="checklist"></a> Enterprise-Readiness Checklist
+##<a id="checklist"></a> Enterprise readiness checklist
 
 Review the following table to determine if <%= vars.product_short %> has the features needed to support your enterprise.
 
@@ -69,10 +69,10 @@ Review the following table to determine if <%= vars.product_short %> has the fea
       </ul>
     </td>
     <td>
-      <%# <a> href="https://bosh.io/docs/resurrector.html" BOSH Resurrection </a> Is this the right doc here? Do we have docs for process %>
-      <a href="./auto-backup.html">Configuring Automated Service Backups</a><br><br>
-      <a href="./bbr-backup.html">BOSH Backup and Restore (BBR) for On-Demand <%= vars.product_short %></a><br><br>
-      <a href="https://community.pivotal.io/s/article/Manually-Backing-Up-and-Restoring-Redis-for-Pivotal-Cloud-Foundry">Manually Backing Up and Restoring Redis for Pivotal Cloud Foundry</a>
+      <%# <a> href="https://bosh.io/docs/resurrector.html" BOSH resurrection </a> Is this the right doc here? Do we have docs for process %>
+      <a href="./auto-backup.html">Configuring automated Service backups</a><br><br>
+      <a href="./bbr-backup.html">BOSH backup and restore (BBR) for On-Demand <%= vars.product_full %></a><br><br>
+      <a href="https://docs.vmware.com/en/Redis-Enterprise-for-VMware-Tanzu/services/redislabs-enterprise-vmware-tanzu/backup.html">Manually Backing up and restoring <%= vars.product_old %></a>
     </td>
   </tr>
   <tr>
@@ -96,8 +96,8 @@ Review the following table to determine if <%= vars.product_short %> has the fea
     turned on or off.
     </td>
     <td>
-      <a href="./architecture.html#resource"> On-Demand Resource Planning</a><br><br>
-      <a href="./installing.html#shared-vm-config"> Shared-VM Plan</a>
+      <a href="./architecture.html#resource"> On-Demand resource planning</a><br><br>
+      <a href="./installing.html#shared-vm-config"> Shared-VM plan</a>
     </td>
   </tr>
   <tr>
@@ -108,7 +108,7 @@ Review the following table to determine if <%= vars.product_short %> has the fea
     Guidance on critical metrics and alerting levels is captured with the <%= vars.product_short %> Key Performance Indicators (KPIs).
     </td>
     <td>
-      <a href="./monitoring.html#kpi"> Key Performance Indicators </a><br/>
+      <a href="./monitoring.html#kpi"> Key performance indicators </a><br/>
     </td>
   </tr>
   <tr>
@@ -170,9 +170,9 @@ Review the following table to determine if <%= vars.product_short %> has the fea
       Additionally, <%= vars.product_short %> has been tested with the IPsec Add-on for PCF.
     </td>
     <td>
-      <a href="https://redis.io/topics/security">OS Redis Security</a><br><br>
+      <a href="https://redis.io/topics/security">OS Redis security</a><br><br>
       <a href="./architecture.html#tls">TLS in <%= vars.product_short %></a><br><br>
-      <a href="https://docs.pivotal.io/addon-ipsec/index.html">Securing Data in Transit with the IPsec add-on</a>
+      <a href="https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-security.html">Securing data in transit with the IPsec add-on</a>
     </td>
   </tr>
 </table>
@@ -185,7 +185,7 @@ However, assigning multiple AZs to Redis service instances does not provide high
 This is because each individual Redis service instance is a single VM without
 clustering capabilities.
 
-The diagram below shows a Redis deployment configured with three availability zones.
+The following diagram shows a Redis deployment configured with three availability zones.
 
 ![A Redis deployment across three availability zones. Availability zone one contains
 the on-demand service broker, the shared service broker, shared instances, and on-demand service instances.
