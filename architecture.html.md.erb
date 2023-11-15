@@ -6,28 +6,29 @@ owner: London Services
 <strong><%= modified_date %></strong>
 
 <%= vars.product_full %> offers on-demand and shared-VM service plans.
-This topic tells you about the architecture, lifecycle, and configurations of the on-demand plan,
+
+Learn about the architecture, lifecycle, and configurations of the on-demand plan,
 as well as networking information for the on-demand service.
 
-For similar information for the Shared-VM plans, see [Shared-VM Service Offering](./architecture-pp.html).
+For similar information for the Shared-VM plans, see [Shared-VM Service offering](./architecture-pp.html).
 
-## <a id="diagram1"></a> Architecture of the On-Demand Plan
+## <a id="diagram1"></a> Architecture of the On-Demand plan
 
 The p.redis service broker manages the on-demand service plan instances.
 
-The diagram below shows the architecture of the service broker and on-demand plans
+The following diagram shows the architecture of the service broker and on-demand plans
 and how the user's app binds to a Redis instance.
 
 ![The service broker is shown with three cache plan instances.
 Three user apps are shown, each pointing to a cache plan instance with an arrow labeled 'binding'.
 See below for a detailed image description.](images/on-demand-arch.png)
 
-Operators configure plans in <%= vars.ops_manager %>, and they can set global and per-plan quotas
+You can configure plans in <%= vars.ops_manager %>, and set global and per-plan quotas
 for the maximum number of instances.
 
 Developers can create instances of each plan when needed, until a quota is reached,
 and bind their apps to the instances.
-The diagram above shows the p.redis service broker pointing to a cache plan instance,
+The previous diagram shows the p.redis service broker pointing to a cache plan instance,
 which was created by running `cf create-service`.
 For more information about this command, see [Create a Service Instance](using.html#create) in _Using <%= vars.product_full %>_.
 
@@ -36,14 +37,13 @@ Each instance has its own VM.
 The line below the final instance shows that the quota has been reached, and
 developers cannot create more instances.
 
-
 ## <a id="tls"></a> TLS in <%= vars.product_short %>
 
 You can enable TLS to secure traffic between apps and service instances.
 In <%= vars.product_short %>, the available options are **Optional** and **Not Configured**.
 
 
-### <a id="tls-optional"></a> TLS Set to Optional
+### <a id="tls-optional"></a> TLS set to optional
 
 When setting TLS to **Optional** within On-Demand Service Settings, both TLS and non-TLS connections are accepted.
 TLS traffic goes through a proxy as shown in the diagram below.
@@ -61,7 +61,7 @@ to migrate to TLS connections regardless of whether traffic is restricted to jus
 Steeltoe and Spring apps use the TLS port by default, if it is available.
 Other apps might require further configuration to make use of the correct port.
 
-The diagram below shows how apps communicate with on-demand Redis instances when you set TLS to **Optional**.
+The following diagram shows how apps communicate with on-demand Redis instances when you set TLS to **Optional**.
 
 ![From an app that is bound to a Redis instance, a green arrow labeled 'Secure traffic (TLS)'
 points to the TLS Proxy within the On-Demand Redis Service Instance.
@@ -74,12 +74,12 @@ The TLS proxy and Redis are both on the Redis service instance.
 The traffic is secure from the app to the TLS proxy.
 When on the service instance, the traffic from the TLS proxy to Redis is unsecured.
 
-### <a id="tls-optional"></a> TLS Set to Not Configured
+### <a id="tls-optional"></a> TLS set to not configured
 
 When setting TLS to **Not Configured** within the On-Demand Service Settings,
 the communication with service instances remains unchanged from <%= vars.product_old %> v2.1 and earlier.
 
-The diagram below shows how apps communicate with on-demand Redis instances when you set TLS to **Not Configured**.
+The following diagram shows how apps communicate with on-demand Redis instances when you set TLS to **Not Configured**.
 
 ![From an app that is bound to a Redis instance, a red arrow labeled 'Unsecured traffic'
 points from the app directly to Redis.](images/tls_deactivated.png)
@@ -87,7 +87,7 @@ points from the app directly to Redis.](images/tls_deactivated.png)
 The bound app connects directly to the Redis service on the on-demand Redis service instance VM.
 The traffic on this connection is unsecured.
 
-## <a id="on-demand"></a> On-Demand Service Plans
+## <a id="on-demand"></a> On-Demand Service plans
 
 <%= vars.product_short %> offers on-demand plans as the `p.redis` service within the tile.
 On-demand plans are best suited to caching.
@@ -97,29 +97,29 @@ The default on-demand plan is the **On-Demand Cache Plan**.
 Service instances of this plan are deployed to a dedicated VM.
 VMware recommends that you configure these VMs to have 2.5 times more persistent disk than memory.
 
-Operators can customize service plans by configuring the **Plan name**, **Plan description**,
+You can customize service plans by configuring the **Plan name**, **Plan description**,
 **Server VM type**, and **Server Disk type**.
 You can add and configure as many service plans as required.
 
-### <a id="features"></a> Features of On-Demand Service Plans
+### <a id="features"></a> Features of On-Demand Service plans
 
 * Each on-demand service instance is deployed to its own VM and is suitable for production workloads.
 * The service plans are operator-configured and enabled. When enabled, app developers can view the available plans in the Marketplace and provision a Redis instance from that plan.
 * Operators can update the cache plan settings, including the VM size and disk size, after the plans have been created.
 * Operators and app developers can change certain Redis configurations from the default.
-For more information, see [Configuration for On-Demand Service Plans](#config) below.
 * The default `maxmemory-policy` is `allkeys-lru` and can be updated for other cache policies.
 * On-Demand Redis supports Redis Database Backup (RDB) snapshots, but not Append-Only File (AOF) persistence. For more information, see [Redis Persistence](https://redis.io/topics/persistence) in the Redis documentation.
 * The maximum number of instances is managed by a per-plan and global quota.
+
 For information about setting quotas, see [Setting Limits for On-Demand Service Instances](./set-quotas.html).
 
 
-## <a id="config"></a> Configuration of On-Demand Service Plans
+## <a id="config"></a> Configuration of On-Demand Service plans
 
 For on-demand plans, certain Redis configurations can be set by the operator during plan configuration,
  and by the app developer during instance provisioning. Other Redis configurations cannot be changed from the default.
 
-### <a id="operator"></a> Operator Configurable Redis Settings
+### <a id="operator"></a> Operator Configurable Redis settings
 
 The Redis settings that an operator can configure in the tile UI include:
 
@@ -131,9 +131,9 @@ The Redis settings that an operator can configure in the tile UI include:
 * Lua Scripting
 * Plan Quota
 
-For more information, see [Configure On-Demand Plan Settings](./installing.html#on-demand-plan-config).
+For more information, see [Configure On-Demand Plan settings](./installing.html#on-demand-plan-config).
 
-### <a id="appdev"></a> App Developer Configurable Redis Settings
+### <a id="appdev"></a> App Developer Configurable Redis settings
 
 The Redis settings that an app developer can configure include:
 
@@ -144,17 +144,17 @@ The Redis settings that an app developer can configure include:
 
 For more information, see [Customize an On-Demand Service Instance](./using.html#custom).
 
-### <a id="opnotes"></a> Operator Notes for On-Demand Service Plans
+### <a id="opnotes"></a> Operator Notes for On-Demand Service plans
 
 * Instances of the on-demand plan can be deployed until their number reaches
 either an operator-set per-plan quota or a global quota.
 For information about setting quotas, see [Setting Limits for On-Demand Service Instances](./set-quotas.html).
-* Instances are provisioned based on the [On-Demand Services SDK](http://docs.pivotal.io/on-demand-service-broker/)
+* Instances are provisioned based on the [On-Demand Services SDK](https://docs.vmware.com/en/On-Demand-Services-SDK-for-VMware-Tanzu/index.html)
 and service broker adapter associated with this plan.
 * `maxmemory` in `redis.conf` is set to 45% of the system memory.
 * Any on-demand plan can be deactivated from the plan page in <%= vars.ops_manager %>.
 
-### <a id="limitations"></a> Known Limitations for On-Demand Service Plans
+### <a id="limitations"></a> Known Limitations for On-Demand Service plans
 
 Limitations for the on-demand service include:
 
@@ -162,12 +162,11 @@ Limitations for the on-demand service include:
 
 * Operators can update certain plan settings after the plans have been created. To ensure upgrades happen across all instances, set the **upgrade instances** errand to **On**.
 
-* If the operator updates the VM size, disk size, or the Redis configuration settings, thereby
-  enabling Lua Scripting, max-clients, timeout, and TCP keepalive,
-  then these settings are implemented in all existing instances.
+* If you update the VM size, disk size, or the Redis configuration settings, thereby enabling Lua Scripting, max-clients, timeout, and TCP keepalive,
+ the settings are implemented in all existing instances.
 
 
-## <a id ="lifecycle"></a>Lifecycle for On-Demand Service Plan
+## <a id ="lifecycle"></a>Lifecycle for On-Demand Service plan
 
 Here is the lifecycle of <%= vars.product_short %>, from an operator installing
 the tile through an app developer using the service then an operator deleting the tile.
@@ -195,20 +194,19 @@ Operators do the following to install <%= vars.product_short %>:
 1. Install Redis
   - Click **Apply changes**
 
-After the operator clicks **Apply Changes**, <%= vars.product_short %> does
+After the operator click **Apply Changes**, <%= vars.product_short %> does
 the following:
 
-1. Create service broker VM
+1. Creates a service broker VM
 1. Broker registers the plans as available in marketplace
 1. Run smoke tests
 1. Service broker ready
 
 ### <a id ="use"></a> Using <%= vars.product_short %>
 
-After operators have installed <%= vars.product_short %>, developers can
+After you have installed <%= vars.product_short %>, developers can
 create service instances, bind and unbind the service instances to apps, and
 delete service instances.
-These operations are described below.
 
 #### <a id ="create-service"></a> Create Service
 
@@ -219,7 +217,7 @@ When a developer runs the `cf create-service` command, for example:
 <%= vars.product_short %> does the following:
 
 - If the global and plan quota for instances has not been reached, a new Redis instance
-is created with the plan's specifications
+is created with the plan's specifications.
 
 #### <a id ="bind-service"></a> Bind Service
 
@@ -255,13 +253,13 @@ plan is increased by one
 
 ### <a id ="delete"></a> Deletion
 
-Operators do the following to delete <%= vars.product_short %>:
+You can do the following to delete <%= vars.product_short %>:
 
 1. Delete Redis:
   - Click **Apply Changes**
 
-After the operator clicks **Apply Changes**, <%= vars.product_short %> does
+After you click **Apply Changes**, <%= vars.product_short %> does
 the following:
 
-1. Service broker and all provisioned instances are deleted
-1. Delete-all-service-instances and then deregister the broker
+1. Service broker and all provisioned instances are deleted.
+1. Delete-all-service-instances and then deregister the broker.

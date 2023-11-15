@@ -7,18 +7,20 @@ owner: London Services
 
 This topic tells you how to configure automated backups in <%= vars.product_full %>.
 
-## <a id="comparison"></a>Comparison of the Available Backup Methods
+## <a id="comparison"></a>Comparison of available backup methods
 
-<%= vars.product_short %> provides two backup methods, which you can use together or alone:
+<%= vars.product_short %> provides two backup methods, which you can use together or alone.
 
-* BOSH Backup and Restore (BBR) - <em>preferred</em>
+They are:
+
+* BOSH Backup and Restore (BBR) - (preferred)
 * Automated service backups
 
 If you have already set up BBR for your <%= vars.app_runtime_full %> deployment,
 you might find it easier to use BBR to back up your on-demand Redis service instances, in addition to
 or instead of, using automated service backups.
 
-The table below summarizes the differences between the two methods:
+The following table summarizes the differences between the two methods:
 
 <table class="nice">
     <col width="15%">
@@ -42,12 +44,12 @@ The table below summarizes the differences between the two methods:
     </tr>
 </table>
 
->**Note** Neither backup method backs up other manual changes made to service instances,
-either by using SSH or the Redis client `config` command.
+<p> Neither backup method backs up other manual changes made to service instances,
+either using SSH or with the Redis client <code>config</code> command.</p>
 
 For more information, see [BOSH Backup and Restore (BBR) for On-Demand <%= vars.product_full %>](./bbr-backup.html).
 
-## <a id="backup"></a>About Automated Service Backups
+## <a id="backup"></a>Automated service backups
 
 You can configure automatic backups for both on-demand and shared-VM plan types.
 
@@ -59,7 +61,7 @@ Automated backups have the following features:
 * Data from Redis is flushed to disk before the backup is started by running a `BGSAVE` on each instance.
 * You can configure Amazon Web Services (AWS) S3, SCP, Azure, or Google Cloud Storage (GCS) as your destination.
 
-## <a id='backup-files'></a>Backup Files
+## <a id='backup-files'></a>Backup files
 
 When <%= vars.product_short %> runs an automated backup, it labels the backups in the following ways:
 
@@ -71,7 +73,7 @@ When <%= vars.product_short %> runs an automated backup, it labels the backups i
 For each backup artifact, <%= vars.product_short %> creates a file that contains the MD5 checksum for that artifact.
 This can be used to check that the artifact is not corrupted.
 
-## <a id="about-configuration"></a>About Configuring Backups
+## <a id="about-configuration"></a>Configuring backups
 
 <%= vars.product_short %> automatically backs up databases to external storage.
 
@@ -90,9 +92,9 @@ This can be used to check that the artifact is not corrupted.
 
     For general information about cron, see [package cron](http://godoc.org/github.com/robfig/cron).
 
-To configure automated backups, follow the procedures below according to the option you choose for external storage.
+To configure automated backups, follow these procedures according to the option you choose for external storage.
 
-## <a id="aws"></a>Option 1: Back Up with AWS
+## <a id="aws"></a>Option 1: Back up with AWS
 
 To back up your database to an Amazon S3 bucket:
 
@@ -107,7 +109,7 @@ You must apply a minimal policy that lets the user account upload backups to you
 
 Do the following to create a policy and access key:
 
-1. Navigate to the AWS Console and log in.
+1. Go to the AWS Console and log in.
 1. To create a new custom policy, go to **IAM > Policies > Create Policy > Create Your Own Policy**
    and paste in the following permissions:
 
@@ -140,17 +142,17 @@ Do the following to create a policy and access key:
 1. (Recommended) Attach the policy you created to the AWS user account that <%= vars.product_short %> will use to access S3.
    Go to **IAM > Policies > Policy Actions > Attach**.
 
-### <a id='aws-config-om'></a> Configure Backups in <%= vars.ops_manager %>
+### <a id='aws-config-om'></a> Configuring  backups in <%= vars.ops_manager %>
 
 Do the following to connect <%= vars.product_short %> to your S3 account:
 
-1. Navigate to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
-1. Click **Backups**.
-1. Under **Backup configuration**, select **AWS S3**.
+1. Go to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
+2. Click **Backups**.
+3. Under **Backup configuration**, select **AWS S3**.
     ![Screenshot of the 'Configure blob store for Redis backups' pane in Ops Manager.
     Under backup configuration, the AWS S3 radio button is selected.
     See the following step for a detailed description of the remaining configurable fields.](images/s3backupoptions.png)
-1. Fill in the fields as follows:
+4. Fill in the fields as follows:
 
     | Field             | Description                                                                                                                                                                                                                                                                                                                                                                                            | Mandatory/Optional                                               |
     |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
@@ -162,19 +164,16 @@ Do the following to connect <%= vars.product_short %> to your S3 account:
     | CA Certificate    | CA certificate used to verify the connection to the S3 bucket                                                                                                                                                                                                                                                                                                                                                       | Optional                                                        |
     | Cron Schedule     | Backups schedule in crontab format. For example, once daily at 2am is `* 2 * * *`. This field also accepts a pre-defined schedule, such as `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or `@every TIME`, where `TIME` is any supported time string, such as `1h30m`. For more information, see the cron package [documentation](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules). | Mandatory                                                        |
     | Backup timeout    | The amount of time, in minutes, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                                                                                                                                 | Mandatory                                                        |
-1. Click **Save**.
+5. Click **Save**.
 
-> **Note** The backup service uses Amazon S3 with only support of virtual-hosted-style addressing and does not use path-style-addressing.
-> If you plan to use Amazon S3's API compatible services for backup, for example [minio](https://min.io), it must be configured to use virtual-hosted-addressing.
-
-## <a id="scp"></a>Option 2: Back Up with SCP
+## <a id="scp"></a>Option 2: Back up with SCP
 
 To back up your database using SCP:
 
 * [(Recommended) Create a Public and Private Key Pair](#scp-keys)
 * [Configure Backups in <%= vars.ops_manager %>](#scp-config-om)
 
-### <a id="scp-keys"></a>(Recommended) Create a Public and Private Key Pair
+### <a id="scp-keys"></a>(Recommended) Create a Public and Private Key pair
 
 <%= vars.product_short %> accesses a remote host as a user with a private key for authentication.
 VMware recommends that this user and keypair be solely for <%= vars.product_short %>.
@@ -188,11 +187,11 @@ Do the following to create a new public and private keypair for authenticating:
 2. Create a new user for <%= vars.product_short %> on the destination VM.
 3. Create a new public and private keypair for authenticating as the above user on the destination VM.
 
-### <a id="scp-config-om"></a>Configure Backups in <%= vars.ops_manager %>
+### <a id="scp-config-om"></a>Configuring  backups in <%= vars.ops_manager %>
 
 Do the following to connect <%= vars.product_short %> to your destination VM:
 
-1. Navigate to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
+1. Go to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
 1. Click **Backups**.
 1. Under **Backup configuration**, select **SCP**.
     ![Screenshot of the 'Configure blob store for Redis backups' pane in Ops Manager.
@@ -213,7 +212,7 @@ Do the following to connect <%= vars.product_short %> to your destination VM:
 
 1. Click **Save**.
 
-## <a id="gcs"></a>Option 3: Back Up with GCS
+## <a id="gcs"></a>Option 3: Back up with GCS
 
 To back up your database using GCS:
 
@@ -234,11 +233,11 @@ Do the following to create a service account with the correct permissions:
 1. Select the **Furnish a new private key** checkbox so that a new key is created and downloaded.
 1. Click **Create** and take note of the name and location of the service account JSON file that is downloaded.
 
-### <a id="gcs-config-om"></a>Configure Backups in <%= vars.ops_manager %>
+### <a id="gcs-config-om"></a>Configuring  backups in <%= vars.ops_manager %>
 
 Do the following to connect <%= vars.product_short %> to GCS:
 
-1. Navigate to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
+1. Go to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
 1. Click **Backups**.
 1. Under **Backup configuration**, select **GCS**.
     ![Screenshot of the 'Configure blob store for Redis backups' pane in Ops Manager.
@@ -255,11 +254,11 @@ Do the following to connect <%= vars.product_short %> to GCS:
     | Backup timeout              | The amount of time, in minutes, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                           | Mandatory          |
 1. Click **Save**.
 
-## <a id ="azure"></a>Back Up to Azure
+## <a id ="azure"></a>Back up to Azure
 
 Do the following to back up your database to an Azure storage account:
 
-1. Navigate to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
+1. Go to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
 1. Click **Backups**.
 1. Under **Backup configuration**, select **Azure**.
     ![Screenshot of the 'Configure blob store for Redis backups' pane in Ops Manager.
@@ -279,7 +278,6 @@ Do the following to back up your database to an Azure storage account:
 
 1. Click **Save**.
 
-## <a id="manual-br"></a>Back Up and Restore Manually
+## <a id="manual-br"></a>Back up and restore manually
 
-To back up or restore Redis manually, see [Manually Backing Up and Restoring <%= vars.product_short %>](https://community.pivotal.io/s/article/Manually-Backing-Up-and-Restoring-Redis-for-Pivotal-Cloud-Foundry)
-in the VMware Tanzu Support knowledge base.
+To back up or restore Redis manually, see [Manually backing up and restoring <%= vars.product_short %>](https://docs.vmware.com/en/Redis-Enterprise-for-VMware-Tanzu/services/redislabs-enterprise-vmware-tanzu/backup.html).
