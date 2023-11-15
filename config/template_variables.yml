@@ -43,7 +43,7 @@ template_variables:
 
   segment_runtime_full: Isolation Segment
 
-  ops_manager: Ops Manager
+  ops_manager: Tanzu Operations Manager
 
   # Pivotal variables
 
@@ -72,9 +72,9 @@ template_variables:
   ops_manager_full: Pivotal Operations Manager
 
   # TAS version
-  current_major_version: "4.0"
-  v_major_version: "v4.0"
-  dot_major_version: "4.0"
+  current_major_version: "5.0"
+  v_major_version: "v5.0"
+  dot_major_version: "5.0"
 
   # Other variables
 

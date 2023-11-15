@@ -3,18 +3,16 @@ title: Creating a Redis Service Instance with Service-Gateway Access
 owner: London Services
 ---
 
-This topic tells you how to create a <%= vars.product_full %> service instance with service-gateway access.
+You can create a <%= vars.product_full %> service instance with service-gateway access.
 Service-gateway access enables a <%= vars.product_full %>  on-demand service instance to
 connect to external components that are not on the same foundation as the service instance.
 
-## <a id='service-gateway'></a> Create a Service Instance with Service-Gateway Access
-
-This section assumes that you meet the prerequisites for using on-demand <%= vars.product_full %>.
+The following information assumes that you meet the prerequisites for using on-demand <%= vars.product_full %>.
 For more information, see [Prerequisites](using.html#prereq).
 
-If operators have enabled a service-gateway plan, you can create a service instance that can connect to components outside the your foundation.
+If you have enabled a service-gateway plan, you can create a service instance that can connect to components outside the your foundation.
 Contact your operator if you are unsure which plans are enabled for service-gateway access.
-For information about the architecture and use cases, see [Service-Gateway Access](service-gateway-access.html).
+For information about the architecture and use cases, see [Service-Gateway access](service-gateway-access.html).
 
 To create a service instance that enables service-gateway access:
 
@@ -49,6 +47,8 @@ To create a service instance that enables service-gateway access:
    }
    ```
 
-   The `service_gateway_access_port` field informs which port was reserved for the created service instance. You can use this port to connect to Redis from outside your foundation.
+   The `service_gateway_access_port` field informs you of the port that was reserved for the created
+   service instance. You can use this port to connect to Redis from outside your foundation.
 
-   If the operator deactivates and then re-activates service-gateway access on a plan, you must create new service keys to obtain a new set of credentials for service-gateway access.
+   If you deactivate and then re-activate service gateway access on a plan, you must create new
+   service keys to obtain a new set of credentials for service gateway access.
