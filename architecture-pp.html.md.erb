@@ -22,14 +22,14 @@ This plan is **not** suitable for production purposes.
 
 The p-redis service broker manages the shared-vm plan service instances.
 
-The diagram below shows the architecture of the service broker and shared-VM plans
+The following diagram shows the architecture of the service broker and shared-VM plans
 and how the user's app binds to a Redis instance.
 
 ![The service broker is shown with six shared-VM plan instances.
 A user's app points to one of the shared VM plan instances.
 See below for a detailed image description.](images/legacy-arch.png)
 
-The diagram above shows the p-redis service broker pointing to a shared-VM plan instance,
+The previous diagram shows the p-redis service broker pointing to a shared-VM plan instance,
 which was created by running `cf create-service`.
 For more information about this command, see [Create a Service Instance](using.html#create) in _Using <%= vars.product_full %>_.
 
@@ -43,7 +43,7 @@ Each shared instance has its own Redis server, with credentials stored in the
 
 The user's app is bound to a shared-VM plan instance, shown above by an arrow labeled
 _binding_ pointing from the app to a shared-VM plan instance.
-For information about binding, see [Bind a Service Instance to Your App](using.html#bind) in _Using <%= vars.product_full %>_.
+For information about binding, see [Bind a Service Instance to your App](using.html#bind) in _Using <%= vars.product_full %>_.
 
 ## <a id="config2"></a> Settings for Shared-VM Service Plans
 
@@ -76,11 +76,11 @@ $ CONFIG SET maxclients 9000
 You cannot set `maxclients` above 10,000 and you cannot configure shared plans to permanently use a custom limit.
 
 
-### <a id="rep-and-event-note"></a> Replication and Event Notification
+### <a id="rep-and-event-note"></a> Replication and Event notification
 
-Replication and event notification are not configured.
+The replication and event notifications are not configured.
 
-## <a id="instance-deploy"></a>Change the Service Instances Limit
+## <a id="instance-deploy"></a>Change the Service Instances limit
 
 This plan deploys a Redis instance on a shared VM and a single service broker VM. To prevent this, set the **Max instances limit** on the **Shared-VM Plan** tab in <%= vars.ops_manager %> to `0`.
 
@@ -101,14 +101,14 @@ If you decrease the service instance limit, any instances that are now running
 The number of shared-VM instances available to developers is set by the operator.<br>
 The maximum number of shared-VM instances is relative to the memory allocated to each shared-VM instance and
 the total memory of the Redis service broker.<br>
-For more information, see [Configure Shared-VM Plan Settings](./installing.html#shared-vm-config).
+For more information, see [Configure Shared-VM Plan settings](./installing.html#shared-vm-config).
 
 ## <a id="lua-scripting"></a> Lua Scripting
 
 You can activate or deactivate Lua scripting. Changes to this configuration apply to all existing shared-VM
 instances. Lua scripting can adversely affect the performance of other service instances on the VM, so
 VMware recommends deactivating Lua scripting unless developers need it enabled.
-For more information, see [Configure Shared-VM Plan Settings](./installing.html#shared-vm-config).
+For more information, see [Configure Shared-VM Plan settings](./installing.html#shared-vm-config).
 
 <p class="note caution"><span class="note__title">Caution</span>
   The Steeltoe connector for Redis requires <%= vars.product_short %> to support Lua scripting.
@@ -128,9 +128,9 @@ The shared-vm plan cannot:
 * Manage "noisy neighbor" problems, which makes it unsuitable for production apps
 
 
-## <a id="lifecycle-shared"></a>Lifecycle for Shared-VM Service Plan
+## <a id="lifecycle-shared"></a>Lifecycle for Shared-VM Service plan
 
-Below is the lifecycle of <%= vars.product_short %>, from an operator installing the tile, to an app developer using the service, to an operator deleting the tile.
+This is the lifecycle of <%= vars.product_short %>, from an operator installing the tile, to an app developer using the service, to an operator deleting the tile.
 
 ![Three columns are shown, labeled 'Operator', 'Redis', and 'App Developer'.
 The workflows in this image are described in detail below.](images/Redis_timeline_legacy.png)
@@ -150,7 +150,7 @@ Operators do the following to install <%= vars.product_short %>:
 1. Install Redis
   - Click **Apply changes**
 
-After the operator clicks **Apply Changes**, <%= vars.product_short %> does the following:
+After you click **Apply Changes**, <%= vars.product_short %> does the following:
 
 1. Create service broker VM
 1. Broker registers as available in marketplace
@@ -159,10 +159,9 @@ After the operator clicks **Apply Changes**, <%= vars.product_short %> does the 
 
 ### <a id ="use"></a> Using <%= vars.product_short %>
 
-After operators have installed <%= vars.product_short %>, developers can
+After you have installed <%= vars.product_short %>, developers can
 create service instances, bind and unbind the service instances to apps, and
 delete service instances.
-These operations are described below.
 
 #### <a id ="create-service"></a> Create Service
 
@@ -208,12 +207,12 @@ When a developer runs the `cf delete-service` command, for example:
 
 ### <a id ="delete"></a> Deletion
 
-Operators do the following to delete <%= vars.product_short %>:
+You do the following to delete <%= vars.product_short %>:
 
 1. Delete Redis
   - Click **Apply Changes**
 
-After the operator clicks **Apply Changes**, <%= vars.product_short %> does the following:
+After you click **Apply Changes**, <%= vars.product_short %> does the following:
 
 1. Service broker and all provisioned instances are deleted
 1. Broker deregistrar errand runs `cf purge-service`

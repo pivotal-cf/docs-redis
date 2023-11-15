@@ -45,7 +45,7 @@ template_variables:
 
   segment_runtime_full: Isolation Segment
 
-  ops_manager: Ops Manager
+  ops_manager: Tanzu Operations Manager
 
   # Pivotal variables
 
