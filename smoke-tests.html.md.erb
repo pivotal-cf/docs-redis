@@ -11,9 +11,9 @@ installation to confirm system health.
 The tests run in the org <code>system</code> and in the space <code>tanzu-services</code>.
 The tests run as an app instance with a restrictive App Security Group (ASG).
 
-## <a id="steps"></a> Smoke Test Steps
+## <a id="steps"></a> Smoke Test steps
 
-The smoke tests perform the following for each available service plan:
+The smoke tests perform the following tasks for each available service plan:
 
 1. Targets the org <code>system</code> and space <code>tanzu-services</code> (creating them if they do not exist).
 1. Deploys an instance of the [CF Redis Example App](https://github.com/pivotal-cf/cf-redis-example-app) to this space.
@@ -22,10 +22,11 @@ The smoke tests perform the following for each available service plan:
 1. Creates a restrictive security group, <code>redis-smoke-tests-sg</code>, and binds it to the space.
 1. Checks that the CF Redis Example App can write to and read from the Redis instance.
 
-## <a id="security-groups"></a> Security Groups
+## <a id="security-groups"></a> Security groups
 
-Smoke tests create a new [app security group](https://docs.pivotal.io/application-service/concepts/asg.html) for the CF Redis Example App (`redis-smoke-tests-sg`)
-and delete it after the tests finish. This security group has the following rules:
+Smoke tests create a new [App security group](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/asg.html) for the CF Redis Example App (`redis-smoke-tests-sg`)
+and delete it after the tests finish.
+This security group has the following rules:
 
 ```
 [
@@ -39,15 +40,15 @@ and delete it after the tests finish. This security group has the following rule
 
 This allows outbound traffic from the test app to the Redis shared-VM service instances.
 
-## <a id="resilience"></a>Smoke Tests Resilience
+## <a id="resilience"></a>Smoke Test resilience
 
-Smoke tests could fail due to reasons outside of the Redis deployment; for example network latency causing timeouts
+Smoke tests can fail due to reasons outside of the Redis deployment. For example, network latency causing timeouts
 or the Cloud Foundry instance dropping requests.
 They might also fail because they are being run in the wrong space.
 
 The smoke tests implement a retry policy for commands issued to CF, for two reasons:
 
-- To avoid smoke test failures due to temporary issues such as the ones mentioned above
+- To avoid smoke test failures due to temporary issues such as the ones previously mentioned.
 - To ensure that the service instances and bindings created for testing are cleaned up.
 
 Smoke tests retry failed commands against CF.
@@ -63,40 +64,44 @@ The linear back-off was selected as a good middle ground between:
 
 ### Considerations
 
-The above retry policy does not guard against a more permanent Cloud Foundry downtime or network connectivity issues.
+The retry policy does not guard against a more permanent Cloud Foundry downtime or network connectivity issues.
 In this case, commands fail after the maximum number of attempts and might leave claimed instances behind.
 VMware recommends deactivating automatic smoke tests, and manually releasing any claimed instances
 in case of upgrades or scheduled downtime.
 
 ## <a id="troubleshooting"></a> Troubleshooting
 
-If errors occur while the smoke tests run, they are summarized at the end of the errand log output.
+If errors occur while the smoke tests are run, they are summarized at the end of the errand log output.
 Detailed logs can be found where the failure occurs.
-Some common failures are listed below.
+Here are some common failures:
 
-<table border='1' class='nice'>
+<table class=“table”>
+<thead>
 <tr>
   <th width="22%">Error</th>
   <td><code>Failed to target Cloud Foundry</code>
   </td>
 </tr>
+</thead>
 <tr>
   <th>Cause</th>
   <td>Your deployment is unresponsive.</td>
 </tr>
 <tr>
   <th>Solution</th>
-  <td>Examine the detailed error message in the logs and check the <a href="https://docs.pivotal.io/platform/customizing/troubleshooting.html">Troubleshooting Deployment Problems</a>
+  <td>Examine the detailed error message in the logs and check the <a href="https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/troubleshooting.html">Troubleshooting deployment problems</a>
   for advice.</td>
 </tr>
 </table>
 
-<table border='1' class='nice'>
+<table class=“table”>
+<thead>
 <tr>
   <th width="22%">Error</th>
   <td><code>Failed to bind Redis service instance to test app.</code>
   </td>
 </tr>
+</thead>
 <tr>
   <th>Cause</th>
   <td>Your deployment's broker has not been registered.</td>
@@ -107,6 +112,6 @@ Some common failures are listed below.
 </tr>
 </table>
 
-When encountering an error when running smoke tests, it can be helpful to search the log for other instances of the error summary printed at the end of the tests,
+When you encounter an error when running smoke tests, it can be helpful to search the log for other instances of the error summary printed at the end of the tests,
 for example, <code>Failed to target Cloud Foundry</code>.
 Lookout for <code>TIP: ...</code> in the logs next to any error output for further troubleshooting hints.

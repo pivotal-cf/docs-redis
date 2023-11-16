@@ -12,7 +12,7 @@ This topic for app developers gives you basic instructions for troubleshooting o
 
 Start here if you are responding to a specific error or error messages.
 
-### <a id="x-product"></a> Common Service Errors
+### <a id="x-product"></a> Common service errors
 
 The following errors occur in multiple services:
 
@@ -106,9 +106,9 @@ The following errors occur in multiple services:
     <th style="vertical-align: top; padding-top: 1em;">Solution</th>
     <td>
       Ask your operator to ensure that the <strong>V2 Firehose</strong> checkbox is selected,
-      and the <strong>Enable Log Cache syslog ingestion</strong> checkbox is cleared in the
+      and the <strong>Enable Log Cache syslog ingestion</strong> check box is cleared in the
       <%= vars.app_runtime_abbr %> tile.
-      For more information about configuring these checkboxes, see
+      For more information about configuring these check boxes, see
       <a href="https://docs.pivotal.io/application-service/operating/logging-config-opsman.html#syslog-forward">Enable Syslog Forwarding</a>.
     </td>
   </tr>
@@ -123,8 +123,7 @@ The following errors are specific to <%= vars.product_short %>:
 - [Error When Running the Save Command](#err-save-command)
 - [Unknown Command Error](#err-unknown-command)
 
-<p class="note"><span class="note__title">Note</span>
-  Certain errors are returned to the Redis
+<p> Certain errors are returned to the Redis
   client instead of being recorded in the logs. The Redis protocol represents
   errors as simple strings beginning with a <code>-</code> character.
 </p>
@@ -284,8 +283,7 @@ The following errors are specific to <%= vars.product_short %>:
   </tr>
 </table>
 
-
-## <a id="techniques"></a> Techniques for Troubleshooting
+## <a id="techniques"></a> Techniques for troubleshooting
 
 See the following sections for troubleshooting techniques when using
 the Cloud Foundry Command-Line Interface (cf CLI) to perform basic
@@ -293,20 +291,19 @@ operations on a <%= vars.product_short %> service instance.
 
 Basic cf CLI operations include `create`, `update`, `bind`, `unbind`, and `delete`.
 
-
-### <a id="debugging"></a>Debug Using the CF CLI
+### <a id="debugging"></a>Debug using the CF CLI
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/redis/debugging-using-cf-cli' %>
 
-### <a id="parse-error"></a>Parse a Cloud Foundry (CF) Error Message
+### <a id="parse-error"></a>Parse a Cloud Foundry (CF) error message
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-parse-error' %>
 
-### <a id="instance"></a> Retrieve Service Instance Information
+### <a id="instance"></a> Retrieve Service Instance information
 
 To retrieve information about the service instance that you can use for debugging:
 
@@ -318,7 +315,7 @@ To retrieve information about the service instance that you can use for debuggin
 1. If you do not know the name of the service instance, you can view a listing
 of all service instances in the space by running:
 
-    ```
+    ```console
     cf services
     ```
 
@@ -335,13 +332,13 @@ of all service instances in the space by running:
 
 1. Retrieve more information about a specific service instance by running:
 
-    ```
+    ```console
     cf service SERVICE-INSTANCE-NAME
     ```
 
 1. Retrieve the GUID of the service instance by running:
 
-    ```
+    ```console
     cf service SERVICE-INSTANCE-NAME --guid
     ```
 
@@ -349,28 +346,26 @@ of all service instances in the space by running:
 
 1. If the Log Cache CLI plugin is enabled, you can retrieve logs for the service instance by running:
 
-    ```
+    ```console
     cf tail SERVICE-INSTANCE-NAME/APP-NAME
     ```
 
-    For more information, see <a href="using.html#logging">Log Cache CLI plugin</a>.
+    For more information, see <a href="using.html#logging">Log Cache CLI plug-in</a>.
 
-### <a id="instance-credentials"></a> Retrieve the Password for a Redis Service Instance
+### <a id="instance-credentials"></a> Retrieve the password for a Redis Service Instance
 
 If you want to access the Redis server for troubleshooting,
 you can find a Redis service instance password by creating a new service key.
 
-<p class="note"><span class="note__title">Note</span>
-  VMware recommends that you use this key for troubleshooting only, and that you
+<p> VMware recommends that you use this key for troubleshooting only, and that you
   delete the key after troubleshooting by running the command <code>cf delete-service-key SERVICE-INSTANCE KEY-NAME</code>.
 </p>
 
 For instructions on how to retrieve the password, see [Retrieve the Password for a Redis Service Instance](./using.html#call).
 
-## <a id="outages"></a>Temporary Outages
+## <a id="outages"></a>Temporary outages
 
 <%= vars.product_short %> service instances can become temporarily inaccessible during upgrades and VM or network failures.
-
 
 ## <a id="kb"></a>Knowledge Base (Community)
 
