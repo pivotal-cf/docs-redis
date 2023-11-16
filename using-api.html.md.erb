@@ -6,8 +6,6 @@ owner: London Services
 This topic tells you how to use the Config API feature for <%= vars.product_full %>
 on-demand service instances.
 
-## <a id='overview'></a> Overview
-
 Config API adds an endpoint to service instances for querying Redis configuration parameters.
 An HTTP GET request to `SERVICE-INSTANCE-BOSH-URL:8080/config/CONFIG-PARAMETER-NAME`
 returns the value of a setting.
@@ -15,10 +13,10 @@ returns the value of a setting.
 ## <a id='prerequisites'></a> Prerequisites
 
 Before you can use the Config API, you must select the **Enable Config API**
-checkbox in the <%= vars.product_short %> tile.
-See [Configure On-Demand Service Settings](installing.html#on-demand-config).
+check box in the <%= vars.product_short %> tile.
+See [Configure On-Demand Service settings](installing.html#on-demand-config).
 
-## <a id='using'></a> Use the Config API to Query Redis Configuration Parameters
+## <a id='using'></a> Use the Config API to query Redis configuration parameters
 
 After enabled, the Config API is available at port 8080 on the Redis service instance.
 You can query it from a Cloud Foundry app.
@@ -82,12 +80,12 @@ To query Redis configuration parameters:
     6379
     </pre>
 
-## <a id='parameters'></a> Parameters You Can Query
+## <a id='parameters'></a> Parameters you can query
 
 You can query any parameters except for credentials such as `requirepass`, `masterauth`, or `masteruser`.
 The following are some configuration parameters you can query.
 
-### <a id='redis'></a> Redis Properties
+### <a id='redis'></a> Redis properties
 
 You can query the following Redis properties:
 
@@ -112,7 +110,7 @@ You can query the following persistence parameters:
 - dbfilename
 - dir
 
-### <a id='arbitrary-parameters'></a> Arbitrary Parameters
+### <a id='arbitrary-parameters'></a> Arbitrary parameters
 
 You can query the following arbitrary parameters:
 
@@ -120,7 +118,7 @@ You can query the following arbitrary parameters:
 - slowlog-log-slower-than
 - slowlog-max-len
 
-### <a id='plan-properties'></a> Plan Properties
+### <a id='plan-properties'></a> Plan properties
 
 You can query the following plan properties:
 
