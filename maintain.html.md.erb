@@ -22,12 +22,11 @@ Pivotal recommends that operators follow these guidelines:
     Storing logs in an external service helps operators debug issues both current and historical.
     See [Configure Syslog Output](./installing.html#syslog). In particular, set
     up alerts on critical logs, such as service backups so that you are alerted
-    if a backup fails. For examples of critical logs for service backups, see
-    <a href="https://docs.pivotal.io/svc-sdk/service-backup/18-1/#troubleshooting">Service Backups for <%= vars.platform_name %></a>.
+    if a backup fails.
 * **Monitoring**---Set up a monitoring dashboard for metrics to track the health of the installation.
 * **Backing Up Data**---When using Redis for persistence, configure automatic backups so that data can be restored in an emergency.
     Validate the backed-up data with a test restore.
-    See [Configuring Automated Backups](./auto-backup.html) and also [Manually Backing Up and Restoring Redis for Pivotal Cloud Foundry](https://community.pivotal.io/s/article/Manually-Backing-Up-and-Restoring-Redis-for-Pivotal-Cloud-Foundry) in the Pivotal Support knowledge base.
+    See [Configuring Automated Backups](./auto-backup.html) and also [Manually backing up and restoring <%= vars.product_old %>](https://community.pivotal.io/s/article/Manually-Backing-Up-and-Restoring-Redis-for-Pivotal-Cloud-Foundry) in the VMware Tanzu Support knowledge base.
 * **Using**---Instances of the On-Demand service run on dedicated VMs.
     Apps in production should have an on-demand instance to prevent performance
     issues caused by sharing an instance.
@@ -37,7 +36,7 @@ Pivotal recommends that operators follow these guidelines:
     For more information about the plans, see the [On-Demand Service Offering](./architecture.html)
     and the [Shared-VM Service Offering](./architecture-pp.html).
 
-## <a id="keycount"></a> Redis Key Count and Memory Size
+## <a id="keycount"></a> Redis Key Count and Memory size
 
 Redis can handle up to 2<sup>32</sup> keys, and was tested in practice to handle at least 250 million keys per instance.
 Every hash, list, set, and sorted set, can hold 2<sup>32</sup> elements.
@@ -45,19 +44,21 @@ VM memory is more likely to be a limiting factor than number of keys that can be
 
 ## <a id="errands"></a>Errands
 
-<%= vars.product_full %> includes the errands listed below.
+<%= vars.product_full %> includes the following errands.
 
 ### <a id="post-deploy"></a> Post-Deploy Errands
 
 The following post-deploy errands are run by default when **Apply Changes** is triggered.
 These errands run whether or not there has been a configuration change in the <%= vars.product_short %> tile.
 
-<table class="nice">
+<table class=“table”>
+  <thead>
   <tr>
     <th width="18%"><%= vars.ops_manager %> UI Name</th>
     <th width="27%">BOSH Errand Name</th>
     <th width="55%">Description</th>
   </tr>
+  </thead>
   <tr>
     <td><strong>Broker Registrar</strong></td>
     <td><code>broker-registrar</code></td>
@@ -93,12 +94,14 @@ The following post-deploy errands do not run by default when **Apply Changes** i
 These errands help operators to troubleshoot and maintain their service fleet.
 
 
-<table class="nice">
+<table class=“table”>
+<thead>
   <tr>
     <th width="18%"><%= vars.ops_manager %> UI Name</th>
     <th width="27%">BOSH Errand Name</th>
     <th width="55%">Description</th>
   </tr>
+  </thead>
   <tr>
     <td><strong>Recreate All On-Demand Service Instances</strong></td>
     <td><code>recreate-all-service-instances</code></td>
@@ -117,12 +120,14 @@ These errands help operators to troubleshoot and maintain their service fleet.
 
 The following pre-delete errands are run by default when the <%= vars.product_short %> tile is deleted:
 
-<table class="nice">
+<table class=“table”>
+<thead>
   <tr>
     <th width="18%"><%= vars.ops_manager %> UI Name</th>
     <th width="27%">BOSH Errand Name</th>
     <th width="55%">Description</th>
   </tr>
+  </thead>
   <tr>
     <td><strong>Broker Deregistrar</strong></td>
     <td><code>broker-deregistrar</code></td>
@@ -142,17 +147,17 @@ Pivotal recommends that you run the post-deploy errands at any trigger of **Appl
 However, this practice can extend the duration of applying changes by several minutes every time.
 This section helps you decide when it is safe to skip some post-deploy errands.
 
-#### Changes to <%= vars.product_short %> Tile Configuration
+#### Changes to <%= vars.product_short %> Tile configuration
 
 If the changes include configuration changes on the <%= vars.product_short %> tile or a new stemcell version, the operator must run all post-deploy errands.
 
-#### Installing Another Tile
+#### Installing another Tile
 
 When installing another tile that does not make any changes to the BOSH Director
 or the <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>),
 it is not necessary to run any of the <%= vars.product_short %> tile's post-deploy errands.
 
-#### Changes to Other Tiles
+#### Changes to other Tiles
 
 Sometimes the change does not include changes to the <%= vars.product_short %> tile's configuration.
 Then it might not be necessary to run all of the <%= vars.product_short %> tile's post-deploy errands.
@@ -177,7 +182,7 @@ in a way that changes the ranges where the <%= vars.product_short %> tile deploy
 - Required to run if their respective register broker errand is required.
 - Required to run both if a newer stemcell minor version is uploaded.
   The <%= vars.product_short %> tile floats to the newest minor version.
-  For more information, see [Floating Stemcells](https://docs.pivotal.io/pivotalcf/customizing/understanding-stemcells.html).
+  For more information, see [Benefits of floating stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-understanding-stemcells.html).
 - Good practice to run both for any change in the BOSH Director or <%= vars.app_runtime_abbr %>tile.
 - Not necessary to run either if the change only involves other tiles except <%= vars.app_runtime_abbr %>and BOSH Director.
 
@@ -185,10 +190,10 @@ in a way that changes the ranges where the <%= vars.product_short %> tile deploy
 
 - Required to run if a newer stemcell minor version is uploaded.
   The <%= vars.product_short %> tile floats to the newest minor version.
-  For more information, see [Floating Stemcells](https://docs.pivotal.io/pivotalcf/customizing/understanding-stemcells.html).
+  For more information, see [Benefits floating stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-understanding-stemcells.html).
 - Not necessary to run if there are no on-demand instances provisioned.
 
-#### Recreate All On-Demand Service Instances
+#### Recreate all On-Demand Service Instances
 
 - Necessary when an instance must be re-created with different resources,
   such as when rotating CA certificates.
@@ -197,14 +202,14 @@ in a way that changes the ranges where the <%= vars.product_short %> tile deploy
 - Not necessary to run if there are no on-demand instances provisioned.
   Recommended to be turned off unless needed.
 
-#### Find Orphan On-Demand Service Instances
+#### Find orphan On-Demand Service Instances
 
 - Queries BOSH for any orphaned Redis on-demand instances
 and then displays them during `Apply Changes`.
 - Does not remove any instances. Informs the operator of
 the details of orphaned instances so the operator can decide when and how to remove them.
 
-##  <a id="smoke"></a>Smoke Tests
+##  <a id="smoke"></a>Smoke tests
 
 <%= vars.ops_manager %> runs <%= vars.product_short %> smoke tests as a post-install errand.
 To run the smoke tests errand manually:

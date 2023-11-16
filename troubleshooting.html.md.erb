@@ -12,34 +12,36 @@ This topic for operators gives you troubleshooting techniques for <%= vars.produ
   Some of the troubleshooting approaches in this topic suggest potentially destructive operations.
   VMware recommends that you back up both your <%= vars.ops_manager %> and deployments before attempting such operations.
   For more information about backing up your setup and exporting your <%= vars.ops_manager %> installation,
-  see <a href="https://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/backup-pcf-bbr.html">Backing Up <%= vars.platform_name %> with BBR</a>
+  see <a href="https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-backup-pcf-bbr.html">Backing Up Deployments with BBR</a>
 </p>
 
 
-## <a id="debugging"></a> Useful Debugging Commands
+## <a id="debugging"></a> Useful debugging commands
 
 Before debugging, gather the following about your <%= vars.platform_name %> deployment:
 
 * Current version of <%= vars.product_short %>, and, if upgrading, the previous version of <%= vars.product_short %>
 * Current version of <%= vars.ops_manager %>, and, if upgrading, the previous version of <%= vars.ops_manager %>
 
-### cf CLI Commands
+### cf CLI commands
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/redis/debugging-using-cf-cli' %>
 
-### BOSH CLI Commands
+### BOSH CLI commands
 
-See the table below for BOSH CLI commands commonly used while debugging:
+See the following table for BOSH CLI commands commonly used while debugging:
 
-<table>
+<table class=“table”>
+<thead>
   <col width="60%">
   <col width="40%">
   <tr>
     <th>Purpose</th>
     <th>Command</th>
   </tr>
+  </thead>
   <tr>
     <td>View the targeted BOSH Director, version, and CPI</td>
     <td><code>bosh env</code></td>
@@ -103,11 +105,11 @@ to retrieve the password and port number for the service instance.
     Redis documentation.
 
 
-## <a id="errors"></a> Troubleshoot Errors
+## <a id="errors"></a> Troubleshooting errors
 
 Start here if you are responding to a specific error or error messages.
 
-### <a id="x-product"></a> Common Services Errors
+### <a id="x-product"></a> Common services errors
 
 The following errors occur in multiple services:
 
@@ -153,17 +155,17 @@ The following errors occur in multiple services:
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-err-missing-logs' %>
 
 
-### <a id="redis"></a> <%= vars.product_short %>-Specific Errors
+### <a id="redis"></a> <%= vars.product_short %>-Specific errors
 
 The following troubleshooting errors are specific to <%= vars.product_short %>:
 
-- [AOF File Corrupted, Cannot Start Redis Instance](#corrupt-aof)
-- [Saving Error](#disk-size)
-- [Failed Backup](#backup-errors)
-- [Orphaned Instances: BOSH Director Cannot See Your Instances](#orphaned-bosh)
-- [Orphaned Instances: Pivotal Platform Cannot See Your Instances](#orphaned-pcf)
-- [Failed to Set Credentials in Runtime CredHub](#credhub-error)
-- [Service Outage after Deactivating TLS](#deactivating-tls)
+- [AOF file corrupted, cannot start Redis Instance](#corrupt-aof)
+- [Saving error](#disk-size)
+- [Failed backup](#backup-errors)
+- [Orphaned Instances: BOSH Director cannot see your Instances](#orphaned-bosh)
+- [Orphaned Instances: Pivotal Platform cannot see your Instances](#orphaned-pcf)
+- [Failed to set credentials in Runtime CredHub](#credhub-error)
+- [Service outage after deactivating TLS](#deactivating-tls)
 
 <a name="corrupt-aof"></a>
 <table class="nice">
@@ -630,7 +632,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 </table>
 
 
-## <a id="components"></a> Troubleshoot Components
+## <a id="components"></a> Troubleshooting components
 
 This section provides guidance on checking for, and fixing, issues in cf-redis and on-demand service components.
 

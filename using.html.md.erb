@@ -5,7 +5,7 @@ owner: London Services
 
 <strong><%= modified_date %></strong>
 
-You can use <%= vars.product_full %> both through [Apps Manager](http://docs.pivotal.io/pivotalcf/console/dev-console.html)
+You can use <%= vars.product_full %> both through Apps Manager
 and the Cloud Foundry Command Line Interface (cf CLI). Both methods are outlined in this topic.
 
 You can find an example app has to help you get started with <%= vars.product_short %>.
@@ -22,13 +22,14 @@ and the [Shared-VM Service Offering](./architecture-pp.html).
 <%= partial vars.path_to_partials + "/services/developer-prereqs" %>
 
 
-## <a id="process"></a>Use <%= vars.product_short %> in a <%= vars.platform_name %> app
+Every app and service is scoped to a space. To use a service,
+an app must exist in the same space as an instance of the service.
 
 Every app and service in <%= vars.platform_name %> is scoped to a [space](http://docs.pivotal.io/pivotalcf/concepts/roles.html#spaces). To use a service, an app must exist in the same space as an instance of the service.
 
 To use <%= vars.product_short %> in a <%= vars.platform_name %> app:
 
-1. Use the [cf CLI](http://docs.pivotal.io/pivotalcf/cf-cli/getting-started.html#login) or [Apps Manager](http://docs.pivotal.io/pivotalcf/customizing/console-login.html) to log in to the org and space that contains the app.
+1. Use the cf CLI or Apps Manager to log in to the org and space that contains the app.
 
 1. Make sure an instance of the <%= vars.product_short %> service exists in the same space as the app.<br><br>
    - If the space does not already have a <%= vars.product_short %> instance, [create](#create) one.<br>
@@ -36,7 +37,7 @@ To use <%= vars.product_short %> in a <%= vars.platform_name %> app:
 
 2. [Bind](#bind) the app to the <%= vars.product_short %> service instance, to enable the app to use Redis.
 
-## <a id='marketplace'></a>Confirm <%= vars.product_short %> Service Availability
+## <a id='marketplace'></a>Confirm service availability
 
 For an app to use a service, the following two things must be true:
 
@@ -180,7 +181,7 @@ To create a service instance of the <%= vars.product_short %>  on-demand plan us
   followed by a description of the plan.
   Below this is the button for Select this Plan.](images/predis_marketplace.png)
 
-1. Click on the appropriate **Select this plan** button to select the required **Redis Service Plan**.
+1. Click the appropriate **Select this plan** button to select the required **Redis Service Plan**.
   ![Screenshot of the On-Demand Redis service in Apps Manager.
   The header contains a description of the on-demand Redis service.
   Below the header on the left is the service plan name cache-large
@@ -227,7 +228,7 @@ At the bottom of the Configure Instance section is a Cancel and an Add button.](
 1. Click the **Add** button.
 
 
-## <a id="bind"></a>Bind a Service Instance to Your App
+## <a id="bind"></a>Bind a Service Instance to your App
 
 For an app to use a service, you must bind it to a service instance.
 You can use either the cf CLI or Apps Manager to do this.
@@ -296,13 +297,15 @@ Operators can customize the memory size, org and space access, Redis Client Time
 
 App developers can customize the following parameters. See the <a href="https://redis.io/commands">Redis documentation</a> for more detail.
 
-<table border="1" class="nice">
+<table class=“table”>
+<thead>
   <tr>
     <th>Property</th>
     <th>Default</th>
     <th>Options</th>
     <th>Description</th>
   </tr>
+  </thead>
   <tr>
     <td><code>maxmemory-policy</code></td>
     <td><code>allkeys-lru</code></td>
@@ -329,7 +332,7 @@ App developers can customize the following parameters. See the <a href="https://
   </tr>
 </table>
 
-### <a id="customize-cli"></a> Customize an On-Demand Instance with the cf CLI
+### <a id="customize-cli"></a> Customize an On-Demand Instance with cf CLI
 
 <p class="note"><span class="note__title">Note</span> Arbitrary parameters are only supported for on-demand service instances. Shared-VM plans do not support the use of CLI commands with arbitrary parameters to configure service instances.</p>
 
@@ -366,7 +369,7 @@ FAILED
 Server error, status code: 502, error code: 10001, message: Service broker error: invalid value "no-eviction" specified for maxmemory-policy
 </pre>
 
-### <a id="customize-appsman"></a> Customize an On-Demand Instance with the Apps Manager
+### <a id="customize-appsman"></a> Customize an On-Demand Instance with Apps Manager
 
 You can customize an instance in two ways:
 
