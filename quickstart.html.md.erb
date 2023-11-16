@@ -11,11 +11,6 @@ Credentials to connect to a <%= vars.product_short %> instance are passed to the
 
 Additionally, this topic includes advice for setting up Spring Sessions with <%= vars.product_short %>.
 
-## <a id="feedback"></a> Feedback
-
-If you have feedback about this page, or you want more information (other quickstart guides, sample use cases),
-please send a message to [VMware Tanzu Feedback](mailto:"pivotal-cf-feedback@pivotal.io").
-
 ## <a id="quickstart_apps"></a> Quickstart Apps
 
 All apps using <%= vars.product_short %> must parse and read the <%= vars.product_short %> instance credentials from the environment.
@@ -251,11 +246,11 @@ This documentation is adopted from the [Spring Session docs](https://docs.spring
 and extends to include instructions for use with <%= vars.product_short %>.
 The document is also adopted from this [Spring Session - Spring Boot guide](https://docs.spring.io/spring-session/docs/current/reference/html5/guides/boot-redis.html).
 
-### <a id="configuring Spring"></a> Setting Up Spring Session
+### <a id="configuring Spring"></a> Setting up Spring Session
 
-#### <a id ="spring_dependencies"></a>Updating Dependencies
+#### <a id ="spring_dependencies"></a>Updating dependencies
 
-To use Spring Session, update your dependencies to include spring-session-data-redis. The below example is for Maven.
+To use Spring Session, update your dependencies to include spring-session-data-redis. The following example is for Maven.
 
 <code>pom.xml</code>
 
@@ -313,7 +308,7 @@ For more information on configuring Spring Data Redis, refer to the <a href="htt
 </tr>
 </table>
 
-#### <a id ="java_servlet_container_initialization"></a>Java Servlet Container Initialization
+#### <a id ="java_servlet_container_initialization"></a>Java Servlet Container initialization
 
 <p>Our Spring Configuration created a Spring Bean named <code>springSessionRepositoryFilter</code> that implements <code>Filter</code>.
 The <code>springSessionRepositoryFilter</code> bean is responsible for replacing the <code>HttpSession</code>
@@ -344,14 +339,14 @@ The name of our class (Initializer) does not matter. What is important is that w
 
 + It provides a mechanism to easily ensure that Spring loads our <code>Config</code>.
 
-### <a id ="spring_redis"></a>Configuring <%= vars.product_short %> as a Backend
+### <a id ="spring_redis"></a>Configuring <%= vars.product_short %> as a backend
 
 At this stage, Spring Session is now configured to use a Redis instance.
 To use a <%= vars.product_short %> instance, create a `session-replication` tag for it.
 
 <pre class="terminal">$ cf update-service INSTANCE_NAME -t session-replication</pre>
 
-### <a id ="spring_redis_considerations"></a>Other Considerations
+### <a id ="spring_redis_considerations"></a>Other considerations
 
 The `RedisHttpSessionConfiguration` tries to use the Redis CONFIG command.
 The CONFIG command is not available due to security recommendations.
