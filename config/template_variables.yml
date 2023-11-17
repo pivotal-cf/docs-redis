@@ -75,6 +75,7 @@ template_variables:
   current_major_version: "5.0"
   v_major_version: "v5.0"
   dot_major_version: "5.0"
+  dot_major_tas_version: "5.0"
 
   # Other variables
 
