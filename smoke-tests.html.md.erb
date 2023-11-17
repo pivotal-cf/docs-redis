@@ -112,6 +112,23 @@ Here are some common failures:
 </tr>
 </table>
 
-When you encounter an error when running smoke tests, it can be helpful to search the log for other instances of the error summary printed at the end of the tests,
+
+<table border='1' class='nice'>
+<tr>
+  <th width="22%">Error</th>
+  <td><code>protocol not supported: SSL_connect returned=1 errno=0 peeraddr= state=error: no protocols available</code>
+  </td>
+</tr>
+<tr>
+  <th>Cause</th>
+  <td>Issue in the smoke-tests is due to the cf app’s ubuntu version in the smoke-test. Ubuntu version 20 has disabled TLS versions prior to v1.2.</td>
+</tr>
+<tr>
+  <th>Solution</th>
+  <td>The recommendation is not to use the TLS version v1 and v1.1 as they are deprecated.If this issue comes during upgrade,do unselect TLS v1 and v1.1 from Tiles configuration, apply changes to resolve issue.</td>
+</tr>
+</table>
+
+When encountering an error when running smoke tests, it can be helpful to search the log for other instances of the error summary printed at the end of the tests,
 for example, <code>Failed to target Cloud Foundry</code>.
 Lookout for <code>TIP: ...</code> in the logs next to any error output for further troubleshooting hints.
