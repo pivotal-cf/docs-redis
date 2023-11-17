@@ -7,7 +7,7 @@ owner: London Services
 
 This topic gives you information about the upgrade paths and how to upgrade <%= vars.product_full %>.
 
-##<a id="upgrading"></a> Compatible Upgrade Paths
+## <a id="upgrading"></a> Compatible upgrade paths
 
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
@@ -19,9 +19,9 @@ This product enables a reliable upgrade experience between versions of the produ
 deployed through <%= vars.ops_manager %>.
 
 For information about the upgrade paths for each released version, see
-[Compatible Upgrade Paths](#upgrading) above.
+[Compatible upgrade paths](#upgrading).
 
-### <a id="procedure"></a> Upgrade Procedure
+### <a id="procedure"></a> Upgrade procedure
 
 To upgrade to the latest version of <%= vars.product_short %>:
 
@@ -59,11 +59,11 @@ To upgrade to the latest version of <%= vars.product_short %>:
 [Enable Individual Service Instance Upgrades](#individual-upgrades) below. <br>
 When this is feature is not enabled, the `upgrade-all-service-instances` errand runs by default
 after each upgrade.
-For more information, see [Upgrading All Service Instances](#all-instances) below.
+For more information, see [Upgrading all Service Instances](#all-instances).
 
 1. Go to the <%= vars.ops_manager %> **Installation Dashboard**. Click **Review Pending Changes** and **Apply Changes**.
 
-### <a id="individual-upgrades"></a> Enable Individual Service Instance Upgrades
+### <a id="individual-upgrades"></a> Enable individual Service Instance upgrades
 
 Until you upgrade service instances, they do not benefit from any security fixes or new features
 included in the tile upgrade.
@@ -100,10 +100,10 @@ If not, click **Apply changes** to run the `upgrade-all-service instances` erran
 
 After you enable individual service instance upgrades, developers can upgrade individual
 service instances following the instructions in
-[Upgrading an Individual Redis Service Instance](./dev-upgrade.html).
+[Upgrading an individual Redis Service Instance](./dev-upgrade.html).
 
 
-## <a id="downtime"></a> Downtime During Upgrades
+## <a id="downtime"></a> Downtime during upgrades
 
 During the upgrade each Redis instance experiences a small period of
 downtime as each instance is updated with the new software components.
@@ -123,7 +123,7 @@ configuration changes are applied automatically.
 
 Upgrading to a newer version of the product does not cause any loss of data or configuration.
 
-###  <a id="downtime-causes"></a> Causes of Downtime
+###  <a id="downtime-causes"></a> Causes of downtime
 
 A redeploy causes downtime for the <%= vars.product_short %> tile.
 This section clarifies what events trigger a redeploy.
@@ -149,7 +149,7 @@ When the operator applies any of the above changes to <%= vars.app_runtime_abbr 
 
 * Shared-VM Services
 
-#### <a id="all-instances"></a> Upgrading All Service Instances
+#### <a id="all-instances"></a> Upgrading all Service Instances
 
 Downtime for service instances occurs only after the operator runs the
 `upgrade-all-service-instances` BOSH errand, after all tile upgrades are completed successfully.
@@ -157,14 +157,14 @@ Any change to a field on the <%= vars.product_short %> tile causes BOSH to redep
 on-demand Redis broker and can cause service instance downtime when the operator runs the
 `upgrade-all-service-instances` errand.
 
-### <a id="bosh-hotswaps"></a> Enable BOSH HotSwaps to Reduce Downtime
+### <a id="bosh-hotswaps"></a> Enable BOSH HotSwaps to reduce downtime
 
 Enabling BOSH HotSwaps reduces the downtime for on-demand service instances when
 upgrading.
 Benchmarking shows that enabling BOSH HotSwaps can reduce service instance downtime
 by 75% when upgrading.
 For how it works, see
-<a href="https://bosh.io/docs/changing-deployment-vm-strategy/">Changing VM Update Strategy</a>
+<a href="https://bosh.io/docs/changing-deployment-vm-strategy/">Changing VM update strategy</a>
 in the BOSH documentation.
 To use this feature, all service bindings must use BOSH DNS instead of IP addresses.
 
@@ -173,18 +173,18 @@ To enable BOSH HotSwaps:
 1. Ensure all service bindings use BOSH DNS.
 To do so, tell developers to unbind, bind, and restage any apps created while
 <%= vars.product_old %> v1.14 or earlier was installed.
-For instructions, see the solution in [Apps Fail to Connect to the Service Instance](./troubleshoot-instances.html#connect-fails).
+For instructions, see the solution in [Apps fail to connect to the Service Instance](./troubleshoot-instances.html#connect-fails).
   <p class="note"><span class="note__title">Note</span>
     You must do this before enabling BOSH HotSwaps.
     Any apps with service bindings that do not use BOSH DNS fail to connect
     to the Redis service instance.</p>
 
-1. Select the **BOSH HotSwaps** checkbox in the **On-Demand Service Settings** tab.
+1. Select the **BOSH HotSwaps** check box in the **On-Demand Service Settings** tab.
 
-1. Click **Save** and **Apply Changes**.
+1. Click **Save** and then **Apply Changes**.
 
 
-## <a id="network-upgrades"></a> Network Changes after Deployment
+## <a id="network-upgrades"></a> Network changes after deployment
 
 This section explains how changing the network after deploying <%= vars.product_short %>
 affects instances and apps.
@@ -218,7 +218,7 @@ Similarly, changing the availability zone (AZ) for an on-demand plan only applie
 and does not alter existing instances.
 
 
-## <a id="policy"></a> Release Policy
+## <a id="policy"></a> Release policy
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
