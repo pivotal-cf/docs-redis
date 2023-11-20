@@ -125,10 +125,10 @@ Here are some common failures:
 </tr>
 <tr>
   <th>Solution</th>
-  <td>The recommendation is not to use the TLS version v1 and v1.1 as they are deprecated. If this issue comes during upgrade, deselect TLS v1 and v1.1 from Tiles configuration and apply changes to resolve the issue.</td>
+  <td>VMware recommends to not use the TLS version v1 and v1.1 because they are deprecated. If this issue happens during upgrade, deselect TLS v1 and v1.1 from Tiles configuration and apply changes to resolve the issue.</td>
 </tr>
 </table>
 
 When encountering an error when running smoke tests, search the log for other instances of the error summary printed at the end of the tests.
-For example, `Failed to target Cloud Foundry`.
-Lookout for `TIP: ...` in the logs next to any error output for further troubleshooting hints.
+For example, search for `Failed to target Cloud Foundry`.
+Then look for `TIP: ...` in the logs next to any error output for further troubleshooting hints.
