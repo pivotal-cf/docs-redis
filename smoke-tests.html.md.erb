@@ -120,14 +120,14 @@ Here are some common failures:
 </tr>
 <tr>
   <th>Cause</th>
-  <td>Issue in the smoke-tests is due to the cf app’s ubuntu version in the smoke-test. Ubuntu version 20 has disabled TLS versions prior to v1.2.</td>
+  <td>Issue in the smoke tests is due to the CF app’s Ubuntu version in the smoke test. Ubuntu version 20 has disabled TLS versions prior to v1.2.</td>
 </tr>
 <tr>
   <th>Solution</th>
-  <td>The recommendation is not to use the TLS version v1 and v1.1 as they are deprecated.If this issue comes during upgrade,do unselect TLS v1 and v1.1 from Tiles configuration, apply changes to resolve issue.</td>
+  <td>VMware recommends to not use the TLS version v1 and v1.1 because they are deprecated. If this issue happens during upgrade, deselect TLS v1 and v1.1 from the Tiles configuration and apply changes to resolve the issue.</td>
 </tr>
 </table>
 
-When you encounter an error when running smoke tests, it can be helpful to search the log for other instances of the error summary printed at the end of the tests,
-for example, <code>Failed to target Cloud Foundry</code>.
-Lookout for <code>TIP: ...</code> in the logs next to any error output for further troubleshooting hints.
+When you encounter an error when running smoke tests, search the log for other instances of the error summary printed at the end of the tests.
+For example, `Failed to target Cloud Foundry`.
+Look for `TIP: ...` in the logs next to any error output for further troubleshooting hints.
