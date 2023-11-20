@@ -120,7 +120,7 @@ Here are some common failures:
 </tr>
 <tr>
   <th>Cause</th>
-  <td>Issue in the smoke tests is due to the CF app’s Ubuntu version in the smoke test. Ubuntu version 20 has disabled TLS versions prior to v1.2.</td>
+  <td>This issue in the smoke tests is due to the CF app’s Ubuntu version in the smoke test. Ubuntu version 20 has disabled TLS versions prior to v1.2.</td>
 </tr>
 <tr>
   <th>Solution</th>
@@ -129,5 +129,5 @@ Here are some common failures:
 </table>
 
 When you encounter an error when running smoke tests, search the log for other instances of the error summary printed at the end of the tests.
-For example, search on `Failed to target Cloud Foundry`.
-Look for `TIP: ...` in the logs next to any error output for further troubleshooting hints.
+For example, search for `Failed to target Cloud Foundry`.
+Then look for `TIP: ...` in the logs next to any error output for further troubleshooting hints.
