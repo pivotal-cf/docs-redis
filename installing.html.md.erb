@@ -453,13 +453,13 @@ If you enabled **On Demand - Secure Service Instance Credentials with Runtime Cr
 in step 8 of [Configure On-Demand Service Settings](#on-demand-config) above,
 you must follow this procedure.
 
-To secure your on-demand binding credentials in runtime [CredHub](https://docs.pivotal.io/platform/credhub/)
+To secure your on-demand binding credentials in runtime [CredHub](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/credhub-index.html)
 instead of the Cloud Controller database (CCDB):
 
 1. On the **CredHub** pane of <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>)
    select **Secure service instance credentials**.
 
-    For instructions, see [Configure CredHub](https://docs.pivotal.io/application-service/2-11/operating/configure-pas.html#credhub)
+    For instructions, see [Configure CredHub](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.11/tas-for-vms/configure-pas.html#credhub)
 in _Configuring TAS for VMs_.
 
 1. After deploying the tile, notify developers that they must unbind and rebind
@@ -732,7 +732,7 @@ To configure syslog forwarding:
 ## <a id="stemcell"></a> Verify the Stemcell
 
 To verify that you have the correct stemcell, follow the procedure in
-[Importing and Managing Stemcells](https://docs.pivotal.io/ops-manager/opsguide/managing-stemcells.html).
+[Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html).
 
 ## <a id="apply"></a> Apply Changes from Your Configuration
 
@@ -744,14 +744,14 @@ To apply your configuration changes:
 
     1. If you are using <%= vars.ops_manager %> v2.3 or later, click **Review Pending Changes**.
     For more information about this <%= vars.ops_manager %> page, see
-    [Reviewing Pending Product Changes](https://docs.pivotal.io/platform/customizing/review-pending-changes.html).<br><br>
+    [Reviewing Pending Product Changes](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/install-review-pending-changes.html)).<br><br>
     1. Click **Apply Changes**.
 
 
 ##  <a id="asg"></a> Create App Security Groups
 
 To allow this service to have network access,
-you must create [App Security Groups (ASGs)](https://docs.pivotal.io/application-service/concepts/asg.html).
+you must create [App Security Groups (ASGs)](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/asg.html).
 Ensure your security group allows access to the Redis Service Broker VM configured in your deployment.
 You can obtain the IP addresses for these VMs in <%= vars.ops_manager %> under the <strong>Resource Config</strong> section for the <%= vars.product_short %> tile.</p>
 
@@ -817,5 +817,5 @@ To uninstall <%= vars.product_short %>:
 1. Confirm the product was deleted.
 1. If you are using <%= vars.ops_manager %> v2.3 or later, click **Review Pending Changes**.
 For more information about this <%= vars.ops_manager %> page, see
-[Reviewing Pending Product Changes](https://docs.pivotal.io/platform/customizing/review-pending-changes.html).<br><br>
+[Reviewing Pending Product Changes](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-review-pending-changes.html).<br><br>
 1. Click **Apply Changes**.
