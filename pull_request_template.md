@@ -1,1 +1,3 @@
-Should this be merged to any other branches?
+# Pull request template
+
+Which other branches should this be merged with (if any)?
