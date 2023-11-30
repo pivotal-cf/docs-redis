@@ -1,3 +1,5 @@
+# TOC
+
 *   [Overview](/docs-redis/index.html)
 *   [Release notes](/docs-redis/release.html)
 *   [Planning guide](/docs-redis/erc.html)
