@@ -5,48 +5,8 @@ template_variables:
   title: <span class="title-deemph">Pivotal</span> Documentation
   title_image: images/icon-p-green.jpg
   hero_text: "Detailed documentation to help you install, understand, and succeed with VMware's enterprise-grade software."
-
-  tile_name: Redis for VMware Tanzu Application Service
-  product_url: https://network.tanzu.vmware.com/products/pivotal-cf
-  product_link: <div class="header-item"><a href="https://network.tanzu.vmware.com/products/pivotal-cf">Back to Product Page</a></div>
-
-  support_link: <a href="https://tanzu.vmware.com/support" target="_blank">Support</a>
-  support_call_to_action: <a href="http://tanzu.vmware.com/support" target="_blank">Need Support?</a>
-  support_url: https://tanzu.vmware.com/support
-
-  product_network: VMware Tanzu Network
-
-  path_to_partials: /redis/partials
-
-  api_version: 235
-  gtm_account_id: GTM-MM86KCJ
-
-  use_global_header: true
-  global_header_product_href: https://network.tanzu.vmware.com/
-  global_header_product_link_text: Downloads
-
-  # VMware Tanzu Variables
-  company_name: VMware
-  product_full_tm: Redis for VMware Tanzu&reg; Application Service&trade;
-  product_full: Redis for VMware Tanzu Application Service
-  product_short: Redis for Tanzu Application Service
-  product_abbr: Redis for VMware Tanzu Application Service
-
-  app_runtime_full: VMware Tanzu Application Service for VMs
-  app_runtime_abbr: TAS for VMs
-
-  k8s_runtime_full: Tanzu Kubernetes Grid Integrated Edition
-  k8s_runtime_abbr: TKGI
-
-  windows_runtime_full: VMware Tanzu Application Service for VMs &#91;Windows&#93;
-  windows_runtime_abbr: TAS for VMs &#91;Windows&#93;
-
-  segment_runtime_full: Isolation Segment
-
   ops_manager: Tanzu Operations Manager
-
-  # Pivotal variables
-
+  company_name: VMware
   platform_name: Pivotal Platform
   platform_old: Pivotal Cloud Foundry
   platform_code: PCF
