@@ -4,15 +4,22 @@ This repo contains the Redis for VMware Tanzu Application Service documentation.
 
 In this README:
 
-- [Branches in this Content Repo](#branches-in-this-content-repo)
-- [Releasing a New Minor Version](#releasing-a-new-minor-version)
-- [Partials](#partials)
-- [Contributing to Documentation](#contributing-to-documentation)
-- [Publishing Docs](#publishing-docs)
-- [Troubleshooting Markdown](#troubleshooting-markdown)
-- [Style Guide](#style-guide)
+- [Redis for VMware Tanzu Application Service Docs](#redis-for-vmware-tanzu-application-service-docs)
+  - [Branches](#branches)
+    - [Master - Use for next unreleased version](#master---use-for-next-unreleased-version)
+    - [Released branches](#released-branches)
+    - [Cherry picking to and from MASTER](#cherry-picking-to-and-from-master)
+  - [Releasing a new minor version](#releasing-a-new-minor-version)
+  - [Partials](#partials)
+  - [Contributing to documentation](#contributing-to-documentation)
+  - [Publishing docs](#publishing-docs)
+    - [Prepare Markdown files](#prepare-markdown-files)
+    - [In Docsdash](#in-docsdash)
+    - [Promoting to pre-prod and prod](#promoting-to-pre-prod-and-prod)
+  - [Troubleshooting Markdown](#troubleshooting-markdown)
+  - [Style guide](#style-guide)
 
-## Branches in this Content Repo
+## Branches
 
 ### Master - Use for next unreleased version
 
@@ -26,17 +33,18 @@ Always make changes you want carried forward in the master branch. This includes
 
 Staging link: https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html
 
-### Live Branches In Production (Public)
+### Released branches
 
-* **3.2**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html)
-* **3.1**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html)
-* **3.0**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html)
-* **2.4**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html)and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html)
-* **2.3**: Live docs at staging (https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html) and production (https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html)
-* **2.2**: This branch is no longer in use because this version is EOGS. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis/2-2/) and production (https://docs.pivotal.io/redis/2-2/)
-* **2.1**: This branch is no longer in use because this version is EOGS. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/2-1/) and production (https://docs.pivotal.io/redis-eogs/2-1/)
-* **2.0**: This branch is no longer in use because this version is EOGS. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/2-0/) and production (https://docs.pivotal.io/redis-eogs/2-0/)
-* **1.14**: This branch is no longer in use because this version is EOGS. Live docs at staging (https://docs-pcf-staging.cfapps.io/redis-eogs/1-14/) and production (https://docs.pivotal.io/redis-eogs/1-14/)
+* **3.3**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html
+* **3.2**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html
+* **3.1**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html
+* **3.0**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html
+* **2.4**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html
+* **2.3**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html
+* **2.2**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.2/redis-for-tas-2-2.pdf
+* **2.1**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.1/redis-for-tas-2-1.pdf
+* **2.0**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.0/redis-for-tas-2-0.pdf
+* **1.14**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/1.14/redis-for-tas-1-14.pdf
 * **1.13**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.13.pdf.
 * **1.12**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.12.pdf.
 * **1.11**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.11.pdf.
@@ -55,7 +63,7 @@ Staging link: https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Ap
 
 2. If necessary, immediately cherry-pick/copy changes from **master** that you want to push immediately to production into the appropriate live branch above.
 
-## Releasing a New Minor Version
+## Releasing a new minor version
 
 Because **master** is the latest and greatest documentation, the process would be to cut a **x.x** branch
 for the version that **master** was targeting during that time.
@@ -68,7 +76,7 @@ Cross-product partials for **Redis for VMware Tanzu Application Service** are si
 
 Previously, these partials were sourced from the v018.x branch of the [On Demand Service Broker SDK](https://github.com/pivotal-cf/docs-on-demand-service-broker/tree/v0.18.x) content repository.
 
-## Contributing to Documentation
+## Contributing to documentation
 
 If there is some documentation to add for an unreleased patch version of Redis for VMware Tanzu Application Platform then create a branch off of the **live** branch
 you intend to modify and create a pull request against that branch.
@@ -86,14 +94,14 @@ pull request using a fork, see
 in the documentation team wiki.
 
 
-## Publishing Docs
+## Publishing docs
 
 - [docworks](https://docworks.vmware.com/) is the main tool for managing docs used by writers.
 - [docsdash](https://docsdash.vmware.com/) is a deployment UI which manages the promotion from
 staging to pre-prod to production. The process below describes how to upload our docs to staging,
 replacing the publication with the same version.
 
-### Prepare Markdown Files
+### Prepare Markdown files
 - Markdown files live in this repo.
 - Images should live in an `images` directory at the same level and linked with a relative link.
 - Each page requires an entry in [config/toc.md](config/toc.md) for the table of contents.
@@ -106,7 +114,7 @@ replacing the publication with the same version.
 
    There should be an entry with a blue link which says `Documentation` and points to staging.
 
-### Promoting to Pre-Prod and Prod
+### Promoting to pre-prod and prod
 
 **Prerequisite** Needs additional privileges - reach out to a manager on the docs team [#tanzu-docs](https://vmware.slack.com/archives/C055V2M0H) or ask a writer to do this step for you.
 
@@ -149,7 +157,7 @@ replacing the publication with the same version.
 | Solution: | Make sure you're not using `shell` or `bash` or `console` or `yaml` after back ticks.|
 
 
-## Style Guide
+## Style guide
 
 Use this section to specify spelling of special words for Redis for VMware Tanzu Application Service:
 
