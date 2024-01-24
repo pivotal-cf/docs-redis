@@ -9,14 +9,45 @@ This topic describes the changes in this minor release of <%= vars.product_full 
 
 <%= partial vars.path_to_partials + '/upgrade-planner' %>
 
-## <a id="3-3-0"></a> v3.4.0
+## <a id="3-4-0"></a> v3.4.0
 
-**Release date: dd mmmm yyyy**
+**Release date: 31 January 2024**
 
 ### Features
 
 New features and changes in this release:
 
+- **Redis OSS:**
+  Redis has been upgraded to version 7.2.4.
+  For more information, see [Redis v7.2.4](https://github.com/redis/redis/releases/tag/7.2.4) in GitHub.
+
+### Security fixes
+
+This release includes the following security fixes:
+
+* [CVE-2023-29409](https://nvd.nist.gov/vuln/detail/CVE-2023-29409)
+
+* [CVE-2023-39318](https://nvd.nist.gov/vuln/detail/CVE-2023-39318)
+
+* [CVE-2023-39319](https://nvd.nist.gov/vuln/detail/CVE-2023-39319)
+
+* [CVE-2023-39323](https://nvd.nist.gov/vuln/detail/CVE-2023-39323)
+
+* [CVE-2023-45284](https://nvd.nist.gov/vuln/detail/CVE-2023-45284)
+
+* [CVE-2023-4807](https://nvd.nist.gov/vuln/detail/CVE-2023-4807)
+
+* [CVE-2023-5363](https://nvd.nist.gov/vuln/detail/CVE-2023-5363)
+
+* [CVE-2023-5678](https://nvd.nist.gov/vuln/detail/CVE-2023-5678)
+
+* [CVE-2023-5752](https://nvd.nist.gov/vuln/detail/CVE-2023-5752)
+
+* [CVE-2022-3647](https://nvd.nist.gov/vuln/detail/CVE-2022-3647)
+
+* [CVE-2023-43804](https://nvd.nist.gov/vuln/detail/CVE-2023-43804)
+
+* [CVE-2023-45803](https://nvd.nist.gov/vuln/detail/CVE-2023-45803)
 
 ### Known issues
 
@@ -34,48 +65,48 @@ The following components are compatible with this release:
 </tr>
 <tr>
     <td>Stemcell</td>
-    <td>621.463</td>
+    <td>1.340</td>
 </tr>
 </thead>
 <tr>
     <td><%= vars.app_runtime_full %></td>
-    <td>2.11, 2.12, 2.13, 3.0, 4.0</td>
+    <td>2.11, 2.12, 2.13, 3.0, 4.0, 5.0</td>
 </tr>
 <tr>
     <td>shared-redis-release</td>
-    <td>437.0.38</td>
+    <td>437.0.45</td>
 </tr>
 <tr>
     <td>on-demand-service-broker</td>
-    <td>0.43.2</td>
+    <td>0.43.3</td>
 </tr>
 <tr>
     <td>routing</td>
-    <td>0.265.0</td>
+    <td>0.287.0</td>
 </tr>
 <tr>
     <td>service-metrics</td>
-    <td>2.0.30</td>
+    <td>2.0.34</td>
 </tr>
 <tr>
     <td>service-backup</td>
-    <td>18.4.5</td>
+    <td>18.5.0</td>
 </tr>
 <tr>
     <td>loggregator-agent</td>
-    <td>7.3.0</td>
+    <td>7.7.3</td>
 </tr>
 <tr>
     <td>bpm</td>
-    <td>1.2.5</td>
+    <td>1.2.13</td>
 </tr>
 <tr>
     <td>cf-cli</td>
-    <td>1.45.0-lite</td>
+    <td>1.59.0-lite</td>
 </tr>
 <tr>
     <td>Redis OSS</td>
-    <td>6.2.13</td>
+    <td>7.2.4</td>
 </tr>
 </table>
 
