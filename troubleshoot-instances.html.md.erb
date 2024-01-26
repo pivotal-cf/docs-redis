@@ -20,7 +20,7 @@ The following errors occur in multiple services:
 - [No Metrics from Log Cache](#no-metrics)
 
 <a name="connect-fails"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -28,19 +28,19 @@ The following errors occur in multiple services:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Apps Fail to Connect to the Service Instance
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>Apps fail to connect to the Redis service instance.</td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>
       <p>
         The Redis on-demand service broker now binds apps to service instances using BOSH DNS.
@@ -79,7 +79,7 @@ The following errors occur in multiple services:
 </table>
 
 <a name="no-metrics"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -87,19 +87,19 @@ The following errors occur in multiple services:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     No Metrics from Log Cache
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>You receive no metrics when running the <code>cf tail</code> command.</td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>Depending on your versions of <%= vars.app_runtime_abbr %> and <%= vars.product_short %>, this can occur when the Firehose is deactivated in the <%= vars.app_runtime_abbr %> tile.</td>
   </tr>
   <tr>
@@ -129,7 +129,7 @@ The following errors are specific to <%= vars.product_short %>:
 </p>
 
 <a name="max-clients"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -137,22 +137,22 @@ The following errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Maximum Number of Clients Reached
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       <p>You receive the following error:</p>
       <pre class="terminal">-ERR max number of clients reached</pre>
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>This is usually caused by apps opening multiple client connections to Redis.</td>
   </tr>
   <tr>
@@ -166,7 +166,7 @@ The following errors are specific to <%= vars.product_short %>:
 </table>
 
 <a name="maxmemory"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -174,22 +174,22 @@ The following errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Maxmemory Limit Reached
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       <p>You receive the following error:</p>
       <pre class='terminal'>-OOM command not allowed when used memory > 'maxmemory'.</pre>
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>This occurs when the Redis server has reached its <code>maxmemory</code> limit.</td>
   </tr>
   <tr>
@@ -205,7 +205,7 @@ The following errors are specific to <%= vars.product_short %>:
 </table>
 
 <a name="err-save-command"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -213,15 +213,15 @@ The following errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Error When Running the Save Command
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       <p>
         You receive the following error message when running <code>redis-cli SAVE</code>
@@ -231,7 +231,7 @@ The following errors are specific to <%= vars.product_short %>:
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>This might occur when the Redis server's disk is full.</td>
   </tr>
   <tr>
@@ -244,7 +244,7 @@ The following errors are specific to <%= vars.product_short %>:
 </table>
 
 <a name="err-unknown-command"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -252,15 +252,15 @@ The following errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Unknown Command Error
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       <p>
         You receive the following error message when running <code>redis-cli COMMAND</code> or issuing
@@ -270,7 +270,7 @@ The following errors are specific to <%= vars.product_short %>:
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>
       For security reasons, certain commands such as <code>CONFIG</code>,
       <code>SAVE</code>, <code>BGSAVE</code> and <code>ACL</code>

@@ -78,17 +78,17 @@ Here are some common failures:
 <table class=“table”>
 <thead>
 <tr>
-  <th width="22%">Error</th>
+  <th width="22%"><strong>Error</strong></th>
   <td><code>Failed to target Cloud Foundry</code>
   </td>
 </tr>
 </thead>
 <tr>
-  <th>Cause</th>
+  <th><strong>Cause</strong></th>
   <td>Your deployment is unresponsive.</td>
 </tr>
 <tr>
-  <th>Solution</th>
+  <th><strong>Solution</strong></th>
   <td>Examine the detailed error message in the logs and check the <a href="https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/troubleshooting.html">Troubleshooting deployment problems</a>
   for advice.</td>
 </tr>
@@ -97,34 +97,35 @@ Here are some common failures:
 <table class=“table”>
 <thead>
 <tr>
-  <th width="22%">Error</th>
+  <th width="22%"><strong>Error</strong></th>
   <td><code>Failed to bind Redis service instance to test app.</code>
   </td>
 </tr>
 </thead>
 <tr>
-  <th>Cause</th>
+  <th><strong>Cause</strong></th>
   <td>Your deployment's broker has not been registered.</td>
 </tr>
 <tr>
-  <th>Solution</th>
+  <th><strong>Solution</strong></th>
   <td>Examine the broker-registrar installation step output and troubleshoot any problems.</td>
 </tr>
 </table>
 
-<table class=“table”>
+
+<table border='1' class='table'>
 <tr>
-  <th width="22%">Error</th>
+  <th width="22%"><strong>Error</strong></th>
   <td><code>protocol not supported: SSL_connect returned=1 errno=0 peeraddr= state=error: no protocols available</code>
   </td>
 </tr>
 <tr>
-  <th>Cause</th>
-  <td>This issue in the smoke tests is due to the CF app’s Ubuntu version in the smoke test. Ubuntu version 20 has disabled TLS versions prior to v1.2.</td>
+  <th><strong>Cause</strong></th>
+  <td>This issue in the smoke tests is due to the CF app’s Ubuntu version in the smoke test. Ubuntu version 20 has deactivated TLS versions prior to v1.2.</td>
 </tr>
 <tr>
-  <th>Solution</th>
-  <td>VMware recommends to not use the TLS version v1 and v1.1 because they are deprecated. If this issue happens during upgrade, deselect TLS v1 and v1.1 from the Tiles configuration and apply changes to resolve the issue.</td>
+  <th><strong>Solution</strong></th>
+  <td>VMware recommends to not use the TLS version v1 and v1.1 because they are deprecated. If this issue happens during upgrade, deselect TLS v1 and v1.1 from Tiles configuration and apply changes to resolve the issue.</td>
 </tr>
 </table>
 
