@@ -64,8 +64,9 @@ For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics)
 #### <a id="total-od-instances"></a> Total Instances for On-Demand Service
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> total_instances <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>Total instances provisioned by app developers across all On-Demand Services and for a specific On-Demand plan
@@ -76,7 +77,6 @@ For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics)
       <strong>Type</strong>: count<br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>Daily</td>
@@ -97,8 +97,9 @@ For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics)
 #### <a id="quota-remaining-od-instances"></a> Quota remaining for On-Demand Service
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> quota_remaining <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
        <td>Number of available instances across all On-Demand Services and for a specific On-Demand plan.
@@ -109,7 +110,6 @@ For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics)
       <strong>Type</strong>: count<br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>Daily</td>
@@ -130,9 +130,10 @@ For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics)
 #### <a id="total-shared-instances"></a> Total instances for shared VM Service
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;">
    <br>_p_redis_service_broker_shared_vm_plan_total_instances <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>Total instances provisioned for Shared-VM Services.
@@ -143,7 +144,6 @@ For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics)
       <strong>Type</strong>: count<br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>App-specific</td>
@@ -178,8 +178,9 @@ pre-pended with <code>_p_redis_shared_vm_SHARED_INSTANCE_GUID/</code>.
 #### <a id="persistent-disk-percent"></a> Percent of Persistent Disk used
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> disk.persistent.percent <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>Percentage of persistent disk being used on a VM. The persistent disk is specified as an IaaS-specific disk type with a size. For example, <code>pd-standard</code> on GCP, or <code>st1</code> on AWS, with disk size 5&nbsp;GB.
@@ -191,7 +192,6 @@ pre-pended with <code>_p_redis_shared_vm_SHARED_INSTANCE_GUID/</code>.
       <strong>Type</strong>: percent<br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>Average over last 10 minutes</td>
@@ -212,8 +212,9 @@ pre-pended with <code>_p_redis_shared_vm_SHARED_INSTANCE_GUID/</code>.
 #### <a id="used-memory-max-memory"></a> Used Memory percent
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> info.memory.used_memory / info.memory.maxmemory  <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>The ratio of these two metrics returns the percentage of available memory used:<br>
@@ -227,7 +228,6 @@ pre-pended with <code>_p_redis_shared_vm_SHARED_INSTANCE_GUID/</code>.
       <strong>Type</strong>: percentage <br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>App-specific based on velocity of data flow. Some options are:
@@ -262,8 +262,9 @@ A different threshold might be appropriate for specific use cases of no key evic
 #### <a id="connected-clients"></a> Connected clients
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> info.clients.connected_clients <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>Number of clients currently connected to the Redis instance.<br><br>
@@ -273,7 +274,6 @@ A different threshold might be appropriate for specific use cases of no key evic
       <strong>Type</strong>: number <br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>Average over last 10 minutes</td>
@@ -294,8 +294,9 @@ A different threshold might be appropriate for specific use cases of no key evic
 #### <a id="blocked-clients"></a> Blocked clients
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> info.clients.blocked_clients <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>The number of clients currently blocked waiting for a blocking request they have made to the Redis server. Redis provides two types of primitive commands to retrieve items from lists: standard and blocking. This metric concerns the blocking commands.<br><br>
@@ -314,7 +315,6 @@ A different threshold might be appropriate for specific use cases of no key evic
       <strong>Type</strong>: number <br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>App-specific. Change from baseline can be more significant than actual value.</td>
@@ -351,8 +351,9 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
 #### <a id="memory-fragmentation-ratio"></a> Memory fragmentation ratio
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> info.memory.mem_fragmentation_ratio <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>Ratio of the amount of memory allocated to Redis by the OS to the amount of memory that Redis is using
@@ -363,7 +364,6 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
       <strong>Type</strong>: ratio <br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>Average over last 10 minutes</td>
@@ -384,8 +384,9 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
 #### <a id="instantaneous-ops-per-sec"></a> Instantaneous 0perations per second
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> info.stats.instantaneous_ops_per_sec <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>The number of commands processed per second by the Redis server. The <code>instantaneous_ops_per_sec</code> is calculated as the mean of the recent samples taken by the server. The number of recent samples is hardcoded as 16 in the implementation of Redis.
@@ -396,7 +397,6 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
       <strong>Type</strong>: count <br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>Every 30 seconds</td>
@@ -468,8 +468,9 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
 #### <a id="keyspace-hits-keyspace-misses"></a> Keyspace hits / Keyspace misses + Keyspace hits
 
 <table class=“table”>
-<thead>
+   <thead>
    <tr><th colspan="2" style="text-align: center;"><br> info.stats.keyspace_hits / info.stats.keyspace_misses + info.stats.keyspace_hits <br><br></th></tr>
+   </thead>
    <tr>
       <th width="25%">Description</th>
       <td>Hit ratio to determine share of keyspace hits that are successful
@@ -480,7 +481,6 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
       <strong>Type</strong>: ratio <br>
       <strong>Frequency</strong>: 30s (default), 10s (configurable minimum)<br></td>
    </tr>
-   </thead>
    <tr>
       <th>Recommended measurement</th>
       <td>App-specific</td>

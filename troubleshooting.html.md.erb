@@ -34,10 +34,9 @@ Before debugging, gather the following about your <%= vars.platform_name %> depl
 See the following table for BOSH CLI commands commonly used while debugging:
 
 <table class=“table”>
-<thead>
   <col width="60%">
   <col width="40%">
-  <tr>
+  <thead><tr>
     <th>Purpose</th>
     <th>Command</th>
   </tr>
@@ -168,7 +167,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 - [Service outage after deactivating TLS](#deactivating-tls)
 
 <a name="corrupt-aof"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -176,15 +175,15 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
+  <thead><tr>
+  <th colspan="2" style="text-align: left;">
+    <br>
+    AOF File Corrupted, Cannot Start Redis Instance
+    <br><br>
+  </th>
+  </tr></thead>
   <tr>
-    <th colspan="2" style="text-align: left;">
-      <br>
-      AOF File Corrupted, Cannot Start Redis Instance
-      <br><br>
-    </th>
-  </tr>
-  <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       <pre class="terminal">[errorlog-timestamp] # bad file format reading the append only file: make a backup of your aof file, then use ./redis-check-aof --fix `filename`</pre>
       For more information about remote syslog forwarding, see
@@ -192,7 +191,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>
       In cases of hard crashes, for example, due to power loss or VM termination without running drain scripts, your AOF file might become corrupted. The error log printed out by Redis provides a clear means of recovery.
     </td>
@@ -236,7 +235,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 </table>
 
 <a name="disk-size"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -244,15 +243,15 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Saving Error
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       One of the following error messages is logged in syslog:<br>
       <pre class="terminal">Background saving error</pre>
@@ -262,7 +261,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>
       This might be logged when the configured disk size is too small,
       or if the Redis AOF uses all the disk space.
@@ -293,7 +292,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 </table>
 
 <a name="backup-errors"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -301,22 +300,22 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Failed Backup
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       The following error message is logged:<br>
       <pre class="terminal">Backup has failed. Redis must be running for a backup to run</pre>
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>This is logged if a backup is initiated against a Redis server that is down.</td>
   </tr>
   <tr>
@@ -329,7 +328,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 </table>
 
 <a name="orphaned-bosh"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -337,15 +336,15 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Orphaned Instances: BOSH Director Cannot See Your Instances
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       When you run <code>cf curl /v2/service_instances</code>,
       some service instances are visible that are not visible to the BOSH Director.
@@ -354,7 +353,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>
       Orphaned instances can occur in the following situations:<br><br>
       <ul>
@@ -397,7 +396,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 </table>
 
 <a name="orphaned-pcf"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -405,22 +404,22 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Orphaned Instances: The Deployment Cannot See Your Instances
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       The deployment cannot see your broker or service instances.
       These instances exist, but cannot receive communication.
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>
       If you run <code>cf purge-service-instances</code> while your service instance
       or broker still exists, your service instance becomes orphaned.
@@ -511,7 +510,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 </table>
 
 <a name="credhub-error"></a>
-<table class="nice">
+<table class="table">
   <style>
     main table {
       table-layout: fixed;
@@ -519,22 +518,22 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Failed to Set Credentials in Runtime CredHub
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>
       If developers report errors such as:
       <pre class="terminal">error: failed to set credentials in credential store: The request includes an unrecognized parameter &#39;mode&#39;. Please update or remove this parameter and retry your request. error for user: There was a problem completing your request. Please contact your operations team providing the following information: service: p.redis, service-instance-guid: , broker-request-id: , operation: bind</pre>
     </td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>
       Your service instances might not be running the latest version of <%= vars.product_short %>.
       You might experience compatibility issues with CredHub if your service
@@ -572,19 +571,19 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   </style>
   <col width="20%">
   <col width="80%">
-  <tr>
+  <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
     Service Outage after Deactivating TLS
     <br><br>
   </th>
-  </tr>
+  </tr></thead>
   <tr>
-    <th>Symptom</th>
+    <th><strong>Symptom</strong></th>
     <td>After deactivating TLS, apps that require on-demand Redis service instances become unresponsive.</td>
   </tr>
   <tr>
-    <th>Cause</th>
+    <th><strong>Cause</strong></th>
     <td>
       When TLS is first activated, all on-demand service instances are re-created with two ports.
       Every new or re-created app receives the new credentials.
