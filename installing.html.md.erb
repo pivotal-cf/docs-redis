@@ -78,11 +78,13 @@ For more information, see [Creating an Empty Services Network when using on-dema
 
 The following ports and ranges are used in <%= vars.product_short %>:
 
-<table class="nice">
+<table class=“table”>
+  <thead>
   <tr><th>Port</th>
     <th>Protocol</th>
     <th>Direction and Network</th>
     <th>Purpose</th></tr>
+  </thead>
   <tr>
     <td>
       8202
@@ -354,12 +356,14 @@ To add and configure each on-demand service plan:
    or disk size. Doing so can cause data loss in pre-existing instances.
   </p>
 
-    <table class="nice">
+    <table class=“table”>
+    <thead><tr>
     <th>Field</th>
     <th>Default</th>
     <th>Description</th>
+    </tr></thead>
     <tr>
-      <td><strong>Plan Name</strong></td>
+      <td><strong>Plan name</strong></td>
       <td>on-demand-cache</td>
       <td>
         The name that you choose for the plan. This is displayed in the Marketplace.
@@ -626,8 +630,8 @@ To configure the limits in these fields:
 To configure resources for the shared-VM plans, click the **Resource Config** settings tab on the <%= vars.product_short %> tile. The shared-VM plan is on the **Redis Broker** resource.
 
 The following are the default resource and IP requirements for <%= vars.product_short %> when using the shared-VM plans:
-<table border="1" class="nice">
-  <tr>
+<table border="1" class="table">
+  <thead><tr>
     <th>Product</th>
     <th>Resource</th>
     <th>Instances</th>
@@ -637,7 +641,7 @@ The following are the default resource and IP requirements for <%= vars.product_
     <th>Persistent</th>
     <th>Static IP</th>
     <th>Dynamic IP</th>
-  </tr>
+  </tr></thead>
   <tr>
     <td>Redis</td>
     <td>Redis Broker</td>
@@ -761,14 +765,14 @@ You can obtain the IP addresses for these VMs in <%= vars.ops_manager %> under t
 
 App containers that use instances of <%= vars.product_short %> require the following outbound network connections:
 
-<table><thead>
-<tr>
+<table>
+<thead><tr>
 <th>Destination</th>
 <th>Ports</th>
 <th>Protocol</th>
 <th>Reason</th>
-</tr>
-</thead><tbody>
+</tr></thead>
+<tbody>
 <tr>
 <td><code>ASSIGNED_NETWORK</code></td>
 <td>32768-61000</td>
