@@ -305,8 +305,10 @@ to each TLS version you want to support.
 
 1. (Optional) If you selected the **Enforced** option under **Enable TLS**, enable the checkbox next
 to each TLS version you want to support. The **Enforced** option requires TLS to be enabled.
-    <p class="breaking changes">
-<span class="note__title">Breaking changes</span> If TLS is set to <strong>Enforced</strong> then all existing
+    <p class="note breaking">
+      <strong>Breaking Change</strong>
+      <br>
+      If TLS is set to <strong>Enforced</strong> then all existing
       service instances use TLS after changes from the <strong>Upgrade All Service Instances</strong>
       errand are applied. Any apps not using TLS are no longer able to communicate with their service
       instances. Such apps require a new binding and must be configured to communicate with their
