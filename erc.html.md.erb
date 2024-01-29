@@ -43,7 +43,7 @@ Review the following table to determine if <%= vars.product_short %> has the fea
 
 <table border="1" class="table">
 
-  <thead><tr><th colspan=2>Resilience</th><th>More Information</th></tr></thead>
+  <thead><tr><th colspan=2>Resilience</th><th>More information</th></tr></thead>
   <tr>
     <td>Availability</td>
     <td>All service offerings of <%= vars.product_short %> are single VMs without clustering capabilities.
@@ -55,11 +55,11 @@ Review the following table to determine if <%= vars.product_short %> has the fea
         Successful apps include those where the downtime is passively handled or
         where the app handles failover logic.
     </td>
-    <td><a href="#usecases">Recommended Use Cases</a><br><br>
-    <a href="#other-notes">Support for Multiple AZs</a></td>
+    <td><a href="#usecases">Recommended use cases</a><br><br>
+    <a href="#other-notes">Support for multiple AZs</a></td>
   </tr>
   <tr>
-    <td>Failure Recovery</td>
+    <td>Failure recovery</td>
     <td>
       Recovery from VM failures and process failures are provided for by:<br><br>
       <ul>
@@ -70,9 +70,9 @@ Review the following table to determine if <%= vars.product_short %> has the fea
     </td>
     <td>
       <%# <a> href="https://bosh.io/docs/resurrector.html" BOSH resurrection </a> Is this the right doc here? Do we have docs for process %>
-      <a href="./auto-backup.html">Configuring automated Service backups</a><br><br>
-      <a href="./bbr-backup.html">BOSH backup and restore (BBR) for On-Demand <%= vars.product_full %></a><br><br>
-      <a href="https://docs.vmware.com/en/Redis-Enterprise-for-VMware-Tanzu/services/redislabs-enterprise-vmware-tanzu/backup.html">Manually Backing up and restoring <%= vars.product_old %></a>
+      <a href="./auto-backup.html">Configuring automated service backups</a><br><br>
+      <a href="./bbr-backup.html">BOSH backup and restore (BBR) for on-demand <%= vars.product_full %></a><br><br>
+      <a href="https://docs.vmware.com/en/Redis-Enterprise-for-VMware-Tanzu/services/redislabs-enterprise-vmware-tanzu/backup.html">Manually backing up and restoring <%= vars.product_old %></a>
     </td>
   </tr>
   <tr>
@@ -85,9 +85,9 @@ Review the following table to determine if <%= vars.product_short %> has the fea
     <td>
     </td>
   </tr>
-  <tr><th colspan=2>Day 2 Operations</th><th>More Information</th></tr>
+  <tr><th colspan=2>Day 2 Operations</th><th>More information</th></tr>
   <tr>
-    <td>Resource Planning</td>
+    <td>Resource planning</td>
     <td>
     Operators can configure the number of VMs and the size of those VMs.
     For the on-demand service, the operator does this by creating plans with specific VM sizes and quotas for each plan.
@@ -96,12 +96,12 @@ Review the following table to determine if <%= vars.product_short %> has the fea
     turned on or off.
     </td>
     <td>
-      <a href="./architecture.html#resource"> On-Demand resource planning</a><br><br>
+      <a href="./architecture.html#resource"> On-demand resource planning</a><br><br>
       <a href="./installing.html#shared-vm-config"> Shared-VM plan</a>
     </td>
   </tr>
   <tr>
-    <td>Health Monitoring</td>
+    <td>Health monitoring</td>
     <td>
     Both the on-demand and shared service instances emit metrics.
     These include Redis-specific metrics and <%= vars.product_short %> metrics.
@@ -122,7 +122,7 @@ Review the following table to determine if <%= vars.product_short %> has the fea
     To prevent data loss, only scaling up is supported.
     </td>
     <td>
-      <a href="./installing.html#updating-on-demand-service-plans"> Scaling the On-Demand Service </a><br/>
+      <a href="./installing.html#updating-on-demand-service-plans"> Scaling the on-demand service </a><br/>
     </td>
   </tr>
   <tr>
@@ -145,7 +145,7 @@ Review the following table to determine if <%= vars.product_short %> has the fea
     The shared-VM service cannot be customized.
     </td>
     <td>
-      <a href="./installing.html#on-demand-config"> Configuring the On-Demand service </a>
+      <a href="./installing.html#on-demand-config"> Configuring the on-demand service </a>
     </td>
   </tr>
   <tr>
@@ -159,12 +159,12 @@ Review the following table to determine if <%= vars.product_short %> has the fea
     </td>
     <td>
       <a href="./upgrade.html"> Upgrades </a><br><br>
-      <a href="./smoke-tests.html"> Smoke Tests </a>
+      <a href="./smoke-tests.html"> Smoke tests </a>
     </td>
   </tr>
-  <tr><th colspan=2>Encryption</th><th>More Information</th></tr>
+  <tr><th colspan=2>Encryption</th><th>More information</th></tr>
   <tr>
-    <td>Encrypted Communication in Transit</td>
+    <td>Encrypted communication in transit</td>
     <td>
       You can enable TLS encryption between apps and service instances.<br><br>
       Additionally, <%= vars.product_short %> has been tested with the IPsec Add-on for PCF.
@@ -177,7 +177,7 @@ Review the following table to determine if <%= vars.product_short %> has the fea
   </tr>
 </table>
 
-### <a id="other-notes"></a>Availability Zones
+### <a id="other-notes"></a>Availability zones
 
 On-demand <%= vars.product_short %> supports configuring multiple availability
 zones (AZs) to improve resiliency.
