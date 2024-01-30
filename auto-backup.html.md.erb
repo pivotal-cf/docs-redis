@@ -1,5 +1,5 @@
 ---
-title: Configuring Automated Service Backups in Redis for Tanzu Application Service
+title: Configuring automated service backups in Redis for Tanzu Application Service
 owner: London Services
 ---
 
@@ -156,7 +156,7 @@ Do the following to connect <%= vars.product_short %> to your S3 account:
     See the following step for a detailed description of the remaining configurable fields.](images/s3backupoptions.png)
 4. Fill in the fields as follows:
 
-    | Field             | Description                                                                                                                                                                                                                                                                                                                                                                                            | Mandatory/Optional                                               |
+    | Field             | Description                                                                                                                                                                                                                                                                                                                                                                                            | Mandatory/optional                                               |
     |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
     | Access Key ID     | The access key for your S3 account                                                                                                                                                                                                                                                                                                                                                                     | Mandatory                                                        |
     | Secret Access Key | The Secret Key associated with your Access Key                                                                                                                                                                                                                                                                                                                                                         | Mandatory                                                        |
@@ -178,7 +178,7 @@ To back up your database using SCP:
 * [(Recommended) Create a Public and Private Key Pair](#scp-keys)
 * [Configure Backups in <%= vars.ops_manager %>](#scp-config-om)
 
-### <a id="scp-keys"></a>(Recommended) Create a Public and Private Key pair
+### <a id="scp-keys"></a>(Recommended) Create a public and private key pair
 
 <%= vars.product_short %> accesses a remote host as a user with a private key for authentication.
 VMware recommends that this user and keypair be solely for <%= vars.product_short %>.
@@ -204,11 +204,11 @@ Do the following to connect <%= vars.product_short %> to your destination VM:
     See the following step for a detailed description of the remaining configurable fields.](images/scpbackupoptions.png)
 1. Fill in the fields as follows:
 
-    | Field                 | Description                                                                                                                                                               | Mandatory/Optional |
+    | Field                 | Description                                                                                                                                                               | Mandatory/optional |
     |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
     | Username              | The username to use for transferring backups to the SCP server                                                                                                            | Mandatory          |
     | Private Key           | The private SSH key of the user configured in `Username`                                                                                                                  | Mandatory          |
-    | Hostname              | The hostname or IP address of the SCP server                                                                                                                              | Mandatory          |
+    | Host name              | The host name or IP address of the SCP server                                                                                                                              | Mandatory          |
     | Destination Directory | The path in the SCP server, where the backups will be transferred                                                                                                         | Mandatory          |
     | SCP Port              | The SCP port of the SCP server                                                                                                                                            | Mandatory          |
     | Cron Schedule         | Backups schedule in crontab format. For example, once daily at 2am is `* 2 * * *`. This field also accepts a pre-defined schedule, such as `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or `@every TIME`, where `TIME` is any supported time string, such as `1h30m`. For more information, see the cron package [documentation](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules).                                                                                             | Mandatory          |
@@ -224,7 +224,7 @@ To back up your database using GCS:
 * [Create a Service Account](#gcs-policy-access-key)
 * [Configure Backups in <%= vars.ops_manager %>](#gcs-config-om)
 
-### <a id="gcs-policy-access-key"></a>Create a Service Account
+### <a id="gcs-policy-access-key"></a>Create a service account
 
 <%= vars.product_short %> accesses your GCS store through a service account.
 VMware recommends that this account be solely for <%= vars.product_short %>.
@@ -250,7 +250,7 @@ Do the following to connect <%= vars.product_short %> to GCS:
     See the following step for a detailed description of the remaining configurable fields.](images/gcsbackupoptions.png)
 1. Fill in the fields as follows:
 
-    | Field                       | Description                                                                                                                                                                                                                                                                                      | Mandatory/Optional |
+    | Field                       | Description                                                                                                                                                                                                                                                                                      | Mandatory/optional |
     |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
     | Project ID                  | Google Cloud Platform (GCP) Project ID                                                                                                                                                                                                                                                                                   | Mandatory          |
     | Bucket name                 | Name of the bucket where to store the backup                                                                                                                                                                                                                                           | Mandatory          |
@@ -271,7 +271,7 @@ Do the following to back up your database to an Azure storage account:
     See the following step for a detailed description of the remaining configurable fields.](images/azurebackupoptions.png)
 1. Fill in the fields as follows:
 
-    | Field                    | Description                                                                                                                                                                                                                                                                                      | Mandatory/Optional |
+    | Field                    | Description                                                                                                                                                                                                                                                                                      | Mandatory/optional |
     |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
     | Account                  | Account name                                                                                                                                                                                                                                                                                     | Mandatory          |
     | Azure Storage Access Key | Azure specific credentials required to write to the Azure container                                                                                                                                                                                                                              | Mandatory          |
