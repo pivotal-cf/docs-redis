@@ -16,7 +16,7 @@
     *   [Upgrading](/docs-redis/upgrade.html)
     *   [Setting limits for on-demand service instances](/docs-redis/set-quotas.html)
     *   [Configuring automated service backups](/docs-redis/auto-backup.html)
-    *   [Using BOSH Backup and Restore(BBR)](/docs-redis/bbr-backup.html)
+    *   [Using BOSH Backup and Restore (BBR)](/docs-redis/bbr-backup.html)
     *   [Monitoring and metrics](/docs-redis/monitoring.html)
     *   [Rotating certificates](/docs-redis/rotating-ca.html)
     *   [Smoke tests](/docs-redis/smoke-tests.html)
