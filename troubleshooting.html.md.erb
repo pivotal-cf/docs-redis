@@ -112,14 +112,14 @@ Start here if you are responding to a specific error or error messages.
 
 The following errors occur in multiple services:
 
-+ [Failed Installation](#install-fail)
-+ [Cannot Create or Delete Service Instances](#cannot-create-delete)
-+ [Broker Request Timeouts](#timeouts)
-+ [Instance Does Not Exist](#instance-not-exist)
-+ [Cannot Bind to or Unbind from Service Instances](#cannot-bind)
-+ [Cannot Connect to a Service Instance](#cannot-connect)
-+ [Upgrade All Service Instances Errand Fails](#upgrade-all-fails)
-+ [Missing Logs and Metrics](#missing-logs)
++ [Failed installation](#install-fail)
++ [Cannot create or delete service instances](#cannot-create-delete)
++ [Broker request timeouts](#timeouts)
++ [Instance does not exist](#instance-not-exist)
++ [Cannot bind to or unbind from service instances](#cannot-bind)
++ [Cannot connect to a service instance](#cannot-connect)
++ [Upgrade all service instances errand fails](#upgrade-all-fails)
++ [Missing logs and metrics](#missing-logs)
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
@@ -154,16 +154,16 @@ The following errors occur in multiple services:
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-err-missing-logs' %>
 
 
-### <a id="redis"></a> <%= vars.product_short %>-Specific errors
+### <a id="redis"></a> <%= vars.product_short %>-specific errors
 
 The following troubleshooting errors are specific to <%= vars.product_short %>:
 
-- [AOF file corrupted, cannot start Redis Instance](#corrupt-aof)
+- [AOF file corrupted, cannot start Redis instance](#corrupt-aof)
 - [Saving error](#disk-size)
 - [Failed backup](#backup-errors)
-- [Orphaned Instances: BOSH Director cannot see your Instances](#orphaned-bosh)
-- [Orphaned Instances: Pivotal Platform cannot see your Instances](#orphaned-pcf)
-- [Failed to set credentials in Runtime CredHub](#credhub-error)
+- [Orphaned instances: BOSH Director cannot see your instances](#orphaned-bosh)
+- [Orphaned instances: Pivotal Platform cannot see your instances](#orphaned-pcf)
+- [Failed to set credentials in runtime CredHub](#credhub-error)
 - [Service outage after deactivating TLS](#deactivating-tls)
 
 <a name="corrupt-aof"></a>
@@ -340,7 +340,7 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
   <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
-    Orphaned Instances: BOSH Director Cannot See Your Instances
+    Orphaned instances: BOSH Director cannot see your instances
     <br><br>
   </th>
   </tr></thead>
@@ -636,9 +636,9 @@ The following troubleshooting errors are specific to <%= vars.product_short %>:
 
 This section provides guidance on checking for, and fixing, issues in cf-redis and on-demand service components.
 
-### <a id="bosh"></a> BOSH Problems
+### <a id="bosh"></a> BOSH problems
 
-#### <a id="large-queue"></a> Large BOSH Queue
+#### <a id="large-queue"></a> Large BOSH queue
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
@@ -646,7 +646,7 @@ This section provides guidance on checking for, and fixing, issues in cf-redis a
 
 ### <a id="bosh-config"></a> Configuration
 
-#### <a id="bosh-instance-fail"></a> Service Instances in Failing State
+#### <a id="bosh-instance-fail"></a> Service instances in failing state
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
@@ -654,7 +654,7 @@ This section provides guidance on checking for, and fixing, issues in cf-redis a
 
 ### <a id="auth"></a> Authentication
 
-#### <a id="uaa-change"></a> UAA Changes
+#### <a id="uaa-change"></a> UAA changes
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
@@ -666,13 +666,13 @@ This section provides guidance on checking for, and fixing, issues in cf-redis a
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-comp-network' %>
 
-#### <a id="broker-to-instances"></a> Validate Service Broker Connectivity to Service Instances
+#### <a id="broker-to-instances"></a> Validate service broker connectivity to service instances
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-comp-broker-to-instances' %>
 
-#### <a id="app-to-instances"></a> Validate App Access to a Service Instance
+#### <a id="app-to-instances"></a> Validate app access to a service instance
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
@@ -680,25 +680,25 @@ This section provides guidance on checking for, and fixing, issues in cf-redis a
 
 ### <a id="quotas"></a> Quotas
 
-#### <a id="plan-quotas"></a> Plan Quota Issues
+#### <a id="plan-quotas"></a> Plan quota issues
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-comp-plan-quotas' %>
 
-#### <a id="global-quotas"></a> Global Quota Issues
+#### <a id="global-quotas"></a> Global quota issues
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-comp-global-quotas' %>
 
-### <a id="failing-jobs"></a> Failing Jobs and Unhealthy Instances
+### <a id="failing-jobs"></a> Failing jobs and unhealthy instances
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-comp-failing-jobs' %>
 
-## <a id="techniques"></a> Techniques for Troubleshooting
+## <a id="techniques"></a> Techniques for troubleshooting
 
 This section contains instructions on:
 
@@ -706,98 +706,98 @@ This section contains instructions on:
 *   Interacting with on-demand service instance BOSH deployments
 *   Performing general maintenance and housekeeping tasks
 
-### <a id="parse-error"></a> Parse a Cloud Foundry (CF) Error Message
+### <a id="parse-error"></a> Parse a Cloud Foundry (CF) error message
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-parse-error' %>
 
-### <a id="bosh-cf-access"></a>Access Broker and Instance Logs and VMs
+### <a id="bosh-cf-access"></a>Access broker and instance logs and VMs
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-bosh-cf-access' %>
 
-#### <a id="access-broker"></a> Access Broker Logs and VMs
+#### <a id="access-broker"></a> Access broker logs and VMs
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-access-broker' %>
 
-#### <a id="access-instance"></a> Access Service Instance Logs and VMs
+#### <a id="access-instance"></a> Access service instance logs and VMs
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-access-instance' %>
 
-### <a id="broker-errands"></a> Run Service Broker Errands to Manage Brokers and Instances
+### <a id="broker-errands"></a> Run service broker errands to manage brokers and instances
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-broker-errands' %>
 
-#### <a id="register-broker"></a> Register Broker
+#### <a id="register-broker"></a> Register broker
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-register-broker' %>
 
-#### <a id="deregister-broker"></a> Deregister Broker
+#### <a id="deregister-broker"></a> Deregister broker
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-deregister-broker' %>
 
-#### <a id="upgrade-all"></a> Upgrade All Service Instances
+#### <a id="upgrade-all"></a> Upgrade all service instances
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-upgrade-all' %>
 
-#### <a id="delete-all"></a> Delete All Service Instances
+#### <a id="delete-all"></a> Delete all service instances
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-delete-all' %>
 
-#### <a id="detect-orphans"></a> Detect Orphaned Service Instances
+#### <a id="detect-orphans"></a> Detect orphaned service instances
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-detect-orphans' %>
 
-### <a id="instance-creds"></a> Get Admin Credentials for a Service Instance
+### <a id="instance-creds"></a> Get admin credentials for a service instance
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-instance-creds' %>
 
-### <a id="reinstall"></a> Reinstall a Tile
+### <a id="reinstall"></a> Reinstall a tile
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-reinstall' %>
 
-### <a id="view-resources"></a> View Resource Saturation and Scaling
+### <a id="view-resources"></a> View resource saturation and scaling
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-view-resources' %>
 
-### <a id="id-instance-owner"></a> Identify Apps using a Service Instance
+### <a id="id-instance-owner"></a> Identify apps using a service instance
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-id-instance-owner' %>
 
-### <a id="monitor-quota"></a> Monitor the Quota Saturation and Service Instance Count
+### <a id="monitor-quota"></a> Monitor the quota saturation and service instance count
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-monitor-quota' %>
 
 
-## <a id="Knowledge"></a> Pivotal Support Articles
+## <a id="Knowledge"></a> Pivotal Support articles
 
 The following are <a href="https://community.pivotal.io/s/">Pivotal Support</a> articles about <%= vars.product_short %>:<br>
 

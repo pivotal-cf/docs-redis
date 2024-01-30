@@ -11,7 +11,7 @@ installation to confirm system health.
 The tests run in the org <code>system</code> and in the space <code>tanzu-services</code>.
 The tests run as an app instance with a restrictive App Security Group (ASG).
 
-## <a id="steps"></a> Smoke Test steps
+## <a id="steps"></a> Smoke test steps
 
 The smoke tests perform the following tasks for each available service plan:
 
@@ -40,7 +40,7 @@ This security group has the following rules:
 
 This allows outbound traffic from the test app to the Redis shared-VM service instances.
 
-## <a id="resilience"></a>Smoke Test resilience
+## <a id="resilience"></a>Smoke test resilience
 
 Smoke tests can fail due to reasons outside of the Redis deployment. For example, network latency causing timeouts
 or the Cloud Foundry instance dropping requests.
