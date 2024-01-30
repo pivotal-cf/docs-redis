@@ -9,7 +9,7 @@ This topic for operators provides instructions about how to install <%= vars.pro
 It covers tasks from downloading the file from <%= vars.product_network %>
 through verifying the installation after configuration.
 
-## <a id="rbac"></a>Role-Based access in <%= vars.ops_manager %>
+## <a id="rbac"></a>Role-based access in <%= vars.ops_manager %>
 
 <%= vars.ops_manager %> admins can use Role-Based Access Control (RBAC) to manage which
 operators can make deployment changes, view credentials, and manage user roles in <%= vars.ops_manager %>.
@@ -17,7 +17,7 @@ Therefore, your role permissions might not allow you to follow every procedure i
 
 For more information about roles in <%= vars.ops_manager %>, see [Understand roles in <%= vars.ops_manager %>](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-config-rbac.html).
 
-## <a id="install"></a>Download and install the Tile
+## <a id="install"></a>Download and install the tile
 
 To add <%= vars.product_short %> to <%= vars.ops_manager %>, follow the procedure for adding <%= vars.ops_manager %> tiles:
 
@@ -35,7 +35,7 @@ Select the latest release from the **Releases** dropdown.
 
 For guidance on ports and ranges used in the Redis service, see [Select networks](#network-configuration) below.
 
-## <a id="azs"></a>Assign AZs and Networks
+## <a id="azs"></a>Assign AZs and networks
 
 To assign AZs and networks, click the **Assign AZs and Networks** settings tab.
 
@@ -216,7 +216,7 @@ The following ports and ranges are used in <%= vars.product_short %>:
   </tr>
 </table>
 
-## <a id="on-demand-config"></a>Configure On-Demand Service Settings
+## <a id="on-demand-config"></a>Configure on-demand service settings
 
 To configure settings that apply across the whole on-demand service offering:
 
@@ -337,7 +337,7 @@ service-instance VMs. Ensure the list is in a style that the underlying cloud pr
 For example, Google Cloud Platform (GCP) does not permit uppercase characters.
 
 
-## <a id="on-demand-plan-config"></a>Configure On-Demand plan settings
+## <a id="on-demand-plan-config"></a>Configure on-demand plan settings
 
 You can configure multiple on-demand plans with memory and disk sizes suited to different use cases.
 The configuration of resources varies depending on your IaaS.
@@ -453,7 +453,7 @@ To add and configure each on-demand service plan:
     </table>
 
 
-### <a id="secure-credentials"></a> Enable secure Service Instance credentials for On-Demand Redis
+### <a id="secure-credentials"></a> Enable secure service instance credentials for on-demand Redis
 
 If you enabled **On Demand - Secure Service Instance Credentials with Runtime CredHub**
 in step 8 of [Configure On-Demand Service Settings](#on-demand-config) above,
@@ -471,7 +471,7 @@ in _Configuring TAS for VMs_.
 1. After deploying the tile, notify developers that they must unbind and rebind
 existing service instances to secure their credentials with CredHub.
 
-### <a id="change-on-demand"></a>Updating On-Demand Service Plans
+### <a id="change-on-demand"></a>Updating on-demand service plans
 
 Operators can update certain settings after the plans have been created.
 If the operator updates the VM size, disk size, or the Redis configuration settings
@@ -481,7 +481,7 @@ these settings are implemented in all instances that are already created.
 Operators should not downsize the VMs or disk size because this can cause data loss in pre-existing instances.
 Additionally, operators cannot make a plan that was previously active, inactive, until all instances of that plan have been deleted.
 
-### <a id="remove-on-demand-plan"></a>Remove an On-Demand Service plan
+### <a id="remove-on-demand-plan"></a>Remove an on-demand service plan
 
 <p class="note caution"><span class="note__title">Caution</span>
   Do not remove an on-demand service plan with service instances deployed.
@@ -518,13 +518,13 @@ To remove an on-demand service plan from your tile:
 the **Register On-Demand Broker** errand to **on**.
 This updates the plans available in the Marketplace.
 
-### <a id="remove-on-demand"></a>Remove All On-Demand Service Plans
+### <a id="remove-on-demand"></a>Remove all on-demand service plans
 
 <p class="note caution"><span class="note__title">Caution</span>
   Do not remove an on-demand service plan with service instances deployed.
   Doing so causes <strong>Apply Changes</strong> to fail.
   For how to recover a deleted plan, see
-  <a href="https://community.pivotal.io/s/article/Recover-a-deleted-Redis-for-Pivotal-Platform-Plan">Recover a deleted <%= vars.product_short %> On-Demand Plan</a>
+  <a href="https://community.pivotal.io/s/article/Recover-a-deleted-Redis-for-Pivotal-Platform-Plan">Recover a deleted <%= vars.product_short %> on-demand plan</a>
   in the VMware Tanzu Support knowledge base.
 </p>
 
@@ -547,12 +547,12 @@ To remove the on-demand service from your tile:
 and delete each plan by clicking the trash can icon next to the plan name.
 <%# Maybe a new image here %>
 
-##  <a id="shared-vm-config"></a>Configure shared-VM Plan settings
+##  <a id="shared-vm-config"></a>Configure shared-VM plan settings
 
 To configure shared-VM service plans:
 
 1.  In the <%= vars.product_short %> tile, select **Shared-VM Plan**.
-![The Redis tile in Ops Manager. The 'Shared-VM Plan' pane is active. See the next step for information about configuring this pane.](images/shared-vm-config.png)
+![The Redis tile in Tanzu Operations Manager. The 'Shared-VM Plan' pane is active. See the next step for information about configuring this pane.](images/shared-vm-config.png)
 
 1.  Configure these fields:
       * **Redis Instance Memory Limit**---Enter the maximum memory used by a shared-VM instance, for example 512&nbsp;MB.
@@ -567,13 +567,13 @@ To configure shared-VM service plans:
 
 1. If you do not want to use the on-demand service, you must make all of the on-demand service plans inactive.
 Click the tab for each on-demand plan, and select **Plan Inactive**.
-See the example in Step 4 of [Remove On-Demand Service Plans](#remove-on-demand) above.
+See the example in Step 4 of [Remove on-demand service plans](#remove-on-demand) above.
 
 1. To change the allocation of resources for the Redis broker, click the **Resource Config** tab.
     <br><br>The Redis broker server runs all of the Redis instances for your shared-VM plan.
     From the **Resource Config** page, you can change the CPU, RAM, Ephemeral Disk, and Persistent Disk made available, as needed.
 
-### <a id="shared-vm-memory-limits"></a>Configure Memory Limits for Shared-VM plans
+### <a id="shared-vm-memory-limits"></a>Configure memory limits for shared-VM plans
 
 Additional calculation is required to configure memory limits for shared-VM plans.
 With these plans, several service instances share the VM, and the Redis broker also runs on this same VM.
@@ -629,7 +629,7 @@ To configure the limits in these fields:
     </p>
 
 
-### <a id="resources"></a>Configure Resources for Shared-VM Plans
+### <a id="resources"></a>Configure resources for shared-VM plans
 
 To configure resources for the shared-VM plans, click the **Resource Config** settings tab on the <%= vars.product_short %> tile. The shared-VM plan is on the **Redis Broker** resource.
 
@@ -721,7 +721,7 @@ You can deactivate shared-VM plans by doing the following while configuring the 
 
 1. Click **Save** if you changed the sizes.
 
-## <a id="syslog"></a>Configure Syslog forwarding
+## <a id="syslog"></a>Configure syslog forwarding
 
 VMware recommends that operators configure syslog forwarding to a remote destination.
 Forwarding your system logs to a remote destination lets you:
@@ -737,12 +737,12 @@ To configure syslog forwarding:
 
 <%= partial vars.path_to_partials + '/ops-manager/syslog_bosh', :locals => {:syslog_context => vars.product_short } %>
 
-## <a id="stemcell"></a> Verify the Stemcell
+## <a id="stemcell"></a> Verify the stemcell
 
 To verify that you have the correct stemcell, follow the procedure in
 [Importing and managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html).
 
-## <a id="apply"></a> Apply Changes from Your Configuration
+## <a id="apply"></a> Apply changes from your configuration
 
 To apply your configuration changes:
 
@@ -756,7 +756,7 @@ To apply your configuration changes:
     1. Click **Apply Changes**.
 
 
-##  <a id="asg"></a> Create App Security Groups
+##  <a id="asg"></a> Create app security groups
 
 To allow this service to have network access,
 you must create [App Security Groups (ASGs)](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/asg.html).
@@ -765,7 +765,7 @@ You can obtain the IP addresses for these VMs in <%= vars.ops_manager %> under t
 
 <p class="note"><span class="note__title">Note</span>Without ASGs, this service is unusable.</p>
 
-### App Container network connections
+### App container network connections
 
 App containers that use instances of <%= vars.product_short %> require the following outbound network connections:
 
@@ -811,7 +811,7 @@ to give all started apps access, bind to the `default-running` ASG set and resta
 ```
 
 
-## <a id="validation"></a>Validating the Installation
+## <a id="validation"></a>Validating the installation
 
 Smoke tests run as part of <%= vars.product_short %> installation to verify that the installation succeeded.
 For more information, see [<%= vars.product_full %> Smoke Tests](./smoke-tests.html).
