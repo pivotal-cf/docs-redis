@@ -13,7 +13,7 @@ BBR offers a standardized way to backup and restore the BOSH Director and BOSH D
 If you have already set up BBR for your <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) deployment, you might find it easier to use
 BBR to back up your Redis service instances, in addition to, or instead of, using automated service backups.
 
-For more information, see [Configuring Automated Service backups](./auto-backup.html) and
+For more information, see [Configuring automated service backups](./auto-backup.html) and
 [Comparison of the available backup methods](./auto-backup.html#comparison).
 
 <p class="note"><span class="note__title">Note</span> Only on-demand Redis service instances have support for BBR.
@@ -94,7 +94,7 @@ Follow these steps:
 
     Where:
 
-    * `BOSH-CLIENT`, `BOSH-CLIENT-PASSWORD`: These are the client credentials you retrieved in [Preparing to Use BBR](#prepare).
+    * `BOSH-CLIENT`, `BOSH-CLIENT-PASSWORD`: These are the client credentials you retrieved in [Preparing to use BBR](#prepare).
     * `REDIS-SERVICE-INSTANCE-DEPLOYMENT-NAME`: This is the deployment name for the on-demand Redis service instance you are backing up.
 
     In the preceding command, <code>BOSH\_CLIENT\_SECRET</code> is not a variable.
@@ -111,7 +111,7 @@ Follow these steps:
     backup
     </pre>
 
-3. Follow the steps given in the [After Taking the Backups](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-backup-pcf-bbr.html#after-taking-your-backup-22)
+3. Follow the steps given in the [After taking your backup](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-backup-restore-backup-pcf-bbr.html#after-taking-your-backup-22)
 step of the BBR documentation.
 
 	Make sure to do this for the backup artifacts for all of your service instances and your BOSH Director and PAS.
@@ -156,9 +156,9 @@ for [Restoring Tanzu Operations Manager deployments from backup with BBR](https:
     </pre>
 
 If a restore fails because there is no deployment of the name specified, then
-you are likely in the [Backing up artifact for a non-existent Service Instance](#no-cc-record) inconsistent state
+you are likely in the [Backing up artifact for a non-existent service instance](#no-cc-record) inconsistent state
 and can skip the restore for that artifact.
-For more information, see [Backing up artifact for a non-existent Service Instance](#no-cc-record).
+For more information, see [Backing up artifact for a non-existent service instance](#no-cc-record).
 
 <p class="note"><span class="note__title">Note</span> If you have a backup artifact (a <code>dump.rdb</code> file) from any source besides a BBR backup, you can also use it in this restore procedure. </p>
 
@@ -168,14 +168,14 @@ Because the Redis On-Demand broker is not locked during the backup process,
 the backups of the <%= vars.app_runtime_abbr %>and service instances can be out of sync if an app developer creates or deletes an on-demand
 Redis service between the <%= vars.app_runtime_abbr %>backup and Redis service instance backups.
 
-### <a id="no-restore-data"></a>No Backing up artifact for a Service Instance
+### <a id="no-restore-data"></a>No backing up artifact for a service instance
 
 If an on-demand Redis service was deleted in between the backup of the <%= vars.app_runtime_abbr %>and the Redis service instances,
 there is no backup artifact for a deployed service instance.
 Resolve this by deleting the service,
 which had already been deleted during the backup process so presumably is not wanted.
 
-### <a id="no-cc-record"></a>Backing up Artifact for a non-existent Service Instance
+### <a id="no-cc-record"></a>Backing up artifact for a non-existent service instance
 
 If an on-demand Redis service was created between the backup of the <%= vars.app_runtime_abbr %>and the Redis service
 instances, there is a backup artifact which has no corresponding deployed service instance.

@@ -1,5 +1,5 @@
 ---
-title: Quickstart Guide for App Developers
+title: Quickstart guide for app developers
 owner: London Services
 ---
 <strong><%= modified_date %></strong>
@@ -11,7 +11,7 @@ Credentials to connect to a <%= vars.product_short %> instance are passed to the
 
 Additionally, this topic includes advice for setting up Spring Sessions with <%= vars.product_short %>.
 
-## <a id="quickstart_apps"></a> Quickstart Apps
+## <a id="quickstart_apps"></a> Quickstart apps
 
 All apps using <%= vars.product_short %> must parse and read the <%= vars.product_short %> instance credentials from the environment.
 The credentials are available to the app once a <%= vars.product_short %> instance is bound to it and are viewable by typing `$cf env {app_name}`.
@@ -22,7 +22,7 @@ instances and `p-redis` refers to the Redis service that provides shared-VM inst
 Any service offering and plan work with the following examples.
 You can view available plans and instance types in the Marketplace.
 
-### <a id="java-quickstart"></a> Quickstart Java App
+### <a id="java-quickstart"></a> Quickstart Java app
 
 This is a basic Java app with the capability to get and set keys in Redis and view configuration information.
 Prerequisites include [Maven](https://maven.apache.org/install.html).
@@ -91,9 +91,9 @@ public RedisInstanceInfo getInfo() {
 }
 </pre>
 
-### <a id="node-quickstart"></a> Quickstart Node App
+### <a id="node-quickstart"></a> Quickstart Node app
 
-This is a basic node app with the capability to get and set keys in Redis and view configuration information.
+This is a basic Node app with the capability to get and set keys in Redis and view configuration information.
 Prerequisites are the `cf cli` and access to a Marketplace with p-redis or p.redis.
 
 Here we use an on-demand-cache plan for the `p.redis` service, but a `p-redis` instance also works.
@@ -179,8 +179,8 @@ app.get('/', function(request, response) {
 })
 </pre>
 
-### <a id="ruby-quickstart"></a> Quickstart Ruby App
-This is a basic ruby app with the capability to get and set keys in Redis and view configuration information.
+### <a id="ruby-quickstart"></a> Quickstart Ruby app
+This is a basic Ruby app with the capability to get and set keys in Redis and view configuration information.
 Here we use an instance of the shared-VM service, but any `p-redis` or `p.redis` instance works.
 
 <pre class="terminal">
@@ -308,7 +308,7 @@ For more information on configuring Spring Data Redis, refer to the <a href="htt
 </tr>
 </table>
 
-#### <a id ="java_servlet_container_initialization"></a>Java Servlet Container initialization
+#### <a id ="java_servlet_container_initialization"></a>Java Servlet container initialization
 
 <p>Our Spring Configuration created a Spring Bean named <code>springSessionRepositoryFilter</code> that implements <code>Filter</code>.
 The <code>springSessionRepositoryFilter</code> bean is responsible for replacing the <code>HttpSession</code>
@@ -339,7 +339,7 @@ The name of our class (Initializer) does not matter. What is important is that w
 
 + It provides a mechanism to easily ensure that Spring loads our <code>Config</code>.
 
-### <a id ="spring_redis"></a>Configuring <%= vars.product_short %> as a backend
+### <a id ="spring_redis"></a>Configuring <%= vars.product_short %> as a back end
 
 At this stage, Spring Session is now configured to use a Redis instance.
 To use a <%= vars.product_short %> instance, create a `session-replication` tag for it.
