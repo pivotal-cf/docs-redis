@@ -31,16 +31,17 @@ Always make changes you want carried forward in the main branch. This includes:
 * Doc bug fixes
 * Doc reorganization or enhancement
 
-Staging link: https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html
+[Staging link for main](https://docs-staging.vmware.com/en/draft/Redis-for-VMware-Tanzu-Application-Service/3.5/redis-tanzu-application-service/GUID-index.html)
 
 ### Released branches
 
-* **3.3**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html
-* **3.2**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html
-* **3.1**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html
-* **3.0**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html
-* **2.4**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html
-* **2.3**: On staging at https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html and production at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html
+* [3.4 staging](https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.4/redis-tanzu-application-service/GUID-index.html) and [3.4 production](https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.4/redis-tanzu-application-service/GUID-index.html)
+* [3.3 staging](https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html) and [3.3 production](https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.3/redis-tanzu-application-service/GUID-index.html)
+* [3.2 staging](https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html) and [3.2 production](https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.2/redis-tanzu-application-service/GUID-index.html)
+* [3.1 staging](https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html) and [3.1 production](https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.1/redis-tanzu-application-service/GUID-index.html)
+* [3.0 staging](https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html) and [3.0 production](https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/3.0/redis-tanzu-application-service/GUID-index.html)
+* [2.4 staging](https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html) and [2.4 production](https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.4/redis-tanzu-application-service/GUID-index.html)
+* [2.3 staging](https://docs-staging.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html) and [2.3 production](https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.3/redis-tanzu-application-service/GUID-index.html)
 * **2.2**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.2/redis-for-tas-2-2.pdf
 * **2.1**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.1/redis-for-tas-2-1.pdf
 * **2.0**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.0/redis-for-tas-2-0.pdf
@@ -102,6 +103,7 @@ staging to pre-prod to production. The process below describes how to upload our
 replacing the publication with the same version.
 
 ### Prepare Markdown files
+
 - Markdown files live in this repo.
 - Images should live in an `images` directory at the same level and linked with a relative link.
 - Each page requires an entry in [config/toc.md](config/toc.md) for the table of contents.
