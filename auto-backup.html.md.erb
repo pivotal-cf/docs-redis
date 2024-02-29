@@ -151,9 +151,9 @@ Do the following to connect <%= vars.product_short %> to your S3 account:
 1. Go to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
 2. Click **Backups**.
 3. Under **Backup configuration**, select **AWS S3**.
-    ![Screenshot of the 'Configure blob store for Redis backups' pane in Ops Manager.
-    Under backup configuration, the AWS S3 radio button is selected.
-    See the following step for a detailed description of the remaining configurable fields.](images/s3backupoptions.png)
+
+    ![The Configure blob store for Redis backups pane in Ops Manager with AWS S3 selected. See following step for a description of other fields.](images/s3backupoptions.png)
+
 4. Fill in the fields as follows:
 
     | Field             | Description                                                                                                                                                                                                                                                                                                                                                                                            | Mandatory/optional                                               |
@@ -199,10 +199,10 @@ Do the following to connect <%= vars.product_short %> to your destination VM:
 1. Go to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
 1. Click **Backups**.
 1. Under **Backup configuration**, select **SCP**.
-    ![Screenshot of the 'Configure blob store for Redis backups' pane in Ops Manager.
-    Under backup configuration, the SCP radio button is selected.
-    See the following step for a detailed description of the remaining configurable fields.](images/scpbackupoptions.png)
-1. Fill in the fields as follows:
+    
+    ![The Configure blob store for Redis backups pane in Ops Manager with the SCP radio button selected. See the following step for a detailed description of the other fields.](images/scpbackupoptions.png)
+
+2. Fill in the fields as follows:
 
     | Field                 | Description                                                                                                                                                               | Mandatory/optional |
     |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
@@ -215,7 +215,7 @@ Do the following to connect <%= vars.product_short %> to your destination VM:
     | Backup timeout        | The amount of time, in minutes, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to the SCP server. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded. | Mandatory          |
     | Fingerprint    | The fingerprint of the public key of the SCP server. To retrieve the server's fingerprint, run `ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub`.                                                                                             | Optional          |
 
-1. Click **Save**.
+3. Click **Save**.
 
 ## <a id="gcs"></a>Option 3: Back up with GCS
 
@@ -245,10 +245,10 @@ Do the following to connect <%= vars.product_short %> to GCS:
 1. Go to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
 1. Click **Backups**.
 1. Under **Backup configuration**, select **GCS**.
-    ![Screenshot of the 'Configure blob store for Redis backups' pane in Ops Manager.
-    Under backup configuration, the GCS radio button is selected.
-    See the following step for a detailed description of the remaining configurable fields.](images/gcsbackupoptions.png)
-1. Fill in the fields as follows:
+    
+    ![The Configure blob store for Redis backups pane in Ops Manager with the GCS radio button selected. See the following step for a detailed description of the other fields.](images/gcsbackupoptions.png)
+
+2. Fill in the fields as follows:
 
     | Field                       | Description                                                                                                                                                                                                                                                                                      | Mandatory/optional |
     |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
@@ -257,7 +257,7 @@ Do the following to connect <%= vars.product_short %> to GCS:
     | Service account private key | The JSON secret key associated with your service account                                                                                  | Mandatory          |
     | Cron Schedule               | Backups schedule in crontab format. For example, once daily at 2am is `* 2 * * *`. This field also accepts a pre-defined schedule, such as `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or `@every TIME`, where `TIME` is any supported time string, such as `1h30m`. For more information, see the cron package [documentation](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules). | Mandatory          |
     | Backup timeout              | The amount of time, in minutes, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                           | Mandatory          |
-1. Click **Save**.
+3. Click **Save**.
 
 ## <a id ="azure"></a>Back up to Azure
 
@@ -266,10 +266,10 @@ Do the following to back up your database to an Azure storage account:
 1. Go to the <%= vars.ops_manager %> Installation Dashboard and click the **<%= vars.product_short %>** tile.
 1. Click **Backups**.
 1. Under **Backup configuration**, select **Azure**.
-    ![Screenshot of the 'Configure blob store for Redis backups' pane in Ops Manager.
-    Under backup configuration, the Azure radio button is selected.
-    See the following step for a detailed description of the remaining configurable fields.](images/azurebackupoptions.png)
-1. Fill in the fields as follows:
+    
+    ![The Configure blob store for Redis backups pane in Ops Manager with the Azure radio button selected. See the following step for a description of the other fields.](images/azurebackupoptions.png)
+
+2. Fill in the fields as follows:
 
     | Field                    | Description                                                                                                                                                                                                                                                                                      | Mandatory/optional |
     |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
@@ -281,7 +281,7 @@ Do the following to back up your database to an Azure storage account:
     | Cron Schedule            | Backups schedule in crontab format. For example, once daily at 2am is `* 2 * * *`. This field also accepts a pre-defined schedule, such as `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or `@every TIME`, where `TIME` is any supported time string, such as `1h30m`. For more information, see the cron package [documentation](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules). | Mandatory          |
     | Backup timeout           | The amount of time, in minutes, that the backup process waits for the `BGSAVE` command to complete on your instance before transferring the RDB file to your configured destination. If the timeout is reached, `BGSAVE` continues but backups fail and are not uploaded.                                                                                                           | Mandatory          |
 
-1. Click **Save**.
+3. Click **Save**.
 
 ## <a id="manual-br"></a>Back up and restore manually
 
