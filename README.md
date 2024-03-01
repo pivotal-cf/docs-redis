@@ -46,17 +46,17 @@ Always make changes you want carried forward in the main branch. This includes:
 * **2.1**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.1/redis-for-tas-2-1.pdf
 * **2.0**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/2.0/redis-for-tas-2-0.pdf
 * **1.14**: This branch is no longer in use because this version is EOGS. PDF available at https://docs.vmware.com/en/Redis-for-VMware-Tanzu-Application-Service/1.14/redis-for-tas-1-14.pdf
-* **1.13**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.13.pdf.
-* **1.12**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.12.pdf.
-* **1.11**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.11.pdf.
-* **1.10**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.10.pdf.
-* **1.9**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.9.pdf.
-* **1.8**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.8.pdf.
-* **1.7**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.7.pdf.
-* **1.6**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.6.pdf.
-* **1.5**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.5.pdf.
-* **1.5**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.5.pdf.
-* **1.4**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.pivotal.io/archives/redis-1.4.pdf.
+* **1.13**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.13.pdf.
+* **1.12**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.12.pdf.
+* **1.11**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.11.pdf.
+* **1.10**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.10.pdf.
+* **1.9**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.9.pdf.
+* **1.8**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.8.pdf.
+* **1.7**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.7.pdf.
+* **1.6**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.6.pdf.
+* **1.5**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.5.pdf.
+* **1.5**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.5.pdf.
+* **1.4**: This branch is no longer in use because the docs are no longer live. PDF available at https://docs.vmware.com/archives/redis-1.4.pdf.
 
 ### Cherry picking to and from main
 
