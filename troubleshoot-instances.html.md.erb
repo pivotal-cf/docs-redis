@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Redis instances
+title: Troubleshooting Redis Instances
 owner: Redis
 ---
 
@@ -8,7 +8,7 @@ owner: Redis
 This topic for app developers gives you basic instructions for troubleshooting on-demand
 <%= vars.product_full %> service instances.
 
-## <a id="errors"></a> Troubleshooting errors
+## <a id="errors"></a> Troubleshooting Errors
 
 Start here if you are responding to a specific error or error messages.
 
@@ -16,8 +16,8 @@ Start here if you are responding to a specific error or error messages.
 
 The following errors occur in multiple services:
 
-- [Apps fail to connect to the service instance](#connect-fails)
-- [No metrics from log cache](#no-metrics)
+- [Apps Fail to Connect to the Service Instance](#connect-fails)
+- [No Metrics from Log Cache](#no-metrics)
 
 <a name="connect-fails"></a>
 <table class="table">
@@ -31,7 +31,7 @@ The following errors occur in multiple services:
   <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
-    Apps fail to connect to the service instance
+    Apps Fail to Connect to the Service Instance
     <br><br>
   </th>
   </tr></thead>
@@ -90,7 +90,7 @@ The following errors occur in multiple services:
   <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
-    No Metrics from log cache
+    No Metrics from Log Cache
     <br><br>
   </th>
   </tr></thead>
@@ -140,7 +140,7 @@ The following errors are specific to <%= vars.product_short %>:
   <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
-    Maximum number of clients reached
+    Maximum Number of Clients Reached
     <br><br>
   </th>
   </tr></thead>
@@ -177,7 +177,7 @@ The following errors are specific to <%= vars.product_short %>:
   <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
-    Maxmemory limit reached
+    Maxmemory Limit Reached
     <br><br>
   </th>
   </tr></thead>
@@ -198,7 +198,7 @@ The following errors are specific to <%= vars.product_short %>:
       <p>
         Consider changing your maxmemory-policy.
         You can update this using the <code>cf update-service</code> parameters.
-        For how to do this, see <a href="using.html#custom">Customize an on-demand service instance</a>.
+        For how to do this, see <a href="using.html#custom">Customize an On-Demand Service Instance</a>.
       </p>
     </td>
   </tr>
@@ -216,7 +216,7 @@ The following errors are specific to <%= vars.product_short %>:
   <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
-    Error when running the save command
+    Error When Running the Save Command
     <br><br>
   </th>
   </tr></thead>
@@ -255,7 +255,7 @@ The following errors are specific to <%= vars.product_short %>:
   <thead><tr>
   <th colspan="2" style="text-align: left;">
     <br>
-    Unknown command error
+    Unknown Command Error
     <br><br>
   </th>
   </tr></thead>
@@ -303,7 +303,7 @@ Basic cf CLI operations include `create`, `update`, `bind`, `unbind`, and `delet
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-tech-parse-error' %>
 
-### <a id="instance"></a> Retrieve service instance information
+### <a id="instance"></a> Retrieve Service Instance information
 
 To retrieve information about the service instance that you can use for debugging:
 
@@ -352,7 +352,7 @@ of all service instances in the space by running:
 
     For more information, see <a href="using.html#logging">Log Cache CLI plug-in</a>.
 
-### <a id="instance-credentials"></a> Retrieve the password for a Redis service instance
+### <a id="instance-credentials"></a> Retrieve the password for a Redis Service Instance
 
 If you want to access the Redis server for troubleshooting,
 you can find a Redis service instance password by creating a new service key.
@@ -361,19 +361,19 @@ you can find a Redis service instance password by creating a new service key.
   delete the key after troubleshooting by running the command <code>cf delete-service-key SERVICE-INSTANCE KEY-NAME</code>.
 </p>
 
-For instructions on how to retrieve the password, see [Retrieve the password for a Redis service instance](./using.html#call).
+For instructions on how to retrieve the password, see [Retrieve the Password for a Redis Service Instance](./using.html#call).
 
 ## <a id="outages"></a>Temporary outages
 
 <%= vars.product_short %> service instances can become temporarily inaccessible during upgrades and VM or network failures.
 
-## <a id="kb"></a>Knowledge base (community)
+## <a id="kb"></a>Knowledge Base (Community)
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services-tshoot/tshoot-kb' %>
 
-## <a id="support"></a>File a support ticket
+## <a id="support"></a>File a Support Ticket
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
