@@ -1,5 +1,5 @@
 ---
-title: On-demand service offering for Redis for VMware Application Service
+title: On-Demand Service Offering for Redis for VMware Application Service
 owner: London Services
 ---
 
@@ -12,7 +12,7 @@ as well as networking information for the on-demand service.
 
 For similar information for the Shared-VM plans, see [Shared-VM Service offering](./architecture-pp.html).
 
-## <a id="diagram1"></a> Architecture of the on-demand plan
+## <a id="diagram1"></a> Architecture of the On-Demand plan
 
 The p.redis service broker manages the on-demand service plan instances.
 
@@ -87,7 +87,7 @@ points from the app directly to Redis.](images/tls_deactivated.png)
 The bound app connects directly to the Redis service on the on-demand Redis service instance VM.
 The traffic on this connection is unsecured.
 
-## <a id="on-demand"></a> On-demand service plans
+## <a id="on-demand"></a> On-Demand Service plans
 
 <%= vars.product_short %> offers on-demand plans as the `p.redis` service within the tile.
 On-demand plans are best suited to caching.
@@ -101,7 +101,7 @@ You can customize service plans by configuring the **Plan name**, **Plan descrip
 **Server VM type**, and **Server Disk type**.
 You can add and configure as many service plans as required.
 
-### <a id="features"></a> Features of on-demand service plans
+### <a id="features"></a> Features of On-Demand Service plans
 
 * Each on-demand service instance is deployed to its own VM and is suitable for production workloads.
 * The service plans are operator-configured and enabled. When enabled, app developers can view the available plans in the Marketplace and provision a Redis instance from that plan.
@@ -114,12 +114,12 @@ You can add and configure as many service plans as required.
 For information about setting quotas, see [Setting Limits for On-Demand Service Instances](./set-quotas.html).
 
 
-## <a id="config"></a> Configuration of on-demand service plans
+## <a id="config"></a> Configuration of On-Demand Service plans
 
 For on-demand plans, certain Redis configurations can be set by the operator during plan configuration,
  and by the app developer during instance provisioning. Other Redis configurations cannot be changed from the default.
 
-### <a id="operator"></a> Operator configurable Redis settings
+### <a id="operator"></a> Operator Configurable Redis settings
 
 The Redis settings that an operator can configure in the tile UI include:
 
@@ -133,7 +133,7 @@ The Redis settings that an operator can configure in the tile UI include:
 
 For more information, see [Configure On-Demand Plan settings](./installing.html#on-demand-plan-config).
 
-### <a id="appdev"></a> App developer configurable Redis settings
+### <a id="appdev"></a> App Developer Configurable Redis settings
 
 The Redis settings that an app developer can configure include:
 
@@ -144,7 +144,7 @@ The Redis settings that an app developer can configure include:
 
 For more information, see [Customize an On-Demand Service Instance](./using.html#custom).
 
-### <a id="opnotes"></a> Operator notes for on-demand service plans
+### <a id="opnotes"></a> Operator Notes for On-Demand Service plans
 
 * Instances of the on-demand plan can be deployed until their number reaches
 either an operator-set per-plan quota or a global quota.
@@ -154,7 +154,7 @@ and service broker adapter associated with this plan.
 * `maxmemory` in `redis.conf` is set to 45% of the system memory.
 * Any on-demand plan can be deactivated from the plan page in <%= vars.ops_manager %>.
 
-### <a id="limitations"></a> Known limitations for on-demand service plans
+### <a id="limitations"></a> Known Limitations for On-Demand Service plans
 
 Limitations for the on-demand service include:
 
@@ -167,7 +167,7 @@ Limitations for the on-demand service include:
 
 * If <%= vars.product_full %> has high availability enabled, the TLS setting **Optional** works as the **Enforced** option, due to architectural limitations.
 
-## <a id ="lifecycle"></a>Lifecycle for on-demand service plan
+## <a id ="lifecycle"></a>Lifecycle for On-Demand Service plan
 
 Here is the lifecycle of <%= vars.product_short %>, from an operator installing
 the tile through an app developer using the service then an operator deleting the tile.
@@ -209,7 +209,7 @@ After you have installed <%= vars.product_short %>, developers can
 create service instances, bind and unbind the service instances to apps, and
 delete service instances.
 
-#### <a id ="create-service"></a> Create service
+#### <a id ="create-service"></a> Create Service
 
 When a developer runs the `cf create-service` command, for example:
 
@@ -220,7 +220,7 @@ When a developer runs the `cf create-service` command, for example:
 - If the global and plan quota for instances has not been reached, a new Redis instance
 is created with the plan's specifications.
 
-#### <a id ="bind-service"></a> Bind service
+#### <a id ="bind-service"></a> Bind Service
 
 When a developer runs the `cf bind-service` command, for example:
 
@@ -231,7 +231,7 @@ When a developer runs the `cf bind-service` command, for example:
 - Redis credentials are stored in the app's `VCAP_SERVICES` environment variable and
 the app can communicate directly with the Redis server inside the service instance
 
-#### <a id ="unbind-service"></a> Unbind service
+#### <a id ="unbind-service"></a> Unbind Service
 
 When a developer runs the `cf unbind-service` command, for example:
 
@@ -241,7 +241,7 @@ When a developer runs the `cf unbind-service` command, for example:
 
 - Redis credentials are removed from the app's `VCAP_SERVICES` environment variable
 
-#### <a id ="delete-service"></a> Delete service
+#### <a id ="delete-service"></a> Delete Service
 
 When a developer runs the `cf delete-service` command, for example:
 

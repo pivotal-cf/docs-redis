@@ -1,5 +1,5 @@
 ---
-title: Shared-VM service offering for Redis for VMware Tanzu Application Service
+title: Shared-VM Service Offering for Redis for VMware Tanzu Application Service
 owner: London Services
 ---
 
@@ -10,7 +10,7 @@ This topic tells you about the architecture, lifecycle, and configurations of th
 
 For similar information for the on-demand service plan, see [On-Demand Service Offering](./architecture.html).
 
-## <a id="about"></a> About the shared-VM plan
+## <a id="about"></a> About the Shared-VM Plan
 
 The shared-VM plan is a pre-provisioned service plan for development and testing purposes only.
 An instance of this plan provisions a single Redis process on a single shared VM.
@@ -18,7 +18,7 @@ This plan is suitable for workloads that do not require dedicated hardware.
 This plan is **not** suitable for production purposes.
 
 
-## <a id="diagram2"></a>Architecture diagram for shared plans
+## <a id="diagram2"></a>Architecture Diagram for Shared Plans
 
 The p-redis service broker manages the shared-vm plan service instances.
 
@@ -45,14 +45,14 @@ The user's app is bound to a shared-VM plan instance, shown above by an arrow la
 _binding_ pointing from the app to a shared-VM plan instance.
 For information about binding, see [Bind a Service Instance to your App](using.html#bind) in _Using <%= vars.product_full %>_.
 
-## <a id="config2"></a> Settings for shared-VM service plans
+## <a id="config2"></a> Settings for Shared-VM Service Plans
 
 You cannot change the default Redis settings for shared-VM plans. Because of this, you cannot run
  `cf update-service` with the `-c` flag to set config parameters, as described in the [Cloud Foundry documentation](https://cli.cloudfoundry.org/en-US/cf/update-service.html).
 
 The default Redis settings are as follows:
 
-### <a id="memory-policy"></a> Memory policy
+### <a id="memory-policy"></a> Memory Policy
 
 Redis is configured with a `maxmemory-policy` of `no-eviction`. This policy means that when the memory is
  full, the service does not evict any keys or perform any write operations until memory becomes available.
@@ -63,7 +63,7 @@ Shared-VM Redis supports both Redis Database Backup (RDB) and Append-Only File (
 Redis writes to the AOF log every second. For more information, see
 [Redis Persistence](https://redis.io/topics/persistence) in the Redis documentation.
 
-### <a id="connections"></a> Maximum number of connections
+### <a id="connections"></a> Maximum Number of Connections
 
 The maximum number of connections, `maxclients`, is set at 10,000 by default.
 Redis might reduce this number when run on a system with a low maximum number of file descriptors.
@@ -76,11 +76,11 @@ $ CONFIG SET maxclients 9000
 You cannot set `maxclients` above 10,000 and you cannot configure shared plans to permanently use a custom limit.
 
 
-### <a id="rep-and-event-note"></a> Replication and event notification
+### <a id="rep-and-event-note"></a> Replication and Event notification
 
 The replication and event notifications are not configured.
 
-## <a id="instance-deploy"></a>Change the service instances limit
+## <a id="instance-deploy"></a>Change the Service Instances limit
 
 This plan deploys a Redis instance on a shared VM and a single service broker VM. To prevent this, set the **Max instances limit** on the **Shared-VM Plan** tab in <%= vars.ops_manager %> to `0`.
 
@@ -103,7 +103,7 @@ The maximum number of shared-VM instances is relative to the memory allocated to
 the total memory of the Redis service broker.<br>
 For more information, see [Configure Shared-VM Plan settings](./installing.html#shared-vm-config).
 
-## <a id="lua-scripting"></a> Lua scripting
+## <a id="lua-scripting"></a> Lua Scripting
 
 You can activate or deactivate Lua scripting. Changes to this configuration apply to all existing shared-VM
 instances. Lua scripting can adversely affect the performance of other service instances on the VM, so
@@ -118,7 +118,7 @@ For more information, see [Configure Shared-VM Plan settings](./installing.html#
   Shared-VM Plan configuration pane.
 </p>
 
-## <a id="limits-shared"></a> Known limitations of the shared-VM plan
+## <a id="limits-shared"></a> Known Limitations of the Shared-VM Plan
 
 The shared-vm plan cannot:
 
@@ -128,7 +128,7 @@ The shared-vm plan cannot:
 * Manage "noisy neighbor" problems, which makes it unsuitable for production apps
 
 
-## <a id="lifecycle-shared"></a>Lifecycle for shared-VM service plan
+## <a id="lifecycle-shared"></a>Lifecycle for Shared-VM Service plan
 
 This is the lifecycle of <%= vars.product_short %>, from an operator installing the tile, to an app developer using the service, to an operator deleting the tile.
 
@@ -163,7 +163,7 @@ After you have installed <%= vars.product_short %>, developers can
 create service instances, bind and unbind the service instances to apps, and
 delete service instances.
 
-#### <a id ="create-service"></a> Create service
+#### <a id ="create-service"></a> Create Service
 
 When a developer runs the `cf create-service` command, for example:
 
@@ -174,7 +174,7 @@ When a developer runs the `cf create-service` command, for example:
 - If the maximum number of instances has not been reached, memory is allocated
 and a shared-VM Redis instance is created
 
-#### <a id ="bind-service"></a> Bind service
+#### <a id ="bind-service"></a> Bind Service
 
 When a developer runs the `cf bind-service` command, for example:
 
@@ -185,7 +185,7 @@ When a developer runs the `cf bind-service` command, for example:
 - Redis credentials are stored in the app's `VCAP_SERVICES` environment variable
 and the app can talk directly to the Redis server inside the service instance
 
-#### <a id ="unbind-service"></a> Unbind service
+#### <a id ="unbind-service"></a> Unbind Service
 
 When a developer runs the `cf unbind-service` command, for example:
 
@@ -195,7 +195,7 @@ When a developer runs the `cf unbind-service` command, for example:
 
 - Redis credentials are removed from the app's `VCAP_SERVICES` environment variable
 
-#### <a id ="delete-service"></a> Delete service
+#### <a id ="delete-service"></a> Delete Service
 
 When a developer runs the `cf delete-service` command, for example:
 
