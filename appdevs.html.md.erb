@@ -1,5 +1,5 @@
 ---
-title: Introduction to Redis for Tanzu Application Service for app developers
+title: Introduction to Redis for Tanzu Application Service for App Developers
 owner: London Services
 ---
 
@@ -11,13 +11,13 @@ For instructions on creating, binding to, and deleting an instance of the On-Dem
 or Shared-VM plan, see [Using <%= vars.product_full %>](./using.html).
 
 
-## <a id="services"></a> Service offerings
+## <a id="services"></a> Service Offerings
 
 <%= partial vars.path_to_partials + '/redis/service-offerings', :locals => {
   :redis_name => vars.product_short,
   } %>
 
-## <a id="related-software"></a>Related software
+## <a id="related-software"></a>Related Software
 
 These are descriptions of software frequently used with Redis.
 
@@ -32,7 +32,7 @@ For more information, see the [Redis](http://cloud.spring.io/spring-cloud-connec
 in the Spring Cloud Cloud Foundry Connector documentation.
 
 To view an example Spring app using Redis as a cache with failover,
-see the [Redis reference architectures](https://github.com/pivotal-cf/redis-reference-architecture) GitHub
+see the [Redis Reference Architectures](https://github.com/pivotal-cf/redis-reference-architecture) GitHub
 repository.
 
 ### <a id="steeltoe"></a><%= vars.product_short %> with Steeltoe
@@ -42,17 +42,17 @@ See the [Steeltoe Cloud Connectors](https://steeltoe.io/docs/steeltoe-connectors
 
 
 To view examples of Steeltoe apps using Redis as a cache with failover,
-see the <a href="https://github.com/pivotal-cf/RedisReferenceArchitectureSteeltoe">Example Steeltoe app</a>
+see the <a href="https://github.com/pivotal-cf/RedisReferenceArchitectureSteeltoe">Example Steeltoe App</a>
 repository in GitHub.
 
 <p class="note caution"><span class="note__title">Caution</span>
   The Steeltoe connector for Redis requires <%= vars.product_short %> to support Lua scripting.
   Check whether the language you are using requires Lua scripting. If it does, contact your operator.
   By default, Lua scripting is deactivated for <%= vars.product_short %>, but an operator can
-  change the setting to enable it by selecting the <strong>Lua Scripting</strong> checkbox in each service plan's <strong><a href="./installing.html#on-demand-plan-config">On-demand plan</a></strong> configuration pane.
+  change the setting to enable it by selecting the <strong>Lua Scripting</strong> checkbox in each service plan's <strong><a href="./installing.html#on-demand-plan-config">On-Demand Plan</a></strong> configuration pane.
 </p>
 
-### <a id="other-software"></a>Other software
+### <a id="other-software"></a>Other Software
 
 * **Pivotal Dev** is a version of <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) that is small enough
 to run on a local machine. For more information, see [VMware dev](https://tanzu.vmware.com/application-service).
@@ -67,7 +67,7 @@ Follow the steps below to securely bind your apps to a Redis instance with TLS.
 
 Spring and Steeltoe apps use TLS by default when available.
 
-### <a id="check-availability-tls"></a>Check availability
+### <a id="check-availability-tls"></a>Check Availability
 
 You can check if TLS has been enabled on the on-demand Redis service by inspecting the service key.
 To do so:
@@ -113,7 +113,7 @@ To do so:
 
 If you do not see the `tls_port` field, TLS has not been enabled on your Redis service.
 
-### <a id="new-apps"></a>Bind new apps with TLS
+### <a id="new-apps"></a>Bind New Apps with TLS
 
 Follow the steps below to securely bind new apps to a Redis instance.
 
@@ -193,7 +193,7 @@ For Spring apps, use Java CFEnv v1.1.0 or later. See [Redis Spring Boot Referenc
 
 For Steeltoe apps, use Steeltoe v2.3.0 or later. See [Redis Steeltoe Reference Architecture](https://github.com/pivotal-cf/RedisReferenceArchitectureSteeltoe) in GitHub.
 
-### <a id="existing-apps"></a>Bind existing apps with TLS
+### <a id="existing-apps"></a>Bind Existing Apps with TLS
 
 For each app using the Redis service with a non-TLS binding:
 
