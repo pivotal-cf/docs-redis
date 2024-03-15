@@ -1,24 +1,26 @@
 ---
-title: Enabling Service-Gateway access for Redis
+title: Enabling Service Gateway Access for Redis
 owner: London Services
 ---
 
-This topic tells you how to enable service-gateway access for <%= vars.product_full %>.
+This topic tells you how to enable service gateway access for <%= vars.product_full %>.
 
 Service-gateway access enables a <%= vars.product_full %> on-demand service instance to
 connect to external components that are not on the same foundation as the service instance.
 
-For a more detailed overview, see [Service-Gateway access](./service-gateway-access.html).
+For a more detailed overview, see [Service Gateway Access](./service-gateway-access.html).
 
-To enable service-gateway access for an on-demand offering:
+To enable service gateway access for an on-demand offering:
 
-1. [Enable TCP routing using the <%= vars.app_runtime_abbr %> tile](#tcp-routing)
-2. [Configure the firewall to allow incoming traffic to the TCP router](#configure-firewall)
-3. [Configure the load balancer in the IaaS to redirect traffic to the TCP router](#configure-lb)
-4. [Create a DNS record that maps to the load balancer](#create-dns-record)
-5. [Configure a service-gateway-enabled plan](#configure-service-gateway-plan)
+- [ Enable TCP Routing by Using the \<%= vars.app\_runtime\_abbr %\> Tile](#-enable-tcp-routing-by-using-the--varsapp_runtime_abbr--tile)
+- [ Configure the firewall to allow incoming traffic to the TCP Router](#-configure-the-firewall-to-allow-incoming-traffic-to-the-tcp-router)
+- [ Configure the Load Balancer in the IaaS to redirect traffic to the TCP Router](#-configure-the-load-balancer-in-the-iaas-to-redirect-traffic-to-the-tcp-router)
+- [ Create a DNS Record that maps to the Load Balancer](#-create-a-dns-record-that-maps-to-the-load-balancer)
+- [ Configure a Service-Gateway enabled plan](#-configure-a-service-gateway-enabled-plan)
+- [ Deactivate Service-Gateway access](#-deactivate-service-gateway-access)
+- [ Developer workflow](#-developer-workflow)
 
-## <a id='tcp-routing'></a> Enable TCP Routing using the <%= vars.app_runtime_abbr %> Tile
+## <a id='tcp-routing'></a> Enable TCP Routing by Using the <%= vars.app_runtime_abbr %> Tile
 
 TCP routing is deactivated by default.
 
