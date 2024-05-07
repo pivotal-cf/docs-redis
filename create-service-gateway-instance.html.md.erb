@@ -31,6 +31,7 @@ To create a service instance that enables service-gateway access:
    The service key looks similar to the following:
 
    ```json
+   # service-key for non-ha instances
    {
      "credentials": {
        "host": "q-s0.redis-instance.mediumcandyapplered-services-subnet.service-instance-0133e917-5cbf-432d-bab3-f4db5c603539.bosh",
@@ -45,7 +46,24 @@ To create a service instance that enables service-gateway access:
        ]
      }
    }
-   ```
+
+  # service-key for ha instances
+  {
+      "master_name": "redis-master",
+      "password": "verysecret",
+      "port": 6379,
+      "sentinel_password": "verysecretsentinel",
+      "sentinels":[
+        {"host": "instance-host-1", "port": 26379, "tls_port": 26380},
+        {"host": "instance-host-2", "port": 26379, "tls_port": 26380},
+        {"host": "instance-host-3", "port": 26379, "tls_port": 26380}
+      ],
+      "service_gateway_access_port": 1100,
+      "service_gateway_enabled": true,
+      "tls_port": 16379,
+      "tls_versions": ["tlsv1.2","tlsv1.3"]
+  }
+  ```
 
    The `service_gateway_access_port` field informs you of the port that was reserved for the created
    service instance. You can use this port to connect to Redis from outside your foundation.
