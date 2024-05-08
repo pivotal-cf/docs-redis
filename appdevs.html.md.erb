@@ -84,7 +84,7 @@ To do so:
     cf service-key MY-INSTANCE MY-KEY
     ```
 
-    This returns a JSON response in either of below format:
+    This returns a JSON response in either of following format:
 
     ```
     # schema for non-ha service-instances
@@ -119,7 +119,8 @@ Follow the steps below to securely bind new apps to a Redis instance.
 
 For new apps, `cf bind-service` exposes both TLS ports and non-secure ports. Custom connectors also make both ports available. To support secure service bindings, you must specify the TLS port in your app code.
 
-Below is an example of manually selecting the TLS port for a `redis_client` in Ruby for non-ha service-instance:
+The following is an example of manually selecting the TLS port for a `redis_client` in Ruby for non-HA service-instance:
+
 ```
 require 'redis'
 require 'cf-app-utils'
