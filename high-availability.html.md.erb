@@ -1,0 +1,33 @@
+---
+title: High availability for Redis for Tanzu Application Service
+owner: Redis for VMware Tanzu Application Service
+---
+
+High availability enables a <%= vars.product_full %> on-demand service instance to
+remain operational and accessible for extended periods of time, minimising downtime ensuring continuous functionality.
+
+For related procedures, see:
+- [Enabling High availability](./enable-high-availability.html)
+
+## <a id='architecture'></a> Architecture
+
+When an app developer creates a service instance on a plan with high-availability enabled, the following happens:
+Provisioning:
+    - A total of 3 instances are provisioned for that service instance.
+    - Each instance will have one Redis instance and one Sentinel instance running.
+
+Configuration:
+    - One of the 3 Redis instances is elected as the master instance, and the other two are replicas.
+    - All Redis replicas are connected to master instance and syncs data from master instance.
+    - Each Sentinel instances are also interconnected with the Redis instances and other sentinel instances.
+
+Failover:
+    - If the master Redis node goes down, the Sentinel instances will detect this and automatically elect a new master from the remaining replica nodes.
+
+This setup ensures high availability for the service instance. The multiple Redis instances and Sentinel nodes work
+together to provide redundancy and automatic failover, minimizing downtime in the event of a node failure.
+
+![ha-architecture](images/ha-architecture.png)
+
+![ha-topology](images/ha-architecture.png)
+

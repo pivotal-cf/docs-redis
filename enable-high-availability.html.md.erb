@@ -1,0 +1,47 @@
+---
+title: Enabling High availability for Redis for Tanzu Application Service
+owner: Redis for VMware Tanzu Application Service
+---
+
+This topic tells you how to enable high availability for <%= vars.product_full %>.
+
+High availability enables a <%= vars.product_full %> on-demand service instance to
+remain operational and accessible for extended periods of time, minimising downtime ensuring continuous functionality.
+
+For a more detailed overview, see [High availability access](./high-availability.html).
+
+## <a id='configure-high-availability-plan'></a> Configure a high-availability enabled plan
+
+To configure a high-availability-enabled plan:
+
+1. Create a new plan/Edit an existing plan for the Redis tile in the **On-Demand Plans** tab.
+
+2. In the plan edit view, select the **Enable HA** check box.
+
+   ![enable-ha](images/enable-ha.png)
+
+3. Save your changes.
+
+4. Go back to **<%= vars.ops_manager %> Installation Dashboard &gt; Review Pending Changes**.
+
+5. Click **Apply Changes** to apply the changes to the <%= vars.product_short %> tile.
+
+## <a id='deactivate-high-availability'></a> Deactivate high-availability from a plan
+
+To deactivate high-availability:
+
+1. Go to the service plan that you want to deactivate high-availability
+for and clear the **Enable HA** check box. VMware recommends that
+you change the name or the description of the plan to indicate that
+high-availability access is deactivated for that plan.
+
+2. Go back to **<%= vars.ops_manager %> Installation Dashboard &gt; Review Pending Changes**.
+
+3. Click **Apply Changes** to apply the changes to the <%= vars.product_short %> tile.
+
+## <a id='workflow'></a> Developer workflow
+
+<p class="note important">
+<span class="note__title">Important</span> If high-availability is deactivated/enabled and then re-enabled/re-disabled, app developers must
+  create new service keys to obtain a new set of credentials.
+</p>
