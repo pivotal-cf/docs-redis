@@ -84,14 +84,30 @@ To do so:
     cf service-key MY-INSTANCE MY-KEY
     ```
 
-    This returns a JSON response in this format:
+    This returns a JSON response in either of below format:
 
     ```
+    # schema for non-ha service-instances
     {
       "host": "q-s0.redis-instance.ENVIRONMENT-NAME-services-subnet.service-instance-GUID.bosh",
       "password": YOUR-PASSWORD,
       "port": INSECURE-PORT-NUMBER,
       "tls_port": SECURE-PORT-NUMBER
+    }
+
+    # schema for ha service-instances
+    {
+        "master_name": "redis-master",
+        "password": YOUR-REDIS-PASSWORD,
+        "port": INSECURE-REDIS-PORT-NUMBER,
+        "sentinel_password": YOUR-SENTINEL-PASSWORD,
+        "sentinels": [
+          {"host": INSTANCE-1-HOSTNAME, "port": INSECURE-SENTINEL-PORT-NUMBER, "tls_port": SECURE-SENTINEL-PORT-NUMBER},
+          {"host": INSTANCE-2-HOSTNAME, "port": INSECURE-SENTINEL-PORT-NUMBER, "tls_port": SECURE-SENTINEL-PORT-NUMBER},
+          {"host": INSTANCE-3-HOSTNAME, "port": INSECURE-SENTINEL-PORT-NUMBER, "tls_port": SECURE-SENTINEL-PORT-NUMBER},
+        ],
+        "tls_port": SECURE-REDIS-PORT-NUMBER,
+        "tls_versions": SUPPORTED_TLS_VERSIONS
     }
     ```
 
@@ -103,8 +119,7 @@ Follow the steps below to securely bind new apps to a Redis instance.
 
 For new apps, `cf bind-service` exposes both TLS ports and non-secure ports. Custom connectors also make both ports available. To support secure service bindings, you must specify the TLS port in your app code.
 
-Below is an example of manually selecting the TLS port for a `redis_client` in Ruby:
-
+Below is an example of manually selecting the TLS port for a `redis_client` in Ruby for non-ha service-instance:
 ```
 require 'redis'
 require 'cf-app-utils'
@@ -129,6 +144,47 @@ def redis_client
      password: redis_credentials.fetch('password'),
      ssl: true,
      timeout: 30
+end
+```
+
+Below is an example of manually selecting the TLS port for a `redis_client` in Ruby for ha service-instance:
+```
+require 'redis'
+require 'cf-app-utils'
+
+def redis_credentials
+  service_name = ENV['service_name'] || "redis"
+  if ENV['VCAP_SERVICES']
+      all_pivotal_redis_credentials = CF::App::Credentials.find_all_by_all_service_tags(['redis', 'pivotal'])
+      if all_pivotal_redis_credentials && all_pivotal_redis_credentials.first
+          all_pivotal_redis_credentials.first
+      else
+          redis_service_credentials = CF::App::Credentials.find_by_service_name(service_name)
+          redis_service_credentials
+      end
+  end
+end
+
+def redis_client(version)
+      ssl_params = {
+        verify_mode: OpenSSL::SSL::VERIFY_NONE,
+        ssl_version: version,
+      }
+      if version.empty?
+        ssl_params = {
+          verify_mode: OpenSSL::SSL::VERIFY_NONE
+        }
+      end
+
+     @client ||= Redis.new(
+        name: redis_credentials.fetch('master_name'),
+        password: redis_credentials.fetch('password'),
+        sentinel_password: redis_credentials.fetch('sentinel_password'),
+        sentinels: redis_credentials.fetch('sentinels').map { | sentinel |  { host: sentinel["host"], port: sentinel["tls_port"] } },
+        ssl: true,
+        ssl_params: ssl_params,
+        timeout: 30
+     )
 end
 ```
 
