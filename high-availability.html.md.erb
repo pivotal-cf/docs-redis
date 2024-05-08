@@ -4,30 +4,30 @@ owner: Redis for VMware Tanzu Application Service
 ---
 
 High availability enables a <%= vars.product_full %> on-demand service instance to
-remain operational and accessible for extended periods of time, minimising downtime ensuring continuous functionality.
+remain operational and accessible for extended periods of time, minimizing downtime and ensuring continuous functionality.
 
 For related procedures, see:
+
 - [Enabling High availability](./enable-high-availability.html)
 
 ## <a id='architecture'></a> Architecture
 
-When an app developer creates a service instance on a plan with high-availability enabled, the following happens:
+When an app developer creates a service instance on a plan with high availability enabled, the following happens:
 Provisioning:
     - A total of 3 instances are provisioned for that service instance.
-    - Each instance will have one Redis instance and one Sentinel instance running.
+    - Each instance has one Redis instance and one Sentinel instance running.
 
 Configuration:
     - One of the 3 Redis instances is elected as the master instance, and the other two are replicas.
-    - All Redis replicas are connected to master instance and syncs data from master instance.
-    - Each Sentinel instances are also interconnected with the Redis instances and other sentinel instances.
+    - All Redis replicas are connected to the master instance and syncs data from the master instance.
+    - Each Sentinel instance is also interconnected with the Redis instances and other sentinel instances.
 
 Failover:
-    - If the master Redis node goes down, the Sentinel instances will detect this and automatically elect a new master from the remaining replica nodes.
+    - If the master Redis node goes down, the Sentinel instances detect this and automatically elect a new master from the remaining replica nodes.
 
 This setup ensures high availability for the service instance. The multiple Redis instances and Sentinel nodes work
 together to provide redundancy and automatic failover, minimizing downtime in the event of a node failure.
 
-![ha-architecture](images/ha-architecture.png)
+![HA architecture with the user's application binding with 3 HA plan instances, each with a Redis and Sentinel node.](images/ha-architecture.png)
 
-![ha-topology](images/ha-architecture.png)
-
+![HA topology with data sync between nodes 1, 2, and 3. Node 1 contains the Redis master and a Sentinel node. Nodes 2 and 3 contain Redis replicas and Sentinel nodes.](images/redis-ha-topology.png)
