@@ -20,9 +20,7 @@ Prerequisites for these examples include access to a Marketplace with `p-redis` 
 For reference, `p.redis` refers to the Redis service that provides on-demand
 instances and `p-redis` refers to the Redis service that provides shared-VM instances.
 Any service offering and plan work with the following examples.
-You can view available plans and instance types in the Marketplace.
-
-### <a id="java-quickstart"></a> Quickstart Java App
+You can view available plans and instance types in the Marketplace.# <a id="java-quickstart"></a> Quickstart Java App
 
 This is a basic Java app with the capability to get and set keys in Redis and view configuration information.
 Prerequisites include [Maven](https://maven.apache.org/install.html).
@@ -248,7 +246,7 @@ The document is also adopted from this [Spring Session - Spring Boot guide](http
 
 ### <a id="configuring Spring"></a> Setting up Spring Session
 
-#### <a id ="spring_dependencies"></a>Updating dependencies
+#### <a id ="spring_dependencies"></a>Updating Dependencies
 
 To use Spring Session, update your dependencies to include spring-session-data-redis. The following example is for Maven.
 
@@ -308,7 +306,7 @@ For more information on configuring Spring Data Redis, refer to the <a href="htt
 </tr>
 </table>
 
-#### <a id ="java_servlet_container_initialization"></a>Java Servlet Container initialization
+#### <a id ="java_servlet_container_initialization"></a>Java Servlet Container Initialization
 
 <p>Our Spring Configuration created a Spring Bean named <code>springSessionRepositoryFilter</code> that implements <code>Filter</code>.
 The <code>springSessionRepositoryFilter</code> bean is responsible for replacing the <code>HttpSession</code>
@@ -339,14 +337,14 @@ The name of our class (Initializer) does not matter. What is important is that w
 
 + It provides a mechanism to easily ensure that Spring loads our <code>Config</code>.
 
-### <a id ="spring_redis"></a>Configuring <%= vars.product_short %> as a backend
+### <a id ="spring_redis"></a>Configuring <%= vars.product_short %> as a Backend
 
 At this stage, Spring Session is now configured to use a Redis instance.
 To use a <%= vars.product_short %> instance, create a `session-replication` tag for it.
 
 <pre class="terminal">$ cf update-service INSTANCE_NAME -t session-replication</pre>
 
-### <a id ="spring_redis_considerations"></a>Other considerations
+### <a id ="spring_redis_considerations"></a>Other Considerations
 
 The `RedisHttpSessionConfiguration` tries to use the Redis CONFIG command.
 The CONFIG command is not available due to security recommendations.

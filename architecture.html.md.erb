@@ -12,7 +12,7 @@ as well as networking information for the on-demand service.
 
 For similar information for the Shared-VM plans, see [Shared-VM Service offering](./architecture-pp.html).
 
-## <a id="diagram1"></a> Architecture of the On-Demand plan
+## <a id="diagram1"></a> Architecture of the On-Demand Plan
 
 The p.redis service broker manages the on-demand service plan instances.
 
@@ -43,7 +43,7 @@ You can enable TLS to secure traffic between apps and service instances.
 In <%= vars.product_short %>, the available options are **Optional** and **Not Configured**.
 
 
-### <a id="tls-optional"></a> TLS set to optional
+### <a id="tls-optional"></a> TLS Set to Optional
 
 When setting TLS to **Optional** within On-Demand Service Settings, both TLS and non-TLS connections are accepted.
 TLS traffic goes through a proxy as shown in the diagram below.
@@ -74,7 +74,7 @@ The TLS proxy and Redis are both on the Redis service instance.
 The traffic is secure from the app to the TLS proxy.
 When on the service instance, the traffic from the TLS proxy to Redis is unsecured.
 
-### <a id="tls-optional"></a> TLS set to not configured
+### <a id="tls-optional"></a> TLS Set to Not Configured
 
 When setting TLS to **Not Configured** within the On-Demand Service Settings,
 the communication with service instances remains unchanged from <%= vars.product_old %> v2.1 and earlier.
@@ -87,7 +87,7 @@ points from the app directly to Redis.](images/tls_deactivated.png)
 The bound app connects directly to the Redis service on the on-demand Redis service instance VM.
 The traffic on this connection is unsecured.
 
-## <a id="on-demand"></a> On-Demand Service plans
+## <a id="on-demand"></a> On-Demand Service Plans
 
 <%= vars.product_short %> offers on-demand plans as the `p.redis` service within the tile.
 On-demand plans are best suited to caching.
@@ -101,7 +101,7 @@ You can customize service plans by configuring the **Plan name**, **Plan descrip
 **Server VM type**, and **Server Disk type**.
 You can add and configure as many service plans as required.
 
-### <a id="features"></a> Features of On-Demand Service plans
+### <a id="features"></a> Features of On-Demand Service Plans
 
 * Each on-demand service instance is deployed to its own VM and is suitable for production workloads.
 * The service plans are operator-configured and enabled. When enabled, app developers can view the available plans in the Marketplace and provision a Redis instance from that plan.
@@ -114,12 +114,12 @@ You can add and configure as many service plans as required.
 For information about setting quotas, see [Setting Limits for On-Demand Service Instances](./set-quotas.html).
 
 
-## <a id="config"></a> Configuration of On-Demand Service plans
+## <a id="config"></a> Configuration of On-Demand Service Plans
 
 For on-demand plans, certain Redis configurations can be set by the operator during plan configuration,
  and by the app developer during instance provisioning. Other Redis configurations cannot be changed from the default.
 
-### <a id="operator"></a> Operator Configurable Redis settings
+### <a id="operator"></a> Operator Configurable Redis Settings
 
 The Redis settings that an operator can configure in the tile UI include:
 
@@ -133,7 +133,7 @@ The Redis settings that an operator can configure in the tile UI include:
 
 For more information, see [Configure On-Demand Plan settings](./installing.html#on-demand-plan-config).
 
-### <a id="appdev"></a> App Developer Configurable Redis settings
+### <a id="appdev"></a> App Developer Configurable Redis Settings
 
 The Redis settings that an app developer can configure include:
 
@@ -144,7 +144,7 @@ The Redis settings that an app developer can configure include:
 
 For more information, see [Customize an On-Demand Service Instance](./using.html#custom).
 
-### <a id="opnotes"></a> Operator Notes for On-Demand Service plans
+### <a id="opnotes"></a> Operator Notes for On-Demand Service Plans
 
 * Instances of the on-demand plan can be deployed until their number reaches
 either an operator-set per-plan quota or a global quota.
@@ -154,7 +154,7 @@ and service broker adapter associated with this plan.
 * `maxmemory` in `redis.conf` is set to 45% of the system memory.
 * Any on-demand plan can be deactivated from the plan page in <%= vars.ops_manager %>.
 
-### <a id="limitations"></a> Known Limitations for On-Demand Service plans
+### <a id="limitations"></a> Known Limitations for On-Demand Service Plans
 
 Limitations for the on-demand service include:
 
@@ -167,7 +167,7 @@ Limitations for the on-demand service include:
 
 * If <%= vars.product_full %> has high availability enabled, the TLS setting **Optional** works as the **Enforced** option, due to architectural limitations.
 
-## <a id ="lifecycle"></a>Lifecycle for On-Demand Service plan
+## <a id ="lifecycle"></a>Lifecycle for On-Demand Service Plan
 
 Here is the lifecycle of <%= vars.product_short %>, from an operator installing
 the tile through an app developer using the service then an operator deleting the tile.

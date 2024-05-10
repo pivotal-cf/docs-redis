@@ -19,7 +19,7 @@ As an example of how to display KPIs and metrics without the Firehose, see the
 This example uses [Datadog](https://www.datadoghq.com).
 However, VMware does not endorse or support any third-party solution.
 
-## <a id="polling"></a> Metrics polling interval
+## <a id="polling"></a> Metrics Polling Interval
 
 The metrics polling interval defaults to 30 seconds.
 You can change this by navigating to the Metrics configuration page in <%= vars.ops_manager %>
@@ -67,6 +67,7 @@ For how to create custom service alerts for Healthwatch, see [Configuring Health
 For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics).
 
 ### <a id="Redis-service-KPIs"></a> <%= vars.product_short %> KPIs
+
 #### <a id="total-od-instances"></a> Total Instances for On-Demand Service
 
 <table class=“table”>
@@ -100,7 +101,7 @@ For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics)
    </tr>
 </table>
 
-#### <a id="quota-remaining-od-instances"></a> Quota remaining for On-Demand Service
+#### <a id="quota-remaining-od-instances"></a> Quota Remaining for On-Demand Service
 
 <table class=“table”>
    <thead>
@@ -133,7 +134,7 @@ For a list of all other Redis metrics, see [Other Redis metrics](#other-metrics)
    </tr>
 </table>
 
-#### <a id="total-shared-instances"></a> Total instances for shared VM Service
+#### <a id="total-shared-instances"></a> Total Instances for Shared VM Service
 
 <table class=“table”>
    <thead>
@@ -181,7 +182,7 @@ You can differentiate between these service instance metrics as follows:
 pre-pended with <code>_p_redis_shared_vm_SHARED_INSTANCE_GUID/</code>.
   <code>SHARED-INSTANCE-GUID</code> can be retrieved by running <code>cf service SERVICE-NAME --guid</code>.
 
-#### <a id="persistent-disk-percent"></a> Percent of Persistent Disk used
+#### <a id="persistent-disk-percent"></a> Percent of Persistent Disk Used
 
 <table class=“table”>
    <thead>
@@ -215,7 +216,7 @@ pre-pended with <code>_p_redis_shared_vm_SHARED_INSTANCE_GUID/</code>.
    </tr>
 </table>
 
-#### <a id="used-memory-max-memory"></a> Used Memory percent
+#### <a id="used-memory-max-memory"></a> Used Memory Percent
 
 <table class=“table”>
    <thead>
@@ -265,7 +266,7 @@ A different threshold might be appropriate for specific use cases of no key evic
    </tr>
 </table>
 
-#### <a id="connected-clients"></a> Connected clients
+#### <a id="connected-clients"></a> Connected Clients
 
 <table class=“table”>
    <thead>
@@ -297,7 +298,7 @@ A different threshold might be appropriate for specific use cases of no key evic
    </tr>
 </table>
 
-#### <a id="blocked-clients"></a> Blocked clients
+#### <a id="blocked-clients"></a> Blocked Clients
 
 <table class=“table”>
    <thead>
@@ -354,7 +355,7 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
    </tr>
 </table>
 
-#### <a id="memory-fragmentation-ratio"></a> Memory fragmentation ratio
+#### <a id="memory-fragmentation-ratio"></a> Memory Fragmentation Ratio
 
 <table class=“table”>
    <thead>
@@ -387,7 +388,7 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
    </tr>
 </table>
 
-#### <a id="instantaneous-ops-per-sec"></a> Instantaneous 0perations per second
+#### <a id="instantaneous-ops-per-sec"></a> Instantaneous 0perations per Second
 
 <table class=“table”>
    <thead>
@@ -471,7 +472,7 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
    </tr>
 </table>
 
-#### <a id="keyspace-hits-keyspace-misses"></a> Keyspace hits / Keyspace misses + Keyspace hits
+#### <a id="keyspace-hits-keyspace-misses"></a> Keyspace Hits / Keyspace Misses + Keyspace Hits
 
 <table class=“table”>
    <thead>
@@ -504,13 +505,13 @@ In general, a rise or change in <code>blocked_clients</code> is more likely to s
 </table>
 
 
-## <a id="bosh-health"></a> BOSH Health Monitor metrics
+## <a id="bosh-health"></a> BOSH Health Monitor Metrics
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 
 <%= partial vars.path_to_partials + '/services/bosh_health_metrics_pcf2' %>
 
-## <a id="other-metrics"></a>Other Redis metrics
+## <a id="other-metrics"></a>Other Redis Metrics
 Redis also exposes the following metrics. for more information, see the [Redis documentation](http://redis.io/commands/INFO).
 
 * <code>arch\_bits</code>

@@ -13,12 +13,12 @@ For a more detailed overview, see [Service Gateway Access](./service-gateway-acc
 To enable service gateway access for an on-demand offering:
 
 - [ Enable TCP Routing by Using the \<%= vars.app\_runtime\_abbr %\> Tile](#-enable-tcp-routing-by-using-the--varsapp_runtime_abbr--tile)
-- [ Configure the firewall to allow incoming traffic to the TCP Router](#-configure-the-firewall-to-allow-incoming-traffic-to-the-tcp-router)
-- [ Configure the Load Balancer in the IaaS to redirect traffic to the TCP Router](#-configure-the-load-balancer-in-the-iaas-to-redirect-traffic-to-the-tcp-router)
-- [ Create a DNS Record that maps to the Load Balancer](#-create-a-dns-record-that-maps-to-the-load-balancer)
-- [ Configure a Service-Gateway enabled plan](#-configure-a-service-gateway-enabled-plan)
-- [ Deactivate Service-Gateway access](#-deactivate-service-gateway-access)
-- [ Developer workflow](#-developer-workflow)
+- [ Configure the Firewall to Allow Incoming Traffic to the TCP Router](#-configure-the-firewall-to-allow-incoming-traffic-to-the-tcp-router)
+- [ Configure the Load Balancer in the IaaS to Redirect Traffic to the TCP Router](#-configure-the-load-balancer-in-the-iaas-to-redirect-traffic-to-the-tcp-router)
+- [ Create a DNS Record that Maps to the Load Balancer](#-create-a-dns-record-that-maps-to-the-load-balancer)
+- [ Configure a Service-Gateway Enabled Plan](#-configure-a-service-gateway-enabled-plan)
+- [ Deactivate Service-Gateway Access](#-deactivate-service-gateway-access)
+- [ Developer Workflow](#-developer-workflow)
 
 ## <a id='tcp-routing'></a> Enable TCP Routing by Using the <%= vars.app_runtime_abbr %> Tile
 
@@ -39,7 +39,7 @@ To enable TCP routing:
 
 1. Apply your changes in <%= vars.ops_manager %> for the <%= vars.app_runtime_abbr %> tile to create the TCP router.
 
-## <a id='configure-firewall'></a> Configure the firewall to allow incoming traffic to the TCP Router
+## <a id='configure-firewall'></a> Configure the Firewall to Allow Incoming Traffic to the TCP Router
 
 To configure the firewall:
 
@@ -47,7 +47,7 @@ To configure the firewall:
 [Enable TCP Routing using the <%= vars.app_runtime_abbr %> Tile](#tcp-routing) earlier.
 For information about how to do so, see the documentation for your IaaS.
 
-## <a id='configure-lb'></a> Configure the Load Balancer in the IaaS to redirect traffic to the TCP Router
+## <a id='configure-lb'></a> Configure the Load Balancer in the IaaS to Redirect Traffic to the TCP Router
 
 To configure the load balancer:
 
@@ -68,7 +68,7 @@ To configure the load balancer:
     port and the end port are both inclusive.
 2. Record this port range.
 
-## <a id='create-dns-record'></a> Create a DNS Record that maps to the Load Balancer
+## <a id='create-dns-record'></a> Create a DNS Record that Maps to the Load Balancer
 
 To create a DNS record and prepare to map it:
 
@@ -76,7 +76,7 @@ To create a DNS record and prepare to map it:
 external IP address of the load balancer created in [Configure the Load Balancer in the IaaS to Redirect Traffic to the TCP Router](#configure-lb) earlier.
 1. Record the domain used for this DNS record.
 
-## <a id='configure-service-gateway-plan'></a> Configure a Service-Gateway enabled plan
+## <a id='configure-service-gateway-plan'></a> Configure a Service-Gateway Enabled Plan
 
 To configure a service-gateway-enabled plan:
 
@@ -112,7 +112,7 @@ To configure a service-gateway-enabled plan:
   ports <code>1000</code>, <code>1001</code>, and <code>1002</code>.
 </p>
 
-## <a id='deactivate-service-gateway-access'></a> Deactivate Service-Gateway access
+## <a id='deactivate-service-gateway-access'></a> Deactivate Service-Gateway Access
 
 <p class="note important">
 <span class="note__title">Important</span> If service-gateway access is deactivated and then re-enabled, app developers must
@@ -130,7 +130,7 @@ service-gateway access is deactivated for that plan.
 
 2. Click **Apply Changes** to apply the changes to the <%= vars.product_short %> tile.
 
-## <a id='workflow'></a> Developer workflow
+## <a id='workflow'></a> Developer Workflow
 
 For instructions for app developers, see
 [Create a Service Instance with Service-Gateway access](./create-service-gateway-instance.html).

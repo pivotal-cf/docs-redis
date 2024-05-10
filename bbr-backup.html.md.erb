@@ -19,7 +19,7 @@ For more information, see [Configuring Automated Service backups](./auto-backup.
 <p class="note"><span class="note__title">Note</span> Only on-demand Redis service instances have support for BBR.
   For backup and restore of shared instances, see <a href="./auto-backup.html">Configuring Automated Backups for <%= vars.product_short %></a>.</p>
 
-## <a id="prepare"></a>Preparing to use BBR
+## <a id="prepare"></a>Preparing to Use BBR
 
 To take a backup of BOSH deployments and on-demand <%= vars.product_short %>, BBR must be installed. If you do not already have it installed,
 follow the instructions in
@@ -30,7 +30,7 @@ that the Redis backup artifact is roughly 1/10 of the RAM usage of the Redis ins
 
 Record the BOSH Director IP and path to server certificate.
 
-### <a id="identify"></a>Identify your Redis deployments
+### <a id="identify"></a>Identify Your Redis Deployments
 
 You need the names of your Redis service instances to back up and restore them.
 
@@ -68,7 +68,7 @@ To obtain the instance deployment names:
     deployments
     </pre>
 
-## <a id="backup"></a>Back up using BBR
+## <a id="backup"></a>Back up by Using BBR
 
 To back up using BBR:
 
@@ -116,7 +116,7 @@ step of the BBR documentation.
 
 	Ensure you do this for the backup artifacts for all of your service instances and your BOSH Director and <%= vars.app_runtime_abbr %>.
 
-## <a id="restore"></a>Restore using BBR
+## <a id="restore"></a>Restore by Using BBR
 
 To restore using BBR:
 
@@ -161,20 +161,20 @@ For more information, see [Backing up artifact for a non-Existent Service Instan
 
 <p class="note"><span class="note__title">Note</span> If you have a backup artifact (a <code>dump.rdb</code> file) from any source besides a BBR backup, you can also use it in this restore procedure. </p>
 
-## <a id="inconsistancies"></a>Possible inconsistent states
+## <a id="inconsistancies"></a>Possible Inconsistent States
 
 Because the Redis On-Demand broker is not locked during the backup process,
 the backups of the <%= vars.app_runtime_abbr %>and service instances can be out of sync if an app developer creates or deletes an on-demand
 Redis service between the <%= vars.app_runtime_abbr %>backup and Redis service instance backups.
 
-### <a id="no-restore-data"></a>No Backing up artifact for a Service Instance
+### <a id="no-restore-data"></a>No Backing up Artifact for a Service Instance
 
 If an on-demand Redis service was deleted in between the backup of the <%= vars.app_runtime_abbr %>and the Redis service instances,
 there is no backup artifact for a deployed service instance.
 Resolve this by deleting the service,
 which had already been deleted during the backup process so presumably is not wanted.
 
-### <a id="no-cc-record"></a>Backing up Artifact for a non-existent Service Instance
+### <a id="no-cc-record"></a>Backing up Artifact for a Nonexistent Service Instance
 
 If an on-demand Redis service was created between the backup of the <%= vars.app_runtime_abbr %>and the Redis service
 instances, there is a backup artifact which has no corresponding deployed service instance.

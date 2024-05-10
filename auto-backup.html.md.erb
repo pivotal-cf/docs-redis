@@ -7,7 +7,7 @@ owner: London Services
 
 This topic tells you how to configure automated backups in <%= vars.product_full %>.
 
-## <a id="comparison"></a>Comparison of available backup methods
+## <a id="comparison"></a>Comparison of Available Backup Methods
 
 <%= vars.product_short %> provides two backup methods, which you can use together or alone.
 
@@ -51,7 +51,7 @@ either using SSH or with the Redis client <code>config</code> command.</p>
 
 For more information, see [BOSH Backup and Restore (BBR) for On-Demand <%= vars.product_full %>](./bbr-backup.html).
 
-## <a id="backup"></a>Automated service backups
+## <a id="backup"></a>Automated Service Backups
 
 You can configure automatic backups for both on-demand and shared-VM plan types.
 
@@ -63,7 +63,7 @@ Automated backups have the following features:
 * Data from Redis is flushed to disk before the backup is started by running a `BGSAVE` on each instance.
 * You can configure Amazon Web Services (AWS) S3, SCP, Azure, or Google Cloud Storage (GCS) as your destination.
 
-## <a id='backup-files'></a>Backup files
+## <a id='backup-files'></a>Backup Files
 
 When <%= vars.product_short %> runs an automated backup, it labels the backups in the following ways:
 
@@ -75,7 +75,7 @@ When <%= vars.product_short %> runs an automated backup, it labels the backups i
 For each backup artifact, <%= vars.product_short %> creates a file that contains the MD5 checksum for that artifact.
 This can be used to check that the artifact is not corrupted.
 
-## <a id="about-configuration"></a>Configuring backups
+## <a id="about-configuration"></a>Configuring Backups
 
 <%= vars.product_short %> automatically backs up databases to external storage.
 
@@ -144,7 +144,7 @@ Do the following to create a policy and access key:
 1. (Recommended) Attach the policy you created to the AWS user account that <%= vars.product_short %> will use to access S3.
    Go to **IAM > Policies > Policy Actions > Attach**.
 
-### <a id='aws-config-om'></a> Configuring  backups in <%= vars.ops_manager %>
+### <a id='aws-config-om'></a> Configuring  Backups in <%= vars.ops_manager %>
 
 Do the following to connect <%= vars.product_short %> to your S3 account:
 
@@ -175,7 +175,7 @@ To back up your database using SCP:
 * [(Recommended) Create a Public and Private Key Pair](#scp-keys)
 * [Configure Backups in <%= vars.ops_manager %>](#scp-config-om)
 
-### <a id="scp-keys"></a>(Recommended) Create a Public and Private Key pair
+### <a id="scp-keys"></a>(Recommended) Create a Public and Private Key Pair
 
 <%= vars.product_short %> accesses a remote host as a user with a private key for authentication.
 VMware recommends that this user and keypair be solely for <%= vars.product_short %>.
@@ -189,7 +189,7 @@ Do the following to create a new public and private keypair for authenticating:
 2. Create a new user for <%= vars.product_short %> on the destination VM.
 3. Create a new public and private keypair for authenticating as the above user on the destination VM.
 
-### <a id="scp-config-om"></a>Configuring  backups in <%= vars.ops_manager %>
+### <a id="scp-config-om"></a>Configuring  Backups in <%= vars.ops_manager %>
 
 Do the following to connect <%= vars.product_short %> to your destination VM:
 
@@ -235,7 +235,7 @@ Do the following to create a service account with the correct permissions:
 1. Select the **Furnish a new private key** checkbox so that a new key is created and downloaded.
 1. Click **Create** and take note of the name and location of the service account JSON file that is downloaded.
 
-### <a id="gcs-config-om"></a>Configuring  backups in <%= vars.ops_manager %>
+### <a id="gcs-config-om"></a>Configuring  Backups in <%= vars.ops_manager %>
 
 Do the following to connect <%= vars.product_short %> to GCS:
 
@@ -280,6 +280,6 @@ Do the following to back up your database to an Azure storage account:
 
 3. Click **Save**.
 
-## <a id="manual-br"></a>Back up and restore manually
+## <a id="manual-br"></a>Back up and Restore Manually
 
 To back up or restore Redis manually, see [Manually backing up and restoring <%= vars.product_short %>](https://docs.vmware.com/en/Redis-Enterprise-for-VMware-Tanzu/services/redislabs-enterprise-vmware-tanzu/backup.html).
