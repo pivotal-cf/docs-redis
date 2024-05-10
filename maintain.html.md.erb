@@ -36,7 +36,7 @@ VMware recommends that operators follow these guidelines:
     For more information about the plans, see the [On-Demand Service Offering](./architecture.html)
     and the [Shared-VM Service Offering](./architecture-pp.html).
 
-## <a id="keycount"></a> Redis Key Count and Memory size
+## <a id="keycount"></a> Redis Key Count and Memory Size
 
 Redis can handle up to 2<sup>32</sup> keys, and was tested in practice to handle at least 250 million keys per instance.
 Every hash, list, set, and sorted set, can hold 2<sup>32</sup> elements.
@@ -147,7 +147,7 @@ VMware recommends that you run the post-deploy errands at any trigger of **Apply
 However, this practice can extend the duration of applying changes by several minutes every time.
 This section helps you decide when it is safe to skip some post-deploy errands.
 
-#### Changes to <%= vars.product_short %> Tile configuration
+#### Changes to <%= vars.product_short %> Tile Configuration
 
 If the changes include configuration changes on the <%= vars.product_short %> tile or a new stemcell version, the operator must run all post-deploy errands.
 
@@ -203,14 +203,14 @@ Then it might not be necessary to run all of the <%= vars.product_short %> tile'
 - Not necessary to run if there are no on-demand instances provisioned.
   Recommended to be turned off unless needed.
 
-#### Find orphan On-Demand Service Instances
+#### Find Orphan On-Demand Service Instances
 
 - Queries BOSH for any orphaned Redis on-demand instances
 and then displays them during `Apply Changes`.
 - Does not remove any instances. Informs the operator of
 the details of orphaned instances so the operator can decide when and how to remove them.
 
-##  <a id="smoke"></a>Smoke tests
+##  <a id="smoke"></a>Smoke Tests
 
 <%= vars.ops_manager %> runs <%= vars.product_short %> smoke tests as a post-install errand.
 To run the smoke tests errand manually:

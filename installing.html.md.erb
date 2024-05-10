@@ -9,7 +9,7 @@ This topic for operators provides instructions about how to install <%= vars.pro
 It covers tasks from downloading the file from <%= vars.product_network %>
 through verifying the installation after configuration.
 
-## <a id="rbac"></a>Role-Based access in <%= vars.ops_manager %>
+## <a id="rbac"></a>Role-Based Access in <%= vars.ops_manager %>
 
 <%= vars.ops_manager %> admins can use Role-Based Access Control (RBAC) to manage which
 operators can make deployment changes, view credentials, and manage user roles in <%= vars.ops_manager %>.
@@ -17,7 +17,7 @@ Therefore, your role permissions might not allow you to follow every procedure i
 
 For more information about roles in <%= vars.ops_manager %>, see [Understand roles in <%= vars.ops_manager %>](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-config-rbac.html).
 
-## <a id="install"></a>Download and install the Tile
+## <a id="install"></a>Download and Install the Tile
 
 To add <%= vars.product_short %> to <%= vars.ops_manager %>, follow the procedure for adding <%= vars.ops_manager %> tiles:
 
@@ -39,8 +39,7 @@ For guidance on ports and ranges used in the Redis service, see [Select networks
 
 To assign AZs and networks, click the **Assign AZs and Networks** settings tab.
 
-![The Redis tile in Tanzu Operations Manager. The 'Assign AZs and Networks' pane is active.
-See the next section for information about configuring this pane.](images/AZ-assignment.png)
+![The Redis tile in Tanzu Operations Manager. The 'Assign AZs and Networks' pane is active. Next section describes configuring this pane.](images/AZ-assignment.png)
 
 ### <a id="az-config"></a>Assign AZs
 
@@ -58,7 +57,7 @@ To assign AZs:
 
 1. Click **Save**.
 
-### <a id="network-configuration"></a>Select networks
+### <a id="network-configuration"></a>Select Networks
 
 You can use <%= vars.product_short %> with or without using the on-demand service.
 To use the <%= vars.product_short %> on-demand service, you must select a network in which
@@ -343,7 +342,7 @@ service-instance VMs. Ensure the list is in a style that the underlying cloud pr
 For example, Google Cloud Platform (GCP) does not permit uppercase characters.
 
 
-## <a id="on-demand-plan-config"></a>Configure On-Demand plan settings
+## <a id="on-demand-plan-config"></a>Configure On-Demand Plan Settings
 
 You can configure multiple on-demand plans with memory and disk sizes suited to different use cases.
 The configuration of resources varies depending on your IaaS.
@@ -467,7 +466,7 @@ To add and configure each on-demand service plan:
     </table>
 
 
-### <a id="secure-credentials"></a> Enable secure Service Instance credentials for On-Demand Redis
+### <a id="secure-credentials"></a> Enable Secure Service Instance Credentials for On-Demand Redis
 
 If you enabled **On Demand - Secure Service Instance Credentials with Runtime CredHub**
 in step 8 of [Configure On-Demand Service Settings](#on-demand-config) above,
@@ -495,7 +494,7 @@ these settings are implemented in all instances that are already created.
 Operators should not downsize the VMs or disk size because this can cause data loss in pre-existing instances.
 Additionally, operators cannot make a plan that was previously active, inactive, until all instances of that plan have been deleted.
 
-### <a id="remove-on-demand-plan"></a>Remove an On-Demand Service plan
+### <a id="remove-on-demand-plan"></a>Remove an On-Demand Service Plan
 
 <p class="note caution"><span class="note__title">Caution</span>
   Do not remove an on-demand service plan with service instances deployed.
@@ -561,7 +560,7 @@ To remove the on-demand service from your tile:
 and delete each plan by clicking the trash can icon next to the plan name.
 <%# Maybe a new image here %>
 
-##  <a id="shared-vm-config"></a>Configure shared-VM Plan settings
+##  <a id="shared-vm-config"></a>Configure Shared-VM Plan Settings
 
 To configure shared-VM service plans:
 
@@ -587,7 +586,7 @@ See the example in Step 4 of [Remove On-Demand Service Plans](#remove-on-demand)
     <br><br>The Redis broker server runs all of the Redis instances for your shared-VM plan.
     From the **Resource Config** page, you can change the CPU, RAM, Ephemeral Disk, and Persistent Disk made available, as needed.
 
-### <a id="shared-vm-memory-limits"></a>Configure Memory Limits for Shared-VM plans
+### <a id="shared-vm-memory-limits"></a>Configure Memory Limits for Shared-VM Plans
 
 Additional calculation is required to configure memory limits for shared-VM plans.
 With these plans, several service instances share the VM, and the Redis broker also runs on this same VM.
@@ -708,7 +707,7 @@ The following are the default resource and IP requirements for <%= vars.product_
 
 VMware recommends that the persistent disk is at least 3.5x the VM memory for the shared-VM.
 
-### <a id="deactivate-shared"></a>Deactivate Shared VM plans
+### <a id="deactivate-shared"></a>Deactivate Shared VM Plans
 
 You can deactivate shared-VM plans by doing the following while configuring the Redis tile:
 
@@ -735,7 +734,7 @@ You can deactivate shared-VM plans by doing the following while configuring the 
 
 1. Click **Save** if you changed the sizes.
 
-## <a id="syslog"></a>Configure Syslog forwarding
+## <a id="syslog"></a>Configure Syslog Forwarding
 
 VMware recommends that operators configure syslog forwarding to a remote destination.
 Forwarding your system logs to a remote destination lets you:
@@ -779,7 +778,7 @@ You can obtain the IP addresses for these VMs in <%= vars.ops_manager %> under t
 
 <p class="note"><span class="note__title">Note</span>Without ASGs, this service is unusable.</p>
 
-### App Container network connections
+### App Container Network Connections
 
 App containers that use instances of <%= vars.product_short %> require the following outbound network connections:
 

@@ -15,7 +15,7 @@ This documentation:
 + Instructs app developers on how to choose a service plan, create and delete
   Redis service instances, and bind an app.
 
-##<a id="snapshot"></a> Product snapshot
+## <a id="snapshot"></a> Product Snapshot
 
 <table class=“table”>
     <thead><tr>
@@ -51,7 +51,7 @@ This documentation:
     </tr>
 </table>
 
-##<a id="about-redis"></a> About Redis
+## <a id="about-redis"></a> About Redis
 
 <strong>Redis^&reg;*^</strong> is an easy-to-use, high-speed key-value store that can be used as a database, cache, and message broker.
 It supports a range of data structures including strings, lists, hashes, sets, bitmaps, HyperLogLogs, and geospatial indexes.
@@ -62,15 +62,15 @@ It's used for everything from a quick way to store data for development and test
 
 <%= partial vars.path_to_partials + '/redis/service-offerings', :locals => {:redis_name => vars.product_short } %>
 
-### <a id="erc"></a> Is <%= vars.product_short %> right for your enterprise?
+### <a id="erc"></a> Is <%= vars.product_short %> Right for Your Enterprise?
 
 For information about recommended use cases, and the enterprise-readiness of <%= vars.product_short %>, see [Is <%= vars.product_short %> right for your enterprise?](./erc.html).
 
-### <a id="upgrading"></a> Upgrading to the latest version
+### <a id="upgrading"></a> Upgrading to the Latest Version
 
 For information about how to upgrade and the supported upgrade paths, see [Upgrading <%= vars.product_full %>](./upgrade.html).
 
-##<a id="more-info"></a> Addtional information
+## <a id="more-info"></a> Addtional Information
 
 The following table lists where you can find topics related to the information about this page:
 
@@ -80,7 +80,7 @@ The following table lists where you can find topics related to the information a
 |How to upgrade <%= vars.product_short %>|<a href="upgrade.html">Upgrading <%= vars.product_full %></a>|
 |How to use Redis |<a href="http://redis.io/documentation">Redis Documentation</a>|
 
-##<a id="other-services"></a> <%= vars.product_short %> and other services
+## <a id="other-services"></a> <%= vars.product_short %> and other Services
 
 <%# The below partial is in https://github.com/pivotal-cf/docs-partials %>
 <%= partial vars.path_to_partials + '/services/on-demand-service-table', :locals => {:service_name => vars.product_short, :rabbit => "VMware RabbitMQ for Tanzu Application Service", :redis => vars.product_short, :mysql => "VMware Tanzu SQL with MySQL for VMs", :cloud_cache => "VMware Tanzu GemFire for VMs", :gemfire => "VMware GemFire" } %>
@@ -88,6 +88,6 @@ The following table lists where you can find topics related to the information a
 -----------------
 ^*^Redis is a registered trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by VMware by Broadcom is for referential purposes only and does not indicate any sponsorship, endorsement, or affiliation between Redis and VMware by Broadcom.
 
-##<a id="feedback"></a> Feedback
+## <a id="feedback"></a> Feedback
 
 Please provide any issues, feature requests, or questions to [the Feedback list](mailto:"pivotal-cf-feedback@pivotal.io").
