@@ -10,7 +10,7 @@
     *   [Networking for On-Demand Services](/docs-redis/odnetworking.html)
     *   [Security](/docs-redis/security.html)
     *   [Service-Gateway Access](/docs-redis/service-gateway-access.html)
-    *   [High Availability](/high-availability.html)
+    *   [High Availability](/docs-redis/high-availability.html)
 *   [Operator Guide](/docs-redis/maintain.html)
     *   [Introduction for Operators](/docs-redis/maintain.html)
     *   [Preparing for TLS](/docs-redis/preparing-tls.html)
