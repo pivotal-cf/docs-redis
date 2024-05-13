@@ -11,19 +11,31 @@ This topic describes the changes in this minor release of <%= vars.product_full 
 
 ## <a id="3-5-0"></a> v3.5.0
 
-**Release Date: xxxxx xx, 2024**
+**Release Date: May 16, 2024**
 
 ### Features
 
 New features and changes in this release:
 
-
+- **Redis Sentinel:**
+  Redis has been configured with sentinel to support high availability.
+  For more information, see [Redis v7.2.4](https://github.com/redis/redis/releases/tag/7.2.4) in GitHub.
 
 ### Security Fixes
 
 This release includes the following security fixes:
 
+* [CVE-2023-39326](https://nvd.nist.gov/vuln/detail/CVE-2023-39326)
 
+* [CVE-2023-45284](https://nvd.nist.gov/vuln/detail/CVE-2023-45284)
+
+* [CVE-2023-45285](https://nvd.nist.gov/vuln/detail/CVE-2023-45285)
+
+* [CVE-2023-27530](https://nvd.nist.gov/vuln/detail/CVE-2023-27530)
+
+* [CVE-2023-27539](https://nvd.nist.gov/vuln/detail/CVE-2023-27539)
+
+* [CVE-2022-3647](https://nvd.nist.gov/vuln/detail/CVE-2022-3647)
 
 ### Known Issues
 
@@ -32,6 +44,8 @@ There are no known issues for this release.
 ### Compatibility
 
 The following components are compatible with this release:
+For easier mapping to the tile version in which they are built, the version numbers of the following releases have been realigned.
+For instance, shared-redis-release has changed to a 3.5.x from 437.0.x in order to indicate that this release was built for the 3.5.x tile.
 
 <table class=“table”>
 <thead>
@@ -41,7 +55,7 @@ The following components are compatible with this release:
 </tr>
 <tr>
     <td>Stemcell</td>
-    <td>1.340</td>
+    <td>1.439</td>
 </tr>
 </thead>
 <tr>
@@ -50,23 +64,23 @@ The following components are compatible with this release:
 </tr>
 <tr>
     <td>shared-redis-release</td>
-    <td>437.0.45</td>
+    <td>3.5.101</td>
 </tr>
 <tr>
     <td>on-demand-service-broker</td>
-    <td>0.43.3</td>
+    <td>0.45.4</td>
 </tr>
 <tr>
     <td>routing</td>
-    <td>0.287.0</td>
+    <td>0.296.0</td>
 </tr>
 <tr>
     <td>service-metrics</td>
-    <td>2.0.34</td>
+    <td>2.0.37</td>
 </tr>
 <tr>
     <td>service-backup</td>
-    <td>18.5.0</td>
+    <td>3.5.0</td>
 </tr>
 <tr>
     <td>loggregator-agent</td>
@@ -74,7 +88,7 @@ The following components are compatible with this release:
 </tr>
 <tr>
     <td>bpm</td>
-    <td>1.2.13</td>
+    <td>1.2.19</td>
 </tr>
 <tr>
     <td>cf-cli</td>
