@@ -23,7 +23,7 @@ template_variables:
   windows_runtime_full: Pivotal Application Service for Windows
   windows_runtime_abbr: PASW
   company_name: Pivotal
-  product_network: VMware Tanzu Network
+  product_network: Broadcom's Customer Support Portal
 
   path_to_partials: /redis/partials
   product_url: https://network.tanzu.vmware.com/products/pivotal-cf
