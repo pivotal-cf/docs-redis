@@ -14,7 +14,7 @@ template_variables:
   support_call_to_action: <a href="http://tanzu.vmware.com/support" target="_blank">Need Support?</a>
   support_url: https://tanzu.vmware.com/support
 
-  product_network: VMware Tanzu Network
+  product_network: Broadcom's Customer Support Portal
 
   path_to_partials: /redis/partials
 
