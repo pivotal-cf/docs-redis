@@ -10,9 +10,9 @@ template_variables:
   product_url: https://network.tanzu.vmware.com/products/pivotal-cf
   product_link: <div class="header-item"><a href="https://network.tanzu.vmware.com/products/pivotal-cf">Back to Product Page</a></div>
 
-  support_link: <a href="https://tanzu.vmware.com/support" target="_blank">Support</a>
-  support_call_to_action: <a href="http://tanzu.vmware.com/support" target="_blank">Need Support?</a>
-  support_url: https://tanzu.vmware.com/support
+  support_link: <a href="https://support.broadcom.com/" target="_blank">Support</a>
+  support_call_to_action: <a href="https://support.broadcom.com/" target="_blank">Need Support?</a>
+  support_url: https://support.broadcom.com/
 
   product_network: Broadcom's Customer Support Portal
 
