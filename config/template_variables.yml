@@ -1,38 +1,76 @@
 ---
 template_variables:
-  book_title: Pivotal Documentation
-  book_title_short: Pivotal Docs
+  book_title: Redis for Tanzu Application Service Documentation
+  book_title_short: Redis for Tanzu Application Service Docs
   title: <span class="title-deemph">Pivotal</span> Documentation
   title_image: images/icon-p-green.jpg
   hero_text: "Detailed documentation to help you install, understand, and succeed with VMware's enterprise-grade software."
+
+  tile_name: Redis for VMware Tanzu Application Service
+  product_url: https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis+for+VMware+Tanzu+Application+Service
+  product_link: <div class="header-item"><a href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis+for+VMware+Tanzu+Application+Service">Back to Product Page</a></div>
+
+  support_link: <a href="https://support.broadcom.com/" target="_blank">Support</a>
+  support_call_to_action: <a href="https://support.broadcom.com/" target="_blank">Need Support?</a>
+  support_url: https://support.broadcom.com/
+
+  product_network: Broadcom's Customer Support Portal
+
+  path_to_partials: /redis/partials
+
+  api_version: 235
+  gtm_account_id: GTM-MM86KCJ
+
+  use_global_header: true
+  global_header_product_href: https://support.broadcom.com/group/ecx/downloads
+  global_header_product_link_text: Downloads
+
+  # VMware Tanzu Variables
+  company_name: VMware
+  product_full_tm: Redis for VMware Tanzu&reg; Application Service&trade;
+  product_full: Redis for VMware Tanzu Application Service
+  product_short: Redis for Tanzu Application Service
+  product_abbr: Redis for VMware Tanzu Application Service
+
+  app_runtime_full: VMware Tanzu Application Service for VMs
+  app_runtime_abbr: TAS for VMs
+
+  k8s_runtime_full: Tanzu Kubernetes Grid Integrated Edition
+  k8s_runtime_abbr: TKGI
+
+  windows_runtime_full: VMware Tanzu Application Service for VMs &#91;Windows&#93;
+  windows_runtime_abbr: TAS for VMs &#91;Windows&#93;
+
+  segment_runtime_full: Isolation Segment
+
   ops_manager: Tanzu Operations Manager
   company_name: VMware
-  platform_name: Pivotal Platform
+  platform_name: Tanzu Platform
   platform_old: Pivotal Cloud Foundry
   platform_code: PCF
   product_name_lc: pcf
-  product_name: Redis for Pivotal Platform #Do not use this in the future.
-  product_full: Redis for Pivotal Platform
-  product_short: Redis for Pivotal Platform
-  product_abbr: Redis for Pivotal Platform
+  product_name: Redis for Tanzu Platform #Do not use this in the future.
+  product_full: Redis for Tanzu Application Service
+  product_short: Redis for Tanzu Application Service
+  product_abbr: Redis for Tanzu Application Service
   product_old: Redis for Pivotal Cloud Foundry
-  app_runtime_full: Pivotal Application Service
+  app_runtime_full: Tanzu Application Service
   app_runtime_abbr: PAS
   k8s_runtime_full: Enterprise Pivotal Container Service
   k8s_runtime_abbr: PKS
-  windows_runtime_full: Pivotal Application Service for Windows
+  windows_runtime_full: Tanzu Application Service for Windows
   windows_runtime_abbr: PASW
-  company_name: Pivotal
+  company_name: VMware
   product_network: Broadcom's Customer Support Portal
 
   path_to_partials: /redis/partials
   product_url: https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis+for+VMware+Tanzu+Application+Service
   product_link: <div class="header-item"><a href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis+for+VMware+Tanzu+Application+Service">Back to Product Page</a></div>
-  service_name: Redis for Pivotal Platform
+  service_name: Redis for Tanzu Platform
   os_name: Redis
   tile_name: Redis
-  service_name_article: Redis for Pivotal Platform
-  service_name_article_full: the Redis for Pivotal Platform service
+  service_name_article: Redis for Tanzu Platform
+  service_name_article_full: the Redis for Tanzu Platform service
   support_link: <a href="https://support.broadcom.com/" target="_blank">Support</a>
   support_call_to_action: <a href="https://support.broadcom.com/" target="_blank">Need Support?</a>
   support_url: https://support.broadcom.com/
