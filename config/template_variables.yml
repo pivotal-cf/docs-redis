@@ -7,8 +7,8 @@ template_variables:
   hero_text: "Detailed documentation to help you install, understand, and succeed with VMware's enterprise-grade software."
 
   tile_name: Redis for VMware Tanzu Application Service
-  product_url: https://network.tanzu.vmware.com/products/pivotal-cf
-  product_link: <div class="header-item"><a href="https://network.tanzu.vmware.com/products/pivotal-cf">Back to Product Page</a></div>
+  product_url: https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis+for+VMware+Tanzu+Application+Service
+  product_link: <div class="header-item"><a href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis+for+VMware+Tanzu+Application+Service">Back to Product Page</a></div>
 
   support_link: <a href="https://support.broadcom.com/" target="_blank">Support</a>
   support_call_to_action: <a href="https://support.broadcom.com/" target="_blank">Need Support?</a>
@@ -22,7 +22,7 @@ template_variables:
   gtm_account_id: GTM-MM86KCJ
 
   use_global_header: true
-  global_header_product_href: https://network.tanzu.vmware.com/
+  global_header_product_href: https://support.broadcom.com/
   global_header_product_link_text: Downloads
 
   # VMware Tanzu Variables
