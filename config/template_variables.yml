@@ -38,6 +38,7 @@ template_variables:
   support_url: https://support.broadcom.com/
 
   # TAS version
+  current_major_version: "4.0"
   current_tas_version: "4-0"
   v_major_tas_version: "v4.0"
   dot_major_tas_version: "4.0"
