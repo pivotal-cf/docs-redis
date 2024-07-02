@@ -22,7 +22,7 @@ template_variables:
   gtm_account_id: GTM-MM86KCJ
 
   use_global_header: true
-  global_header_product_href: https://support.broadcom.com/
+  global_header_product_href: https://support.broadcom.com/group/ecx/downloads
   global_header_product_link_text: Downloads
 
   # VMware Tanzu Variables
