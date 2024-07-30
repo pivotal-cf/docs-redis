@@ -7,3 +7,25 @@ This topic tells you how to access BOSH CredHub, check expiration dates,
 and rotate certificates when using <%= vars.product_full %>.
 
 <%= partial vars.path_to_partials + '/certs/rotating-certs' %>
+
+## Workaround step to rotate deployment's certificates using Maestro
+
+The existing versions of the Redis tile for Tanzu Application Service do not support the above [recommended certificate rotation procedure](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/security-pcf-infrastructure-advanced-certificate-rotation.html#services-rotation) for Tanzu Application Service tiles (which uses CredHub Maestro).
+
+However, there is a workaround to rotate deployment's certificates using Maestro by adding a step to the [recommended steps using CredHub Maestro](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/security-pcf-infrastructure-advanced-certificate-rotation.html#rotate-the-services-tls-ca-and-its-leaf-certificates-8).
+
+Step 1: No change.
+
+Step 2: No change.
+
+Workaround step: Get the newly generated CA certificate from CredHub and save it to a local file by using the command:
+
+    `credhub get --output-json -n /services/tls_ca --versions=2 | jq --raw-output .versions | jq --raw-output 'max_by(.version_created_at)'.value.ca > new_cert`
+
+In the Ops Manager UI, add the contents of this file to the "Trusted Certificates" text box in the BOSH Director tile's "Security" section:
+
+![bosh-trusted-certs-box](./images/bosh-trusted-certs-box.png)
+
+From this point, all the remaining steps are identical to the [recommended steps using CredHub Meastro](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/security-pcf-infrastructure-advanced-certificate-rotation.html#rotate-the-services-tls-ca-and-its-leaf-certificates-8).
+
+The remaining steps start from Step 3 in the recommended procedure: Redeploy the affected services. This includes all services that use certificates signed by /services/tls_ca.
