@@ -7,8 +7,8 @@ template_variables:
   hero_text: "Detailed documentation to help you install, understand, and succeed with VMware's enterprise-grade software."
 
   tile_name: Redis for VMware Tanzu Application Service
-  product_url: https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis+for+VMware+Tanzu+Application+Service
-  product_link: <div class="header-item"><a href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis+for+VMware+Tanzu+Application+Service">Back to Product Page</a></div>
+  product_url: https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis%20for%20VMware%20Tanzu%20Application%20Service
+  product_link: <div class="header-item"><a href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis%20for%20VMware%20Tanzu%20Application%20Service">Back to Product Page</a></div>
 
   support_link: <a href="https://support.broadcom.com/" target="_blank">Support</a>
   support_call_to_action: <a href="https://support.broadcom.com/" target="_blank">Need Support?</a>
