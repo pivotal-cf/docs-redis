@@ -25,22 +25,22 @@ For information about the upgrade paths for each released version, see
 
 To upgrade to the latest version of <%= vars.product_short %>:
 
-1. Download the latest version of the product from [<%= vars.product_network %>](https://network.tanzu.vmware.com/products/p-redis).
+1. Download the latest version of the product from [<%= vars.product_network %>](https://support.broadcom.com/group/ecx/productdownloads?subfamily=Redis%20for%20VMware%20Tanzu%20Application%20Service).
 
-1. Upload the new `.pivotal` file to <%= vars.ops_manager %>.
+2. Upload the new `.pivotal` file to <%= vars.ops_manager %>.
 
-1. If required, upload the stemcell associated with the update.
+3. If required, upload the stemcell associated with the update.
 
-1. If required, update any new mandatory configuration parameters.
+4. If required, update any new mandatory configuration parameters.
 
-1. (Optional) To enable TLS:
+5. (Optional) To enable TLS:
   1.  Follow the procedures in [Preparing for TLS](./preparing-tls.html).
       <p class="note"> <span class="note__title">Note</span>
         In most cases, enabling TLS does not noticeably reduce performance. Performance impact depends on the health of resources, such as network infrastructure and application architecture.
       </p>
-  1. In the <%= vars.product_short %> tile, select **On-Demand Service Settings**.
-  1. Under **Enable TLS**, select **Optional**.
-  1. Enable the checkbox next to each TLS version you want to support.
+  2. In the <%= vars.product_short %> tile, select **On-Demand Service Settings**.
+  3. Under **Enable TLS**, select **Optional**.
+  4. Enable the checkbox next to each TLS version you want to support.
   VMware recommends supporting TLS v1.1 and later. VMware does not recommend supporting TLS v1.0
   because it is less secure than later versions, but it is an option for apps that only support this
   protocol.
